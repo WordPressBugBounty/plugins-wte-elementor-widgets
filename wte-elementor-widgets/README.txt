@@ -5,7 +5,7 @@ Tags: Tour booking, Tour operator, Travel, Travel agency, Travel booking
 Requires at least: 5.0
 Tested up to: 6.6
 Requires PHP: 7.4
-Stable tag: 1.3.5
+Stable tag: 1.3.6
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -55,29 +55,32 @@ If you are a travel entrepreneur, travel web developer or travel theme developer
 13. **_Trips Module 3_** - Showcase your trips in two pre-designed tiles. ​​Place one trip in the spotlight with a larger image to capture your readers’ attention instantly.
 14. **_Trips List_** - Present your trips in style with customizable titles, images, and categories. This widget offers multiple layouts to perfectly fit your homepage or category pages.
 15. **_Featured Trip_** - Display a featured trip with prominent discounts, destination information and booking details in a visually appealing card format.
-    
+16. **_Trips Slider_** - Showcase your tour packages on any Elementor page with an engaging slider layout. Enjoy full control over all settings for a seamless display experience.
+17. **_Trips Slider 2_** - Display trips in a carousel format with a prominent button or icon at the bottom to encourage visitors to take action.
+18. **_Trips Slider 3_** - Display the trip's featured image with the sleek "cover flow" slider effect, perfect for showcasing your tour packages.
+19. **_Trips Tab_** - Create visually appealing tabs to showcase your trip packages in an interactive slider format. Organize the tabs by destination, activity, or trip type for easy browsing.
+
     Elementor widgets for trip pages:
-16. **_Trip Booking_** - Showcase essential trip details, including price, discounts, highlights, availability button and enquiry forms.
-17. **_Trip Breadcrumbs_** - Guide users seamlessly through your website using intuitive trip breadcrumbs.
-18. **_Trip Carousel_** - Display multiple tour images attractively in a carousel format.
-19. **_Trip Cost Excludes_** - Display the trip exclusions using customizable icons and styles.
-20. **_Trip Cost Includes_** - Display the trip inclusions using customizable icons and styles.
-21. **_Trip Duration_** - Display trip duration in vertical or horizontal layouts.
-22. **_Trip Enquiry_** - Display the trip enquiry form with options to hide title, labels, and trip name while customizing its content colors and background.
-23. **_Trip Facts_** - Display trip facts with customizable icons, positioned left, right, or top, and arranged in up to four columns.
-24. **_Trip FAQs_** - Address common queries with an FAQ section featuring customizable title tags and distinct style options.
-25. **_Trip Highlights_** - Showcase your trip highlights in an eye-catching format.
-26. **_Trip Itinerary_** - Offer detailed trip itineraries with expandable options and customizable icons.
-27. **_Trip Map_** - Integrate interactive maps with adjustable location, zoom, and height settings.
-28. **_Trip Overview_** - Display a concise overview of your trip for quick insights.
-29. **_Trip Title_** - Customize trip titles with varying heading levels and alignment options.
-30. **_Trip Related Trips_** - Showcase other related trips with three distinct layouts and filters.
+20. **_Trip Booking_** - Showcase essential trip details, including price, discounts, highlights, availability button and enquiry forms.
+21. **_Trip Breadcrumbs_** - Guide users seamlessly through your website using intuitive trip breadcrumbs.
+22. **_Trip Carousel_** - Display multiple tour images attractively in a carousel format.
+23. **_Trip Cost Excludes_** - Display the trip exclusions using customizable icons and styles.
+24. **_Trip Cost Includes_** - Display the trip inclusions using customizable icons and styles.
+25. **_Trip Duration_** - Display trip duration in vertical or horizontal layouts.
+26. **_Trip Enquiry_** - Display the trip enquiry form with options to hide title, labels, and trip name while customizing its content colors and background.
+27. **_Trip Facts_** - Display trip facts with customizable icons, positioned left, right, or top, and arranged in up to four columns.
+28. **_Trip FAQs_** - Address common queries with an FAQ section featuring customizable title tags and distinct style options.
+29. **_Trip Highlights_** - Showcase your trip highlights in an eye-catching format.
+30. **_Trip Itinerary_** - Offer detailed trip itineraries with expandable options and customizable icons.
+31. **_Trip Map_** - Integrate interactive maps with adjustable location, zoom, and height settings.
+32. **_Trip Overview_** - Display a concise overview of your trip for quick insights.
+33. **_Trip Related Trips_** - Showcase other related trips with three distinct layouts and filters.
 
        The following widgets require premium add-ons of WP Travel Engine plugin:
-31. **_Trip Ratings_** - Display ratings with adjustable star gaps and options to control star and text visibility.
-32. **_Trip Review Form_** - Add the trip review form with varying heading levels and customization options.
-33. **_Trip Reviews_** - Show trip reviews with options to hide elements like average rating, overall rating, reviews, review gallery, date of experience, etc.
-34. **_Trip Fixed Starting Date_** - Highlight specific departure dates with customizable labels and clear table headers for easy reference.
+34. **_Trip Ratings_** - Display ratings with adjustable star gaps and options to control star and text visibility.
+35. **_Trip Review Form_** - Add the trip review form with varying heading levels and customization options.
+36. **_Trip Reviews_** - Show trip reviews with options to hide elements like average rating, overall rating, reviews, review gallery, date of experience, etc.
+37. **_Trip Fixed Starting Date_** - Highlight specific departure dates with customizable labels and clear table headers for easy reference.
 
 [Check the demo of Elementor Addons for WP Travel Engine](https://wptravelenginedemo.com/elementor-addons-demo/?utm_source=wp.org&utm_medium=wte-elementor-widgets&utm_campaign=wp_profile)
 
@@ -170,6 +173,10 @@ The plugin is optimized for speed and performance, so it will not slow down your
 9. Trips Widget Slider Controls.
 
 == Changelog ==
+
+= 1.3.6 - 18th October, 2024 =
+* Fix: FSD button browser compatibility issue has been solved.
+* Feature: Added 3 Trips Slider and 1 Trips Tab widgets.
 
 = 1.3.5 - 23st August, 2024 =
 * Feature: Added 10 new widgets to accommodate different layouts for the trips.

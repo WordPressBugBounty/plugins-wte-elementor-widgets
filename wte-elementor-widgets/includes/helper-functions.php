@@ -60,8 +60,8 @@ function wptravelengineeb_get_trip_metadata($trip_id, $item){
 
         //Calculate Age Group
         $group_age       = array();
-        $group_age[]     = (int) $trip_facts['minimum-age']['field_content'];
-        $group_age[]     = (int) $trip_facts['maximum-age']['field_content'];
+        $group_age[]     = isset($trip_facts['minimum-age']['field_content']) ? (int) $trip_facts['minimum-age']['field_content'] : '';
+        $group_age[]     = isset($trip_facts['maximum-age']['field_content']) ? (int) $trip_facts['maximum-age']['field_content'] : '';
         $age_data        = ! empty( $group_age ) ? implode( ' - ', $group_age ) : '';
     
     }
@@ -225,4 +225,16 @@ function wptravelengineeb_get_rating($trip_id, $rating_layout = '1') {
         <?php
         }
     }
+}
+
+/**
+ * Generate a random ID.
+ */
+if ( ! function_exists( 'wptravelengineeb_rand_md5' ) ) {
+	function wptravelengineeb_rand_md5( $slug = null ) {
+		if ( $slug ) {
+			return md5( $slug );
+		}
+		return md5( time() . '-' . uniqid( wp_rand(), true ) . '-' . wp_rand() );
+	}
 }

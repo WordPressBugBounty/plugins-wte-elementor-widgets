@@ -59,7 +59,7 @@ class Widget_Trips_Accordion extends Widget
 	{
 		wp_register_script('wpte-trips-accordion', plugin_dir_url(WPTRAVELENGINEEB_FILE__) . 'includes/widgets/trips-accordion/trips-accordion.js', array('jquery'), WPTRAVELENGINEEB_VERSION, true);
 
-		return array('wpte-trips-accordion');
+		return array('wpte-trips-accordion', 'trip-wishlist');
 	}
 
 	/**

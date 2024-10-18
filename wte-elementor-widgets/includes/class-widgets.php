@@ -958,6 +958,26 @@ class Widgets_Controller {
 			'icon'                => 'wte-trips-module',
 		);
 
+		$widgets['wptravelengine-trips-tab'] = array(
+			'title'               => __( 'Trips Tab', 'wptravelengine-elementor-widgets' ),
+			'icon'                => 'wte-trips-tab',
+		);
+
+		$widgets['wptravelengine-trips-slider'] = array(
+			'title'               => __( 'Trips Slider', 'wptravelengine-elementor-widgets' ),
+			'icon'                => 'wte-trips-slider',
+		);
+
+		$widgets['wptravelengine-trips-slider-two'] = array(
+			'title'               => __( 'Trips Slider 2', 'wptravelengine-elementor-widgets' ),
+			'icon'                => 'wte-trips-slider',
+		);
+
+		$widgets['wptravelengine-trips-slider-three'] = array(
+			'title'               => __( 'Trips Slider 3', 'wptravelengine-elementor-widgets' ),
+			'icon'                => 'wte-trips-slider',
+		);
+
 		$core_widget_collection = apply_filters(
 			'wte_core_blocks_to_elementor_widgets',
 			$widgets

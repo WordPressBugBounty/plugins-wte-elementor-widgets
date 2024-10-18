@@ -73,6 +73,15 @@ class BookingWidget extends Widget {
 	}
 
 	/**
+	 * Style Dependencies.
+	 *
+	 * @return array
+	 */
+	public function get_style_depends() {
+		return array( 'wte-fpickr' );
+	}
+
+	/**
 	 * Widget Settings.
 	 *
 	 * @since 1.3.0
