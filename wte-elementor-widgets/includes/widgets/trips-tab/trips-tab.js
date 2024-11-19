@@ -45,10 +45,14 @@ function initTripsTab($scope, $) {
                     if (setFocus) {
                         tab.focus();
                     }
+
+                    this.initSwiperForTab(this.tabpanels[i]);
                 } else {
                     tab.setAttribute('aria-selected', 'false');
                     tab.tabIndex = -1;
                     this.tabpanels[i].classList.add('is-hidden');
+
+                    this.destroySwiperForTab(this.tabpanels[i]);
                 }
             }
         }
@@ -72,6 +76,36 @@ function initTripsTab($scope, $) {
             } else {
                 index = this.tabs.indexOf(currentTab);
                 this.setSelectedTab(this.tabs[index + 1]);
+            }
+        }
+
+        initSwiperForTab(tabpanel) {
+            let swiperContainer = tabpanel.querySelector('.wpte-trips-tab__swiper');
+            if (swiperContainer && !swiperContainer.swiper) {
+                let nextEl = swiperContainer.parentElement.querySelector('.tab-btn-next');
+                let prevEl = swiperContainer.parentElement.querySelector('.tab-btn-prev');
+                let paginationEl = swiperContainer.parentElement.querySelector('.tab-page');
+                let options = Object.assign({
+                    navigation: {
+                        nextEl: nextEl || '.tab-btn-next',
+                        prevEl: prevEl || '.tab-btn-prev',
+                    },
+                    pagination: {
+                        el: paginationEl || '.tab-page',
+                        type: 'bullets',
+                        clickable: true
+                    },
+                }, swiperContainer.dataset.swiperOptions ? JSON.parse(swiperContainer.dataset.swiperOptions) : {});
+
+                swiperContainer.swiper = new elementorFrontend.utils.swiper(swiperContainer, options);
+            }
+        }
+
+        destroySwiperForTab(tabpanel) {
+            let swiperContainer = tabpanel.querySelector('.wpte-trips-tab__swiper');
+            if (swiperContainer && swiperContainer.swiper) {
+                swiperContainer.swiper.destroy(true, true);
+                swiperContainer.swiper = null;
             }
         }
 
@@ -122,36 +156,6 @@ function initTripsTab($scope, $) {
     tablists.forEach((tablist) => {
         new Tabs(tablist);
     });
-
-    let swiperContainers = document.querySelectorAll('.wpte-trips-tab__swiper');
-
-    swiperContainers.forEach((swiperContainer) => {
-        if (swiperContainer) {
-            let nextEl = swiperContainer.parentElement.querySelector('.tab-btn-next')
-            let prevEl = swiperContainer.parentElement.querySelector('.tab-btn-prev')
-            let paginationEl = swiperContainer.parentElement.querySelector('.tab-page')
-            let options = Object.assign({
-                navigation: {
-                    nextEl: nextEl || '.tab-btn-next',
-                    prevEl: prevEl || '.tab-btn-prev',
-                },
-                pagination: {
-                    el: paginationEl || '.tab-page',
-                    type: 'bullets',
-                    clickable: true
-                },
-            }, swiperContainer.dataset.swiperOptions ? JSON.parse(swiperContainer.dataset.swiperOptions) : {})
-            new elementorFrontend.utils.swiper(swiperContainer, options)
-            //On changing the tabs, destroy the swiper and reinitialize it
-            tablists.forEach((tablist) => {
-                tablist.addEventListener('click', (event) => {
-                    swiperContainer.swiper.destroy();
-                    new elementorFrontend.utils.swiper(swiperContainer, options)
-                });
-            });
-        }
-    })
-
 }
 
 jQuery(window).on("elementor/frontend/init", function () {

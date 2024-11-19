@@ -2,9 +2,9 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Travel Engine - Elementor Widgets 1.3.6\n"
+"Project-Id-Version: WP Travel Engine - Elementor Widgets 1.3.7\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-18 05:14:40+00:00\n"
+"POT-Creation-Date: 2024-11-19 08:48:11+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -51,7 +51,7 @@ msgstr ""
 #: includes/widgets/trips-module-three/trips-module-three.php:220
 #: includes/widgets/trips-module-two/trips-module-two.php:212
 #: includes/widgets/trips-slider/trips-slider.php:360
-#: includes/widgets/trips-slider-three/trips-slider-three.php:387
+#: includes/widgets/trips-slider-three/trips-slider-three.php:389
 #: includes/widgets/trips-slider-two/trips-slider-two.php:362
 #: includes/widgets/trips-tab/trips-tab.php:388
 msgid "Day"
@@ -71,7 +71,7 @@ msgstr ""
 #: includes/widgets/trips-module-three/trips-module-three.php:220
 #: includes/widgets/trips-module-two/trips-module-two.php:212
 #: includes/widgets/trips-slider/trips-slider.php:360
-#: includes/widgets/trips-slider-three/trips-slider-three.php:387
+#: includes/widgets/trips-slider-three/trips-slider-three.php:389
 #: includes/widgets/trips-slider-two/trips-slider-two.php:362
 #: includes/widgets/trips-tab/trips-tab.php:388
 msgid "Days"
@@ -90,7 +90,7 @@ msgstr ""
 #: includes/widgets/trips-module-three/trips-module-three.php:221
 #: includes/widgets/trips-module-two/trips-module-two.php:213
 #: includes/widgets/trips-slider/trips-slider.php:361
-#: includes/widgets/trips-slider-three/trips-slider-three.php:388
+#: includes/widgets/trips-slider-three/trips-slider-three.php:390
 #: includes/widgets/trips-slider-two/trips-slider-two.php:363
 #: includes/widgets/trips-tab/trips-tab.php:389
 msgid "Night"
@@ -109,7 +109,7 @@ msgstr ""
 #: includes/widgets/trips-module-three/trips-module-three.php:221
 #: includes/widgets/trips-module-two/trips-module-two.php:213
 #: includes/widgets/trips-slider/trips-slider.php:361
-#: includes/widgets/trips-slider-three/trips-slider-three.php:388
+#: includes/widgets/trips-slider-three/trips-slider-three.php:390
 #: includes/widgets/trips-slider-two/trips-slider-two.php:363
 #: includes/widgets/trips-tab/trips-tab.php:389
 msgid "Nights"
@@ -128,7 +128,7 @@ msgstr ""
 #: includes/widgets/trips-module-three/trips-module-three.php:222
 #: includes/widgets/trips-module-two/trips-module-two.php:214
 #: includes/widgets/trips-slider/trips-slider.php:362
-#: includes/widgets/trips-slider-three/trips-slider-three.php:389
+#: includes/widgets/trips-slider-three/trips-slider-three.php:391
 #: includes/widgets/trips-slider-two/trips-slider-two.php:364
 #: includes/widgets/trips-tab/trips-tab.php:390
 msgid "Hour"
@@ -147,7 +147,7 @@ msgstr ""
 #: includes/widgets/trips-module-three/trips-module-three.php:222
 #: includes/widgets/trips-module-two/trips-module-two.php:214
 #: includes/widgets/trips-slider/trips-slider.php:362
-#: includes/widgets/trips-slider-three/trips-slider-three.php:389
+#: includes/widgets/trips-slider-three/trips-slider-three.php:391
 #: includes/widgets/trips-slider-two/trips-slider-two.php:364
 #: includes/widgets/trips-tab/trips-tab.php:390
 msgid "Hours"
@@ -165,7 +165,7 @@ msgstr ""
 #: includes/widgets/trips-module-three/trips-module-three.php:235
 #: includes/widgets/trips-module-two/trips-module-two.php:228
 #: includes/widgets/trips-slider/trips-slider.php:378
-#: includes/widgets/trips-slider-three/trips-slider-three.php:423
+#: includes/widgets/trips-slider-three/trips-slider-three.php:425
 #: includes/widgets/trips-slider-two/trips-slider-two.php:380
 #: includes/widgets/trips-tab/trips-tab.php:426
 msgid "No trips available. Please add a new trip."
@@ -398,6 +398,16 @@ msgstr ""
 #: includes/widgets/trip-search/controls.php:141
 #: includes/widgets/trip-search/controls.php:239
 #: includes/widgets/trip-search/controls.php:270
+#: includes/widgets/trip-tax-module-one/controls.php:211
+#: includes/widgets/trip-tax-module-one/controls.php:262
+#: includes/widgets/trip-tax-module-two/controls.php:210
+#: includes/widgets/trip-tax-module-two/controls.php:261
+#: includes/widgets/trip-tax-one/controls.php:207
+#: includes/widgets/trip-tax-one/controls.php:258
+#: includes/widgets/trip-tax-two/controls.php:227
+#: includes/widgets/trip-tax-two/controls.php:279
+#: includes/widgets/trip-tax-two/controls.php:520
+#: includes/widgets/trip-tax-two/controls.php:551
 #: includes/widgets/trips/controls.php:252
 #: includes/widgets/trips/controls.php:278
 #: includes/widgets/trips/controls.php:658
@@ -458,6 +468,20 @@ msgstr ""
 #: includes/widgets/trips-tab/controls.php:1112
 #: includes/widgets/trips-tab/controls.php:1286
 #: includes/widgets/trips-tab/controls.php:1318
+#: includes/widgets/trips-tax-slider-one/controls.php:288
+#: includes/widgets/trips-tax-slider-one/controls.php:340
+#: includes/widgets/trips-tax-slider-one/controls.php:698
+#: includes/widgets/trips-tax-slider-one/controls.php:730
+#: includes/widgets/trips-tax-slider-three/controls.php:282
+#: includes/widgets/trips-tax-slider-three/controls.php:334
+#: includes/widgets/trips-tax-slider-three/controls.php:686
+#: includes/widgets/trips-tax-slider-three/controls.php:718
+#: includes/widgets/trips-tax-slider-two/controls.php:345
+#: includes/widgets/trips-tax-slider-two/controls.php:397
+#: includes/widgets/trips-tax-slider-two/controls.php:525
+#: includes/widgets/trips-tax-slider-two/controls.php:556
+#: includes/widgets/trips-tax-slider-two/controls.php:872
+#: includes/widgets/trips-tax-slider-two/controls.php:904
 msgid "Background Color"
 msgstr ""
 
@@ -507,6 +531,16 @@ msgstr ""
 #: includes/widgets/trip-search/controls.php:116
 #: includes/widgets/trip-search/controls.php:260
 #: includes/widgets/trip-search/controls.php:291
+#: includes/widgets/trip-tax-module-one/controls.php:233
+#: includes/widgets/trip-tax-module-one/controls.php:284
+#: includes/widgets/trip-tax-module-two/controls.php:232
+#: includes/widgets/trip-tax-module-two/controls.php:283
+#: includes/widgets/trip-tax-one/controls.php:229
+#: includes/widgets/trip-tax-one/controls.php:285
+#: includes/widgets/trip-tax-two/controls.php:249
+#: includes/widgets/trip-tax-two/controls.php:306
+#: includes/widgets/trip-tax-two/controls.php:541
+#: includes/widgets/trip-tax-two/controls.php:572
 #: includes/widgets/trips/controls.php:258
 #: includes/widgets/trips/controls.php:284
 #: includes/widgets/trips/controls.php:718
@@ -544,14 +578,25 @@ msgstr ""
 #: includes/widgets/trips-tab/controls.php:646
 #: includes/widgets/trips-tab/controls.php:727
 #: includes/widgets/trips-tab/controls.php:1308
+#: includes/widgets/trips-tax-slider-one/controls.php:310
+#: includes/widgets/trips-tax-slider-one/controls.php:361
+#: includes/widgets/trips-tax-slider-one/controls.php:720
+#: includes/widgets/trips-tax-slider-three/controls.php:304
+#: includes/widgets/trips-tax-slider-three/controls.php:355
+#: includes/widgets/trips-tax-slider-three/controls.php:708
+#: includes/widgets/trips-tax-slider-two/controls.php:367
+#: includes/widgets/trips-tax-slider-two/controls.php:418
+#: includes/widgets/trips-tax-slider-two/controls.php:546
+#: includes/widgets/trips-tax-slider-two/controls.php:571
+#: includes/widgets/trips-tax-slider-two/controls.php:894
 msgid "Box Shadow"
 msgstr ""
 
-#: includes/class-widget.php:289
+#: includes/class-widget.php:289 includes/trip-widgets/title/controls.php:88
 msgid "Text Stroke"
 msgstr ""
 
-#: includes/class-widget.php:299
+#: includes/class-widget.php:299 includes/trip-widgets/title/controls.php:93
 msgid "Text Shadow"
 msgstr ""
 
@@ -591,6 +636,7 @@ msgstr ""
 #: includes/trip-widgets/reviews/controls.php:271
 #: includes/trip-widgets/reviews/controls.php:320
 #: includes/trip-widgets/reviews/controls.php:342
+#: includes/trip-widgets/title/controls.php:78
 #: includes/widgets/advanced-trips-four/controls.php:544
 #: includes/widgets/advanced-trips-four/controls.php:792
 #: includes/widgets/advanced-trips-four/controls.php:843
@@ -615,6 +661,14 @@ msgstr ""
 #: includes/widgets/terms/controls.php:544
 #: includes/widgets/trip-search/controls.php:105
 #: includes/widgets/trip-search/controls.php:222
+#: includes/widgets/trip-tax-module-one/controls.php:408
+#: includes/widgets/trip-tax-module-one/controls.php:452
+#: includes/widgets/trip-tax-module-two/controls.php:407
+#: includes/widgets/trip-tax-module-two/controls.php:451
+#: includes/widgets/trip-tax-one/controls.php:298
+#: includes/widgets/trip-tax-one/controls.php:343
+#: includes/widgets/trip-tax-two/controls.php:319
+#: includes/widgets/trip-tax-two/controls.php:364
 #: includes/widgets/trips/controls.php:303
 #: includes/widgets/trips/controls.php:458
 #: includes/widgets/trips/controls.php:502
@@ -651,6 +705,15 @@ msgstr ""
 #: includes/widgets/trips-tab/controls.php:775
 #: includes/widgets/trips-tab/controls.php:1028
 #: includes/widgets/trips-tab/controls.php:1079
+#: includes/widgets/trips-tax-slider-one/controls.php:374
+#: includes/widgets/trips-tax-slider-one/controls.php:419
+#: includes/widgets/trips-tax-slider-three/controls.php:368
+#: includes/widgets/trips-tax-slider-three/controls.php:413
+#: includes/widgets/trips-tax-slider-two/controls.php:461
+#: includes/widgets/trips-tax-slider-two/controls.php:482
+#: includes/widgets/trips-tax-slider-two/controls.php:508
+#: includes/widgets/trips-tax-slider-two/controls.php:588
+#: includes/widgets/trips-tax-slider-two/controls.php:633
 msgid "Typography"
 msgstr ""
 
@@ -689,6 +752,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-one/controls.php:962
 #: includes/widgets/advanced-trips-three/controls.php:1007
 #: includes/widgets/advanced-trips-two/controls.php:899
+#: includes/widgets/trip-tax-module-one/controls.php:122
+#: includes/widgets/trip-tax-module-two/controls.php:121
+#: includes/widgets/trip-tax-one/controls.php:108
+#: includes/widgets/trip-tax-two/controls.php:122
 #: includes/widgets/trips-accordion/controls.php:959
 #: includes/widgets/trips-list/controls.php:1038
 #: includes/widgets/trips-module-one/controls.php:976
@@ -699,6 +766,12 @@ msgstr ""
 #: includes/widgets/trips-slider-two/controls.php:1301
 #: includes/widgets/trips-tab/controls.php:278
 #: includes/widgets/trips-tab/controls.php:1378
+#: includes/widgets/trips-tax-slider-one/controls.php:122
+#: includes/widgets/trips-tax-slider-one/controls.php:786
+#: includes/widgets/trips-tax-slider-three/controls.php:121
+#: includes/widgets/trips-tax-slider-three/controls.php:774
+#: includes/widgets/trips-tax-slider-two/controls.php:120
+#: includes/widgets/trips-tax-slider-two/controls.php:960
 msgid "Destination"
 msgstr ""
 
@@ -710,6 +783,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-one/controls.php:963
 #: includes/widgets/advanced-trips-three/controls.php:1008
 #: includes/widgets/advanced-trips-two/controls.php:900
+#: includes/widgets/trip-tax-module-one/controls.php:123
+#: includes/widgets/trip-tax-module-two/controls.php:122
+#: includes/widgets/trip-tax-one/controls.php:109
+#: includes/widgets/trip-tax-two/controls.php:123
 #: includes/widgets/trips-accordion/controls.php:960
 #: includes/widgets/trips-list/controls.php:1039
 #: includes/widgets/trips-module-one/controls.php:977
@@ -720,6 +797,12 @@ msgstr ""
 #: includes/widgets/trips-slider-two/controls.php:1302
 #: includes/widgets/trips-tab/controls.php:279
 #: includes/widgets/trips-tab/controls.php:1379
+#: includes/widgets/trips-tax-slider-one/controls.php:123
+#: includes/widgets/trips-tax-slider-one/controls.php:787
+#: includes/widgets/trips-tax-slider-three/controls.php:122
+#: includes/widgets/trips-tax-slider-three/controls.php:775
+#: includes/widgets/trips-tax-slider-two/controls.php:121
+#: includes/widgets/trips-tax-slider-two/controls.php:961
 msgid "Activities"
 msgstr ""
 
@@ -730,6 +813,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-one/controls.php:964
 #: includes/widgets/advanced-trips-three/controls.php:1009
 #: includes/widgets/advanced-trips-two/controls.php:901
+#: includes/widgets/trip-tax-module-one/controls.php:124
+#: includes/widgets/trip-tax-module-two/controls.php:123
+#: includes/widgets/trip-tax-one/controls.php:110
+#: includes/widgets/trip-tax-two/controls.php:124
 #: includes/widgets/trips-accordion/controls.php:961
 #: includes/widgets/trips-list/controls.php:1040
 #: includes/widgets/trips-module-one/controls.php:978
@@ -740,6 +827,12 @@ msgstr ""
 #: includes/widgets/trips-slider-two/controls.php:1303
 #: includes/widgets/trips-tab/controls.php:280
 #: includes/widgets/trips-tab/controls.php:1380
+#: includes/widgets/trips-tax-slider-one/controls.php:124
+#: includes/widgets/trips-tax-slider-one/controls.php:788
+#: includes/widgets/trips-tax-slider-three/controls.php:123
+#: includes/widgets/trips-tax-slider-three/controls.php:776
+#: includes/widgets/trips-tax-slider-two/controls.php:122
+#: includes/widgets/trips-tax-slider-two/controls.php:962
 msgid "Trip Types"
 msgstr ""
 
@@ -823,6 +916,12 @@ msgstr ""
 #: includes/widgets/trips-slider-two/controls.php:1087
 #: includes/widgets/trips-tab/controls.php:377
 #: includes/widgets/trips-tab/controls.php:1161
+#: includes/widgets/trips-tax-slider-one/controls.php:217
+#: includes/widgets/trips-tax-slider-one/controls.php:556
+#: includes/widgets/trips-tax-slider-three/controls.php:216
+#: includes/widgets/trips-tax-slider-three/controls.php:544
+#: includes/widgets/trips-tax-slider-two/controls.php:270
+#: includes/widgets/trips-tax-slider-two/controls.php:764
 msgid "Slider"
 msgstr ""
 
@@ -849,6 +948,10 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:356
 #: includes/widgets/trips-slider-two/controls.php:349
 #: includes/widgets/trips-tab/controls.php:381
+#: includes/widgets/trips-tax-slider-one/controls.php:221
+#: includes/widgets/trips-tax-slider-three/controls.php:220
+#: includes/widgets/trips-tax-slider-two/controls.php:274
+#: includes/widgets/trips-tax-slider-two/controls.php:284
 msgid "Slides Number"
 msgstr ""
 
@@ -858,6 +961,10 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:368
 #: includes/widgets/trips-slider-two/controls.php:358
 #: includes/widgets/trips-tab/controls.php:390
+#: includes/widgets/trips-tax-slider-one/controls.php:230
+#: includes/widgets/trips-tax-slider-one/controls.php:236
+#: includes/widgets/trips-tax-slider-three/controls.php:230
+#: includes/widgets/trips-tax-slider-two/controls.php:294
 msgid "Space Between Slides"
 msgstr ""
 
@@ -867,6 +974,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:376
 #: includes/widgets/trips-slider-two/controls.php:363
 #: includes/widgets/trips-tab/controls.php:395
+#: includes/widgets/trips-tax-slider-one/controls.php:242
+#: includes/widgets/trips-tax-slider-three/controls.php:236
+#: includes/widgets/trips-tax-slider-two/controls.php:299
 msgid "Autoplay"
 msgstr ""
 
@@ -876,6 +986,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:381
 #: includes/widgets/trips-slider-two/controls.php:368
 #: includes/widgets/trips-tab/controls.php:400
+#: includes/widgets/trips-tax-slider-one/controls.php:247
+#: includes/widgets/trips-tax-slider-three/controls.php:241
+#: includes/widgets/trips-tax-slider-two/controls.php:304
 msgid "Autoplay Speed"
 msgstr ""
 
@@ -885,6 +998,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:386
 #: includes/widgets/trips-slider-two/controls.php:373
 #: includes/widgets/trips-tab/controls.php:405
+#: includes/widgets/trips-tax-slider-one/controls.php:252
+#: includes/widgets/trips-tax-slider-three/controls.php:246
+#: includes/widgets/trips-tax-slider-two/controls.php:309
 msgid "Loop"
 msgstr ""
 
@@ -894,6 +1010,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:391
 #: includes/widgets/trips-slider-two/controls.php:378
 #: includes/widgets/trips-tab/controls.php:410
+#: includes/widgets/trips-tax-slider-one/controls.php:257
+#: includes/widgets/trips-tax-slider-three/controls.php:251
+#: includes/widgets/trips-tax-slider-two/controls.php:314
 msgid "Transition Speed (ms)"
 msgstr ""
 
@@ -903,6 +1022,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:396
 #: includes/widgets/trips-slider-two/controls.php:383
 #: includes/widgets/trips-tab/controls.php:415
+#: includes/widgets/trips-tax-slider-one/controls.php:262
+#: includes/widgets/trips-tax-slider-three/controls.php:256
+#: includes/widgets/trips-tax-slider-two/controls.php:319
 msgid "Slider Arrow"
 msgstr ""
 
@@ -912,6 +1034,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:405
 #: includes/widgets/trips-slider-two/controls.php:392
 #: includes/widgets/trips-tab/controls.php:421
+#: includes/widgets/trips-tax-slider-one/controls.php:271
+#: includes/widgets/trips-tax-slider-three/controls.php:265
+#: includes/widgets/trips-tax-slider-two/controls.php:328
 msgid "Slider Pagination"
 msgstr ""
 
@@ -939,6 +1064,10 @@ msgstr ""
 #: includes/widgets/featured-trips/controls.php:111
 #: includes/widgets/featured-trips/controls.php:728
 #: includes/widgets/featured-trips/controls.php:779
+#: includes/widgets/trip-tax-module-one/controls.php:81
+#: includes/widgets/trip-tax-module-two/controls.php:80
+#: includes/widgets/trip-tax-one/controls.php:54
+#: includes/widgets/trip-tax-two/controls.php:68
 #: includes/widgets/trips-accordion/controls.php:107
 #: includes/widgets/trips-accordion/controls.php:742
 #: includes/widgets/trips-accordion/controls.php:795
@@ -966,6 +1095,9 @@ msgstr ""
 #: includes/widgets/trips-tab/controls.php:201
 #: includes/widgets/trips-tab/controls.php:1032
 #: includes/widgets/trips-tab/controls.php:1083
+#: includes/widgets/trips-tax-slider-one/controls.php:99
+#: includes/widgets/trips-tax-slider-three/controls.php:98
+#: includes/widgets/trips-tax-slider-two/controls.php:98
 msgid "Layout"
 msgstr ""
 
@@ -980,6 +1112,8 @@ msgstr ""
 #: includes/widgets/advanced-trips-one/controls.php:164
 #: includes/widgets/advanced-trips-three/controls.php:161
 #: includes/widgets/advanced-trips-two/controls.php:149
+#: includes/widgets/trip-tax-one/controls.php:60
+#: includes/widgets/trip-tax-two/controls.php:74
 #: includes/widgets/trips-list/controls.php:155
 #: includes/widgets/trips-list/controls.php:169
 #: includes/widgets/trips-tab/controls.php:207
@@ -1031,6 +1165,10 @@ msgstr ""
 #: includes/widgets/featured-trips/controls.php:731
 #: includes/widgets/featured-trips/controls.php:782
 #: includes/widgets/featured-trips/controls.php:823
+#: includes/widgets/trip-tax-module-one/controls.php:105
+#: includes/widgets/trip-tax-module-two/controls.php:104
+#: includes/widgets/trip-tax-one/controls.php:91
+#: includes/widgets/trip-tax-two/controls.php:105
 #: includes/widgets/trips-accordion/controls.php:131
 #: includes/widgets/trips-accordion/controls.php:676
 #: includes/widgets/trips-accordion/controls.php:745
@@ -1072,6 +1210,9 @@ msgstr ""
 #: includes/widgets/trips-tab/controls.php:1035
 #: includes/widgets/trips-tab/controls.php:1086
 #: includes/widgets/trips-tab/controls.php:1126
+#: includes/widgets/trips-tax-slider-one/controls.php:105
+#: includes/widgets/trips-tax-slider-three/controls.php:104
+#: includes/widgets/trips-tax-slider-two/controls.php:104
 msgid "Layout 1"
 msgstr ""
 
@@ -1101,6 +1242,10 @@ msgstr ""
 #: includes/widgets/featured-trips/controls.php:732
 #: includes/widgets/featured-trips/controls.php:783
 #: includes/widgets/featured-trips/controls.php:824
+#: includes/widgets/trip-tax-module-one/controls.php:106
+#: includes/widgets/trip-tax-module-two/controls.php:105
+#: includes/widgets/trip-tax-one/controls.php:92
+#: includes/widgets/trip-tax-two/controls.php:106
 #: includes/widgets/trips-accordion/controls.php:132
 #: includes/widgets/trips-accordion/controls.php:677
 #: includes/widgets/trips-accordion/controls.php:746
@@ -1142,6 +1287,9 @@ msgstr ""
 #: includes/widgets/trips-tab/controls.php:1036
 #: includes/widgets/trips-tab/controls.php:1087
 #: includes/widgets/trips-tab/controls.php:1127
+#: includes/widgets/trips-tax-slider-one/controls.php:106
+#: includes/widgets/trips-tax-slider-three/controls.php:105
+#: includes/widgets/trips-tax-slider-two/controls.php:105
 msgid "Layout 2"
 msgstr ""
 
@@ -1165,6 +1313,10 @@ msgstr ""
 #: includes/widgets/featured-trips/controls.php:664
 #: includes/widgets/featured-trips/controls.php:733
 #: includes/widgets/featured-trips/controls.php:825
+#: includes/widgets/trip-tax-module-one/controls.php:107
+#: includes/widgets/trip-tax-module-two/controls.php:106
+#: includes/widgets/trip-tax-one/controls.php:93
+#: includes/widgets/trip-tax-two/controls.php:107
 #: includes/widgets/trips-accordion/controls.php:133
 #: includes/widgets/trips-accordion/controls.php:678
 #: includes/widgets/trips-accordion/controls.php:747
@@ -1194,6 +1346,8 @@ msgstr ""
 #: includes/widgets/trips-tab/controls.php:973
 #: includes/widgets/trips-tab/controls.php:1037
 #: includes/widgets/trips-tab/controls.php:1128
+#: includes/widgets/trips-tax-slider-one/controls.php:107
+#: includes/widgets/trips-tax-slider-three/controls.php:106
 msgid "Layout 3"
 msgstr ""
 
@@ -1219,6 +1373,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-three/controls.php:201
 #: includes/widgets/advanced-trips-two/controls.php:190
 #: includes/widgets/featured-trips/controls.php:127
+#: includes/widgets/trip-tax-module-one/controls.php:115
+#: includes/widgets/trip-tax-module-two/controls.php:114
+#: includes/widgets/trip-tax-one/controls.php:101
+#: includes/widgets/trip-tax-two/controls.php:115
 #: includes/widgets/trips-accordion/controls.php:141
 #: includes/widgets/trips-list/controls.php:231
 #: includes/widgets/trips-module-one/controls.php:180
@@ -1228,6 +1386,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:220
 #: includes/widgets/trips-slider-two/controls.php:216
 #: includes/widgets/trips-tab/controls.php:256
+#: includes/widgets/trips-tax-slider-one/controls.php:115
+#: includes/widgets/trips-tax-slider-three/controls.php:114
+#: includes/widgets/trips-tax-slider-two/controls.php:113
 msgid "Query"
 msgstr ""
 
@@ -1301,6 +1462,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-one/controls.php:217
 #: includes/widgets/advanced-trips-three/controls.php:212
 #: includes/widgets/advanced-trips-two/controls.php:201
+#: includes/widgets/trip-tax-module-one/controls.php:133
+#: includes/widgets/trip-tax-module-two/controls.php:132
+#: includes/widgets/trip-tax-one/controls.php:119
+#: includes/widgets/trip-tax-two/controls.php:133
 #: includes/widgets/trips-accordion/controls.php:152
 #: includes/widgets/trips-list/controls.php:242
 #: includes/widgets/trips-module-one/controls.php:191
@@ -1309,6 +1474,9 @@ msgstr ""
 #: includes/widgets/trips-slider/controls.php:214
 #: includes/widgets/trips-slider-three/controls.php:231
 #: includes/widgets/trips-slider-two/controls.php:227
+#: includes/widgets/trips-tax-slider-one/controls.php:133
+#: includes/widgets/trips-tax-slider-three/controls.php:132
+#: includes/widgets/trips-tax-slider-two/controls.php:131
 msgid "Choose from the list"
 msgstr ""
 
@@ -1357,6 +1525,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-three/controls.php:237
 #: includes/widgets/advanced-trips-two/controls.php:226
 #: includes/widgets/featured-trips/controls.php:139
+#: includes/widgets/trip-tax-module-one/controls.php:173
+#: includes/widgets/trip-tax-module-two/controls.php:172
+#: includes/widgets/trip-tax-one/controls.php:169
+#: includes/widgets/trip-tax-two/controls.php:183
 #: includes/widgets/trips-accordion/controls.php:177
 #: includes/widgets/trips-list/controls.php:315
 #: includes/widgets/trips-module-one/controls.php:329
@@ -1366,6 +1538,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:256
 #: includes/widgets/trips-slider-two/controls.php:252
 #: includes/widgets/trips-tab/controls.php:287
+#: includes/widgets/trips-tax-slider-one/controls.php:182
+#: includes/widgets/trips-tax-slider-three/controls.php:181
+#: includes/widgets/trips-tax-slider-two/controls.php:180
 msgid "Additional"
 msgstr ""
 
@@ -1409,6 +1584,7 @@ msgstr ""
 #: includes/trip-widgets/itinerary/controls.php:296
 #: includes/trip-widgets/relatedtrips/controls.php:509
 #: includes/trip-widgets/relatedtrips/controls.php:802
+#: includes/trip-widgets/title/controls.php:34
 #: includes/widgets/advanced-trips-four/controls.php:262
 #: includes/widgets/advanced-trips-four/controls.php:539
 #: includes/widgets/advanced-trips-one/controls.php:264
@@ -1420,6 +1596,10 @@ msgstr ""
 #: includes/widgets/featured-trips/controls.php:160
 #: includes/widgets/featured-trips/controls.php:437
 #: includes/widgets/terms/controls.php:288
+#: includes/widgets/trip-tax-module-one/controls.php:403
+#: includes/widgets/trip-tax-module-two/controls.php:402
+#: includes/widgets/trip-tax-one/controls.php:293
+#: includes/widgets/trip-tax-two/controls.php:314
 #: includes/widgets/trips/controls.php:453
 #: includes/widgets/trips-accordion/controls.php:199
 #: includes/widgets/trips-accordion/controls.php:451
@@ -1439,6 +1619,10 @@ msgstr ""
 #: includes/widgets/trips-slider-two/controls.php:606
 #: includes/widgets/trips-tab/controls.php:314
 #: includes/widgets/trips-tab/controls.php:770
+#: includes/widgets/trips-tax-slider-one/controls.php:369
+#: includes/widgets/trips-tax-slider-three/controls.php:363
+#: includes/widgets/trips-tax-slider-two/controls.php:455
+#: includes/widgets/trips-tax-slider-two/controls.php:583
 msgid "Title"
 msgstr ""
 
@@ -1789,6 +1973,13 @@ msgid "Choose card layout"
 msgstr ""
 
 #: includes/class-widgets.php:614
+#: includes/widgets/trip-tax-module-one/controls.php:129
+#: includes/widgets/trip-tax-module-two/controls.php:128
+#: includes/widgets/trip-tax-one/controls.php:115
+#: includes/widgets/trip-tax-two/controls.php:129
+#: includes/widgets/trips-tax-slider-one/controls.php:129
+#: includes/widgets/trips-tax-slider-three/controls.php:128
+#: includes/widgets/trips-tax-slider-two/controls.php:127
 msgid "Show Terms By"
 msgstr ""
 
@@ -1801,6 +1992,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-two/controls.php:624
 #: includes/widgets/featured-trips/controls.php:578
 #: includes/widgets/terms/controls.php:636
+#: includes/widgets/trip-tax-module-one/controls.php:132
+#: includes/widgets/trip-tax-module-two/controls.php:131
+#: includes/widgets/trip-tax-one/controls.php:118
+#: includes/widgets/trip-tax-two/controls.php:132
 #: includes/widgets/trips/controls.php:552
 #: includes/widgets/trips-accordion/controls.php:592
 #: includes/widgets/trips-list/controls.php:778
@@ -1811,26 +2006,76 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:762
 #: includes/widgets/trips-slider-two/controls.php:723
 #: includes/widgets/trips-tab/controls.php:888
+#: includes/widgets/trips-tax-slider-one/controls.php:132
+#: includes/widgets/trips-tax-slider-three/controls.php:131
+#: includes/widgets/trips-tax-slider-two/controls.php:130
 msgid "Default"
 msgstr ""
 
 #: includes/class-widgets.php:623
+#: includes/widgets/trip-tax-one/controls.php:124
+#: includes/widgets/trip-tax-two/controls.php:138
+#: includes/widgets/trips-tax-slider-one/controls.php:138
+#: includes/widgets/trips-tax-slider-three/controls.php:137
+#: includes/widgets/trips-tax-slider-two/controls.php:136
 msgid "Number of items"
 msgstr ""
 
 #: includes/class-widgets.php:632
+#: includes/widgets/trip-tax-module-one/controls.php:138
+#: includes/widgets/trip-tax-module-one/controls.php:149
+#: includes/widgets/trip-tax-module-one/controls.php:160
+#: includes/widgets/trip-tax-module-two/controls.php:137
+#: includes/widgets/trip-tax-module-two/controls.php:148
+#: includes/widgets/trip-tax-module-two/controls.php:159
+#: includes/widgets/trip-tax-one/controls.php:133
+#: includes/widgets/trip-tax-one/controls.php:144
+#: includes/widgets/trip-tax-one/controls.php:155
+#: includes/widgets/trip-tax-two/controls.php:147
+#: includes/widgets/trip-tax-two/controls.php:158
+#: includes/widgets/trip-tax-two/controls.php:169
+#: includes/widgets/trips-tax-slider-one/controls.php:147
+#: includes/widgets/trips-tax-slider-one/controls.php:158
+#: includes/widgets/trips-tax-slider-one/controls.php:169
+#: includes/widgets/trips-tax-slider-three/controls.php:146
+#: includes/widgets/trips-tax-slider-three/controls.php:157
+#: includes/widgets/trips-tax-slider-three/controls.php:168
+#: includes/widgets/trips-tax-slider-two/controls.php:145
+#: includes/widgets/trips-tax-slider-two/controls.php:156
+#: includes/widgets/trips-tax-slider-two/controls.php:167
 msgid "Choose terms"
 msgstr ""
 
 #: includes/class-widgets.php:651
+#: includes/widgets/trip-tax-module-one/controls.php:192
+#: includes/widgets/trip-tax-module-two/controls.php:191
+#: includes/widgets/trip-tax-one/controls.php:188
+#: includes/widgets/trip-tax-two/controls.php:202
+#: includes/widgets/trips-tax-slider-one/controls.php:201
+#: includes/widgets/trips-tax-slider-three/controls.php:200
+#: includes/widgets/trips-tax-slider-two/controls.php:254
 msgid "Show Trip Counts"
 msgstr ""
 
 #: includes/class-widgets.php:656
+#: includes/widgets/trip-tax-module-one/controls.php:197
+#: includes/widgets/trip-tax-module-two/controls.php:196
+#: includes/widgets/trip-tax-one/controls.php:193
+#: includes/widgets/trip-tax-two/controls.php:207
+#: includes/widgets/trips-tax-slider-one/controls.php:206
+#: includes/widgets/trips-tax-slider-three/controls.php:205
+#: includes/widgets/trips-tax-slider-two/controls.php:259
 msgid "Trips Count Label"
 msgstr ""
 
 #: includes/class-widgets.php:659
+#: includes/widgets/trip-tax-module-one/controls.php:200
+#: includes/widgets/trip-tax-module-two/controls.php:199
+#: includes/widgets/trip-tax-one/controls.php:196
+#: includes/widgets/trip-tax-two/controls.php:210
+#: includes/widgets/trips-tax-slider-one/controls.php:209
+#: includes/widgets/trips-tax-slider-three/controls.php:208
+#: includes/widgets/trips-tax-slider-two/controls.php:262
 msgid "Trip|Trips"
 msgstr ""
 
@@ -1953,6 +2198,34 @@ msgstr ""
 
 #: includes/class-widgets.php:977
 msgid "Trips Slider 3"
+msgstr ""
+
+#: includes/class-widgets.php:982
+msgid "Destination/Activities Module 1"
+msgstr ""
+
+#: includes/class-widgets.php:987
+msgid "Destination/Activities Module 2"
+msgstr ""
+
+#: includes/class-widgets.php:992
+msgid "Destination/Activities 1"
+msgstr ""
+
+#: includes/class-widgets.php:997
+msgid "Destination/Activities 2"
+msgstr ""
+
+#: includes/class-widgets.php:1002
+msgid "Destination/Activities Slider 1"
+msgstr ""
+
+#: includes/class-widgets.php:1007
+msgid "Destination/Activities Slider 2"
+msgstr ""
+
+#: includes/class-widgets.php:1012
+msgid "Destination/Activities Slider 3"
 msgstr ""
 
 #: includes/helper-functions.php:97
@@ -2093,10 +2366,12 @@ msgstr ""
 #: includes/widgets/featured-trips/controls.php:849
 #: includes/widgets/terms/controls.php:539
 #: includes/widgets/trip-search/controls.php:217
+#: includes/widgets/trip-tax-two/controls.php:496
 #: includes/widgets/trips/controls.php:681
 #: includes/widgets/trips-accordion/controls.php:867
 #: includes/widgets/trips-slider-three/controls.php:1014
 #: includes/widgets/trips-slider-two/controls.php:996
+#: includes/widgets/trips-tax-slider-two/controls.php:502
 msgid "Button"
 msgstr ""
 
@@ -2121,6 +2396,7 @@ msgstr ""
 #: includes/trip-widgets/relatedtrips/controls.php:590
 #: includes/trip-widgets/reviewform/controls.php:131
 #: includes/trip-widgets/reviews/controls.php:162
+#: includes/trip-widgets/title/controls.php:74
 #: includes/widgets/advanced-trips-four/controls.php:331
 #: includes/widgets/advanced-trips-one/controls.php:321
 #: includes/widgets/advanced-trips-three/controls.php:330
@@ -2128,6 +2404,10 @@ msgstr ""
 #: includes/widgets/featured-trips/controls.php:241
 #: includes/widgets/terms/controls.php:180
 #: includes/widgets/trip-search/controls.php:90
+#: includes/widgets/trip-tax-module-one/controls.php:207
+#: includes/widgets/trip-tax-module-two/controls.php:206
+#: includes/widgets/trip-tax-one/controls.php:203
+#: includes/widgets/trip-tax-two/controls.php:223
 #: includes/widgets/trips/controls.php:241
 #: includes/widgets/trips-accordion/controls.php:268
 #: includes/widgets/trips-list/controls.php:399
@@ -2138,6 +2418,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:421
 #: includes/widgets/trips-slider-two/controls.php:404
 #: includes/widgets/trips-tab/controls.php:433
+#: includes/widgets/trips-tax-slider-one/controls.php:284
+#: includes/widgets/trips-tax-slider-three/controls.php:278
+#: includes/widgets/trips-tax-slider-two/controls.php:341
 msgid "General"
 msgstr ""
 
@@ -2232,6 +2515,15 @@ msgstr ""
 #: includes/widgets/terms/controls.php:760
 #: includes/widgets/trip-search/controls.php:164
 #: includes/widgets/trip-search/controls.php:235
+#: includes/widgets/trip-tax-module-one/controls.php:298
+#: includes/widgets/trip-tax-module-one/controls.php:415
+#: includes/widgets/trip-tax-module-two/controls.php:297
+#: includes/widgets/trip-tax-module-two/controls.php:414
+#: includes/widgets/trip-tax-one/controls.php:305
+#: includes/widgets/trip-tax-one/controls.php:369
+#: includes/widgets/trip-tax-two/controls.php:326
+#: includes/widgets/trip-tax-two/controls.php:390
+#: includes/widgets/trip-tax-two/controls.php:516
 #: includes/widgets/trips/controls.php:248
 #: includes/widgets/trips/controls.php:347
 #: includes/widgets/trips/controls.php:465
@@ -2283,6 +2575,16 @@ msgstr ""
 #: includes/widgets/trips-tab/controls.php:866
 #: includes/widgets/trips-tab/controls.php:988
 #: includes/widgets/trips-tab/controls.php:1282
+#: includes/widgets/trips-tax-slider-one/controls.php:381
+#: includes/widgets/trips-tax-slider-one/controls.php:445
+#: includes/widgets/trips-tax-slider-one/controls.php:694
+#: includes/widgets/trips-tax-slider-three/controls.php:375
+#: includes/widgets/trips-tax-slider-three/controls.php:439
+#: includes/widgets/trips-tax-slider-three/controls.php:682
+#: includes/widgets/trips-tax-slider-two/controls.php:521
+#: includes/widgets/trips-tax-slider-two/controls.php:595
+#: includes/widgets/trips-tax-slider-two/controls.php:659
+#: includes/widgets/trips-tax-slider-two/controls.php:868
 msgid "Normal"
 msgstr ""
 
@@ -2398,6 +2700,20 @@ msgstr ""
 #: includes/widgets/trip-search/controls.php:136
 #: includes/widgets/trip-search/controls.php:244
 #: includes/widgets/trip-search/controls.php:275
+#: includes/widgets/trip-tax-module-one/controls.php:419
+#: includes/widgets/trip-tax-module-one/controls.php:430
+#: includes/widgets/trip-tax-module-one/controls.php:456
+#: includes/widgets/trip-tax-module-two/controls.php:418
+#: includes/widgets/trip-tax-module-two/controls.php:429
+#: includes/widgets/trip-tax-module-two/controls.php:455
+#: includes/widgets/trip-tax-one/controls.php:309
+#: includes/widgets/trip-tax-one/controls.php:320
+#: includes/widgets/trip-tax-one/controls.php:347
+#: includes/widgets/trip-tax-two/controls.php:330
+#: includes/widgets/trip-tax-two/controls.php:341
+#: includes/widgets/trip-tax-two/controls.php:368
+#: includes/widgets/trip-tax-two/controls.php:525
+#: includes/widgets/trip-tax-two/controls.php:556
 #: includes/widgets/trips/controls.php:469
 #: includes/widgets/trips/controls.php:480
 #: includes/widgets/trips/controls.php:506
@@ -2505,6 +2821,28 @@ msgstr ""
 #: includes/widgets/trips-tab/controls.php:1291
 #: includes/widgets/trips-tab/controls.php:1323
 #: includes/widgets/trips-tab/controls.php:1348
+#: includes/widgets/trips-tax-slider-one/controls.php:385
+#: includes/widgets/trips-tax-slider-one/controls.php:396
+#: includes/widgets/trips-tax-slider-one/controls.php:423
+#: includes/widgets/trips-tax-slider-one/controls.php:703
+#: includes/widgets/trips-tax-slider-one/controls.php:735
+#: includes/widgets/trips-tax-slider-one/controls.php:760
+#: includes/widgets/trips-tax-slider-three/controls.php:379
+#: includes/widgets/trips-tax-slider-three/controls.php:390
+#: includes/widgets/trips-tax-slider-three/controls.php:417
+#: includes/widgets/trips-tax-slider-three/controls.php:691
+#: includes/widgets/trips-tax-slider-three/controls.php:723
+#: includes/widgets/trips-tax-slider-three/controls.php:748
+#: includes/widgets/trips-tax-slider-two/controls.php:465
+#: includes/widgets/trips-tax-slider-two/controls.php:486
+#: includes/widgets/trips-tax-slider-two/controls.php:530
+#: includes/widgets/trips-tax-slider-two/controls.php:561
+#: includes/widgets/trips-tax-slider-two/controls.php:599
+#: includes/widgets/trips-tax-slider-two/controls.php:610
+#: includes/widgets/trips-tax-slider-two/controls.php:637
+#: includes/widgets/trips-tax-slider-two/controls.php:877
+#: includes/widgets/trips-tax-slider-two/controls.php:909
+#: includes/widgets/trips-tax-slider-two/controls.php:934
 msgid "Color"
 msgstr ""
 
@@ -2536,6 +2874,7 @@ msgstr ""
 #: includes/trip-widgets/duration/controls.php:109
 #: includes/trip-widgets/duration/controls.php:135
 #: includes/trip-widgets/reviewform/controls.php:424
+#: includes/trip-widgets/title/controls.php:83
 #: includes/widgets/advanced-trips-four/controls.php:638
 #: includes/widgets/advanced-trips-four/controls.php:649
 #: includes/widgets/advanced-trips-four/controls.php:681
@@ -2638,6 +2977,7 @@ msgstr ""
 #: includes/trip-widgets/booking/controls.php:342
 #: includes/trip-widgets/overview/controls.php:56
 #: includes/trip-widgets/relatedtrips/controls.php:656
+#: includes/trip-widgets/title/controls.php:50
 #: includes/widgets/advanced-trips-four/controls.php:367
 #: includes/widgets/advanced-trips-four/controls.php:806
 #: includes/widgets/advanced-trips-four/controls.php:856
@@ -2654,6 +2994,10 @@ msgstr ""
 #: includes/widgets/featured-trips/controls.php:738
 #: includes/widgets/featured-trips/controls.php:788
 #: includes/widgets/terms/controls.php:189
+#: includes/widgets/trip-tax-module-one/controls.php:243
+#: includes/widgets/trip-tax-module-two/controls.php:242
+#: includes/widgets/trip-tax-one/controls.php:239
+#: includes/widgets/trip-tax-two/controls.php:259
 #: includes/widgets/trips/controls.php:307
 #: includes/widgets/trips-accordion/controls.php:312
 #: includes/widgets/trips-accordion/controls.php:753
@@ -2682,6 +3026,10 @@ msgstr ""
 #: includes/widgets/trips-tab/controls.php:604
 #: includes/widgets/trips-tab/controls.php:1042
 #: includes/widgets/trips-tab/controls.php:1092
+#: includes/widgets/trips-tax-slider-one/controls.php:321
+#: includes/widgets/trips-tax-slider-three/controls.php:315
+#: includes/widgets/trips-tax-slider-two/controls.php:378
+#: includes/widgets/trips-tax-slider-two/controls.php:430
 msgid "Alignment"
 msgstr ""
 
@@ -2690,6 +3038,7 @@ msgstr ""
 #: includes/trip-widgets/overview/controls.php:60
 #: includes/trip-widgets/relatedtrips/controls.php:659
 #: includes/trip-widgets/relatedtrips/controls.php:1384
+#: includes/trip-widgets/title/controls.php:54
 #: includes/widgets/advanced-trips-four/controls.php:370
 #: includes/widgets/advanced-trips-four/controls.php:810
 #: includes/widgets/advanced-trips-four/controls.php:860
@@ -2707,6 +3056,10 @@ msgstr ""
 #: includes/widgets/featured-trips/controls.php:792
 #: includes/widgets/terms/controls.php:192
 #: includes/widgets/terms/controls.php:844
+#: includes/widgets/trip-tax-module-one/controls.php:246
+#: includes/widgets/trip-tax-module-two/controls.php:245
+#: includes/widgets/trip-tax-one/controls.php:242
+#: includes/widgets/trip-tax-two/controls.php:262
 #: includes/widgets/trips/controls.php:310
 #: includes/widgets/trips/controls.php:1035
 #: includes/widgets/trips-accordion/controls.php:315
@@ -2736,6 +3089,10 @@ msgstr ""
 #: includes/widgets/trips-tab/controls.php:607
 #: includes/widgets/trips-tab/controls.php:1046
 #: includes/widgets/trips-tab/controls.php:1096
+#: includes/widgets/trips-tax-slider-one/controls.php:324
+#: includes/widgets/trips-tax-slider-three/controls.php:318
+#: includes/widgets/trips-tax-slider-two/controls.php:381
+#: includes/widgets/trips-tax-slider-two/controls.php:433
 msgid "Left"
 msgstr ""
 
@@ -2744,6 +3101,7 @@ msgstr ""
 #: includes/trip-widgets/overview/controls.php:64
 #: includes/trip-widgets/relatedtrips/controls.php:663
 #: includes/trip-widgets/relatedtrips/controls.php:1388
+#: includes/trip-widgets/title/controls.php:58
 #: includes/widgets/advanced-trips-four/controls.php:374
 #: includes/widgets/advanced-trips-four/controls.php:814
 #: includes/widgets/advanced-trips-one/controls.php:364
@@ -2756,6 +3114,10 @@ msgstr ""
 #: includes/widgets/featured-trips/controls.php:746
 #: includes/widgets/terms/controls.php:196
 #: includes/widgets/terms/controls.php:848
+#: includes/widgets/trip-tax-module-one/controls.php:250
+#: includes/widgets/trip-tax-module-two/controls.php:249
+#: includes/widgets/trip-tax-one/controls.php:246
+#: includes/widgets/trip-tax-two/controls.php:266
 #: includes/widgets/trips/controls.php:314
 #: includes/widgets/trips/controls.php:1039
 #: includes/widgets/trips-accordion/controls.php:319
@@ -2776,6 +3138,10 @@ msgstr ""
 #: includes/widgets/trips-slider-two/controls.php:885
 #: includes/widgets/trips-tab/controls.php:611
 #: includes/widgets/trips-tab/controls.php:1050
+#: includes/widgets/trips-tax-slider-one/controls.php:328
+#: includes/widgets/trips-tax-slider-three/controls.php:322
+#: includes/widgets/trips-tax-slider-two/controls.php:385
+#: includes/widgets/trips-tax-slider-two/controls.php:437
 msgid "Center"
 msgstr ""
 
@@ -2784,6 +3150,7 @@ msgstr ""
 #: includes/trip-widgets/overview/controls.php:68
 #: includes/trip-widgets/relatedtrips/controls.php:667
 #: includes/trip-widgets/relatedtrips/controls.php:1392
+#: includes/trip-widgets/title/controls.php:62
 #: includes/widgets/advanced-trips-four/controls.php:378
 #: includes/widgets/advanced-trips-four/controls.php:818
 #: includes/widgets/advanced-trips-four/controls.php:864
@@ -2801,6 +3168,10 @@ msgstr ""
 #: includes/widgets/featured-trips/controls.php:796
 #: includes/widgets/terms/controls.php:200
 #: includes/widgets/terms/controls.php:852
+#: includes/widgets/trip-tax-module-one/controls.php:254
+#: includes/widgets/trip-tax-module-two/controls.php:253
+#: includes/widgets/trip-tax-one/controls.php:250
+#: includes/widgets/trip-tax-two/controls.php:270
 #: includes/widgets/trips/controls.php:318
 #: includes/widgets/trips/controls.php:1043
 #: includes/widgets/trips-accordion/controls.php:323
@@ -2830,6 +3201,10 @@ msgstr ""
 #: includes/widgets/trips-tab/controls.php:615
 #: includes/widgets/trips-tab/controls.php:1054
 #: includes/widgets/trips-tab/controls.php:1100
+#: includes/widgets/trips-tax-slider-one/controls.php:332
+#: includes/widgets/trips-tax-slider-three/controls.php:326
+#: includes/widgets/trips-tax-slider-two/controls.php:389
+#: includes/widgets/trips-tax-slider-two/controls.php:441
 msgid "Right"
 msgstr ""
 
@@ -2890,6 +3265,20 @@ msgstr ""
 #: includes/widgets/trip-search/controls.php:180
 #: includes/widgets/trip-search/controls.php:253
 #: includes/widgets/trip-search/controls.php:284
+#: includes/widgets/trip-tax-module-one/controls.php:226
+#: includes/widgets/trip-tax-module-one/controls.php:278
+#: includes/widgets/trip-tax-module-one/controls.php:359
+#: includes/widgets/trip-tax-module-two/controls.php:225
+#: includes/widgets/trip-tax-module-two/controls.php:277
+#: includes/widgets/trip-tax-module-two/controls.php:358
+#: includes/widgets/trip-tax-one/controls.php:222
+#: includes/widgets/trip-tax-one/controls.php:279
+#: includes/widgets/trip-tax-one/controls.php:430
+#: includes/widgets/trip-tax-two/controls.php:242
+#: includes/widgets/trip-tax-two/controls.php:300
+#: includes/widgets/trip-tax-two/controls.php:451
+#: includes/widgets/trip-tax-two/controls.php:534
+#: includes/widgets/trip-tax-two/controls.php:565
 #: includes/widgets/trips/controls.php:266
 #: includes/widgets/trips/controls.php:292
 #: includes/widgets/trips/controls.php:409
@@ -2933,6 +3322,22 @@ msgstr ""
 #: includes/widgets/trips-tab/controls.php:721
 #: includes/widgets/trips-tab/controls.php:1301
 #: includes/widgets/trips-tab/controls.php:1333
+#: includes/widgets/trips-tax-slider-one/controls.php:303
+#: includes/widgets/trips-tax-slider-one/controls.php:355
+#: includes/widgets/trips-tax-slider-one/controls.php:506
+#: includes/widgets/trips-tax-slider-one/controls.php:713
+#: includes/widgets/trips-tax-slider-one/controls.php:745
+#: includes/widgets/trips-tax-slider-three/controls.php:297
+#: includes/widgets/trips-tax-slider-three/controls.php:349
+#: includes/widgets/trips-tax-slider-three/controls.php:500
+#: includes/widgets/trips-tax-slider-three/controls.php:701
+#: includes/widgets/trips-tax-slider-three/controls.php:733
+#: includes/widgets/trips-tax-slider-two/controls.php:360
+#: includes/widgets/trips-tax-slider-two/controls.php:412
+#: includes/widgets/trips-tax-slider-two/controls.php:539
+#: includes/widgets/trips-tax-slider-two/controls.php:720
+#: includes/widgets/trips-tax-slider-two/controls.php:887
+#: includes/widgets/trips-tax-slider-two/controls.php:919
 msgid "Border Radius"
 msgstr ""
 
@@ -2962,6 +3367,7 @@ msgstr ""
 #: includes/trip-widgets/reviews/controls.php:276
 #: includes/trip-widgets/reviews/controls.php:325
 #: includes/trip-widgets/reviews/controls.php:347
+#: includes/trip-widgets/title/controls.php:98
 #: includes/widgets/advanced-trips-four/controls.php:340
 #: includes/widgets/advanced-trips-four/controls.php:391
 #: includes/widgets/advanced-trips-four/controls.php:925
@@ -2983,6 +3389,15 @@ msgstr ""
 #: includes/widgets/trip-search/controls.php:109
 #: includes/widgets/trip-search/controls.php:189
 #: includes/widgets/trip-search/controls.php:226
+#: includes/widgets/trip-tax-module-one/controls.php:216
+#: includes/widgets/trip-tax-module-one/controls.php:266
+#: includes/widgets/trip-tax-module-two/controls.php:215
+#: includes/widgets/trip-tax-module-two/controls.php:265
+#: includes/widgets/trip-tax-one/controls.php:212
+#: includes/widgets/trip-tax-one/controls.php:268
+#: includes/widgets/trip-tax-two/controls.php:232
+#: includes/widgets/trip-tax-two/controls.php:289
+#: includes/widgets/trip-tax-two/controls.php:501
 #: includes/widgets/trips/controls.php:326
 #: includes/widgets/trips/controls.php:510
 #: includes/widgets/trips/controls.php:757
@@ -3014,6 +3429,17 @@ msgstr ""
 #: includes/widgets/trips-tab/controls.php:442
 #: includes/widgets/trips-tab/controls.php:628
 #: includes/widgets/trips-tab/controls.php:1239
+#: includes/widgets/trips-tax-slider-one/controls.php:293
+#: includes/widgets/trips-tax-slider-one/controls.php:344
+#: includes/widgets/trips-tax-slider-one/controls.php:634
+#: includes/widgets/trips-tax-slider-three/controls.php:287
+#: includes/widgets/trips-tax-slider-three/controls.php:338
+#: includes/widgets/trips-tax-slider-three/controls.php:622
+#: includes/widgets/trips-tax-slider-two/controls.php:350
+#: includes/widgets/trips-tax-slider-two/controls.php:401
+#: includes/widgets/trips-tax-slider-two/controls.php:449
+#: includes/widgets/trips-tax-slider-two/controls.php:512
+#: includes/widgets/trips-tax-slider-two/controls.php:842
 msgid "Padding"
 msgstr ""
 
@@ -3059,6 +3485,15 @@ msgstr ""
 #: includes/widgets/terms/controls.php:588
 #: includes/widgets/terms/controls.php:792
 #: includes/widgets/trip-search/controls.php:266
+#: includes/widgets/trip-tax-module-one/controls.php:367
+#: includes/widgets/trip-tax-module-one/controls.php:426
+#: includes/widgets/trip-tax-module-two/controls.php:366
+#: includes/widgets/trip-tax-module-two/controls.php:425
+#: includes/widgets/trip-tax-one/controls.php:316
+#: includes/widgets/trip-tax-one/controls.php:438
+#: includes/widgets/trip-tax-two/controls.php:337
+#: includes/widgets/trip-tax-two/controls.php:459
+#: includes/widgets/trip-tax-two/controls.php:547
 #: includes/widgets/trips/controls.php:274
 #: includes/widgets/trips/controls.php:417
 #: includes/widgets/trips/controls.php:476
@@ -3100,6 +3535,16 @@ msgstr ""
 #: includes/widgets/trips-tab/controls.php:793
 #: includes/widgets/trips-tab/controls.php:877
 #: includes/widgets/trips-tab/controls.php:1314
+#: includes/widgets/trips-tax-slider-one/controls.php:392
+#: includes/widgets/trips-tax-slider-one/controls.php:520
+#: includes/widgets/trips-tax-slider-one/controls.php:726
+#: includes/widgets/trips-tax-slider-three/controls.php:386
+#: includes/widgets/trips-tax-slider-three/controls.php:508
+#: includes/widgets/trips-tax-slider-three/controls.php:714
+#: includes/widgets/trips-tax-slider-two/controls.php:552
+#: includes/widgets/trips-tax-slider-two/controls.php:606
+#: includes/widgets/trips-tax-slider-two/controls.php:728
+#: includes/widgets/trips-tax-slider-two/controls.php:900
 msgid "Hover"
 msgstr ""
 
@@ -3127,6 +3572,7 @@ msgstr ""
 #: includes/trip-widgets/reviewform/controls.php:224
 #: includes/trip-widgets/reviewform/controls.php:390
 #: includes/trip-widgets/reviews/controls.php:290
+#: includes/trip-widgets/title/controls.php:103
 #: includes/widgets/advanced-trips-four/controls.php:574
 #: includes/widgets/advanced-trips-four/controls.php:625
 #: includes/widgets/advanced-trips-four/controls.php:723
@@ -3157,6 +3603,17 @@ msgstr ""
 #: includes/widgets/terms/controls.php:214
 #: includes/widgets/terms/controls.php:330
 #: includes/widgets/trip-search/controls.php:195
+#: includes/widgets/trip-tax-module-one/controls.php:438
+#: includes/widgets/trip-tax-module-one/controls.php:460
+#: includes/widgets/trip-tax-module-two/controls.php:437
+#: includes/widgets/trip-tax-module-two/controls.php:459
+#: includes/widgets/trip-tax-one/controls.php:262
+#: includes/widgets/trip-tax-one/controls.php:328
+#: includes/widgets/trip-tax-one/controls.php:351
+#: includes/widgets/trip-tax-two/controls.php:283
+#: includes/widgets/trip-tax-two/controls.php:349
+#: includes/widgets/trip-tax-two/controls.php:372
+#: includes/widgets/trip-tax-two/controls.php:507
 #: includes/widgets/trips/controls.php:332
 #: includes/widgets/trips/controls.php:488
 #: includes/widgets/trips/controls.php:588
@@ -3203,6 +3660,15 @@ msgstr ""
 #: includes/widgets/trips-tab/controls.php:857
 #: includes/widgets/trips-tab/controls.php:955
 #: includes/widgets/trips-tab/controls.php:1153
+#: includes/widgets/trips-tax-slider-one/controls.php:404
+#: includes/widgets/trips-tax-slider-one/controls.php:427
+#: includes/widgets/trips-tax-slider-one/controls.php:511
+#: includes/widgets/trips-tax-slider-three/controls.php:398
+#: includes/widgets/trips-tax-slider-three/controls.php:421
+#: includes/widgets/trips-tax-slider-two/controls.php:469
+#: includes/widgets/trips-tax-slider-two/controls.php:490
+#: includes/widgets/trips-tax-slider-two/controls.php:618
+#: includes/widgets/trips-tax-slider-two/controls.php:641
 msgid "Margin"
 msgstr ""
 
@@ -3240,6 +3706,7 @@ msgstr ""
 #: includes/trip-widgets/ratings/widget.php:110
 #: includes/trip-widgets/reviewform/widget.php:118
 #: includes/trip-widgets/reviews/widget.php:109
+#: includes/trip-widgets/title/widget.php:90
 msgid "<p>Oops! No preview/output available for this widget.</p>"
 msgstr ""
 
@@ -3308,6 +3775,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:1297
 #: includes/widgets/trips-slider-two/controls.php:1279
 #: includes/widgets/trips-tab/controls.php:1353
+#: includes/widgets/trips-tax-slider-one/controls.php:765
+#: includes/widgets/trips-tax-slider-three/controls.php:753
+#: includes/widgets/trips-tax-slider-two/controls.php:939
 msgid "Active Color"
 msgstr ""
 
@@ -3462,6 +3932,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:1189
 #: includes/widgets/trips-slider-two/controls.php:1171
 #: includes/widgets/trips-tab/controls.php:1245
+#: includes/widgets/trips-tax-slider-one/controls.php:640
+#: includes/widgets/trips-tax-slider-three/controls.php:628
+#: includes/widgets/trips-tax-slider-two/controls.php:848
 msgid "Size"
 msgstr ""
 
@@ -3586,6 +4059,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-three/controls.php:362
 #: includes/widgets/advanced-trips-two/controls.php:337
 #: includes/widgets/featured-trips/controls.php:273
+#: includes/widgets/trip-tax-module-one/controls.php:239
+#: includes/widgets/trip-tax-module-two/controls.php:238
+#: includes/widgets/trip-tax-one/controls.php:235
+#: includes/widgets/trip-tax-two/controls.php:255
 #: includes/widgets/trips/controls.php:497
 #: includes/widgets/trips-accordion/controls.php:308
 #: includes/widgets/trips-list/controls.php:431
@@ -3596,6 +4073,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:453
 #: includes/widgets/trips-slider-two/controls.php:436
 #: includes/widgets/trips-tab/controls.php:600
+#: includes/widgets/trips-tax-slider-one/controls.php:317
+#: includes/widgets/trips-tax-slider-three/controls.php:311
+#: includes/widgets/trips-tax-slider-two/controls.php:374
 msgid "Content"
 msgstr ""
 
@@ -3926,30 +4406,85 @@ msgid "Show Title"
 msgstr ""
 
 #: includes/trip-widgets/itinerary/controls.php:120
+#: includes/trip-widgets/title/controls.php:37
 msgid "HTML Tag"
 msgstr ""
 
 #: includes/trip-widgets/itinerary/controls.php:123
+#: includes/trip-widgets/title/controls.php:41
+#: includes/widgets/trip-tax-module-one/controls.php:179
+#: includes/widgets/trip-tax-module-two/controls.php:178
+#: includes/widgets/trip-tax-one/controls.php:175
+#: includes/widgets/trip-tax-two/controls.php:189
+#: includes/widgets/trips-tax-slider-one/controls.php:188
+#: includes/widgets/trips-tax-slider-three/controls.php:187
+#: includes/widgets/trips-tax-slider-two/controls.php:224
+#: includes/widgets/trips-tax-slider-two/controls.php:241
 msgid "H1"
 msgstr ""
 
 #: includes/trip-widgets/itinerary/controls.php:124
+#: includes/trip-widgets/title/controls.php:42
+#: includes/widgets/trip-tax-module-one/controls.php:180
+#: includes/widgets/trip-tax-module-two/controls.php:179
+#: includes/widgets/trip-tax-one/controls.php:176
+#: includes/widgets/trip-tax-two/controls.php:190
+#: includes/widgets/trips-tax-slider-one/controls.php:189
+#: includes/widgets/trips-tax-slider-three/controls.php:188
+#: includes/widgets/trips-tax-slider-two/controls.php:225
+#: includes/widgets/trips-tax-slider-two/controls.php:242
 msgid "H2"
 msgstr ""
 
 #: includes/trip-widgets/itinerary/controls.php:125
+#: includes/trip-widgets/title/controls.php:43
+#: includes/widgets/trip-tax-module-one/controls.php:181
+#: includes/widgets/trip-tax-module-two/controls.php:180
+#: includes/widgets/trip-tax-one/controls.php:177
+#: includes/widgets/trip-tax-two/controls.php:191
+#: includes/widgets/trips-tax-slider-one/controls.php:190
+#: includes/widgets/trips-tax-slider-three/controls.php:189
+#: includes/widgets/trips-tax-slider-two/controls.php:226
+#: includes/widgets/trips-tax-slider-two/controls.php:243
 msgid "H3"
 msgstr ""
 
 #: includes/trip-widgets/itinerary/controls.php:126
+#: includes/trip-widgets/title/controls.php:44
+#: includes/widgets/trip-tax-module-one/controls.php:182
+#: includes/widgets/trip-tax-module-two/controls.php:181
+#: includes/widgets/trip-tax-one/controls.php:178
+#: includes/widgets/trip-tax-two/controls.php:192
+#: includes/widgets/trips-tax-slider-one/controls.php:191
+#: includes/widgets/trips-tax-slider-three/controls.php:190
+#: includes/widgets/trips-tax-slider-two/controls.php:227
+#: includes/widgets/trips-tax-slider-two/controls.php:244
 msgid "H4"
 msgstr ""
 
 #: includes/trip-widgets/itinerary/controls.php:127
+#: includes/trip-widgets/title/controls.php:45
+#: includes/widgets/trip-tax-module-one/controls.php:183
+#: includes/widgets/trip-tax-module-two/controls.php:182
+#: includes/widgets/trip-tax-one/controls.php:179
+#: includes/widgets/trip-tax-two/controls.php:193
+#: includes/widgets/trips-tax-slider-one/controls.php:192
+#: includes/widgets/trips-tax-slider-three/controls.php:191
+#: includes/widgets/trips-tax-slider-two/controls.php:228
+#: includes/widgets/trips-tax-slider-two/controls.php:245
 msgid "H5"
 msgstr ""
 
 #: includes/trip-widgets/itinerary/controls.php:128
+#: includes/trip-widgets/title/controls.php:46
+#: includes/widgets/trip-tax-module-one/controls.php:184
+#: includes/widgets/trip-tax-module-two/controls.php:183
+#: includes/widgets/trip-tax-one/controls.php:180
+#: includes/widgets/trip-tax-two/controls.php:194
+#: includes/widgets/trips-tax-slider-one/controls.php:193
+#: includes/widgets/trips-tax-slider-three/controls.php:192
+#: includes/widgets/trips-tax-slider-two/controls.php:229
+#: includes/widgets/trips-tax-slider-two/controls.php:246
 msgid "H6"
 msgstr ""
 
@@ -3958,10 +4493,26 @@ msgid "div"
 msgstr ""
 
 #: includes/trip-widgets/itinerary/controls.php:130
+#: includes/widgets/trip-tax-module-one/controls.php:186
+#: includes/widgets/trip-tax-module-two/controls.php:185
+#: includes/widgets/trip-tax-one/controls.php:182
+#: includes/widgets/trip-tax-two/controls.php:196
+#: includes/widgets/trips-tax-slider-one/controls.php:195
+#: includes/widgets/trips-tax-slider-three/controls.php:194
+#: includes/widgets/trips-tax-slider-two/controls.php:231
+#: includes/widgets/trips-tax-slider-two/controls.php:248
 msgid "span"
 msgstr ""
 
 #: includes/trip-widgets/itinerary/controls.php:131
+#: includes/widgets/trip-tax-module-one/controls.php:187
+#: includes/widgets/trip-tax-module-two/controls.php:186
+#: includes/widgets/trip-tax-one/controls.php:183
+#: includes/widgets/trip-tax-two/controls.php:197
+#: includes/widgets/trips-tax-slider-one/controls.php:196
+#: includes/widgets/trips-tax-slider-three/controls.php:195
+#: includes/widgets/trips-tax-slider-two/controls.php:232
+#: includes/widgets/trips-tax-slider-two/controls.php:249
 msgid "p"
 msgstr ""
 
@@ -4013,6 +4564,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:1240
 #: includes/widgets/trips-slider-two/controls.php:1222
 #: includes/widgets/trips-tab/controls.php:1296
+#: includes/widgets/trips-tax-slider-one/controls.php:708
+#: includes/widgets/trips-tax-slider-three/controls.php:696
+#: includes/widgets/trips-tax-slider-two/controls.php:882
 msgid "Border"
 msgstr ""
 
@@ -4218,6 +4772,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-two/controls.php:442
 #: includes/widgets/featured-trips/controls.php:377
 #: includes/widgets/terms/controls.php:479
+#: includes/widgets/trip-tax-module-one/controls.php:343
+#: includes/widgets/trip-tax-module-two/controls.php:342
+#: includes/widgets/trip-tax-one/controls.php:414
+#: includes/widgets/trip-tax-two/controls.php:435
 #: includes/widgets/trips/controls.php:393
 #: includes/widgets/trips-list/controls.php:596
 #: includes/widgets/trips-module-one/controls.php:554
@@ -4227,6 +4785,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:580
 #: includes/widgets/trips-slider-two/controls.php:541
 #: includes/widgets/trips-tab/controls.php:705
+#: includes/widgets/trips-tax-slider-one/controls.php:490
+#: includes/widgets/trips-tax-slider-three/controls.php:484
+#: includes/widgets/trips-tax-slider-two/controls.php:704
 msgid "Height"
 msgstr ""
 
@@ -4250,6 +4811,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-two/controls.php:389
 #: includes/widgets/featured-trips/controls.php:325
 #: includes/widgets/terms/controls.php:427
+#: includes/widgets/trip-tax-module-one/controls.php:291
+#: includes/widgets/trip-tax-module-two/controls.php:290
+#: includes/widgets/trip-tax-one/controls.php:362
+#: includes/widgets/trip-tax-two/controls.php:383
 #: includes/widgets/trips/controls.php:340
 #: includes/widgets/trips-accordion/controls.php:360
 #: includes/widgets/trips-list/controls.php:544
@@ -4260,6 +4825,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:527
 #: includes/widgets/trips-slider-two/controls.php:488
 #: includes/widgets/trips-tab/controls.php:653
+#: includes/widgets/trips-tax-slider-one/controls.php:438
+#: includes/widgets/trips-tax-slider-three/controls.php:432
+#: includes/widgets/trips-tax-slider-two/controls.php:652
 msgid "Image"
 msgstr ""
 
@@ -4305,6 +4873,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:1301
 #: includes/widgets/trips-slider-two/controls.php:1283
 #: includes/widgets/trips-tab/controls.php:1357
+#: includes/widgets/trips-tax-slider-one/controls.php:769
+#: includes/widgets/trips-tax-slider-three/controls.php:757
+#: includes/widgets/trips-tax-slider-two/controls.php:943
 msgid "Spacing"
 msgstr ""
 
@@ -4344,6 +4915,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-two/controls.php:400
 #: includes/widgets/featured-trips/controls.php:336
 #: includes/widgets/terms/controls.php:438
+#: includes/widgets/trip-tax-module-one/controls.php:302
+#: includes/widgets/trip-tax-module-two/controls.php:301
+#: includes/widgets/trip-tax-one/controls.php:373
+#: includes/widgets/trip-tax-two/controls.php:394
 #: includes/widgets/trips/controls.php:351
 #: includes/widgets/trips-accordion/controls.php:371
 #: includes/widgets/trips-list/controls.php:555
@@ -4354,6 +4929,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:538
 #: includes/widgets/trips-slider-two/controls.php:499
 #: includes/widgets/trips-tab/controls.php:664
+#: includes/widgets/trips-tax-slider-one/controls.php:449
+#: includes/widgets/trips-tax-slider-three/controls.php:443
+#: includes/widgets/trips-tax-slider-two/controls.php:663
 msgid "Image Size"
 msgstr ""
 
@@ -4364,6 +4942,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-two/controls.php:406
 #: includes/widgets/featured-trips/controls.php:342
 #: includes/widgets/terms/controls.php:444
+#: includes/widgets/trip-tax-module-one/controls.php:308
+#: includes/widgets/trip-tax-module-two/controls.php:307
+#: includes/widgets/trip-tax-one/controls.php:379
+#: includes/widgets/trip-tax-two/controls.php:400
 #: includes/widgets/trips/controls.php:357
 #: includes/widgets/trips-accordion/controls.php:377
 #: includes/widgets/trips-list/controls.php:561
@@ -4374,6 +4956,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:544
 #: includes/widgets/trips-slider-two/controls.php:505
 #: includes/widgets/trips-tab/controls.php:670
+#: includes/widgets/trips-tax-slider-one/controls.php:455
+#: includes/widgets/trips-tax-slider-three/controls.php:449
+#: includes/widgets/trips-tax-slider-two/controls.php:669
 msgid "Custom Image Size"
 msgstr ""
 
@@ -4384,6 +4969,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-two/controls.php:414
 #: includes/widgets/featured-trips/controls.php:349
 #: includes/widgets/terms/controls.php:451
+#: includes/widgets/trip-tax-module-one/controls.php:315
+#: includes/widgets/trip-tax-module-two/controls.php:314
+#: includes/widgets/trip-tax-one/controls.php:386
+#: includes/widgets/trip-tax-two/controls.php:407
 #: includes/widgets/trips/controls.php:365
 #: includes/widgets/trips-accordion/controls.php:385
 #: includes/widgets/trips-list/controls.php:568
@@ -4394,6 +4983,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:552
 #: includes/widgets/trips-slider-two/controls.php:513
 #: includes/widgets/trips-tab/controls.php:677
+#: includes/widgets/trips-tax-slider-one/controls.php:462
+#: includes/widgets/trips-tax-slider-three/controls.php:456
+#: includes/widgets/trips-tax-slider-two/controls.php:676
 msgid "Object Fit"
 msgstr ""
 
@@ -4401,11 +4993,18 @@ msgstr ""
 #: includes/widgets/advanced-trips-three/controls.php:441
 #: includes/widgets/featured-trips/controls.php:351
 #: includes/widgets/terms/controls.php:453
+#: includes/widgets/trip-tax-module-one/controls.php:317
+#: includes/widgets/trip-tax-module-two/controls.php:316
+#: includes/widgets/trip-tax-one/controls.php:388
+#: includes/widgets/trip-tax-two/controls.php:409
 #: includes/widgets/trips/controls.php:367
 #: includes/widgets/trips-accordion/controls.php:387
 #: includes/widgets/trips-module-one/controls.php:528
 #: includes/widgets/trips-module-three/controls.php:510
 #: includes/widgets/trips-module-two/controls.php:466
+#: includes/widgets/trips-tax-slider-one/controls.php:464
+#: includes/widgets/trips-tax-slider-three/controls.php:458
+#: includes/widgets/trips-tax-slider-two/controls.php:678
 msgid "Original"
 msgstr ""
 
@@ -4416,6 +5015,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-two/controls.php:417
 #: includes/widgets/featured-trips/controls.php:352
 #: includes/widgets/terms/controls.php:454
+#: includes/widgets/trip-tax-module-one/controls.php:318
+#: includes/widgets/trip-tax-module-two/controls.php:317
+#: includes/widgets/trip-tax-one/controls.php:389
+#: includes/widgets/trip-tax-two/controls.php:410
 #: includes/widgets/trips/controls.php:368
 #: includes/widgets/trips-accordion/controls.php:388
 #: includes/widgets/trips-list/controls.php:571
@@ -4426,6 +5029,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:555
 #: includes/widgets/trips-slider-two/controls.php:516
 #: includes/widgets/trips-tab/controls.php:680
+#: includes/widgets/trips-tax-slider-one/controls.php:465
+#: includes/widgets/trips-tax-slider-three/controls.php:459
+#: includes/widgets/trips-tax-slider-two/controls.php:679
 msgid "Contain"
 msgstr ""
 
@@ -4436,6 +5042,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-two/controls.php:418
 #: includes/widgets/featured-trips/controls.php:353
 #: includes/widgets/terms/controls.php:455
+#: includes/widgets/trip-tax-module-one/controls.php:319
+#: includes/widgets/trip-tax-module-two/controls.php:318
+#: includes/widgets/trip-tax-one/controls.php:390
+#: includes/widgets/trip-tax-two/controls.php:411
 #: includes/widgets/trips/controls.php:369
 #: includes/widgets/trips-accordion/controls.php:389
 #: includes/widgets/trips-list/controls.php:572
@@ -4446,6 +5056,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:556
 #: includes/widgets/trips-slider-two/controls.php:517
 #: includes/widgets/trips-tab/controls.php:681
+#: includes/widgets/trips-tax-slider-one/controls.php:466
+#: includes/widgets/trips-tax-slider-three/controls.php:460
+#: includes/widgets/trips-tax-slider-two/controls.php:680
 msgid "Cover"
 msgstr ""
 
@@ -4456,6 +5069,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-two/controls.php:419
 #: includes/widgets/featured-trips/controls.php:354
 #: includes/widgets/terms/controls.php:456
+#: includes/widgets/trip-tax-module-one/controls.php:320
+#: includes/widgets/trip-tax-module-two/controls.php:319
+#: includes/widgets/trip-tax-one/controls.php:391
+#: includes/widgets/trip-tax-two/controls.php:412
 #: includes/widgets/trips/controls.php:370
 #: includes/widgets/trips-accordion/controls.php:390
 #: includes/widgets/trips-list/controls.php:573
@@ -4466,6 +5083,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:557
 #: includes/widgets/trips-slider-two/controls.php:518
 #: includes/widgets/trips-tab/controls.php:682
+#: includes/widgets/trips-tax-slider-one/controls.php:467
+#: includes/widgets/trips-tax-slider-three/controls.php:461
+#: includes/widgets/trips-tax-slider-two/controls.php:681
 msgid "Fill"
 msgstr ""
 
@@ -4476,6 +5096,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-two/controls.php:426
 #: includes/widgets/featured-trips/controls.php:361
 #: includes/widgets/terms/controls.php:463
+#: includes/widgets/trip-tax-module-one/controls.php:327
+#: includes/widgets/trip-tax-module-two/controls.php:326
+#: includes/widgets/trip-tax-one/controls.php:398
+#: includes/widgets/trip-tax-two/controls.php:419
 #: includes/widgets/trips/controls.php:377
 #: includes/widgets/trips-accordion/controls.php:397
 #: includes/widgets/trips-list/controls.php:580
@@ -4487,6 +5111,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:564
 #: includes/widgets/trips-slider-two/controls.php:525
 #: includes/widgets/trips-tab/controls.php:689
+#: includes/widgets/trips-tax-slider-one/controls.php:474
+#: includes/widgets/trips-tax-slider-three/controls.php:468
+#: includes/widgets/trips-tax-slider-two/controls.php:688
 msgid "Width"
 msgstr ""
 
@@ -4497,6 +5124,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-two/controls.php:475
 #: includes/widgets/featured-trips/controls.php:405
 #: includes/widgets/terms/controls.php:507
+#: includes/widgets/trip-tax-module-one/controls.php:371
+#: includes/widgets/trip-tax-module-two/controls.php:370
+#: includes/widgets/trip-tax-one/controls.php:442
+#: includes/widgets/trip-tax-two/controls.php:463
 #: includes/widgets/trips/controls.php:421
 #: includes/widgets/trips-accordion/controls.php:419
 #: includes/widgets/trips-list/controls.php:629
@@ -4507,6 +5138,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:613
 #: includes/widgets/trips-slider-two/controls.php:574
 #: includes/widgets/trips-tab/controls.php:738
+#: includes/widgets/trips-tax-slider-one/controls.php:524
+#: includes/widgets/trips-tax-slider-three/controls.php:512
+#: includes/widgets/trips-tax-slider-two/controls.php:732
 msgid "Animation Type"
 msgstr ""
 
@@ -4517,6 +5151,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-two/controls.php:477
 #: includes/widgets/featured-trips/controls.php:407
 #: includes/widgets/terms/controls.php:509
+#: includes/widgets/trip-tax-module-one/controls.php:373
+#: includes/widgets/trip-tax-module-two/controls.php:372
+#: includes/widgets/trip-tax-one/controls.php:444
+#: includes/widgets/trip-tax-two/controls.php:465
 #: includes/widgets/trips/controls.php:423
 #: includes/widgets/trips-accordion/controls.php:421
 #: includes/widgets/trips-list/controls.php:631
@@ -4527,6 +5165,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:615
 #: includes/widgets/trips-slider-two/controls.php:576
 #: includes/widgets/trips-tab/controls.php:740
+#: includes/widgets/trips-tax-slider-one/controls.php:526
+#: includes/widgets/trips-tax-slider-three/controls.php:514
+#: includes/widgets/trips-tax-slider-two/controls.php:734
 msgid "Linear"
 msgstr ""
 
@@ -4537,6 +5178,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-two/controls.php:478
 #: includes/widgets/featured-trips/controls.php:408
 #: includes/widgets/terms/controls.php:510
+#: includes/widgets/trip-tax-module-one/controls.php:374
+#: includes/widgets/trip-tax-module-two/controls.php:373
+#: includes/widgets/trip-tax-one/controls.php:445
+#: includes/widgets/trip-tax-two/controls.php:466
 #: includes/widgets/trips/controls.php:424
 #: includes/widgets/trips-accordion/controls.php:422
 #: includes/widgets/trips-list/controls.php:632
@@ -4547,6 +5192,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:616
 #: includes/widgets/trips-slider-two/controls.php:577
 #: includes/widgets/trips-tab/controls.php:741
+#: includes/widgets/trips-tax-slider-one/controls.php:527
+#: includes/widgets/trips-tax-slider-three/controls.php:515
+#: includes/widgets/trips-tax-slider-two/controls.php:735
 msgid "Ease"
 msgstr ""
 
@@ -4557,6 +5205,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-two/controls.php:479
 #: includes/widgets/featured-trips/controls.php:409
 #: includes/widgets/terms/controls.php:511
+#: includes/widgets/trip-tax-module-one/controls.php:375
+#: includes/widgets/trip-tax-module-two/controls.php:374
+#: includes/widgets/trip-tax-one/controls.php:446
+#: includes/widgets/trip-tax-two/controls.php:467
 #: includes/widgets/trips/controls.php:425
 #: includes/widgets/trips-accordion/controls.php:423
 #: includes/widgets/trips-list/controls.php:633
@@ -4567,6 +5219,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:617
 #: includes/widgets/trips-slider-two/controls.php:578
 #: includes/widgets/trips-tab/controls.php:742
+#: includes/widgets/trips-tax-slider-one/controls.php:528
+#: includes/widgets/trips-tax-slider-three/controls.php:516
+#: includes/widgets/trips-tax-slider-two/controls.php:736
 msgid "Ease-in"
 msgstr ""
 
@@ -4577,6 +5232,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-two/controls.php:480
 #: includes/widgets/featured-trips/controls.php:410
 #: includes/widgets/terms/controls.php:512
+#: includes/widgets/trip-tax-module-one/controls.php:376
+#: includes/widgets/trip-tax-module-two/controls.php:375
+#: includes/widgets/trip-tax-one/controls.php:447
+#: includes/widgets/trip-tax-two/controls.php:468
 #: includes/widgets/trips/controls.php:426
 #: includes/widgets/trips-accordion/controls.php:424
 #: includes/widgets/trips-list/controls.php:634
@@ -4587,6 +5246,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:618
 #: includes/widgets/trips-slider-two/controls.php:579
 #: includes/widgets/trips-tab/controls.php:743
+#: includes/widgets/trips-tax-slider-one/controls.php:529
+#: includes/widgets/trips-tax-slider-three/controls.php:517
+#: includes/widgets/trips-tax-slider-two/controls.php:737
 msgid "Ease-out"
 msgstr ""
 
@@ -4597,6 +5259,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-two/controls.php:481
 #: includes/widgets/featured-trips/controls.php:411
 #: includes/widgets/terms/controls.php:513
+#: includes/widgets/trip-tax-module-one/controls.php:377
+#: includes/widgets/trip-tax-module-two/controls.php:376
+#: includes/widgets/trip-tax-one/controls.php:448
+#: includes/widgets/trip-tax-two/controls.php:469
 #: includes/widgets/trips/controls.php:427
 #: includes/widgets/trips-accordion/controls.php:425
 #: includes/widgets/trips-list/controls.php:635
@@ -4607,6 +5273,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:619
 #: includes/widgets/trips-slider-two/controls.php:580
 #: includes/widgets/trips-tab/controls.php:744
+#: includes/widgets/trips-tax-slider-one/controls.php:530
+#: includes/widgets/trips-tax-slider-three/controls.php:518
+#: includes/widgets/trips-tax-slider-two/controls.php:738
 msgid "Ease-in-out"
 msgstr ""
 
@@ -4617,6 +5286,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-two/controls.php:482
 #: includes/widgets/featured-trips/controls.php:412
 #: includes/widgets/terms/controls.php:514
+#: includes/widgets/trip-tax-module-one/controls.php:378
+#: includes/widgets/trip-tax-module-two/controls.php:377
+#: includes/widgets/trip-tax-one/controls.php:449
+#: includes/widgets/trip-tax-two/controls.php:470
 #: includes/widgets/trips/controls.php:428
 #: includes/widgets/trips-accordion/controls.php:426
 #: includes/widgets/trips-list/controls.php:636
@@ -4627,6 +5300,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:620
 #: includes/widgets/trips-slider-two/controls.php:581
 #: includes/widgets/trips-tab/controls.php:745
+#: includes/widgets/trips-tax-slider-one/controls.php:531
+#: includes/widgets/trips-tax-slider-three/controls.php:519
+#: includes/widgets/trips-tax-slider-two/controls.php:739
 msgid "Step-start"
 msgstr ""
 
@@ -4637,6 +5313,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-two/controls.php:483
 #: includes/widgets/featured-trips/controls.php:413
 #: includes/widgets/terms/controls.php:515
+#: includes/widgets/trip-tax-module-one/controls.php:379
+#: includes/widgets/trip-tax-module-two/controls.php:378
+#: includes/widgets/trip-tax-one/controls.php:450
+#: includes/widgets/trip-tax-two/controls.php:471
 #: includes/widgets/trips/controls.php:429
 #: includes/widgets/trips-accordion/controls.php:427
 #: includes/widgets/trips-list/controls.php:637
@@ -4647,6 +5327,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:621
 #: includes/widgets/trips-slider-two/controls.php:582
 #: includes/widgets/trips-tab/controls.php:746
+#: includes/widgets/trips-tax-slider-one/controls.php:532
+#: includes/widgets/trips-tax-slider-three/controls.php:520
+#: includes/widgets/trips-tax-slider-two/controls.php:740
 msgid "Step-end"
 msgstr ""
 
@@ -4657,6 +5340,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-two/controls.php:484
 #: includes/widgets/featured-trips/controls.php:414
 #: includes/widgets/terms/controls.php:516
+#: includes/widgets/trip-tax-module-one/controls.php:380
+#: includes/widgets/trip-tax-module-two/controls.php:379
+#: includes/widgets/trip-tax-one/controls.php:451
+#: includes/widgets/trip-tax-two/controls.php:472
 #: includes/widgets/trips/controls.php:430
 #: includes/widgets/trips-accordion/controls.php:428
 #: includes/widgets/trips-list/controls.php:638
@@ -4667,6 +5354,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:622
 #: includes/widgets/trips-slider-two/controls.php:583
 #: includes/widgets/trips-tab/controls.php:747
+#: includes/widgets/trips-tax-slider-one/controls.php:533
+#: includes/widgets/trips-tax-slider-three/controls.php:521
+#: includes/widgets/trips-tax-slider-two/controls.php:741
 msgid "Initial"
 msgstr ""
 
@@ -4677,6 +5367,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-two/controls.php:485
 #: includes/widgets/featured-trips/controls.php:415
 #: includes/widgets/terms/controls.php:517
+#: includes/widgets/trip-tax-module-one/controls.php:381
+#: includes/widgets/trip-tax-module-two/controls.php:380
+#: includes/widgets/trip-tax-one/controls.php:452
+#: includes/widgets/trip-tax-two/controls.php:473
 #: includes/widgets/trips/controls.php:431
 #: includes/widgets/trips-accordion/controls.php:429
 #: includes/widgets/trips-list/controls.php:639
@@ -4687,6 +5381,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:623
 #: includes/widgets/trips-slider-two/controls.php:584
 #: includes/widgets/trips-tab/controls.php:748
+#: includes/widgets/trips-tax-slider-one/controls.php:534
+#: includes/widgets/trips-tax-slider-three/controls.php:522
+#: includes/widgets/trips-tax-slider-two/controls.php:742
 msgid "Inherit"
 msgstr ""
 
@@ -4697,6 +5394,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-two/controls.php:492
 #: includes/widgets/featured-trips/controls.php:422
 #: includes/widgets/terms/controls.php:524
+#: includes/widgets/trip-tax-module-one/controls.php:388
+#: includes/widgets/trip-tax-module-two/controls.php:387
+#: includes/widgets/trip-tax-one/controls.php:459
+#: includes/widgets/trip-tax-two/controls.php:480
 #: includes/widgets/trips/controls.php:438
 #: includes/widgets/trips-accordion/controls.php:436
 #: includes/widgets/trips-list/controls.php:646
@@ -4707,6 +5408,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:630
 #: includes/widgets/trips-slider-two/controls.php:591
 #: includes/widgets/trips-tab/controls.php:755
+#: includes/widgets/trips-tax-slider-one/controls.php:541
+#: includes/widgets/trips-tax-slider-three/controls.php:529
+#: includes/widgets/trips-tax-slider-two/controls.php:749
 msgid "Animation Duration (sec)"
 msgstr ""
 
@@ -4889,6 +5593,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:1113
 #: includes/widgets/trips-slider-two/controls.php:1095
 #: includes/widgets/trips-tab/controls.php:1169
+#: includes/widgets/trips-tax-slider-one/controls.php:564
+#: includes/widgets/trips-tax-slider-three/controls.php:552
+#: includes/widgets/trips-tax-slider-two/controls.php:772
 msgid "Prev Arrow"
 msgstr ""
 
@@ -4899,6 +5606,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:1148
 #: includes/widgets/trips-slider-two/controls.php:1130
 #: includes/widgets/trips-tab/controls.php:1204
+#: includes/widgets/trips-tax-slider-one/controls.php:599
+#: includes/widgets/trips-tax-slider-three/controls.php:587
+#: includes/widgets/trips-tax-slider-two/controls.php:807
 msgid "Next Arrow"
 msgstr ""
 
@@ -4933,6 +5643,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:1287
 #: includes/widgets/trips-slider-two/controls.php:1269
 #: includes/widgets/trips-tab/controls.php:1343
+#: includes/widgets/trips-tax-slider-one/controls.php:755
+#: includes/widgets/trips-tax-slider-three/controls.php:743
+#: includes/widgets/trips-tax-slider-two/controls.php:929
 msgid "Pagination"
 msgstr ""
 
@@ -5209,10 +5922,18 @@ msgstr ""
 msgid "Trip - Reviews"
 msgstr ""
 
+#: includes/trip-widgets/title/widget.php:54
+msgid "Trip - Title"
+msgstr ""
+
 #: includes/widgets/advanced-trips-four/controls.php:173
 #: includes/widgets/advanced-trips-one/controls.php:174
 #: includes/widgets/advanced-trips-three/controls.php:171
 #: includes/widgets/advanced-trips-two/controls.php:159
+#: includes/widgets/trip-tax-module-one/controls.php:84
+#: includes/widgets/trip-tax-module-two/controls.php:83
+#: includes/widgets/trip-tax-one/controls.php:70
+#: includes/widgets/trip-tax-two/controls.php:84
 #: includes/widgets/trips-accordion/controls.php:111
 #: includes/widgets/trips-list/controls.php:180
 #: includes/widgets/trips-module-one/controls.php:150
@@ -5236,6 +5957,10 @@ msgstr ""
 #: includes/widgets/advanced-trips-two/controls.php:859
 #: includes/widgets/featured-trips/controls.php:659
 #: includes/widgets/featured-trips/controls.php:820
+#: includes/widgets/trip-tax-module-one/controls.php:102
+#: includes/widgets/trip-tax-module-two/controls.php:101
+#: includes/widgets/trip-tax-one/controls.php:88
+#: includes/widgets/trip-tax-two/controls.php:102
 #: includes/widgets/trips-accordion/controls.php:128
 #: includes/widgets/trips-accordion/controls.php:673
 #: includes/widgets/trips-accordion/controls.php:838
@@ -5259,6 +5984,9 @@ msgstr ""
 #: includes/widgets/trips-tab/controls.php:468
 #: includes/widgets/trips-tab/controls.php:968
 #: includes/widgets/trips-tab/controls.php:1123
+#: includes/widgets/trips-tax-slider-one/controls.php:102
+#: includes/widgets/trips-tax-slider-three/controls.php:101
+#: includes/widgets/trips-tax-slider-two/controls.php:101
 msgid "Layouts"
 msgstr ""
 
@@ -5380,6 +6108,7 @@ msgstr ""
 
 #: includes/widgets/advanced-trips-four/controls.php:316
 #: includes/widgets/advanced-trips-three/controls.php:313
+#: includes/widgets/trip-tax-two/controls.php:214
 #: includes/widgets/trips-slider-three/controls.php:332
 #: includes/widgets/trips-slider-two/controls.php:328
 #: includes/widgets/trips-tab/controls.php:368
@@ -5581,6 +6310,13 @@ msgid "Overlay Color"
 msgstr ""
 
 #: includes/widgets/terms/controls.php:338
+#: includes/widgets/trip-tax-module-one/controls.php:447
+#: includes/widgets/trip-tax-module-two/controls.php:446
+#: includes/widgets/trip-tax-one/controls.php:338
+#: includes/widgets/trip-tax-two/controls.php:359
+#: includes/widgets/trips-tax-slider-one/controls.php:414
+#: includes/widgets/trips-tax-slider-three/controls.php:408
+#: includes/widgets/trips-tax-slider-two/controls.php:628
 msgid "Count"
 msgstr ""
 
@@ -5589,6 +6325,9 @@ msgstr ""
 #: includes/widgets/trips-slider-three/controls.php:1109
 #: includes/widgets/trips-slider-two/controls.php:1091
 #: includes/widgets/trips-tab/controls.php:1165
+#: includes/widgets/trips-tax-slider-one/controls.php:560
+#: includes/widgets/trips-tax-slider-three/controls.php:548
+#: includes/widgets/trips-tax-slider-two/controls.php:768
 msgid "Arrow"
 msgstr ""
 
@@ -5622,6 +6361,57 @@ msgstr ""
 
 #: includes/widgets/trip-search/controls.php:201
 msgid "Item Spacing"
+msgstr ""
+
+#: includes/widgets/trip-tax-module-one/controls.php:119
+#: includes/widgets/trip-tax-module-two/controls.php:118
+#: includes/widgets/trip-tax-one/controls.php:105
+#: includes/widgets/trip-tax-two/controls.php:119
+#: includes/widgets/trips-tax-slider-one/controls.php:119
+#: includes/widgets/trips-tax-slider-three/controls.php:118
+#: includes/widgets/trips-tax-slider-two/controls.php:117
+msgid "Select Taxonomy"
+msgstr ""
+
+#: includes/widgets/trip-tax-module-one/controls.php:177
+#: includes/widgets/trip-tax-module-two/controls.php:176
+#: includes/widgets/trip-tax-one/controls.php:173
+#: includes/widgets/trip-tax-two/controls.php:187
+#: includes/widgets/trips-tax-slider-one/controls.php:186
+#: includes/widgets/trips-tax-slider-three/controls.php:185
+#: includes/widgets/trips-tax-slider-two/controls.php:239
+msgid "Title Tag"
+msgstr ""
+
+#: includes/widgets/trip-tax-module-one/controls.php:185
+#: includes/widgets/trip-tax-module-two/controls.php:184
+#: includes/widgets/trip-tax-one/controls.php:181
+#: includes/widgets/trip-tax-two/controls.php:195
+#: includes/widgets/trips-tax-slider-one/controls.php:194
+#: includes/widgets/trips-tax-slider-three/controls.php:193
+#: includes/widgets/trips-tax-slider-two/controls.php:230
+#: includes/widgets/trips-tax-slider-two/controls.php:247
+msgid "Div"
+msgstr ""
+
+#: includes/widgets/trip-tax-module-one/controls.php:201
+#: includes/widgets/trip-tax-module-two/controls.php:200
+#: includes/widgets/trip-tax-one/controls.php:197
+#: includes/widgets/trip-tax-two/controls.php:211
+#: includes/widgets/trips-tax-slider-one/controls.php:210
+#: includes/widgets/trips-tax-slider-three/controls.php:209
+#: includes/widgets/trips-tax-slider-two/controls.php:263
+msgid "First: singular (1 Trip) | Second: plural (2 Trips)"
+msgstr ""
+
+#: includes/widgets/trip-tax-module-one/trip-tax-module-one.php:153
+#: includes/widgets/trip-tax-module-two/trip-tax-module-two.php:161
+#: includes/widgets/trip-tax-one/trip-tax-one.php:160
+#: includes/widgets/trip-tax-two/trip-tax-two.php:160
+#: includes/widgets/trips-tax-slider-one/trips-tax-slider-one.php:298
+#: includes/widgets/trips-tax-slider-three/trips-tax-slider-three.php:320
+#: includes/widgets/trips-tax-slider-two/trips-tax-slider-two.php:337
+msgid "No taxonomy available. Please add a new term."
 msgstr ""
 
 #: includes/widgets/trips-accordion/controls.php:294
@@ -5685,6 +6475,9 @@ msgstr ""
 
 #: includes/widgets/trips-slider/controls.php:1135
 #: includes/widgets/trips-tab/controls.php:1328
+#: includes/widgets/trips-tax-slider-one/controls.php:740
+#: includes/widgets/trips-tax-slider-three/controls.php:728
+#: includes/widgets/trips-tax-slider-two/controls.php:914
 msgid "Border Color"
 msgstr ""
 
@@ -5762,6 +6555,64 @@ msgstr ""
 
 #: includes/widgets/trips-tab/trips-tab.php:421
 msgid "No terms selected. Please assign a term."
+msgstr ""
+
+#: includes/widgets/trips-tax-slider-one/controls.php:657
+#: includes/widgets/trips-tax-slider-three/controls.php:645
+msgid "Offset X"
+msgstr ""
+
+#: includes/widgets/trips-tax-slider-one/controls.php:674
+#: includes/widgets/trips-tax-slider-three/controls.php:662
+msgid "Offset Y"
+msgstr ""
+
+#: includes/widgets/trips-tax-slider-two/controls.php:183
+msgid "CTA Title"
+msgstr ""
+
+#: includes/widgets/trips-tax-slider-two/controls.php:186
+msgid "Travel Around The World."
+msgstr ""
+
+#: includes/widgets/trips-tax-slider-two/controls.php:189
+msgid "CTA Content"
+msgstr ""
+
+#: includes/widgets/trips-tax-slider-two/controls.php:192
+msgid ""
+"The United States, with its diverse landscapes, iconic landmarks, vibrant "
+"cities, and rich cultural heritage, offers an unparalleled tourist "
+"destination."
+msgstr ""
+
+#: includes/widgets/trips-tax-slider-two/controls.php:195
+msgid "CTA Button"
+msgstr ""
+
+#: includes/widgets/trips-tax-slider-two/controls.php:198
+msgid "Explore Now"
+msgstr ""
+
+#: includes/widgets/trips-tax-slider-two/controls.php:201
+msgid "CTA Button Link"
+msgstr ""
+
+#: includes/widgets/trips-tax-slider-two/controls.php:212
+msgid "CTA Icon"
+msgstr ""
+
+#: includes/widgets/trips-tax-slider-two/controls.php:222
+msgid "CTA Title Tag"
+msgstr ""
+
+#: includes/widgets/trips-tax-slider-two/controls.php:426
+msgid "CTA"
+msgstr ""
+
+#: includes/widgets/trips-tax-slider-two/controls.php:476
+#: includes/widgets/trips-tax-slider-two/controls.php:497
+msgid "Description"
 msgstr ""
 
 #: wte-elementor-widgets.php:79

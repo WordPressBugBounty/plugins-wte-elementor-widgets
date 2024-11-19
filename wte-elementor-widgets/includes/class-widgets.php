@@ -978,6 +978,41 @@ class Widgets_Controller {
 			'icon'                => 'wte-trips-slider',
 		);
 
+		$widgets['wptravelengine-trip-tax-module-one'] = array(
+			'title'               => __( 'Destination/Activities Module 1', 'wptravelengine-elementor-widgets' ),
+			'icon'                => 'wte-trips-tax-module',
+		);
+
+		$widgets['wptravelengine-trip-tax-module-two'] = array(
+			'title'               => __( 'Destination/Activities Module 2', 'wptravelengine-elementor-widgets' ),
+			'icon'                => 'wte-trips-tax-module',
+		);
+
+		$widgets['wptravelengine-trip-tax-one'] = array(
+			'title'               => __( 'Destination/Activities 1', 'wptravelengine-elementor-widgets' ),
+			'icon'                => 'wte-trips-tax',
+		);
+
+		$widgets['wptravelengine-trip-tax-two'] = array(
+			'title'               => __( 'Destination/Activities 2', 'wptravelengine-elementor-widgets' ),
+			'icon'                => 'wte-trips-tax',
+		);
+
+		$widgets['wptravelengine-trips-tax-slider-one'] = array(
+			'title'               => __( 'Destination/Activities Slider 1', 'wptravelengine-elementor-widgets' ),
+			'icon'                => 'wte-trips-tax-slider',
+		);
+
+		$widgets['wptravelengine-trips-tax-slider-two'] = array(
+			'title'               => __( 'Destination/Activities Slider 2', 'wptravelengine-elementor-widgets' ),
+			'icon'                => 'wte-trips-tax-slider',
+		);
+
+		$widgets['wptravelengine-trips-tax-slider-three'] = array(
+			'title'               => __( 'Destination/Activities Slider 3', 'wptravelengine-elementor-widgets' ),
+			'icon'                => 'wte-trips-tax-slider',
+		);
+
 		$core_widget_collection = apply_filters(
 			'wte_core_blocks_to_elementor_widgets',
 			$widgets

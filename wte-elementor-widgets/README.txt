@@ -3,9 +3,9 @@ Contributors: wptravelengine
 Plugin link: https://wptravelengine.com/
 Tags: Tour booking, Tour operator, Travel, Travel agency, Travel booking
 Requires at least: 5.0
-Tested up to: 6.6
+Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.3.6
+Stable tag: 1.3.7
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -31,7 +31,7 @@ If you are a travel entrepreneur, travel web developer or travel theme developer
 
 ###  WHY WP TRAVEL ENGINE - ELEMENTOR WIDGETS?
 * Create travel and tour booking agency websites.
-* Access 24 sets of Elementor widgets.
+* Access 30 sets of Elementor widgets.
 * Adopts the visual styling of your existing theme.
 * Customizable to match your brand and preferences.
 * Get regular updates.
@@ -59,28 +59,36 @@ If you are a travel entrepreneur, travel web developer or travel theme developer
 17. **_Trips Slider 2_** - Display trips in a carousel format with a prominent button or icon at the bottom to encourage visitors to take action.
 18. **_Trips Slider 3_** - Display the trip's featured image with the sleek "cover flow" slider effect, perfect for showcasing your tour packages.
 19. **_Trips Tab_** - Create visually appealing tabs to showcase your trip packages in an interactive slider format. Organize the tabs by destination, activity, or trip type for easy browsing.
+20. **_Destination/Activities 1_** - Display your trip categories in three distinct layouts. Choose from a rectangle or capsule for the thumbnail image.
+21. **_Destination/Activities 2_** - Showcase your most tempting tour categories in grid layouts, using a mix of horizontal and vertical placements for your thumbnail images.
+22. **_Destination/Activities Module 1_** - Showcase your desired trip categories in visually appealing grid layouts. Organize categories by destination, activity, or trip type for easy browsing.
+23. **_Destination/Activities Module 2_** - Create dynamic trip categories grids with various layouts. Hover over a box to see the image zoom.
+24. **_Destination/Activities Slider 1_** - Showcase your tour categories on any Elementor page with a carousel gallery effect. Choose from a rectangle or capsule for the thumbnail image.
+25. **_Destination/Activities Slider 2_** - Display your activities, destinations and trip types in interactive sliders with beautiful layouts. Choose from layouts with content or a loop slider effect.
+26. **_Destination/Activities Slider 3_** - Showcase your tour categories with the sleek 'cover flow' slider. This widget comes with three predefined layouts.
+    
+    ##Elementor widgets for trip pages:
+27. **_Trip Booking_** - Showcase essential trip details, including price, discounts, highlights, availability button and enquiry forms.
+28. **_Trip Breadcrumbs_** - Guide users seamlessly through your website using intuitive trip breadcrumbs.
+29. **_Trip Carousel_** - Display multiple tour images attractively in a carousel format.
+30. **_Trip Cost Excludes_** - Display the trip exclusions using customizable icons and styles.
+31. **_Trip Cost Includes_** - Display the trip inclusions using customizable icons and styles.
+32. **_Trip Duration_** - Display trip duration in vertical or horizontal layouts.
+33. **_Trip Enquiry_** - Display the trip enquiry form with options to hide title, labels, and trip name while customizing its content colors and background.
+34. **_Trip Facts_** - Display trip facts with customizable icons, positioned left, right, or top, and arranged in up to four columns.
+35. **_Trip FAQs_** - Address common queries with an FAQ section featuring customizable title tags and distinct style options.
+36. **_Trip Highlights_** - Showcase your trip highlights in an eye-catching format.
+37. **_Trip Itinerary_** - Offer detailed trip itineraries with expandable options and customizable icons.
+38. **_Trip Map_** - Integrate interactive maps with adjustable location, zoom, and height settings.
+39. **_Trip Overview_** - Display a concise overview of your trip for quick insights.
+40. **_Trip Title_** - Customize trip titles with varying heading levels and alignment options.
+41. **_Trip Related Trips_** - Showcase other related trips with three distinct layouts and filters.
 
-    Elementor widgets for trip pages:
-20. **_Trip Booking_** - Showcase essential trip details, including price, discounts, highlights, availability button and enquiry forms.
-21. **_Trip Breadcrumbs_** - Guide users seamlessly through your website using intuitive trip breadcrumbs.
-22. **_Trip Carousel_** - Display multiple tour images attractively in a carousel format.
-23. **_Trip Cost Excludes_** - Display the trip exclusions using customizable icons and styles.
-24. **_Trip Cost Includes_** - Display the trip inclusions using customizable icons and styles.
-25. **_Trip Duration_** - Display trip duration in vertical or horizontal layouts.
-26. **_Trip Enquiry_** - Display the trip enquiry form with options to hide title, labels, and trip name while customizing its content colors and background.
-27. **_Trip Facts_** - Display trip facts with customizable icons, positioned left, right, or top, and arranged in up to four columns.
-28. **_Trip FAQs_** - Address common queries with an FAQ section featuring customizable title tags and distinct style options.
-29. **_Trip Highlights_** - Showcase your trip highlights in an eye-catching format.
-30. **_Trip Itinerary_** - Offer detailed trip itineraries with expandable options and customizable icons.
-31. **_Trip Map_** - Integrate interactive maps with adjustable location, zoom, and height settings.
-32. **_Trip Overview_** - Display a concise overview of your trip for quick insights.
-33. **_Trip Related Trips_** - Showcase other related trips with three distinct layouts and filters.
-
-       The following widgets require premium add-ons of WP Travel Engine plugin:
-34. **_Trip Ratings_** - Display ratings with adjustable star gaps and options to control star and text visibility.
-35. **_Trip Review Form_** - Add the trip review form with varying heading levels and customization options.
-36. **_Trip Reviews_** - Show trip reviews with options to hide elements like average rating, overall rating, reviews, review gallery, date of experience, etc.
-37. **_Trip Fixed Starting Date_** - Highlight specific departure dates with customizable labels and clear table headers for easy reference.
+    The following widgets require premium add-ons of WP Travel Engine plugin:
+42. **_Trip Ratings_** - Display ratings with adjustable star gaps and options to control star and text visibility.
+43. **_Trip Review Form_** - Add the trip review form with varying heading levels and customization options.
+44. **_Trip Reviews_** - Show trip reviews with options to hide elements like average rating, overall rating, reviews, review gallery, date of experience, etc.
+45. **_Trip Fixed Starting Date_** - Highlight specific departure dates with customizable labels and clear table headers for easy reference.
 
 [Check the demo of Elementor Addons for WP Travel Engine](https://wptravelenginedemo.com/elementor-addons-demo/?utm_source=wp.org&utm_medium=wte-elementor-widgets&utm_campaign=wp_profile)
 
@@ -173,6 +181,10 @@ The plugin is optimized for speed and performance, so it will not slow down your
 9. Trips Widget Slider Controls.
 
 == Changelog ==
+
+= 1.3.7 - 19th November, 2024 =
+* Feature: Added 2 Destination/Activities, 2 Destination/Activities Module and 3 Destination/Activities Slider widgets.
+* Fix: Added Trip Title widget.
 
 = 1.3.6 - 18th October, 2024 =
 * Fix: FSD button browser compatibility issue has been solved.

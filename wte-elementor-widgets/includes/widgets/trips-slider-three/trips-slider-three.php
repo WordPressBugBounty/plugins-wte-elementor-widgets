@@ -147,7 +147,9 @@ class Widget_Trips_Slider_Three extends Widget {
 			</div>
 		</div><!-- .wpte-swiper-navigation -->
 			<!-- If we need pagination -->
-			<div <?php $this->print_render_attribute_string( 'swiper-pagination' ); ?>></div>
+			<?php if('3' !== wte_array_get( $attributes, 'cardlayout', '1' )) { ?>
+				<div <?php $this->print_render_attribute_string( 'swiper-pagination' ); ?>></div>
+			<?php } ?>
 		<?php
 	}
 
