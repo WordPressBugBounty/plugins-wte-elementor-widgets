@@ -165,7 +165,12 @@ class Widget_Featured_Trips extends Widget {
 						while ($query->have_posts()) : $query->the_post();
 						// Fetch post details
 						$layout_data 	   = wte_array_get( $attributes, 'cardlayout', '1' );
-							include __DIR__ . '/layout-' . $layout_data .'.php'; 
+							$layout_path = __DIR__ . '/' . sanitize_file_name('layout-' . $layout_data .'.php');
+							if ( file_exists( $layout_path ) ) {
+								include $layout_path;
+							} else {
+								include __DIR__ . '/layout-1.php';
+							}
 						endwhile;
 						wp_reset_postdata();
 					endif;

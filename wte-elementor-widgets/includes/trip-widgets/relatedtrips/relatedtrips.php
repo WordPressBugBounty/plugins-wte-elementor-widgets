@@ -154,7 +154,12 @@ if ( $results && is_array( $results ) ) :
 		$arguments = json_decode( wp_json_encode( $attributes ), true );
 		$args      = array( $arguments, $trip, $results );
 		( 'slider' === $layout ) && print( '<div class="swiper-slide">' );
-		include $template_path . '/layouts/layout-' . $attributes->{'cardlayout'} . '.php';
+		$layout_path = $template_path . '/layouts/' . sanitize_file_name('layout-' . $attributes->{'cardlayout'} . '.php');
+		if ( file_exists( $layout_path ) ) {
+			include $layout_path;
+		} else {
+			include $template_path . '/layouts/layout-1.php';
+		}
 		( 'slider' === $layout ) && print( '</div>' );
 		++$position;
 	endforeach;

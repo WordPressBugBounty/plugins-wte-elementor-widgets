@@ -19,7 +19,7 @@ $selectors = array(
 	),
 	'card_border'                      => '{{WRAPPER}} .wpte-elementor-widget .wpte-card__wrap',
 	'card_border_radius'               => array(
-		'{{WRAPPER}} .wpte-elementor-widget .wpte-card' => '--g-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+		'{{WRAPPER}} .wpte-elementor-widget.wpte-adv-trips_two .wpte-card' => '--g-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 	),
 	'card_boxshadow'                   => '{{WRAPPER}} .wpte-elementor-widget .wpte-card',

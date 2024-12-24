@@ -2,9 +2,9 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Travel Engine - Elementor Widgets 1.3.7\n"
+"Project-Id-Version: WP Travel Engine - Elementor Widgets 1.3.8\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-19 08:48:11+00:00\n"
+"POT-Creation-Date: 2024-12-24 07:22:51+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -153,20 +153,20 @@ msgstr ""
 msgid "Hours"
 msgstr ""
 
-#: includes/blocks/trips/block.php:177
-#: includes/trip-widgets/relatedtrips/relatedtrips.php:237
+#: includes/blocks/trips/block.php:182
+#: includes/trip-widgets/relatedtrips/relatedtrips.php:242
 #: includes/widgets/advanced-trips-four/advanced-trips-four.php:241
 #: includes/widgets/advanced-trips-one/advanced-trips-one.php:241
-#: includes/widgets/advanced-trips-three/advanced-trips-three.php:241
+#: includes/widgets/advanced-trips-three/advanced-trips-three.php:247
 #: includes/widgets/advanced-trips-two/advanced-trips-two.php:240
 #: includes/widgets/trips-accordion/trips-accordion.php:263
-#: includes/widgets/trips-list/trips-list.php:242
+#: includes/widgets/trips-list/trips-list.php:247
 #: includes/widgets/trips-module-one/trips-module-one.php:226
 #: includes/widgets/trips-module-three/trips-module-three.php:235
 #: includes/widgets/trips-module-two/trips-module-two.php:228
 #: includes/widgets/trips-slider/trips-slider.php:378
 #: includes/widgets/trips-slider-three/trips-slider-three.php:425
-#: includes/widgets/trips-slider-two/trips-slider-two.php:380
+#: includes/widgets/trips-slider-two/trips-slider-two.php:386
 #: includes/widgets/trips-tab/trips-tab.php:426
 msgid "No trips available. Please add a new trip."
 msgstr ""
@@ -339,6 +339,16 @@ msgstr ""
 #: includes/trip-widgets/enquiry/controls.php:217
 #: includes/trip-widgets/faqs/controls.php:137
 #: includes/trip-widgets/faqs/controls.php:177
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:334
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:352
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:370
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:399
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:438
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:477
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:580
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:618
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:697
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:737
 #: includes/trip-widgets/fixedstartingdate/controls.php:237
 #: includes/trip-widgets/fixedstartingdate/controls.php:268
 #: includes/trip-widgets/fixedstartingdate/controls.php:327
@@ -494,6 +504,13 @@ msgstr ""
 #: includes/trip-widgets/enquiry/controls.php:152
 #: includes/trip-widgets/enquiry/controls.php:207
 #: includes/trip-widgets/enquiry/controls.php:238
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:428
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:467
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:507
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:608
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:647
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:727
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:766
 #: includes/trip-widgets/fixedstartingdate/controls.php:258
 #: includes/trip-widgets/fixedstartingdate/controls.php:289
 #: includes/trip-widgets/fixedstartingdate/controls.php:348
@@ -612,6 +629,8 @@ msgstr ""
 #: includes/trip-widgets/facts/controls.php:130
 #: includes/trip-widgets/faqs/controls.php:116
 #: includes/trip-widgets/faqs/controls.php:150
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:557
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:662
 #: includes/trip-widgets/fixedstartingdate/controls.php:198
 #: includes/trip-widgets/fixedstartingdate/controls.php:214
 #: includes/trip-widgets/fixedstartingdate/controls.php:304
@@ -2302,16 +2321,17 @@ msgstr ""
 msgid "Need help with booking?"
 msgstr ""
 
-#: includes/trip-widgets/booking/booking.php:68
+#: includes/trip-widgets/booking/booking.php:75
 msgid "Hide Prices"
 msgstr ""
 
-#: includes/trip-widgets/booking/booking.php:71
+#: includes/trip-widgets/booking/booking.php:78
 #: includes/trip-widgets/booking/demo.php:27
 msgid "Show Prices"
 msgstr ""
 
-#: includes/trip-widgets/booking/booking.php:87
+#: includes/trip-widgets/booking/booking.php:94
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:250
 msgid "Group Discount Available"
 msgstr ""
 
@@ -2446,6 +2466,7 @@ msgid "Enquiry Text"
 msgstr ""
 
 #: includes/trip-widgets/booking/controls.php:235
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:224
 msgid "Show Price"
 msgstr ""
 
@@ -2474,6 +2495,9 @@ msgstr ""
 #: includes/trip-widgets/carousel/controls.php:153
 #: includes/trip-widgets/carousel/controls.php:267
 #: includes/trip-widgets/enquiry/controls.php:182
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:330
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:576
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:693
 #: includes/trip-widgets/fixedstartingdate/controls.php:233
 #: includes/trip-widgets/fixedstartingdate/controls.php:323
 #: includes/trip-widgets/relatedtrips/controls.php:597
@@ -2611,6 +2635,18 @@ msgstr ""
 #: includes/trip-widgets/faqs/controls.php:120
 #: includes/trip-widgets/faqs/controls.php:154
 #: includes/trip-widgets/faqs/controls.php:188
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:340
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:358
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:376
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:405
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:444
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:483
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:528
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:540
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:585
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:624
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:703
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:743
 #: includes/trip-widgets/fixedstartingdate/controls.php:202
 #: includes/trip-widgets/fixedstartingdate/controls.php:242
 #: includes/trip-widgets/fixedstartingdate/controls.php:273
@@ -3218,6 +3254,14 @@ msgstr ""
 #: includes/trip-widgets/enquiry/controls.php:145
 #: includes/trip-widgets/enquiry/controls.php:200
 #: includes/trip-widgets/enquiry/controls.php:231
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:315
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:415
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:454
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:494
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:595
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:634
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:714
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:753
 #: includes/trip-widgets/fixedstartingdate/controls.php:251
 #: includes/trip-widgets/fixedstartingdate/controls.php:282
 #: includes/trip-widgets/fixedstartingdate/controls.php:341
@@ -3349,6 +3393,9 @@ msgstr ""
 #: includes/trip-widgets/enquiry/controls.php:246
 #: includes/trip-widgets/faqs/controls.php:124
 #: includes/trip-widgets/faqs/controls.php:158
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:299
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:561
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:666
 #: includes/trip-widgets/fixedstartingdate/controls.php:218
 #: includes/trip-widgets/fixedstartingdate/controls.php:308
 #: includes/trip-widgets/fixedstartingdate/controls.php:393
@@ -3444,6 +3491,7 @@ msgid "Padding"
 msgstr ""
 
 #: includes/trip-widgets/booking/controls.php:394
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:434
 msgid "Group Discount"
 msgstr ""
 
@@ -3451,6 +3499,9 @@ msgstr ""
 #: includes/trip-widgets/carousel/controls.php:185
 #: includes/trip-widgets/carousel/controls.php:298
 #: includes/trip-widgets/enquiry/controls.php:213
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:366
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:614
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:733
 #: includes/trip-widgets/fixedstartingdate/controls.php:264
 #: includes/trip-widgets/fixedstartingdate/controls.php:354
 #: includes/trip-widgets/relatedtrips/controls.php:623
@@ -3555,6 +3606,8 @@ msgstr ""
 #: includes/trip-widgets/enquiry/controls.php:252
 #: includes/trip-widgets/faqs/controls.php:131
 #: includes/trip-widgets/faqs/controls.php:165
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:567
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:678
 #: includes/trip-widgets/fixedstartingdate/controls.php:224
 #: includes/trip-widgets/fixedstartingdate/controls.php:314
 #: includes/trip-widgets/itinerary/controls.php:288
@@ -3701,7 +3754,6 @@ msgstr ""
 #: includes/trip-widgets/enquiry/widget.php:99
 #: includes/trip-widgets/facts/widget.php:104
 #: includes/trip-widgets/faqs/widget.php:106
-#: includes/trip-widgets/fixedstartingdate/widget.php:103
 #: includes/trip-widgets/map/widget.php:99
 #: includes/trip-widgets/ratings/widget.php:110
 #: includes/trip-widgets/reviewform/widget.php:118
@@ -4159,6 +4211,11 @@ msgid "Show Expand All"
 msgstr ""
 
 #: includes/trip-widgets/faqs/controls.php:98
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:171
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:212
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:219
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:226
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:233
 #: includes/trip-widgets/itinerary/controls.php:114
 #: includes/trip-widgets/itinerary/controls.php:151
 #: includes/trip-widgets/itinerary/controls.php:243
@@ -4166,6 +4223,11 @@ msgid "Show"
 msgstr ""
 
 #: includes/trip-widgets/faqs/controls.php:99
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:172
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:213
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:220
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:227
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:234
 #: includes/trip-widgets/itinerary/controls.php:115
 #: includes/trip-widgets/itinerary/controls.php:152
 #: includes/trip-widgets/itinerary/controls.php:244
@@ -4240,6 +4302,150 @@ msgstr ""
 msgid "Trip - Faqs"
 msgstr ""
 
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:166
+msgid "Trip Display"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:169
+msgid "Show Trip Title"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:179
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:183
+msgid "Date Format"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:196
+msgid "Days Format"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:207
+msgid "Table Columns"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:210
+msgid "Show Starting Date"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:217
+msgid "Show Ending Date"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:231
+msgid "Show Space Left"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:242
+msgid "Tags Labels"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:245
+msgid "Time Slots Available"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:247
+msgid "Time Slots label"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:252
+msgid "Group Discount label"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:258
+#: includes/trip-widgets/fixedstartingdate/controls.php:177
+msgid "Button Labels"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:261
+msgid "Book Now"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:263
+msgid "Book Now label"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:266
+msgid "Sold Out"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:268
+msgid "Sold Out label"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:271
+msgid "Show More Dates"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:273
+#: includes/trip-widgets/fixedstartingdate/controls.php:182
+msgid "Load More label"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:276
+msgid "Show Less Dates"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:278
+#: includes/trip-widgets/fixedstartingdate/controls.php:187
+msgid "Show Less label"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:284
+msgid "No Dates Available Text"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:287
+#: includes/trip-widgets/fixedstartingdate/fixedstartingdate.php:110
+msgid "No Fixed Departure Dates available."
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:289
+msgid "No FSD dates label"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:295
+msgid "Date Selector"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:348
+#: includes/widgets/trips-tab/controls.php:552
+msgid "Active"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:388
+msgid "Tags Style"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:395
+msgid "Time Slots"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:473
+msgid "Availability"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:517
+msgid "Seat Slots"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:524
+msgid "Available Seats"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:536
+msgid "Unavailable Seats"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:552
+#: includes/trip-widgets/fixedstartingdate/controls.php:209
+msgid "Book Now Button"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:657
+#: includes/trip-widgets/fixedstartingdate/controls.php:299
+msgid "Loader Buttons"
+msgstr ""
+
 #: includes/trip-widgets/fixedstartingdate/controls.php:21
 msgid "Join Our Fixed Trip Starting Date"
 msgstr ""
@@ -4284,34 +4490,14 @@ msgstr ""
 msgid "Space Left Label"
 msgstr ""
 
-#: includes/trip-widgets/fixedstartingdate/controls.php:177
-msgid "Button Labels"
-msgstr ""
-
 #: includes/trip-widgets/fixedstartingdate/controls.php:180
 #: includes/trip-widgets/fixedstartingdate/fixedstartingdate.php:26
 msgid "Load More"
 msgstr ""
 
-#: includes/trip-widgets/fixedstartingdate/controls.php:182
-msgid "Load More label"
-msgstr ""
-
 #: includes/trip-widgets/fixedstartingdate/controls.php:185
 #: includes/trip-widgets/fixedstartingdate/fixedstartingdate.php:27
 msgid "Show Less"
-msgstr ""
-
-#: includes/trip-widgets/fixedstartingdate/controls.php:187
-msgid "Show Less label"
-msgstr ""
-
-#: includes/trip-widgets/fixedstartingdate/controls.php:209
-msgid "Book Now Button"
-msgstr ""
-
-#: includes/trip-widgets/fixedstartingdate/controls.php:299
-msgid "Loader Buttons"
 msgstr ""
 
 #: includes/trip-widgets/fixedstartingdate/controls.php:389
@@ -4350,20 +4536,21 @@ msgstr ""
 msgid "Icon Size"
 msgstr ""
 
+#: includes/trip-widgets/fixedstartingdate/demo.php:73
+msgid "Select Date"
+msgstr ""
+
+#: includes/trip-widgets/fixedstartingdate/demo.php:75
 #: includes/trip-widgets/fixedstartingdate/fixedstartingdate.php:58
 #: includes/trip-widgets/fixedstartingdate/fixedstartingdate.php:59
 msgid "Choose a date&hellip;"
-msgstr ""
-
-#: includes/trip-widgets/fixedstartingdate/fixedstartingdate.php:110
-msgid "No Fixed Departure Dates available."
 msgstr ""
 
 #: includes/trip-widgets/fixedstartingdate/widget.php:53
 msgid "Trip - Fixed Starting Date"
 msgstr ""
 
-#: includes/trip-widgets/fixedstartingdate/widget.php:117
+#: includes/trip-widgets/fixedstartingdate/widget.php:157
 #. translators: %1$s: opening anchor tag, %2$s: closing anchor tag.
 msgid ""
 "Trip - Fixed Starting Dates Widget requires WP Travel Engine - Trip Fixed "
@@ -6301,7 +6488,7 @@ msgstr ""
 msgid "Sub title label"
 msgstr ""
 
-#: includes/widgets/featured-trips/featured-trips.php:174
+#: includes/widgets/featured-trips/featured-trips.php:179
 msgid "No trips found."
 msgstr ""
 
@@ -6535,10 +6722,6 @@ msgstr ""
 
 #: includes/widgets/trips-tab/controls.php:542
 msgid "Tab Border Radius"
-msgstr ""
-
-#: includes/widgets/trips-tab/controls.php:552
-msgid "Active"
 msgstr ""
 
 #: includes/widgets/trips-tab/controls.php:574

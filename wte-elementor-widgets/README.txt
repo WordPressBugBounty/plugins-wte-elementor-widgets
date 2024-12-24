@@ -5,7 +5,7 @@ Tags: Tour booking, Tour operator, Travel, Travel agency, Travel booking
 Requires at least: 5.0
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.3.7
+Stable tag: 1.3.8
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -181,6 +181,10 @@ The plugin is optimized for speed and performance, so it will not slow down your
 9. Trips Widget Slider Controls.
 
 == Changelog ==
+
+= 1.3.8 - 24th December, 2024 =
+* Enhancement: Enhanced the trip FSD widget to support the latest FSD design.
+* Security Fix: Enhanced the code to mitigate vulnerability to local file inclusion.
 
 = 1.3.7 - 19th November, 2024 =
 * Feature: Added 2 Destination/Activities, 2 Destination/Activities Module and 3 Destination/Activities Slider widgets.

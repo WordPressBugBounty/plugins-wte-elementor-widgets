@@ -59,6 +59,13 @@ $show_groupdiscount      = isset( $attributes->{'showGroupDiscount'} ) ? $attrib
 // Get the currency symbol
 $currency_code   = isset( $settings['currency_code'] ) ? $settings['currency_code'] : '';
 $currency_symbol = wp_travel_engine_get_currency_symbol( $currency_code );
+$trip_booking_data = array(
+	'tripID'      => $post->ID,
+	'nonce'       => wp_create_nonce( 'wte_add_trip_to_cart' ),
+	'wpXHR'       => esc_url_raw( admin_url( 'admin-ajax.php' ) ),
+	'cartVersion' => '2.0',
+	'buttonLabel' => $check_availability_text,
+);
 ?>
 <div class="wpte-elementor-widget">
 <div class="widget wpte-booking-area-wrapper wpte-bf-outer <?php echo esc_attr( $wrapper_classes ); ?>">
@@ -126,7 +133,7 @@ $currency_symbol = wp_travel_engine_get_currency_symbol( $currency_code );
 					<?php
 					if ( empty( $settings['checkAvailabilityLink']['url'] ) || '#' === $settings['checkAvailabilityLink']['url'] ) {
 						?>
-							<button type="button" id="open-booking-modal" class="wpte-bf-btn wte-book-now">
+							<button type="button" id="open-booking-modal" class="wpte-bf-btn wte-book-now" data-trip-booking="<?php echo esc_attr( wp_json_encode( $trip_booking_data ) ); ?>">
 								<?php echo wp_kses_post( $check_availability_text ); ?>
 							</button>
 							<?php

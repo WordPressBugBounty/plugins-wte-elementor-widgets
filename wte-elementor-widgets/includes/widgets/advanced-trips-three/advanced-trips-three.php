@@ -230,7 +230,13 @@ class Widget_Advanced_Trips_Three extends Widget {
 							$results['duration'] = $duration_mapping;
 							$args                = array( $attributes, $trip, $results );
 							
-							include __DIR__ . '/layout-' . $layout_data . '.php'; 
+							$layout_path = __DIR__ . '/' . sanitize_file_name('layout-' . $layout_data . '.php');
+
+							if ( file_exists( $layout_path ) ) {
+								include $layout_path;
+							} else {
+								include __DIR__ . '/layout-1.php';
+							}
 
 						endforeach;
 					?>

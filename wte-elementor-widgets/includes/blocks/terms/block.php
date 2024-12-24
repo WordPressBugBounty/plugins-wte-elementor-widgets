@@ -88,7 +88,13 @@ if ( $results && is_array( $results ) ) :
 		$args = array( $attributes, $results[ $term_id ], $results );
 		( 'slider' === $layout ) && print( '<div class="swiper-slide">' );
 
-		include __DIR__ . "/layouts/layout-{$attributes->cardlayout}.php";
+		$layout_path = __DIR__ . "/layouts/" . sanitize_file_name("layout-{$attributes->cardlayout}.php");
+		if ( file_exists( $layout_path ) ) {
+			include $layout_path;
+		} else {
+			include __DIR__ . '/layouts/layout-1.php';
+		}
+
 		( 'slider' === $layout ) && print( '</div>' );
 		$position++;
 
