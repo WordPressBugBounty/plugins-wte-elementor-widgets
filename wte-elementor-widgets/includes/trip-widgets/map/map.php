@@ -7,7 +7,7 @@
  */
 
 ?>
-<div class="post-data">
+<div id="wte-map" class="post-data">
 	<?php
 	$attributes               = (object) $attributes;
 	$show_image               = isset( $attributes->show_image ) ? $attributes->show_image : true;

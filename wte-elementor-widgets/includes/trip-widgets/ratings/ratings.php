@@ -13,7 +13,7 @@ $review_title              = isset( $post_meta['review']['review_title'] ) && ''
 $wp_travel_engine_settings = get_option( 'wp_travel_engine_settings' );
 ?>
 
-<div class="post-data">
+<div id="wte-ratings" class="post-data">
 	<div class="content">
 		<?php
 		if ( ! empty( $review_title ) ) {

@@ -67,113 +67,113 @@ $trip_booking_data = array(
 	'buttonLabel' => $check_availability_text,
 );
 ?>
-<div class="wpte-elementor-widget">
-<div class="widget wpte-booking-area-wrapper wpte-bf-outer <?php echo esc_attr( $wrapper_classes ); ?>">
-	<!-- Prices List -->
-	<?php do_action( 'wte_before_price_info' ); ?>
-	<div class="wpte-booking-area<?php echo esc_attr( $class_based_on_layout ); ?>">
-		<button data-text="<?php echo $form_layout == 'layout-3' ? esc_attr( $currency_symbol ) : ''; ?>" type="button" id="wpte_price-toggle-btn-mb" class="wpte_price-toggle-btn-mb" data-active-text="<?php 'layout-1' === $form_layout ? esc_attr_e( 'Hide Prices', 'wptravelengine-elementor-widgets' ) : ''; ?>">
-			<?php if ( 'layout-1' === $form_layout ) : ?>
-				<span class="current-text">
-					<?php esc_html_e( 'Show Prices', 'wptravelengine-elementor-widgets' ); ?>
-				</span>
+<div class="wpte-elementor-widget" id="wte-booking">
+	<div class="widget wpte-booking-area-wrapper wpte-bf-outer <?php echo esc_attr( $wrapper_classes ); ?>">
+		<!-- Prices List -->
+		<?php do_action( 'wte_before_price_info' ); ?>
+		<div class="wpte-booking-area<?php echo esc_attr( $class_based_on_layout ); ?>">
+			<button data-text="<?php echo $form_layout == 'layout-3' ? esc_attr( $currency_symbol ) : ''; ?>" type="button" id="wpte_price-toggle-btn-mb" class="wpte_price-toggle-btn-mb" data-active-text="<?php 'layout-1' === $form_layout ? esc_attr_e( 'Hide Prices', 'wptravelengine-elementor-widgets' ) : ''; ?>">
+				<?php if ( 'layout-1' === $form_layout ) : ?>
+					<span class="current-text">
+						<?php esc_html_e( 'Show Prices', 'wptravelengine-elementor-widgets' ); ?>
+					</span>
+				<?php endif; ?>
+			</button>
+			<?php if ( 'layout-3' === $form_layout ) : ?>
+				<div class="wrap">
+				<button type="button" id="wpte_price-toggle-btn-mb-<?php echo esc_attr( $form_layout ); ?>" class="wpte_price-toggle-btn-mb-<?php echo esc_attr( $form_layout ); ?>"></button>
 			<?php endif; ?>
-		</button>
-		<?php if ( 'layout-3' === $form_layout ) : ?>
-			<div class="wrap">
-			<button type="button" id="wpte_price-toggle-btn-mb-<?php echo esc_attr( $form_layout ); ?>" class="wpte_price-toggle-btn-mb-<?php echo esc_attr( $form_layout ); ?>"></button>
-		<?php endif; ?>
-			<div class="wpte-booking-inner-wrapper">
-			<?php
-			if ( true || wte_array_get( $settings, 'show_multiple_pricing_list_disp', '' ) === '1' ) :
-				?>
-				<!-- Group Discount Badge Section -->
+				<div class="wpte-booking-inner-wrapper">
 				<?php
-				if ( $wtetrip->has_group_discount && $show_groupdiscount ) :
+				if ( true || wte_array_get( $settings, 'show_multiple_pricing_list_disp', '' ) === '1' ) :
 					?>
-					<span class="wpte-bf-gd-text"><?php echo esc_html( apply_filters( 'wte_group_discount_badge_text', __( 'Group Discount Available', 'wptravelengine-elementor-widgets' ) ) ); ?></span>
-				<?php endif; // Group Discount Badge. ?>
+					<!-- Group Discount Badge Section -->
+					<?php
+					if ( $wtetrip->has_group_discount && $show_groupdiscount ) :
+						?>
+						<span class="wpte-bf-gd-text"><?php echo esc_html( apply_filters( 'wte_group_discount_badge_text', __( 'Group Discount Available', 'wptravelengine-elementor-widgets' ) ) ); ?></span>
+					<?php endif; // Group Discount Badge. ?>
 
-				<!-- Discount Percent Badge -->
-				<?php
-				// Show Discount Percent if Available.
-				if ( $wtetrip->has_sale && $show_discount ) :
-					?>
-					<span class="wpte-bf-discount-tag">
-						<?php
-						// translators: %d is a placeholder with the sale percentage.
-						printf( wp_kses_post( '%d%% Off', 'wptravelengine-elementor-widgets' ), (float) $wtetrip->sale_percentage );
+					<!-- Discount Percent Badge -->
+					<?php
+					// Show Discount Percent if Available.
+					if ( $wtetrip->has_sale && $show_discount ) :
 						?>
-						</span>
-					<?php
-				endif;
-				?>
-				<?php if ( $show_price && isset( $package ) && isset( $package->{'package-categories'} ) ) : ?>
-					<div class="wpte-bf-price-wrap">
-						<?php
-						// Displays Package with lowest pricings.
-							\WP_Travel_Engine_Template_Hooks::categorised_trip_prices();
-						?>
-					</div>
-				<?php endif; ?>
-				<?php if ( $show_highlights ) : ?>
-					<div class="wpte-bf-content">
-					<ul>
-					<?php
-					$settings = $this->get_settings_for_display();
-					echo '<div ' . esc_attr( $this->get_render_attribute_string( 'highlightContent' ) ) . '>' . wp_kses_post( $this->get_settings( 'highlightContent' ) ) . '</div>';
-					?>
-					</ul>
-				</div>
-					<?php
-				endif;
-				if ( $show_button && isset( $package ) && isset( $package->{'package-categories'} ) ) :
-					?>
-					<div class="wpte-bf-btn-wrap">
-					<?php
-					if ( empty( $settings['checkAvailabilityLink']['url'] ) || '#' === $settings['checkAvailabilityLink']['url'] ) {
-						?>
-							<button type="button" id="open-booking-modal" class="wpte-bf-btn wte-book-now" data-trip-booking="<?php echo esc_attr( wp_json_encode( $trip_booking_data ) ); ?>">
-								<?php echo wp_kses_post( $check_availability_text ); ?>
-							</button>
+						<span class="wpte-bf-discount-tag">
 							<?php
-					} else {
-						$this->add_link_attributes( 'checkAvailabilityLink', $settings['checkAvailabilityLink'] );
-						?>
-							<a 
-							<?php
-							echo wp_kses(
-								$this->get_render_attribute_string(
-									'checkAvailabilityLink'
-								),
-								array( 'a' => array( 'class' => array() ) )
-							);
+							// translators: %d is a placeholder with the sale percentage.
+							printf( wp_kses_post( '%d%% Off', 'wptravelengine-elementor-widgets' ), (float) $wtetrip->sale_percentage );
 							?>
-							>
-								<?php echo esc_attr( $settings['checkAvailabilityText'] ); ?>
-							</a>
-							<?php
-					}
+							</span>
+						<?php
+					endif;
 					?>
+					<?php if ( $show_price && isset( $package ) && isset( $package->{'package-categories'} ) ) : ?>
+						<div class="wpte-bf-price-wrap">
+							<?php
+							// Displays Package with lowest pricings.
+								\WP_Travel_Engine_Template_Hooks::categorised_trip_prices();
+							?>
+						</div>
+					<?php endif; ?>
+					<?php if ( $show_highlights ) : ?>
+						<div class="wpte-bf-content">
+						<ul>
+						<?php
+						$settings = $this->get_settings_for_display();
+						echo '<div ' . esc_attr( $this->get_render_attribute_string( 'highlightContent' ) ) . '>' . wp_kses_post( $this->get_settings( 'highlightContent' ) ) . '</div>';
+						?>
+						</ul>
 					</div>
+						<?php
+					endif;
+					if ( $show_button && isset( $package ) && isset( $package->{'package-categories'} ) ) :
+						?>
+						<div class="wpte-bf-btn-wrap">
+						<?php
+						if ( empty( $settings['checkAvailabilityLink']['url'] ) || '#' === $settings['checkAvailabilityLink']['url'] ) {
+							?>
+								<button type="button" id="open-booking-modal" class="wpte-bf-btn wte-book-now" data-trip-booking="<?php echo esc_attr( wp_json_encode( $trip_booking_data ) ); ?>">
+									<?php echo wp_kses_post( $check_availability_text ); ?>
+								</button>
+								<?php
+						} else {
+							$this->add_link_attributes( 'checkAvailabilityLink', $settings['checkAvailabilityLink'] );
+							?>
+								<a 
+								<?php
+								echo wp_kses(
+									$this->get_render_attribute_string(
+										'checkAvailabilityLink'
+									),
+									array( 'a' => array( 'class' => array() ) )
+								);
+								?>
+								>
+									<?php echo esc_attr( $settings['checkAvailabilityText'] ); ?>
+								</a>
+								<?php
+						}
+						?>
+						</div>
+					<?php endif; ?>
 				<?php endif; ?>
+			</div>
+			<?php if ( empty( $settings['enquiry'] ) && $show_info ) : ?>
+				<div class="wpte-booking-footer-text">
+					<?php echo wp_kses_post( $help_text ); ?>
+				</div>
+				<?php
+			endif;
+			if ( 'layout-3' === $form_layout ) :
+				?>
+			</div>
 			<?php endif; ?>
 		</div>
-		<?php if ( empty( $settings['enquiry'] ) && $show_info ) : ?>
-			<div class="wpte-booking-footer-text">
-				<?php echo wp_kses_post( $help_text ); ?>
-			</div>
-			<?php
-		endif;
-		if ( 'layout-3' === $form_layout ) :
-			?>
-		</div>
-		<?php endif; ?>
+		<?php
+		do_action( 'wte_after_price_info' );
+		?>
+		<!-- ./ Prices List -->
 	</div>
-	<?php
-	do_action( 'wte_after_price_info' );
-	?>
-	<!-- ./ Prices List -->
-</div>
 </div>
 	<?php

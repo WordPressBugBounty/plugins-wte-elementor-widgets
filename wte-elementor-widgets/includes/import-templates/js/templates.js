@@ -78,7 +78,6 @@
                                     <span>${etAdmin.templatesText.back}</span>
                                 </button>
                             </div>
-                            ${demoList()}
                             ${tabSwitcher()}
                             <div class="cw-header-right">
                                 <button class="cw-header-insert-temp cw-insert-temp transform-scale" data-slug-id="">${etAdmin.templatesText.import}</button>
@@ -444,19 +443,6 @@
                 </div>
             </div>
         </div>
-        `)
-    }
-
-    //demo list 
-
-    function demoList() {
-        const demoList = etAdmin.demoList;
-        return (`
-            <div class="demo-list">
-                <select class="demo-list_dropdown">
-                     ${demoList.map(demo => `<option value="${demo.slug}">${demo.name}</option>`).join('')}
-                </select>
-            </div>
         `)
     }
 

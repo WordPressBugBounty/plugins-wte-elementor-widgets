@@ -155,13 +155,12 @@ $selectors = array(
 	'highlights_typography'        => '{{WRAPPER}} .wpte-elementor-widget .wpte-booking-area-wrapper .wpte-booking-area .wpte-booking-inner-wrapper .wpte-bf-content ul li',
 	'highlights_icon_color'        => array(
 		'{{WRAPPER}} .wpte-elementor-widget .wpte-booking-area-wrapper .wpte-booking-area .wpte-booking-inner-wrapper .wpte-bf-content ul li::before' => 'background-color: {{VALUE}};',
-		'{{WRAPPER}} .wpte-elementor-widget .wpte-booking-area-wrapper .wpte-booking-area .wpte-custom-tooltip' => 'background-color: {{VALUE}};',
 	),
 	'highlights_color'             => array(
 		'{{WRAPPER}} .wpte-elementor-widget .wpte-booking-area-wrapper .wpte-booking-area .wpte-booking-inner-wrapper .wpte-bf-content ul li' => 'color: {{VALUE}};',
 	),
 	'highlights_gap'               => array(
-		'{{WRAPPER}} .wpte-elementor-widget .wpte-booking-area-wrapper .wpte-booking-area .wpte-booking-inner-wrapper .wpte-bf-content ul li' => 'padding-bottom: {{SIZE}}{{UNIT}};',
+		'{{WRAPPER}} .wpte-elementor-widget .wpte-booking-area-wrapper .wpte-booking-area .wpte-booking-inner-wrapper .wpte-bf-content ul li' => 'margin-bottom: {{SIZE}}{{UNIT}};',
 	),
 	'highlights_alignment'         => array(
 		'{{WRAPPER}} .wpte-elementor-widget .wpte-booking-area-wrapper .wpte-booking-area .wpte-booking-inner-wrapper .wpte-bf-content ul' => 'text-align: {{VALUE}};',
@@ -333,7 +332,7 @@ $controls = array(
 					),
 					'px' => array(
 						'min' => 0,
-						'max' => 1000,
+						'max' => 100,
 					),
 				),
 				'selectors'  => $selectors['highlights_gap'],

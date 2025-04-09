@@ -92,6 +92,13 @@ $controls = array(
 		'type'        => 'control_section',
 		'label'       => __( 'Expand All', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(
+			'show_title'  => array(
+				'label'     => __( 'Show Title', 'wptravelengine-elementor-widgets' ),
+				'type'      => \Elementor\Controls_Manager::SWITCHER,
+				'label_on'  => __( 'Show', 'wptravelengine-elementor-widgets' ),
+				'label_off' => __( 'Hide', 'wptravelengine-elementor-widgets' ),
+				'default'   => 'yes',
+			),
 			'show_expand_all'  => array(
 				'label'     => __( 'Show Expand All', 'wptravelengine-elementor-widgets' ),
 				'type'      => \Elementor\Controls_Manager::SWITCHER,

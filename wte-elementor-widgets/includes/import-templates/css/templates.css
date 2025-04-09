@@ -197,6 +197,7 @@
 .cw-template-modal-overlay button {
   border: none;
   background: none;
+  padding: 0;
   cursor: pointer;
 }
 
@@ -254,6 +255,10 @@
   position: relative;
 }
 
+.cw-pattern-library__design-item-img svg{
+  display: block;
+}
+
 .cw-pattern-library__design-item-img.no-featured-img {
   background: var(--gray-color);
   height: 220px;
@@ -261,11 +266,6 @@
   align-items: center;
   justify-content: center;
   background-color: rgb(236, 236, 236);
-}
-
-.cw-pattern-library__design-item-img.no-featured-img .fa-image {
-  color: var(--primary-color);
-  font-size: 24px;
 }
 
 .cw-pattern-library__design-item {
@@ -373,9 +373,11 @@
 .cw-header-back-btn,
 .cw-header-back-btn:hover{
 	color: var(--font-color);
+  display: flex;
+  align-items: center;
 }
 
-.cw-pattern-library__design-preview-btn {
+.cw-template-modal .cw-pattern-library__design-item .cw-pattern-library__design-preview-btn {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -394,11 +396,7 @@
   transition-property: opacity, backdrop-filter;
   transition-timing-function: ease-in-out;
   transition-duration: 0.25s;
-}
-
-.cw-pattern-library__design-preview-btn span i {
-  color: var(--white-color);
-  font-size: 24px;
+  border-radius: var(--border-radius);
 }
 
 .cw-pattern-library__design-preview-btn:focus-visible {

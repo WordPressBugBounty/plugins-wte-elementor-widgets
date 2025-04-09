@@ -15,7 +15,7 @@ $after      = '</li>'; // tag after the current crumb.
 
 // Retrieve attributes value form elementor.
 $attributes = (object) $attributes;
-$separator  = isset( $attributes->{'type'} ) ? $attributes->{'type'} : 'dot';
+$separator  = isset( $attributes->{'type'} ) ? $attributes->{'type'} : 'right-chevron';
 
 if ( is_singular( 'trip' ) || 'elementor_library' === get_post_type( $post->ID ) ) {
 	$depth = 1;

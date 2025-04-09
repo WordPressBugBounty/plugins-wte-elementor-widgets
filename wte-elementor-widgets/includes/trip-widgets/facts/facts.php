@@ -19,22 +19,16 @@ $trip_settings     = get_post_meta( $trip_id, 'wp_travel_engine_setting', true )
 // Retrieve attributes value form elementor.
 $attributes      = (object) $attributes;
 $icon_position   = isset( $attributes->{'icon_alignment'} ) ? $attributes->{'icon_alignment'} : 'left';
-$icon_v_position = isset( $attributes->{'vertical_alignment'} ) ? $attributes->{'vertical_alignment'} : 'top';
-$column_desktop  = isset( $attributes->{'noofcolumn'} ) ? $attributes->{'noofcolumn'} : 2;
+$icon_v_position = isset( $attributes->{'vertical_alignment'} ) ? $attributes->{'vertical_alignment'} : 'center';
+$column_desktop  = isset( $attributes->{'noofcolumn'} ) ? $attributes->{'noofcolumn'} : 3;
 $column_tablet   = isset( $attributes->{'noofcolumn_tablet'} ) ? $attributes->{'noofcolumn_tablet'} : 2;
 $column_mobile   = isset( $attributes->{'noofcolumn_mobile'} ) ? $attributes->{'noofcolumn_mobile'} : 2;
 $_trip_facts     = isset( $trip_settings['trip_facts'] ) && is_array( $trip_settings['trip_facts'] ) ? $trip_settings['trip_facts'] : array();
 if ( ! empty( $_trip_facts ) ) :
 	?>
-		<div class="secondary-trip-info">
+		<div id="wte-facts" class="secondary-trip-info">
 			<div class="wte-trip-facts">
-				<ul class="trip-facts-value wte-col-
-				<?php
-				echo isset( $column_desktop ) ? esc_attr( " {$column_desktop}" ) : '';
-				echo isset( $column_tablet ) ? esc_attr( " {$column_tablet}" ) : '';
-				echo isset( $column_mobile ) ? esc_attr( " {$column_mobile}" ) : '';
-				?>
-				">
+				<ul class="trip-facts-value wte-col-<?php echo isset( $column_desktop ) ? esc_attr( "{$column_desktop}" ) : ''; ?> wte-col-tablet-<?php echo isset( $column_tablet ) ? esc_attr( "{$column_tablet}" ) : ''; ?> wte-col-mobile-<?php echo isset( $column_mobile ) ? esc_attr( "{$column_mobile}" ) : ''; ?>">
 					<?php
 					foreach ( $_trip_facts['field_type'] as $key => $field_type ) {
 						if ( isset( $global_trip_facts['fid'][ $key ] ) ) {

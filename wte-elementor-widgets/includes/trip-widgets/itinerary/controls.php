@@ -118,7 +118,7 @@ $controls = array(
 			'html_tag'   => array(
 				'type'    => 'SELECT',
 				'label'   => __( 'HTML Tag', 'wptravelengine-elementor-widgets' ),
-				'default' => 'h2',
+				'default' => 'h3',
 				'options' => array(
 					'h1'   => __( 'H1', 'wptravelengine-elementor-widgets' ),
 					'h2'   => __( 'H2', 'wptravelengine-elementor-widgets' ),
@@ -316,14 +316,6 @@ $controls = array(
 				'label'      => __( 'Margin', 'wptravelengine-elementor-widgets' ),
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => $selectors['title_margin'],
-				'default'    => array(
-					'top'      => '0',
-					'right'    => '0',
-					'bottom'   => '0',
-					'left'     => '0',
-					'unit'     => 'px',
-					'isLinked' => true,
-				),
 			),
 		),
 	),

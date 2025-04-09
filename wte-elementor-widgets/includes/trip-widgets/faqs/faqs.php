@@ -18,13 +18,19 @@ $attributes = (object) $attributes;
 $show_title       = isset( $attributes->{'show_title'} ) ? $attributes->{'show_title'} : 'yes';
 $show_expand_all  = isset( $attributes->{'show_expand_all'} ) ? $attributes->{'show_expand_all'} : 'yes';
 $expand_all_label = isset( $attributes->{'expand_all_label'} ) ? $attributes->{'expand_all_label'} : '';
-$html_tag         = isset( $attributes->{'html_tag'} ) ? $attributes->{'html_tag'} : 'h2';
+$html_tag         = isset( $attributes->{'html_tag'} ) ? $attributes->{'html_tag'} : 'h3';
 ?>
-<div class="post-data faq">
+<div id="wte-faqs" class="post-data faq">
 	<div class="wp-travel-engine-faq-tab-header">
+		<?php if ( $show_title ) { 
+			/**
+			 * Hook - Display tab content title, left for themes.
+			 */
+			do_action( 'wte_faqs_tab_title' );
+		} ?>
 		<div class="wpte-faq-button-toggle expand-all-button">
 			<?php if ( ! empty( $faq ) ) { ?>
-				<?php if ( ! empty( $show_expand_all ) && $show_expand_all ) { ?>
+				<?php if ( ! empty( $expand_all_label ) && $show_expand_all ) { ?>
 					<label for="faq-toggle-btn" class="wpte-faq-button-label"><?php echo esc_html( $expand_all_label ); ?></label>
 					<input id="faq-toggle-btn" type="checkbox" class="checkbox">
 				<?php } ?>

@@ -212,12 +212,6 @@ $controls = array(
 				'label'      => __( 'Padding', 'wptravelengine-elementor-widgets' ),
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => $selectors['general_padding'],
-				'default'    => array(
-					'top'    => 0,
-					'right'  => 0,
-					'bottom' => 0,
-					'left'   => 0,
-				),
 			),
 			'general_margin'      => array(
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,

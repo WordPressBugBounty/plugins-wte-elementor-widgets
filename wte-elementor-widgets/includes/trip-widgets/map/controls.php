@@ -84,7 +84,7 @@ $controls = array(
 				),
 				'default'    => array(
 					'unit' => 'px',
-					'size' => 400,
+					'size' => 440,
 				),
 			),
 		),

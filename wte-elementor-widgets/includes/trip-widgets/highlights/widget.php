@@ -117,7 +117,9 @@ class HighlightsWidget extends Widget {
 				'highlight_text' => __( 'Immersing yourself in the warmth of local Sherpa hospitality', 'wptravelengine-elementor-widgets' ),
 			),
 		);
+		
 		$trip_settings            = get_post_meta( $post->ID, 'wp_travel_engine_setting', true );
+		$trip_highlights_title    = isset( $trip_settings[ 'trip_highlights_title' ] ) ? $trip_settings[ 'trip_highlights_title' ] : '';
 		$trip_highlights          = $trip_settings['trip_highlights'] ?? '';
 		$is_elementor_editor_page = $this->is_elementor_editor_page();
 		if ( $is_elementor_editor_page && empty( $trip_highlights ) ) {
@@ -130,8 +132,12 @@ class HighlightsWidget extends Widget {
 			}
 		}
 
+		$show_title      = isset($attributes['show_title'] ) ? $attributes['show_title'] : 'yes';
+		$html_tag        = isset($attributes['html_tag'] ) ? $attributes['html_tag'] : 'h3';
+
 		?>
 		<div id="wte-highlights" class="highlights-content">
+			<?php printf( '<%1$s class="wpte-trip-highlights-title">%2$s</%1$s>', esc_html( $html_tag ), esc_html( ( $show_title && $trip_highlights_title ) ? esc_html( $trip_highlights_title ) : '' ) ); ?>
 			<ul class="wpte-trip-highlights">
 				<?php echo wp_kses_post( $highlights ); ?>
 			</ul>

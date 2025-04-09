@@ -16,7 +16,7 @@ $post_meta    = get_post_meta( $post->ID, 'wp_travel_engine_setting', true );
 $review_title = isset( $post_meta['review']['review_title'] ) && '' !== $post_meta['review']['review_title'] ? $post_meta['review']['review_title'] : '';
 ?>
 
-<div class="post-data">
+<div id="wte-reviewform" class="post-data">
 	<div class="content">
 		<?php
 		if ( ! defined( 'WTE_TRIP_REVIEW_VERSION' ) ) :

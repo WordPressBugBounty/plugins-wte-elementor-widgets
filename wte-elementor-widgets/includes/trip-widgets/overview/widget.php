@@ -99,13 +99,19 @@ class OverviewWidget extends Widget {
 
 		$trip_settings            = get_post_meta( $post->ID, 'wp_travel_engine_setting', true );
 		$key                      = '1_wpeditor';
+		$tab_title                = isset( $trip_settings[ 'overview_section_title' ] ) && ! empty( $trip_settings[ 'overview_section_title' ] ) ? $trip_settings[ 'overview_section_title' ] : false;
 		$overview                 = isset( $trip_settings['tab_content'][ $key ] ) ? $trip_settings['tab_content'][ $key ] : '';
 		$is_elementor_editor_page = $this->is_elementor_editor_page();
+
+		$show_title      = isset($settings['show_title'] ) ? $settings['show_title'] : 'yes';
+		$html_tag        = isset($settings['html_tag'] ) ? $settings['html_tag'] : 'h3';
+
 		// phpcs:ignore WordPress.Security.NonceVerification.Missing.
 		if ( empty( $overview ) && $is_elementor_editor_page ) {
 			$overview = "Embark on a breathtaking journey to the iconic Everest Base Camp, a trek that offers stunning vistas, cultural experiences, and a chance to be up close with the world\'s highest peak. This adventure takes you through picturesque Himalayan landscapes, traditional Sherpa villages, and concludes at the base of Mount Everest itself.";
 		}?>
 		<div id="wte-overview" class="overview-content">
+			<?php printf( '<%1$s class="wpte-overview-title">%2$s</%1$s>', esc_html( $html_tag ), esc_html( ( $show_title && $tab_title ) ? esc_html( $tab_title ) : '' ) ); ?>
 			<?php echo wp_kses_post( $overview ); ?> 
 		</div>
 		<?php

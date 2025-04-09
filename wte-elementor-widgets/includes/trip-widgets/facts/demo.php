@@ -21,7 +21,7 @@ $trip_settings     = get_post_meta( $trip_id, 'wp_travel_engine_setting', true )
 $attributes      = (object) $attributes;
 $icon_position   = isset( $attributes->{'icon_alignment'} ) ? $attributes->{'icon_alignment'} : 'left';
 $icon_v_position = isset( $attributes->{'vertical_alignment'} ) ? $attributes->{'vertical_alignment'} : 'top';
-$column          = isset( $attributes->{'noofcolumn'} ) ? $attributes->{'noofcolumn'} : 2;
+$column          = isset( $attributes->{'noofcolumn'} ) ? $attributes->{'noofcolumn'} : 3;
 
 $_trip_facts = array(
 	'field_id'   => array(

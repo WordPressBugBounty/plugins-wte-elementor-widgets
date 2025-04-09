@@ -5,13 +5,12 @@
  * @since 1.3.0
  * @package wptravelengine-elementor-widgets
  */
-
 global $post;
 $attributes   = $this->get_settings_for_display();
 $post_meta    = get_post_meta( $post->ID, 'wp_travel_engine_setting', true );
 $review_title = isset( $post_meta['review']['review_title'] ) && '' !== $post_meta['review']['review_title'] ? $post_meta['review']['review_title'] : '';
 ?>
-<div class="post-data">
+<div id="wte-reviews" class="post-data">
 	<div class="content">
 		<?php
 		if ( ! empty( $review_title ) ) {
@@ -43,8 +42,13 @@ $review_title = isset( $post_meta['review']['review_title'] ) && '' !== $post_me
 		} else {
 			$obj = new Wte_Trip_Review_Init();
 			do_action( 'wte_review_wrap_open' );
+			do_action( 'wte_trip_review_header' );
+			do_action( 'wte_review_sub_wrap_open' );
+			do_action( 'wte_trip_total_reviews' );
 			do_action( 'wte_trip_average_rating_from_wte' );
 			do_action( 'wte_trip_overall_review' );
+			do_action( 'wte_review_sub_wrap_close' );
+			do_action( 'wte_write_review_btn' );
 			do_action( 'wte_trip_review_schema_json' );
 			do_action( 'wte_list_reviews' );
 			do_action( 'wte_review_wrap_close' );

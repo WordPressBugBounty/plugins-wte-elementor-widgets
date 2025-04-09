@@ -259,7 +259,7 @@ class Widget_Trips_Slider_Three extends Widget {
 				'el'        => ".slider-". esc_attr($_id) ."-pagination",
 				'clickable' => true,
 			],
-			'slidesPerView' => $layout_data === '2' ? wte_array_get( $attributes, 'slidesPerViewDesktop_mobile', 3 ) : 1,
+			'slidesPerView' => $layout_data === '2' ? wte_array_get( $attributes, 'slidesPerViewDesktop_mobile', 1 ) : 1,
 			'breakpoints' => wte_array_get(
 				$attributes,
 				'breakpoints',

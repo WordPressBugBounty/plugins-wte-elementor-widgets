@@ -62,9 +62,9 @@ $controls = array(
 				'type'          => 'CHOOSE',
 				'is_responsive' => false,
 				'options'       => array(
-					'dot'   => array(
-						'title' => esc_html__( '.', 'wptravelengine-elementor-widgets' ),
-						'icon'  => 'wte-icon-dot',
+					'right-chevron'   => array(
+						'title' => esc_html__( 'right chevron', 'wptravelengine-elementor-widgets' ),
+						'icon'  => 'wte-icon-right-chevron',
 					),
 					'slash' => array(
 						'title' => esc_html__( '/', 'wptravelengine-elementor-widgets' ),
@@ -83,7 +83,7 @@ $controls = array(
 						'icon'  => 'wte-icon-none',
 					),
 				),
-				'default'       => 'dot',
+				'default'       => 'right-chevron',
 			),
 			'item_gap' => array(
 				'label'      => __( 'Item Gap', 'wptravelengine-elementor-widgets' ),
@@ -102,7 +102,7 @@ $controls = array(
 				),
 				'default'    => array(
 					'unit' => 'px',
-					'size' => 50,
+					'size' => 16,
 				),
 				'selectors'  => array(
 					'{{WRAPPER}} .elementor-widget-container .breadcrumb-wrapper #crumbs' => '--item-gap: {{SIZE}}{{UNIT}};',

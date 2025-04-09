@@ -16,7 +16,7 @@ $cost_excludes_content = isset( $post_meta['cost']['cost_excludes'] ) ? $post_me
 $costexcludes          = array();
 ?>
 
-<div class="post-data cost">
+<div id="wte-costexcludes" class="post-data cost">
 	<div class="content">
 		<?php
 		if ( ! empty( trim( $cost_excludes_content ) ) ) {
