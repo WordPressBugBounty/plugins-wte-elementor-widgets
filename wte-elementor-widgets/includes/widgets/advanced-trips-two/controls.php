@@ -22,7 +22,7 @@ $selectors = array(
 		'{{WRAPPER}} .wpte-elementor-widget.wpte-adv-trips_two .wpte-card' => '--g-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 
 	),
-	'card_boxshadow'                   => '{{WRAPPER}} .wpte-elementor-widget .wpte-card',
+	'card_boxshadow'                   => '{{WRAPPER}} .wpte-elementor-widget .wpte-card .wpte-card__wrap',
 
 	// content section
 	'content_alignment'            => array(

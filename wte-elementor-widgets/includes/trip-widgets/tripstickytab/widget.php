@@ -114,6 +114,9 @@ class TripStickyTabWidget extends Widget {
 	 */
 	public function get_custom_trip_tabs() {
 		$settings = get_option( 'wp_travel_engine_settings', array() );
+		if(! is_singular('trip')) {
+			return [];
+		}
 		$trip = new \WPTravelEngine\Core\Models\Post\Trip( get_the_ID() );
 		
 		$filtered_default_array = array();
@@ -267,6 +270,11 @@ class TripStickyTabWidget extends Widget {
 	 */
 	protected function render() {
 
+		if( ! is_singular('trip') ) {
+			echo esc_html__( 'This widget works only on single trip.', 'wptravelengine-elementor-widgets' );
+			return;
+		}
+		
 		$settings = $this->get_settings_for_display();
 		$this->get_custom_trip_tabs_field_icon('tab_10');
 		$document = \Elementor\Plugin::$instance->documents->get(get_the_ID());

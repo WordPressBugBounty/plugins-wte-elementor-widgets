@@ -92,6 +92,9 @@ class CustomTripsTabWidget extends Widget {
 	 */
 	public function get_custom_trip_tabs() {
 		$settings = get_option( 'wp_travel_engine_settings', array() );
+		if(! is_singular('trip')) {
+			return [];
+		}
 		$trip = new \WPTravelEngine\Core\Models\Post\Trip( get_the_ID() );
 		
 		$filtered_default_array = array();

@@ -51,7 +51,7 @@ $selectors = array(
 		'{{WRAPPER}} .wpte-elementor-widget .wpte-trip__search-fields .wpte-trip__adv-field' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
 	'search_input_padding'                   => array(
-		'{{WRAPPER}} .wpte-elementor-widget .wpte-trip__search-fields .wpte-trip__adv-field .wpte__input' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+		'{{WRAPPER}} .wpte-elementor-widget .wpte-trip__search-fields .wpte-trip__adv-field .wpte__input' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
 	),
 	'search_item_spacing'                    => array(
 		'{{WRAPPER}} .wpte-elementor-widget .wpte-trip__adv-field.wpte__select-field .wpte__select-options ul li span' => 'padding-top: calc({{SIZE}}{{UNIT}} / 2 ); padding-bottom: calc({{SIZE}}{{UNIT}} / 2 );',
@@ -105,7 +105,7 @@ $controls = array(
 				'label'    => __( 'Typography', 'wptravelengine-elementor-widgets' ),
 			),
 			'search_padding'          => array(
-				'type'       => 'DIMENSIONS',
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'label'      => __( 'Padding', 'wptravelengine-elementor-widgets' ),
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => $selectors['search_padding'],
@@ -120,7 +120,7 @@ $controls = array(
 				'selector' => $selectors['search_border'],
 			),
 			'search_border_radius'    => array(
-				'type'       => 'DIMENSIONS',
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'label'      => __( 'Border Radius', 'wptravelengine-elementor-widgets' ),
 				'size_units' => array( 'px', '%' ),
 				'selectors'  => $selectors['search_border_radius'],

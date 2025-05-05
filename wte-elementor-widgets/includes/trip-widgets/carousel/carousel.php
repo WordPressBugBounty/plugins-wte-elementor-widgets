@@ -60,7 +60,10 @@ if ( ! empty( $wpte_trip_images ) ) :?>
                     array_unshift( $wpte_trip_images, get_post_thumbnail_id( $post->ID ) );
                 }
                 foreach ( $wpte_trip_images as $image ) {
-                    $gallery_image_size = apply_filters( 'wp_travel_engine_trip_single_gallery_image_size', 'large' );
+                    $gallery_image_size = apply_filters( 'wp_travel_engine_trip_single_gallery_image_size', 'full' );
+                    if( wp_is_mobile() ) {
+                        $gallery_image_size = 'large';
+                    }
                     $_link              = wp_get_attachment_image_src( $image, $gallery_image_size );
                     $image_alt          = get_post_meta( $image, '_wp_attachment_image_alt', true );
                     if ( empty( $image_alt ) ) {

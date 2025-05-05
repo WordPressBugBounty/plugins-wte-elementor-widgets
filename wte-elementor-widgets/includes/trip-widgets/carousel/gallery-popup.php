@@ -19,9 +19,10 @@
             </span>
             <?php
             endif;
+            $_image_size = wp_is_mobile() ? 'large' : 'full';
             $gallery_images = array_map(
-                function ( $image ) {
-                    return array( 'src' => wp_get_attachment_image_url( $image, 'large' ) );
+                function ( $image ) use ( $_image_size ) {
+                    return array( 'src' => wp_get_attachment_image_url( $image, $_image_size ) );
                 },
                 $wpte_trip_images
             );
