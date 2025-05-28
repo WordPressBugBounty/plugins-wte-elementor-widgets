@@ -1013,6 +1013,11 @@ class Widgets_Controller {
 			'icon'                => 'wte-trips-tax-slider',
 		);
 
+		$widgets['wptravelengine-tour-search'] = array(
+			'title'               => __( 'Tour Search', 'wptravelengine-elementor-widgets' ),
+			'icon'                => 'wte-tour-search',
+		);
+
 		$core_widget_collection = apply_filters(
 			'wte_core_blocks_to_elementor_widgets',
 			$widgets

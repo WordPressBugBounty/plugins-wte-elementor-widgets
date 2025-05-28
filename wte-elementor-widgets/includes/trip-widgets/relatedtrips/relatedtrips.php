@@ -55,7 +55,7 @@ if ( isset( $attributes->{'listby'} ) ) {
 	}
 }
 
-foreach ( array( 'showFeaturedRibbon', 'showDescription', 'showFeaturedImage', 'showTitle', 'showPrice', 'showStrikedPrice', 'showDuration', 'showLocation', 'showReviews', 'showDiscount', 'showActivities', 'showTripType', 'showGroupSize', 'showTripAvailableTime', 'showViewMoreButton', 'showViewAll' ) as $subkey ) {
+foreach ( array( 'showFeaturedRibbon', 'showDescription', 'showFeaturedImage', 'showTitle', 'showPrice', 'showStrikedPrice', 'showDuration', 'showLocation', 'showReviews', 'showWishlist', 'showDiscount', 'showActivities', 'showTripType', 'showGroupSize', 'showTripAvailableTime', 'showViewMoreButton', 'showViewAll' ) as $subkey ) {
 	if ( isset( $attributes->{ "{$subkey}" } ) ) {
 		$attributes->{'layoutFilters'}[ $subkey ] = $attributes->{ "{$subkey}" };
 	}
@@ -124,9 +124,9 @@ if ( ! empty( $attributes->{'slider'}['autoplay'] ) ? $attributes->{'slider'}['a
 	);
 }
 if ( $results && is_array( $results ) ) :
-	echo '<div class="wp-block-wptravelengine-trips wpte-gblock-wrapper elementor-addon wpte-elementor-widget">';
 	?>
-	<div class="<?php echo esc_attr( "category-{$layout} wte-d-flex wpte-trip-list-wrapper" ); ?>
+	<div class="<?php echo esc_attr( $attributes->{'cardlayout'} !== '6' ? 'wp-block-wptravelengine-trips' : '' ); ?> wpte-gblock-wrapper elementor-addon wpte-elementor-widget">
+	<div class="<?php echo esc_attr( "category-{$layout}" .  $attributes->{'cardlayout'} !== '6'  ? " wte-d-flex wpte-trip-list-wrapper" : "" );  ?>
 	<?php
 	if ( 'slider' !== $layout ) {
 		echo esc_attr( " wte-col-{$column} columns-{$column}" );

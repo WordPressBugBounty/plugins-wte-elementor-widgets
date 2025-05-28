@@ -193,6 +193,8 @@ $selectors = array(
 	),
 	'meta_icon_color'                  => array(
 		'{{WRAPPER}} .wpte-elementor-widget .wpte-trip-meta [class*="wpte-icon-"]' => 'color: {{VALUE}} !important;',
+		'{{WRAPPER}} .wpte-elementor-widget .category-trip-meta-info-icon [class*="wpte-icon-"]' => 'color: {{VALUE}} !important;',
+		'{{WRAPPER}} .wpte-elementor-widget .category-trip-meta-info-icon' => 'color: {{VALUE}} !important;',
 	),
 	'meta_spacing'                     => array(
 		'{{WRAPPER}} .wpte-elementor-widget .wpte-trip-meta-list' => '--meta-spacing: {{SIZE}}{{UNIT}};',
@@ -220,19 +222,23 @@ $selectors = array(
 	'feat_tag_color'                   => array(
 		'{{WRAPPER}} .wpte-elementor-widget .wpte-trip-single:not(.wpte-layout-4) .featured-text-wrap .featured-text, {{WRAPPER}} .wpte-elementor-widget .category-feat-ribbon .category-feat-ribbon-txt' => 'color: {{VALUE}};',
 		'{{WRAPPER}} .wpte-elementor-widget .featured-text-wrap svg path' => 'fill: {{VALUE}};',
+		'{{WRAPPER}} .category-trips-single.wpte-layout-6 .category-trip-fig .category-feat-ribbon .category-feat-ribbon-txt' => 'color: {{VALUE}} !important;',
+		
 	),
 	'feat_tag_bg_color'                => array(
 		'{{WRAPPER}} .wpte-elementor-widget .wpte-trip-single:not(.wpte-layout-4) .featured-text-wrap, {{WRAPPER}} .wpte-elementor-widget .category-feat-ribbon .category-feat-ribbon-txt' => 'background-color: {{VALUE}};',
 		'{{WRAPPER}} .wpte-elementor-widget .wpte-trip-single.wpte-layout-4 .featured-text-wrap .featured-icon' => 'background-color: {{VALUE}};',
+		'{{WRAPPER}} .category-trips-single.wpte-layout-6 .category-trip-fig .category-feat-ribbon .category-feat-ribbon-txt' => 'background-color: {{VALUE}} !important;',
 	),
 
 	// discounttag.
 	'discount_tag_color'               => array(
-		'{{WRAPPER}} .wpte-elementor-widget .discount-text-wrap .discount-percent, {{WRAPPER}} .wpte-elementor-widget .category-trips-single-inner-wrap .category-trip-discount' => 'color: {{VALUE}};',
+		'{{WRAPPER}} .wpte-elementor-widget .category-trips-single-inner-wrap .discount-text-wrap .discount-percent' => 'color: {{VALUE}};',
 	),
-	'discount_tag_bg_color'            => array(
-		'{{WRAPPER}} .wpte-elementor-widget .discount-text-wrap .discount-percent, {{WRAPPER}} .wpte-elementor-widget .category-trips-single-inner-wrap .category-trip-discount' => 'background-color: {{VALUE}};',
-		'{{WRAPPER}} .wpte-elementor-widget .discount-text-wrap::after' => 'background-color: {{VALUE}};',
+	'discount_tag_bg_color'            => array( 
+		'{{WRAPPER}} .wpte-elementor-widget .category-trips-single-inner-wrap .discount-text-wrap' => 'background-color: {{VALUE}};',
+		'{{WRAPPER}} .wpte-elementor-widget .category-trips-single-inner-wrap .discount-text-wrap::before' => 'background-color: {{VALUE}};',
+		'{{WRAPPER}} .wpte-elementor-widget .category-trips-single-inner-wrap .discount-text-wrap::after' => 'background-color: {{VALUE}};',
 	),
 
 	// button.
@@ -434,6 +440,7 @@ $controls = array(
 					3 => __( 'Layout 3', 'wptravelengine-elementor-widgets' ),
 					4 => __( 'Layout 4', 'wptravelengine-elementor-widgets' ),
 					5 => __( 'Layout 5', 'wptravelengine-elementor-widgets' ),
+					6 => __( 'Layout 6', 'wptravelengine-elementor-widgets' ),
 				),
 				'default'   => 1,
 				'condition' => array(
@@ -545,6 +552,11 @@ $controls = array(
 				'label' => __( 'Reviews', 'wptravelengine-elementor-widgets' ),
 				'type'  => 'SWITCHER',
 			),
+			'showWishlist'           => array(
+				'label' => __( 'Show Wishlist', 'wptravelengine-elementor-widgets' ),
+				'type'  => 'SWITCHER',
+				'condition'   => array( 'cardlayout' => '6' ),
+			),
 			'showDiscount'          => array(
 				'label'   => __( 'Discount', 'wptravelengine-elementor-widgets' ),
 				'type'    => 'SWITCHER',
@@ -575,7 +587,6 @@ $controls = array(
 				'type'      => 'TEXT',
 				'condition' => array( 'showViewMoreButton' => 'yes' ),
 				'label'     => __( 'Button label', 'wptravelengine-elementor-widgets' ),
-				'condition' => array( 'showViewMoreButton' => 'yes' ),
 			),
 		),
 	),

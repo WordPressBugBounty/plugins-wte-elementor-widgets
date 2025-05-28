@@ -992,8 +992,4 @@ foreach ( $taxonomies as $filter_name => $filter_args ) {
 
 }
 
-foreach ( $terms_display_settings as $term => $value ) {
-	$controls['sorting_filtering']['subcontrols'][ $term ] = $value;
-}
-
 return $controls;
