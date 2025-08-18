@@ -52,8 +52,7 @@ $add_wrap_class = (1 === $index || 2 === $index) ? 'wpte-card--grid wpte-card--o
                 <?php if (wte_array_get($settings, 'showDiscount', false) && $meta->discount_percent) : ?>
                     <div <?php $this->print_render_attribute_string( 'discount-badge' ); ?>>
                         <span class="wpte-badge__text">
-                            <span><?php echo sprintf(esc_html__('%1$s%% ', 'wptravelengine-elementor-widgets'), (float) $meta->discount_percent); ?></span>
-                            <?php esc_html_e('Off', 'wptravelengine-elementor-widgets'); ?>
+                            <span><?php echo isset( $meta->discount_label ) ? $meta->discount_label : sprintf(esc_html__('%1$s%% Off', 'wptravelengine-elementor-widgets'), (float) $meta->discount_percent); ?></span>
                         </span>
                     </div>
                 <?php endif;

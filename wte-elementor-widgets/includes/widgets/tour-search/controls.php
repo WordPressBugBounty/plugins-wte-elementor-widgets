@@ -9,90 +9,90 @@ namespace WPTRAVELENGINEEB;
 $selectors = array(
 
 	// Search Field
-	'search_boxshadow'                       => '{{WRAPPER}} .wpte-recipe-search .search-field',
-	'search_border'                          => '{{WRAPPER}} .wpte-recipe-search .search-field',
+	'search_boxshadow'                       => '{{WRAPPER}} .wpte-tour-search .search-field',
+	'search_border'                          => '{{WRAPPER}} .wpte-tour-search .search-field',
 	'search_padding'                         => array(
-		'{{WRAPPER}} .wpte-recipe-search' => '--search-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};--right: {{RIGHT}}{{UNIT}};',
+		'{{WRAPPER}} .wpte-tour-search' => '--search-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};--right: {{RIGHT}}{{UNIT}};',
 	),
 	'search_margin'                         => array(
-		'{{WRAPPER}} .wpte-recipe-search' => '--search-margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};--right: {{RIGHT}}{{UNIT}};',
+		'{{WRAPPER}} .wpte-tour-search' => '--search-margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};--right: {{RIGHT}}{{UNIT}};',
 	),
 	'search_background_color'                => array(
-		'{{WRAPPER}} .wpte-recipe-search' => '--search-bg: {{VALUE}};',
+		'{{WRAPPER}} .wpte-tour-search' => '--search-bg: {{VALUE}};',
 	),
 	'search_primary_color'                   => array(
-		'{{WRAPPER}} .wpte-recipe-search' => '--search-color: {{VALUE}};',
+		'{{WRAPPER}} .wpte-tour-search' => '--search-color: {{VALUE}};',
 	),
 	'search_border_radius'                   => array(
-		'{{WRAPPER}} .wpte-recipe-search' => '--search-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+		'{{WRAPPER}} .wpte-tour-search' => '--search-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
 
 	  // Category
-	'categoryTypography' => '{{WRAPPER}} .wpte-widget.wpte-recipe-search .cat-title',
+	'categoryTypography' => '{{WRAPPER}} .wpte-widget.wpte-tour-search .cat-title',
 
 	'categorySpaceBetween'                   => array(
-		'{{WRAPPER}} .wpte-recipe-search' => '--item-spacing: {{SIZE}}{{UNIT}};',
+		'{{WRAPPER}} .wpte-tour-search' => '--item-spacing: {{SIZE}}{{UNIT}};',
 	),
 	'categoryItemPadding'                   => array(
-		'{{WRAPPER}} .wpte-recipe-search' => '--item-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+		'{{WRAPPER}} .wpte-tour-search' => '--item-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
 	'categoryMargin'                        => array(
-		'{{WRAPPER}} .wpte-recipe-search' => '--category-margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+		'{{WRAPPER}} .wpte-tour-search' => '--category-margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
 
 	// normal
 	'category_color'						=> array(
-		'{{WRAPPER}} .wpte-recipe-search' => '--item-color: {{VALUE}};',
+		'{{WRAPPER}} .wpte-tour-search' => '--item-color: {{VALUE}};',
 	),
 	'category_background'					=> array(
-		'{{WRAPPER}} .wpte-recipe-search' => '--item-bg: {{VALUE}};',
+		'{{WRAPPER}} .wpte-tour-search' => '--item-bg: {{VALUE}};',
 	),
-	'category_border' => '{{WRAPPER}} .wpte-recipe-search .cat-title',
+	'category_border' => '{{WRAPPER}} .wpte-tour-search .cat-title',
 	'category_radius' => array(
-		'{{WRAPPER}} .wpte-recipe-search' => '--item-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+		'{{WRAPPER}} .wpte-tour-search' => '--item-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
 
 	// hover
 	'category_color_hover'					=> array(
-		'{{WRAPPER}} .wpte-recipe-search' => '--item-color-hover: {{VALUE}};',
+		'{{WRAPPER}} .wpte-tour-search' => '--item-color-hover: {{VALUE}};',
 	),
 	'category_background_hover'				=> array(
-		'{{WRAPPER}} .wpte-recipe-search' => '--item-bg-hover: {{VALUE}};',
+		'{{WRAPPER}} .wpte-tour-search' => '--item-bg-hover: {{VALUE}};',
 	),
-	'category_border_hover' => '{{WRAPPER}} .wpte-recipe-search .cat-title:hover',
+	'category_border_hover' => '{{WRAPPER}} .wpte-tour-search .cat-title:hover',
 	'category_radius_hover' => array(
-		'{{WRAPPER}} .wpte-recipe-search' => '--item-radius-hover: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+		'{{WRAPPER}} .wpte-tour-search' => '--item-radius-hover: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
 
 	// button.
-	'search_button_typography'               => '{{WRAPPER}} .wpte-recipe-search .wpte-recipe-search__btn',
+	'search_button_typography'               => '{{WRAPPER}} .wpte-tour-search .wpte-tour-search__btn',
 	'search_button_padding'                  => array(
-		'{{WRAPPER}} .wpte-recipe-search' => '--button-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+		'{{WRAPPER}} .wpte-tour-search' => '--button-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
 	'search_button_bg_color'                 => array(
-		'{{WRAPPER}} .wpte-recipe-search' => '--button-bg: {{VALUE}};',
+		'{{WRAPPER}} .wpte-tour-search' => '--button-bg: {{VALUE}};',
 	),
 	'search_button_color'                    => array(
-		'{{WRAPPER}} .wpte-recipe-search' => '--button-color: {{VALUE}};',
+		'{{WRAPPER}} .wpte-tour-search' => '--button-color: {{VALUE}};',
 	),
-	'search_button_border'                   => '{{WRAPPER}} .wpte-recipe-search .wpte-recipe-search__btn',
+	'search_button_border'                   => '{{WRAPPER}} .wpte-tour-search .wpte-tour-search__btn',
 	'search_button_border_radius'            => array(
-		'{{WRAPPER}} .wpte-recipe-search' => '--button-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+		'{{WRAPPER}} .wpte-tour-search' => '--button-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
-	'search_button_boxshadow'                => '{{WRAPPER}} .wpte-recipe-search .wpte-recipe-search__btn',
+	'search_button_boxshadow'                => '{{WRAPPER}} .wpte-tour-search .wpte-tour-search__btn',
 
 	// hover
 	'search_button_bg_hover_color'           => array(
-		'{{WRAPPER}} .wpte-recipe-search' => '--button-bg-hover: {{VALUE}};',
+		'{{WRAPPER}} .wpte-tour-search' => '--button-bg-hover: {{VALUE}};',
 	),
 	'search_button_hover_color'              => array(
-		'{{WRAPPER}} .wpte-recipe-search' => '--button-color-hover: {{VALUE}};',
+		'{{WRAPPER}} .wpte-tour-search' => '--button-color-hover: {{VALUE}};',
 	),
-	'search_button_hover_border'             => '{{WRAPPER}} .wpte-recipe-search .wpte-recipe-search__btn:hover',
+	'search_button_hover_border'             => '{{WRAPPER}} .wpte-tour-search .wpte-tour-search__btn:hover',
 	'search_button_hover_border_radius'      => array(
-		'{{WRAPPER}} .wpte-recipe-search' => '--button-radius-hover: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+		'{{WRAPPER}} .wpte-tour-search' => '--button-radius-hover: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
-	'search_button_hover_boxshadow'          => '{{WRAPPER}} .wpte-recipe-search .wpte-recipe-search__btn:hover',
+	'search_button_hover_boxshadow'          => '{{WRAPPER}} .wpte-tour-search .wpte-tour-search__btn:hover',
 );
 
 $controls = array(
@@ -169,7 +169,7 @@ $controls = array(
 			'searchBtnLabel' => array(
 				'type'        => 'TEXT',
 				'label'       => esc_html__( 'Button Text', 'wptravelengine-elementor-widgets' ),
-				'default'     => esc_html__( 'Or, Browse All Recipe', 'wptravelengine-elementor-widgets' ),
+				'default'     => esc_html__( 'Or, Browse All Tour', 'wptravelengine-elementor-widgets' ),
 			),
 			'searchBtnLink' => array(
 				'type'        => 'URL',
@@ -254,7 +254,7 @@ $controls = array(
 					),
 				),
 				'selectors'  => array(
-					'{{WRAPPER}} .wpte-recipe-search' => '--item-spacing: {{SIZE}}{{UNIT}};',
+					'{{WRAPPER}} .wpte-tour-search' => '--item-spacing: {{SIZE}}{{UNIT}};',
 				),
 			),
 			'categoryItemPadding' => array(
@@ -262,7 +262,7 @@ $controls = array(
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .wpte-recipe-search' => '--item-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wpte-tour-search' => '--item-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			),
 			'categoryMargin' => array(
@@ -270,7 +270,7 @@ $controls = array(
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => array(
-					'{{WRAPPER}} .wpte-recipe-search' => '--category-margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+					'{{WRAPPER}} .wpte-tour-search' => '--category-margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
 			),
 

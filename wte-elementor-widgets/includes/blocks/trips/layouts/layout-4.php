@@ -18,7 +18,7 @@ $meta_dir          = wte_array_get( $settings, 'meta_direction', false );
 		<div class="wpte-trip-image-wrap">
 			<?php if ( wte_array_get( $settings, 'layoutFilters.showDiscount', false ) && $meta->discount_percent ) : ?>
 			<div class="discount-text-wrap">
-				<span class="discount-percent"><?php echo sprintf( esc_html__( '%1$s%% Off', 'wptravelengine-elementor-widgets' ), (int) $meta->discount_percent ); ?></span>
+				<span class="discount-percent"><?php echo isset( $meta->discount_label ) ? $meta->discount_label : sprintf( esc_html__( '%1$s%% Off', 'wptravelengine-elementor-widgets' ), (int) $meta->discount_percent ); ?></span>
 			</div>
 			<?php endif; ?>
 			<?php if ( wte_array_get( $settings, 'layoutFilters.showFeaturedRibbon', false ) && $is_featured ) : ?>

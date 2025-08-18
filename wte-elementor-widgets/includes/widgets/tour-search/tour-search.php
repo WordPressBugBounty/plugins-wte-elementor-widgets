@@ -110,7 +110,7 @@ class Widget_Tour_Search extends Widget {
 			}
 		}?>
         <div class="wpte-widget">
-			<div class="wpte-recipe-search">
+			<div class="wpte-tour-search">
 				<?php
 				echo '<div class="form-section">'; ?>
 					<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -139,7 +139,7 @@ class Widget_Tour_Search extends Widget {
 				
 				if ( !empty( $attributes['searchBtnLink'] ) && !empty( $attributes['searchBtnLink']['url'] ) ){
 					$target  = $attributes['searchBtnLink']['is_external'] ? ' target=_blank' : '';?>
-						<a class="wpte-recipe-search__btn" href="<?php echo esc_url( $attributes['searchBtnLink']['url'] ); ?>" <?php echo esc_attr($target);  ?>>
+						<a class="wpte-tour-search__btn" href="<?php echo esc_url( $attributes['searchBtnLink']['url'] ); ?>" <?php echo esc_attr($target);  ?>>
 							<?php echo esc_html($button_label); ?>
 							<?php if (! empty($attributes['search_btn_arrow']) && is_array($attributes['search_btn_arrow']) && ! empty($attributes['search_btn_arrow']['value']) && ! is_array($attributes['search_btn_arrow']['value'])) :?>
 								<i class="<?php echo esc_attr($attributes['search_btn_arrow']['value']); ?>"></i>

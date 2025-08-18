@@ -14,30 +14,35 @@ document.addEventListener('DOMContentLoaded', function() {
             this.classList.add('active');
             
             // Smooth scroll to target
-            const headerHeight = stickyTabs.offsetHeight;
-            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+            if( null !== stickyTabs ) {
+                const headerHeight = stickyTabs.offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
             
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
     // Update active tab on scroll
     window.addEventListener('scroll', function() {
         const scrollPosition = window.pageYOffset;
-        const headerHeight = document.querySelector('.wpte-sticky-tabs').offsetHeight;
+        const stickyTabs = document.querySelector('.wpte-sticky-tabs');
 
-        document.querySelectorAll('.wpte-tab-content').forEach(content => {
-            const top = content.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
-            const bottom = top + content.offsetHeight;
+        if( null !== stickyTabs ) {
+            const headerHeight = stickyTabs.offsetHeight;
+            document.querySelectorAll('.wpte-tab-content').forEach(content => {
+                const top = content.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+                const bottom = top + content.offsetHeight;
 
-            if (scrollPosition >= top && scrollPosition < bottom) {
-                const id = content.getAttribute('id');
-                document.querySelectorAll('.wpte-sticky-tabs a').forEach(a => a.classList.remove('active'));
-                document.querySelector(`.wpte-sticky-tabs a[href="#${id}"]`).classList.add('active');
-            }
-        });
+                if (scrollPosition >= top && scrollPosition < bottom) {
+                    const id = content.getAttribute('id');
+                    document.querySelectorAll('.wpte-sticky-tabs a').forEach(a => a.classList.remove('active'));
+                    document.querySelector(`.wpte-sticky-tabs a[href="#${id}"]`).classList.add('active');
+                }
+            });
+        }
     });
 });

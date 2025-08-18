@@ -181,7 +181,7 @@ class Widget_Trips_Slider_Two extends Widget {
 						'relation' => isset( $attributes['tax_relation'] ) && '' != $attributes['tax_relation'] ? 'OR' : 'AND',
 					);
 					foreach ( $attributes['default_taxonomies'] as $taxonomy ) {
-						if ( is_array( $attributes[ '' . $taxonomy . '_termstoDisplay' ] ) && isset( $attributes[ '' . $taxonomy . '_termstoDisplay' ] ) && count( $attributes[ '' . $taxonomy . '_termstoDisplay' ] ) > 0 ) {
+						if ( isset( $attributes[ '' . $taxonomy . '_termstoDisplay' ] ) && is_array( $attributes[ '' . $taxonomy . '_termstoDisplay' ] ) && count( $attributes[ '' . $taxonomy . '_termstoDisplay' ] ) > 0 ) {
 							$query_args['tax_query'][] = array(
 								'taxonomy' => $taxonomy,
 								'terms'    => $attributes[ '' . $taxonomy . '_termstoDisplay' ],

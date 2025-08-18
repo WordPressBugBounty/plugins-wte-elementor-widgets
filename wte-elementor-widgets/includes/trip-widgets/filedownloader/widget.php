@@ -76,10 +76,10 @@ class FileDownLoaderWidget extends Widget {
 	 * Style dependencies.
 	 */
 	public function get_style_depends() {
-		wp_register_style( 'wpte-trip-file-download', plugin_dir_url( WPTRAVELENGINEEB_FILE__ ) . 'dist/css/wpte-trips-file-download.css' );
-		
-		return array( 'wpte-trip-file-download' );
-	}   
+		wp_register_style( 'wte-elementor-widget-styles', plugin_dir_url( WPTRAVELENGINEEB_FILE__ ) . 'dist/css/wte-elementor-widgets.css' );
+
+		return array( 'wte-elementor-widget-styles' );
+	}
 
 	/**
 	 * Widget Settings.

@@ -39,15 +39,15 @@ function initAccordion($scope, $) {
 
         function setContentHeight() {
             accordions2.forEach((accordion2) => {
-                const recipes = accordion2.querySelectorAll('.wpte-card');
-                recipes.forEach(recipe => {
-                    const trigger = recipe.querySelector('.wpte-card__trigger');
-                    const content = recipe.querySelector('.wpte-card__content-wrap');
+                const tours = accordion2.querySelectorAll('.wpte-card');
+                tours.forEach(tour => {
+                    const trigger = tour.querySelector('.wpte-card__trigger');
+                    const content = tour.querySelector('.wpte-card__content-wrap');
 
                     if (trigger.getAttribute('aria-expanded') === 'true') {
-                        recipe.style.setProperty('--mobile-content-height', `${content.scrollHeight}px`);
+                        tour.style.setProperty('--mobile-content-height', `${content.scrollHeight}px`);
                     } else {
-                        recipe.style.setProperty('--mobile-content-height', '5rem');
+                        tour.style.setProperty('--mobile-content-height', '5rem');
                     }
                 });
             });
