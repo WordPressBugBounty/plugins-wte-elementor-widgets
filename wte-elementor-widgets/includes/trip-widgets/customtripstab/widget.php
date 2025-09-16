@@ -162,7 +162,7 @@ class CustomTripsTabWidget extends Widget {
 		$selected_tab = isset($all_trip_tabs[$custom_trip_tabs]) ? $all_trip_tabs[$custom_trip_tabs] : '';
 		// get the attributes from the widget.
 		$show_title      = isset( $settings['show_title'] ) ? $settings['show_title'] : 'yes';
-		$html_tag        = isset( $settings['html_tag'] ) ? $settings['html_tag'] : 'h3';
+		$html_tag        = wptravelengineeb_normalize_html_tag( $settings['html_tag'] ?? 'h3' );
 		$tab_title       = isset( $selected_tab['title'] ) ? $selected_tab['title'] : '';
 		
 		?>

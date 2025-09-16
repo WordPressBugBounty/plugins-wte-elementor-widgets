@@ -133,7 +133,7 @@ class HighlightsWidget extends Widget {
 		}
 
 		$show_title      = isset($attributes['show_title'] ) ? $attributes['show_title'] : 'yes';
-		$html_tag        = isset($attributes['html_tag'] ) ? $attributes['html_tag'] : 'h3';
+		$html_tag        = wptravelengineeb_normalize_html_tag( $attributes['html_tag'] ?? 'h3' );
 
 		?>
 		<div id="wte-highlights" class="highlights-content">

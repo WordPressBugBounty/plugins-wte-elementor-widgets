@@ -123,6 +123,7 @@ $add_wrap_class = (( 1 === $index && '1' === $layout_data ) || (3 === $index && 
 								if ( 'days' === $trip_duration_unit && $trip_duration_nights && in_array( $set_duration_types, array( 'both', 'nights' ) ) ) {
 									$duration_label[] = sprintf( _nx( '%1$d Night', '%1$d Nights', (int) $trip_duration_nights, 'trip duration night', 'wptravelengine-elementor-widgets' ), (int) $trip_duration_nights );
 								}
+								$duration_label = apply_filters( 'wptravelengine_trip_duration_arr', $duration_label, $trip->ID, $set_duration_types );
 								if (( 1 === $index && '1' === $layout_data ) || (3 === $index && '2' === $layout_data)) { ?>
 									<span class="wpte-card__meta-title"><?php \esc_html_e('Duration', 'wptravelengine-elementor-widgets'); ?></span>
 								<?php } ?>

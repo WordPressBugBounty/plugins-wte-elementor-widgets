@@ -115,6 +115,70 @@ final class Plugin {
 		add_action( 'elementor/controls/register', array( $this, 'register_controls' ) );
 		// Set default elementor library post.
 		add_action( 'init', array( $this, 'create_elementor_library_post_once' ) );
+
+		/**
+		 * Elementor Ajax.
+		 * @since 1.4.3
+		 */
+		add_action( 'wp_ajax_elementor_ajax', array( $this, 'elementor_ajax' ), 2 );
+	}
+
+	/**
+	 * Normalizes the html tag of the elementor editor.
+	 * 
+	 * @since 1.4.3
+	 */
+	public function elementor_ajax() {
+
+		// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		$my_actions = json_decode( wp_unslash( $_REQUEST['actions'] ?? '' ), true );
+
+		if ( ! is_array( $my_actions ) ) {
+			return;
+		}
+
+		$update_actions = false;
+		foreach ( $my_actions as &$args ) {
+			$action = $args['action'] ?? '';
+			switch ( $action ) :
+				case 'save_builder':
+					$elements = &$args['data']['elements'];
+
+					if ( ! $elements ) {
+						return;
+					}
+
+					foreach ( $elements as &$element ) {
+						$inner_elements = &$element['elements'];
+						if ( !!$inner_elements ) {
+							foreach ( $inner_elements as &$inner_element ) {
+								if ( isset( $inner_element['settings']['html_tag'] ) ) {
+									$inner_element['settings']['html_tag'] = wptravelengineeb_normalize_html_tag( $inner_element['settings']['html_tag'] );
+									$update_actions = true;
+								}
+							}
+						}
+					}
+
+					break;
+				case 'render_widget':
+					$settings = &$args['data']['data']['settings'];
+
+					if ( is_array( $settings ) && isset( $settings['html_tag'] ) ) {
+						$settings['html_tag'] = wptravelengineeb_normalize_html_tag( $settings['html_tag'] );
+						$update_actions = true;
+					}
+
+					break;
+				default:
+					return;
+			endswitch;
+		}
+
+		// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+		if ( $update_actions ) {
+			$_POST['actions'] = $_REQUEST['actions'] = wp_slash( wp_json_encode( $my_actions ) );
+		}
 	}
 
 	/**

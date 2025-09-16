@@ -5,7 +5,7 @@ Tags: Tour booking, Tour operator, Travel, Travel agency, Travel booking
 Requires at least: 5.0
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.4.2
+Stable tag: 1.4.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -181,6 +181,10 @@ The plugin is optimized for speed and performance, so it will not slow down your
 9. Trips Widget Slider Controls.
 
 == Changelog ==
+= 1.4.3 – 16th September, 2025 =
+* Fixed: Demo content now properly displays on the trip review widget.
+* Fixed: Activity Tour Booking Duration is now fully compatible with widgets.
+* Security: Enhanced protections to ensure safer and more secure browsing for your site visitors.
 
 = 1.4.2 - 18th August, 2025 =
 * Enhancement: Ensured compatibility with the new discount display type feature in WP Travel Engine.

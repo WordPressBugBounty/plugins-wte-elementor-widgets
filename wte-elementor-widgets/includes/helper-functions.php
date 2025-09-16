@@ -5,6 +5,18 @@
 use WPTravelEngine\Core\Models\Post\Trip as TripData;
 
 /**
+ * Convert the html tag to lowercase and return the normalized html tag.
+ * 
+ * @param string $html_tag
+ * @return string
+ * @since 1.4.3
+ */
+function wptravelengineeb_normalize_html_tag( $html_tag = 'h3' ) : string {
+    $html = strtolower( $html_tag );
+    return in_array( $html, [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'span', 'p' ], true ) ? $html : 'h3';
+}
+
+/**
  * Get the maximum altitude of the trip.
  *
  * @param array $trip_facts

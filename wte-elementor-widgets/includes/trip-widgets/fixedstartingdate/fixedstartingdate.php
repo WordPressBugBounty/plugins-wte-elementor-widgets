@@ -25,7 +25,7 @@ $space_label        = isset( $attributes->{'spaceLabel'} ) ? $attributes->{'spac
 
 $loadmore_label = isset( $attributes->{'loadMore'} ) ? $attributes->{'loadMore'} : __( 'Load More', 'wptravelengine-elementor-widgets' );
 $showless_label = isset( $attributes->{'showLess'} ) ? $attributes->{'showLess'} : __( 'Show Less', 'wptravelengine-elementor-widgets' );
-$html_tag       = isset( $attributes->{'html_tag'} ) ? $attributes->{'html_tag'} : 'h3';
+$html_tag       = wptravelengineeb_normalize_html_tag( $attributes->{'html_tag'} ?? 'h3' );
 $trip_id        = isset( $args['post_id'] ) ? $args['post_id'] : false;
 $is_tab_content = isset( $args['is_tab_conent'] ) && $args['is_tab_conent'] ? '-tab-content' : '';
 

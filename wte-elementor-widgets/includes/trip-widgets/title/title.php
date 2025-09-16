@@ -10,7 +10,7 @@ global $post;
 $trip_title = get_the_title( $post->ID );
 
 $attributes = (object) $attributes;
-$html_tag   = isset( $attributes->{'html_tag'} ) ? $attributes->{'html_tag'} : 'h3';
+$html_tag   = wptravelengineeb_normalize_html_tag( $attributes->{'html_tag'} ?? 'h3' );
 ?>
 <header class="trip-header">
 	<?php

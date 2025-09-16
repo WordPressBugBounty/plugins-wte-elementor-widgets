@@ -46,6 +46,9 @@ $review_title = isset( $post_meta['review']['review_title'] ) && '' !== $post_me
 			if ( ! empty( $review_title ) ) {
 				echo '<h3>' . esc_attr( $review_title ) . '</h3>';
 			}
+			if ( ! class_exists( 'Wte_Trip_Review_Init' ) ) {
+				return;
+			}
 
 			$obj                       = new Wte_Trip_Review_Init();
 			$wp_travel_engine_settings = get_option( 'wp_travel_engine_settings', true );

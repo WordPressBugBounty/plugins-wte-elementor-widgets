@@ -59,7 +59,7 @@ $enabled_expand_all        = ! isset( $wp_travel_engine_settings['wte_advance_it
 // Get the attributes from the widget.
 $show_title      = isset( $attributes['show_title'] ) ? $attributes['show_title'] : 'yes';
 $_title          = isset( $attributes['title'] ) ? $attributes['title'] : $tab_title;
-$html_tag        = isset( $attributes['html_tag'] ) ? $attributes['html_tag'] : 'h3';
+$html_tag        = wptravelengineeb_normalize_html_tag( $attributes['html_tag'] ?? 'h3' );
 $show_expand_all = isset( $attributes['show_expand_all'] ) ? $attributes['show_expand_all'] : 'yes';
 $expand_all_text = isset( $attributes['expand_all_text'] ) ? $attributes['expand_all_text'] : '';
 $expand_all      = isset( $attributes['expand_all'] ) ? $attributes['expand_all'] : $enabled_expand_all;

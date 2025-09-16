@@ -100,7 +100,8 @@ class ReviewsWidget extends Widget {
 						'post_status' => 'publish',
 					)
 				);
-				if ( empty( $comments ) ) {
+			$is_elementor_editor_page = $this->is_elementor_editor_page();
+				if ( empty( $comments ) && $is_elementor_editor_page ) {
 					include_once WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/reviews/demo.php';
 				} else {
 					include_once WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/reviews/reviews.php';

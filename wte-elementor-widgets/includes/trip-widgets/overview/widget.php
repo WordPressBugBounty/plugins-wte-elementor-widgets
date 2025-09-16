@@ -104,7 +104,7 @@ class OverviewWidget extends Widget {
 		$is_elementor_editor_page = $this->is_elementor_editor_page();
 
 		$show_title      = isset($settings['show_title'] ) ? $settings['show_title'] : 'yes';
-		$html_tag        = isset($settings['html_tag'] ) ? $settings['html_tag'] : 'h3';
+		$html_tag        = wptravelengineeb_normalize_html_tag( $settings['html_tag'] ?? 'h3' );
 
 		// phpcs:ignore WordPress.Security.NonceVerification.Missing.
 		if ( empty( $overview ) && $is_elementor_editor_page ) {

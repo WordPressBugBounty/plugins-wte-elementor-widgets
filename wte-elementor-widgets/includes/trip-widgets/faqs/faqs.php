@@ -18,7 +18,7 @@ $attributes = (object) $attributes;
 $show_title       = isset( $attributes->{'show_title'} ) ? $attributes->{'show_title'} : 'yes';
 $show_expand_all  = isset( $attributes->{'show_expand_all'} ) ? $attributes->{'show_expand_all'} : 'yes';
 $expand_all_label = isset( $attributes->{'expand_all_label'} ) ? $attributes->{'expand_all_label'} : '';
-$html_tag         = isset( $attributes->{'html_tag'} ) ? $attributes->{'html_tag'} : 'h3';
+$html_tag         = wptravelengineeb_normalize_html_tag( $attributes->{'html_tag'} ?? 'h3' );
 ?>
 <div id="wte-faqs" class="post-data faq">
 	<div class="wp-travel-engine-faq-tab-header">
