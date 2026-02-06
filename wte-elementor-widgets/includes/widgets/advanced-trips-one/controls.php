@@ -271,13 +271,14 @@ $controls = array(
 				'label_block' => true,
 				'multiple' => true,
 				'options' => [
-					'showDuration'  => esc_html__( 'Duration', 'wptravelengine-elementor-widgets' ),
+					'showDuration'   => esc_html__( 'Duration', 'wptravelengine-elementor-widgets' ),
 					'showDifficulty' => esc_html__( 'Difficulty', 'wptravelengine-elementor-widgets' ),
 					'showActivities' => esc_html__( 'Activity', 'wptravelengine-elementor-widgets' ),
-					'showTripType' => esc_html__( 'Trip Type', 'wptravelengine-elementor-widgets' ),
-					'showGroupSize' => esc_html__( 'Group Size', 'wptravelengine-elementor-widgets' ),
-					'showAgeGroup' => esc_html__( 'Age Group', 'wptravelengine-elementor-widgets' ),
-					'showAltitude' => esc_html__( 'Altitude', 'wptravelengine-elementor-widgets' ),
+					'showTripType'   => esc_html__( 'Trip Type', 'wptravelengine-elementor-widgets' ),
+					'showGroupSize'  => esc_html__( 'Group Size', 'wptravelengine-elementor-widgets' ),
+					'showAgeGroup'   => esc_html__( 'Age Group', 'wptravelengine-elementor-widgets' ),
+					'showAltitude'   => esc_html__( 'Altitude', 'wptravelengine-elementor-widgets' ),
+					'showCustom'     => esc_html__( 'Custom Filters', 'wptravelengine-elementor-widgets' ),
 				],
 				'default' => [ 'showDuration', 'showDifficulty', 'showActivities' ],
 			),
@@ -291,6 +292,15 @@ $controls = array(
 					'nights' => __( 'Nights only', 'wptravelengine-elementor-widgets' ),
 				),
 				'condition' => array( 'showTripMeta' => 'showDuration' ),
+			),
+			'customFilterType'          => array(
+				'type'        => 'SELECT2',
+				'multiple'    => true,
+				'label_block' => true,
+				'label'       => __( 'Custom Filters', 'wptravelengine-elementor-widgets' ),
+				'default'     => array(),
+				'options'     => wptravelengineeb_get_custom_filter_options(),
+				'condition'   => array( 'showTripMeta' => 'showCustom' ),
 			),
 			'showPrice'             => array(
 				'label'   => __( 'Price', 'wptravelengine-elementor-widgets' ),
@@ -958,13 +968,8 @@ $controls = array(
 );
 
 //Add controls to add Trips by taxonomy
-$taxonomies = array(
-	'destination' => __( 'Destination', 'wptravelengine-elementor-widgets' ),
-	'activities'  => __( 'Activities', 'wptravelengine-elementor-widgets' ),
-	'trip_types'  => __( 'Trip Types', 'wptravelengine-elementor-widgets' ),
-	'difficulty'  => __( 'Difficulty', 'wptravelengine-elementor-widgets' ),
-	'trip_tag'    => __( 'Trip Tag', 'wptravelengine-elementor-widgets' ),
-);
+// Dynamically get all WP Travel Engine taxonomies including custom ones
+$taxonomies = wptravelengineeb_get_trip_taxonomies();
 
 $terms_display_settings = array();
 foreach ( $taxonomies as $filter_name => $filter_args ) {

@@ -38,7 +38,9 @@ if ( ! empty( $_trip_facts ) ) :
 								$icon = '';
 								if ( ! empty( $global_trip_facts['field_icon'][ $key ] ) ) {
 									$icon = $global_trip_facts['field_icon'][ $key ];
-									echo '<div class="wte-trip-fact-icon-wrapper"><span class="icon-holder">' . wptravelengine_svg_by_fa_icon( $icon, false ) . '</span></div>';
+									// Check if icon is an uploaded image (has 'id') or a Font Awesome icon.
+									$icon_data = isset( $icon['id'] ) ? wp_get_attachment_image( $icon['id'], 'thumbnail', true ) : wptravelengine_svg_by_fa_icon( $icon, false );
+									echo '<div class="wte-trip-fact-icon-wrapper"><span class="icon-holder">' . $icon_data . '</span></div>';
 								}
 								$field_value = isset( $_trip_facts[ $key ][ $key ] ) ? $_trip_facts[ $key ][ $key ] : '';
 								if ( 'duration' === $field_type && ! preg_match( '/([^\d]+)/', trim( $field_value ) ) ) {
@@ -133,9 +135,11 @@ if ( ! empty( $_trip_facts ) ) :
 							continue;
 						}
 						echo '<li class="trip-facts facts-icon-position-' . esc_attr( $icon_position ) . ' vertical-align-' . esc_attr( $icon_v_position ) . ' ">';
+						// Check if icon is an uploaded image (has 'id') or a Font Awesome icon.
+						$icon_data = isset( $fact['field_icon']['id'] ) ? wp_get_attachment_image( $fact['field_icon']['id'], 'thumbnail', true ) : wptravelengine_svg_by_fa_icon( $fact['field_icon'], false );
 						?>
 							<div class="wte-trip-fact-icon-wrapper">
-								<span class="icon-holder"><?php wptravelengine_svg_by_fa_icon( $fact['field_icon'] ); ?></span>
+								<span class="icon-holder"><?php echo $icon_data; ?></span>
 							</div>
 							<div class="wte-trip-fact-content-wrapper">
 								<label><?php echo esc_html( $fact['field_id'] ); ?></label>

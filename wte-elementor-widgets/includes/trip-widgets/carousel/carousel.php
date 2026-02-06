@@ -32,6 +32,10 @@ $wpte_trip_images               = get_post_meta( $post->ID, 'wpte_gallery_id', t
 $global_settings                = get_option( 'wp_travel_engine_settings', array() );
 $show_featured_image_in_gallery = ! isset( $global_settings['show_featured_image_in_gallery'] ) || 'yes' === $global_settings['show_featured_image_in_gallery'];
 
+if ( ! is_array( $wpte_trip_images ) ) {
+    $wpte_trip_images = array();
+}
+
 $hide_featured_image = isset( $global_settings['feat_img'] ) && '1' === $global_settings['feat_img'];
 
 // Retrieve attributes value form elementor.

@@ -65,7 +65,8 @@ $add_card_class = 1 === $index ? 'wpte-card--t-b wpte-card--hero-img hero-color'
 			<?php if ( wte_array_get( $settings, 'showWishlist', false ) ) : ?>
 				<?php wptravelengineeb_get_wishlist( $trip_id ); ?>
 			<?php endif;
-			if ( $showPrice &&  1 === $index ) : ?>
+			$display_price = $meta->has_sale ? $meta->sale_price : $meta->price;
+			if ( $showPrice &&  1 === $index && ! empty( $display_price ) && $display_price > 0 ) : ?>
 				<span class="wpte-card__price wpte-card__price--layout-1">
 					<?php if ( wte_array_get( $settings, 'showStrikedPrice', true ) && $meta->has_sale ) : ?>
 						<div class="striked-price">
@@ -212,7 +213,7 @@ $add_card_class = 1 === $index ? 'wpte-card--t-b wpte-card--hero-img hero-color'
                 </div>
                 <?php 
             endif;
-            if ( $showPrice &&  1 !== $index) : ?>
+            if ( $showPrice &&  1 !== $index && ! empty( $display_price ) && $display_price > 0 ) : ?>
                 <div class="wpte-card__price wpte-card__price--layout-3">
                     <?php if ( wte_array_get( $settings, 'showStrikedPrice', true ) && $meta->has_sale ) : ?>
                         <div class="striked-price">
@@ -221,7 +222,7 @@ $add_card_class = 1 === $index ? 'wpte-card--t-b wpte-card--hero-img hero-color'
                         </div>
                     <?php endif;
                     if ( $showPrice ) : ?>
-                        <ins class="actual-price"><?php echo wte_esc_price( wte_get_formated_price_html( $meta->has_sale ? $meta->sale_price : $meta->price ) ); ?></ins>
+                        <ins class="actual-price"><?php echo wte_esc_price( wte_get_formated_price_html( $display_price ) ); ?></ins>
                     <?php endif; ?>
                 </div>	
             <?php endif; ?>

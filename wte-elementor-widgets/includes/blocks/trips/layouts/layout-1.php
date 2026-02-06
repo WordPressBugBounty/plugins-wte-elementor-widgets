@@ -4,7 +4,7 @@ namespace WPTRAVELENGINEEB;
 /**
  * Trip Card Layout - 1
  */
-list( $settings, $trip, $results ) = $args;
+list( $settings, $trip, $results, $pax_label ) = $args;
 
 $is_featured       = wte_is_trip_featured( $trip->ID );
 $meta              = \wte_trip_get_trip_rest_metadata( $trip->ID );
@@ -129,11 +129,14 @@ $wte_global        = get_option( 'wp_travel_engine_settings', true );
 						<?php if ( wte_array_get( $settings, 'layoutFilters.showGroupSize', false ) && (int) $meta->min_pax ) : ?>
 							<span class="wpte-trip-meta category-trip-dur wpte-trip-pax">
 								<span class="wpte-icon-users"></span>
-								<?php printf( '<span>' . esc_html__( '%s People', 'wptravelengine-elementor-widgets' ) . '</span>', (int) $meta->max_pax ? esc_html( $meta->min_pax . '-' . $meta->max_pax ) : esc_html( $meta->min_pax ) ); ?>
+								<?php /* translators: 1: Pax count, 2: Person label */
+								printf( esc_html__( '%1$s %2$s', 'wptravelengine-elementor-widgets' ), (int) $meta->max_pax ? $meta->min_pax . '-' . $meta->max_pax : (int) $meta->min_pax, $pax_label ); ?>
 							</span>
 						<?php endif; ?>
 					</div>
-					<?php if ( wte_array_get( $settings, 'layoutFilters.showPrice', true ) ) : ?>
+					<?php
+					$display_price = $meta->has_sale ? $meta->sale_price : $meta->price;
+					if ( wte_array_get( $settings, 'layoutFilters.showPrice', true ) && ! empty( $display_price ) && $display_price > 0 ) : ?>
 						<div class="category-trip-budget">
 							<?php if ( wte_array_get( $settings, 'layoutFilters.showDiscount', false ) && $meta->discount_percent ) : ?>
 								<div class="category-disc-feat-wrap">
@@ -145,7 +148,7 @@ $wte_global        = get_option( 'wp_travel_engine_settings', true );
 								</div>
 							<?php endif; ?>
 							<span class="price-holder">
-								<span class="actual-price"><?php echo wte_esc_price( wte_get_formated_price_html( $meta->has_sale ? $meta->sale_price : $meta->price ) ); ?></span>
+								<span class="actual-price"><?php echo wte_esc_price( wte_get_formated_price_html( $display_price ) ); ?></span>
 								<?php if ( wte_array_get( $settings, 'layoutFilters.showStrikedPrice', true ) && $meta->has_sale ) : ?>
 								<span class="striked-price"><?php echo wte_esc_price( wte_get_formated_price_html( $meta->price ) ); ?></span>
 								<?php endif; ?>

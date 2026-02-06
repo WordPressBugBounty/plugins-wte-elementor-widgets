@@ -61,7 +61,9 @@ $add_wrap_class = (1 === $index || (2 === $index && '2' === $layout_data)) ? 'wp
 			<?php if ( ((1 === $index || (2 === $index && '2' === $layout_data)) || '3' === $layout_data) && wte_array_get( $settings, 'showWishlist', false ) ) :
 				wptravelengineeb_get_wishlist( $trip_id );
             endif;
-			if ( $showPrice && (1 === $index && '1' === $layout_data )) : ?>
+
+			$display_price = $meta->has_sale ? $meta->sale_price : $meta->price;
+			if ( $showPrice && ! empty( $display_price ) && $display_price > 0 && (1 === $index && '1' === $layout_data )) : ?>
 				<span class="wpte-card__price wpte-card__price--layout-1">
 					<?php if ( wte_array_get( $settings, 'showStrikedPrice', true ) && $meta->has_sale ) : ?>
 						<div class="striked-price">
@@ -70,9 +72,9 @@ $add_wrap_class = (1 === $index || (2 === $index && '2' === $layout_data)) ? 'wp
 						</div>
 					<?php endif;
 					if ( $showPrice ) : ?>
-						<ins class="actual-price"><?php echo wte_esc_price( wte_get_formated_price_html( $meta->has_sale ? $meta->sale_price : $meta->price ) ); ?></ins>
+						<ins class="actual-price"><?php echo wte_esc_price( wte_get_formated_price_html( $display_price ) ); ?></ins>
 					<?php endif; ?>
-				</span>	
+				</span>
 			<?php endif; ?>
 		</div>
         <div class="wpte-card__content">
@@ -214,7 +216,9 @@ $add_wrap_class = (1 === $index || (2 === $index && '2' === $layout_data)) ? 'wp
 				</div>
 				<?php 
 			endif;
-			if ( $showPrice && (('2' === $layout_data && (1 === $index || 2 === $index )) || '3' === $layout_data ) ) : ?>
+
+			$display_price = $meta->has_sale ? $meta->sale_price : $meta->price;
+			if ( $showPrice && ! empty( $display_price ) && $display_price > 0 && (('2' === $layout_data && (1 === $index || 2 === $index )) || '3' === $layout_data ) ) : ?>
 				<span class="wpte-card__price wpte-card__price--layout-3">
 					<?php if ( wte_array_get( $settings, 'showStrikedPrice', true ) && $meta->has_sale ) : ?>
 						<div class="striked-price">
@@ -223,9 +227,9 @@ $add_wrap_class = (1 === $index || (2 === $index && '2' === $layout_data)) ? 'wp
 						</div>
 					<?php endif;
 					if ( $showPrice ) : ?>
-						<ins class="actual-price"><?php echo wte_esc_price( wte_get_formated_price_html( $meta->has_sale ? $meta->sale_price : $meta->price ) ); ?></ins>
+						<ins class="actual-price"><?php echo wte_esc_price( wte_get_formated_price_html( $display_price ) ); ?></ins>
 					<?php endif; ?>
-				</span>	
+				</span>
 			<?php endif; ?>
         </div>
 	</div>

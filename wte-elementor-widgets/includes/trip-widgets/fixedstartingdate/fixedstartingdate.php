@@ -92,6 +92,7 @@ $months_arr    = array_unique(
 				<tbody>
 					<?php
 					$today = gmdate( 'Y-m-d' );
+					$future_dates_count = 0;
 					if ( ! empty( $sorted_fsd ) ) {
 						$trip_duration_unit = null;
 						foreach ( $sorted_fsd as $key => $fsd ) {
@@ -100,6 +101,7 @@ $months_arr    = array_unique(
 								$trip_duration_unit = ! empty( $trip_settings['trip_duration_unit'] ) ? $trip_settings['trip_duration_unit'] : 'days';
 							}
 							if ( strtotime( $today ) <= strtotime( $fsd['start_date'] ) ) {
+								$future_dates_count++;
 								$fsd['trip_duration_unit'] = $trip_duration_unit;
 								wte_fsd_get_template( 'table-row.php', $fsd );
 							}
@@ -119,9 +121,7 @@ $months_arr    = array_unique(
 
 			$pagination_num = isset( $globals_settings['trip_dates']['pagination_number'] ) && ! empty( $globals_settings['trip_dates']['pagination_number'] ) ? $globals_settings['trip_dates']['pagination_number'] : 10;
 
-			$count = count( $sorted_fsd );
-
-			if ( $count > $pagination_num ) :
+			if ( $future_dates_count > $pagination_num ) :
 				?>
 					<button class="loadMore"><?php echo esc_html( $loadmore_label, 'wptravelengine-elementor-widgets' ); ?></button>
 					<button style="display:none;" class="showLess" ><?php echo esc_html( $showless_label, 'wptravelengine-elementor-widgets' ); ?></button>

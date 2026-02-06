@@ -41,7 +41,21 @@ class Widgets_Controller {
 	public function load_wte_icons() {
 		wp_enqueue_style( 'wte-blocks-index' );
 	}
+	
+
 	public function add_elementor_categories( $elements_manager ) {
+
+		// Add Travel Monster category only when Travel Monster theme is active.
+		if ( Header_Footer_Builder::is_travel_monster_theme_active() ) {
+			$elements_manager->add_category(
+				'travel-monster',
+				array(
+					'title' => __( 'Travel Monster', 'wptravelengine-elementor-widgets' ),
+					'icon'  => 'fa fa-plug',
+				)
+			);
+		}
+
 		$elements_manager->add_category(
 			'wptravelengine',
 			array(
@@ -1015,8 +1029,31 @@ class Widgets_Controller {
 
 		$widgets['wptravelengine-tour-search'] = array(
 			'title'               => __( 'Tour Search', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'wte-tour-search',
+			'icon'                => 'icon-wte-search',
 		);
+
+		// Add Travel Monster specific widgets only when Travel Monster theme is active.
+		if ( Header_Footer_Builder::is_travel_monster_theme_active() ) {
+			$widgets['wptravelengine-contact'] = array(
+				'title'               => __( 'Contact', 'wptravelengine-elementor-widgets' ),
+				'icon'                => 'icon-wte-contact',
+			);
+
+			$widgets['wptravelengine-navigation'] = array(
+				'title'               => __( 'Navigation Menu', 'wptravelengine-elementor-widgets' ),
+				'icon'                => 'icon-wte-menu',
+			);
+
+			$widgets['wptravelengine-search'] = array(
+				'title'               => __( 'Search', 'wptravelengine-elementor-widgets' ),
+				'icon'                => 'icon-wte-search',
+			);
+
+			$widgets['wptravelengine-site-logo'] = array(
+				'title'               => __( 'Site Logo', 'wptravelengine-elementor-widgets' ),
+				'icon'                => 'icon-wte-logo',
+			);
+		}
 
 		$core_widget_collection = apply_filters(
 			'wte_core_blocks_to_elementor_widgets',

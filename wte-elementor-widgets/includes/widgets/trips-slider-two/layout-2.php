@@ -64,7 +64,8 @@ foreach($meta_data as $item){
 				<?php if ( wte_array_get( $settings, 'showWishlist', false ) ) : ?>
 					<?php wptravelengineeb_get_wishlist( $trip_id ); ?>
 				<?php endif;
-				if ( ($showPrice && $priceType !== '3') ) : ?>
+				$display_price = $meta->has_sale ? $meta->sale_price : $meta->price;
+				if ( ($showPrice && $priceType !== '3') && ! empty( $display_price ) && $display_price > 0 ) : ?>
 					<span <?php $this->print_render_attribute_string( 'price-data' ); ?>>
 						<?php if ( wte_array_get( $settings, 'showStrikedPrice', true ) && $meta->has_sale ) : ?>
 							<div class="striked-price">
@@ -73,7 +74,7 @@ foreach($meta_data as $item){
 							</div>
 						<?php endif;
 						if ( $showPrice ) : ?>
-							<ins class="actual-price"><?php echo wte_esc_price( wte_get_formated_price_html( $meta->has_sale ? $meta->sale_price : $meta->price ) ); ?></ins>
+							<ins class="actual-price"><?php echo wte_esc_price( wte_get_formated_price_html( $display_price ) ); ?></ins>
 						<?php endif; ?>
 					</span>	
 				<?php endif; ?>

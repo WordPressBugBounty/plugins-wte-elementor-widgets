@@ -4,7 +4,7 @@ namespace WPTRAVELENGINEEB;
 /**
  * Trip Card Layout - 6
  */
-list( $settings, $trip, $results ) = $args;
+list( $settings, $trip, $results, $pax_label ) = $args;
 
 $is_featured       = wte_is_trip_featured( $trip->ID );
 $meta              = \wte_trip_get_trip_rest_metadata( $trip->ID );
@@ -29,8 +29,10 @@ $meta_dir          = wte_array_get( $settings, 'meta_direction', false );
 					<div class="category-feat-ribbon">
 						<span class="category-feat-ribbon-txt"><?php esc_html_e( 'Featured', 'wptravelengine-elementor-widgets' ); ?></span>
 					</div>
-				<?php endif; 	
-				if ( wte_array_get( $settings, 'layoutFilters.showPrice', true ) ) : ?>
+				<?php endif;
+				$display_price = $meta->has_sale ? $meta->sale_price : $meta->price;
+				if ( wte_array_get( $settings, 'layoutFilters.showPrice', true ) && ! empty( $display_price ) && $display_price > 0 ) :
+				?>
 					<div class="wpte-trip-price-wrap">
 					<div class="normal-price">
 						<?php if ( wte_array_get( $settings, 'layoutFilters.showStrikedPrice', true ) && $meta->has_sale ) : ?>
@@ -38,7 +40,7 @@ $meta_dir          = wte_array_get( $settings, 'meta_direction', false );
 							<del><?php echo wte_esc_price( wte_get_formated_price_html( $meta->price ) ); ?></del>
 						<?php endif; ?>
 					</div>
-					<ins><?php echo wte_esc_price( wte_get_formated_price_html( $meta->has_sale ? $meta->sale_price : $meta->price ) ); ?></ins>
+					<ins><?php echo wte_esc_price( wte_get_formated_price_html( $display_price ) ); ?></ins>
 					</div>
 				<?php endif;
 				if ( wte_array_get( $settings, 'layoutFilters.showDiscount', false ) && $meta->discount_percent ) : ?>
@@ -142,7 +144,8 @@ $meta_dir          = wte_array_get( $settings, 'meta_direction', false );
 								<span class="category-trip-meta-info-label"><?php echo esc_html( wte_array_get( $settings, 'groupSizeLabel', __( 'Group Size', 'wptravelengine-elementor-widgets' ) ) ); ?>
 								</span>
 								<span class="category-trip-meta-info-value">
-									<?php printf( esc_html__( '%s People', 'wptravelengine-elementor-widgets' ), $meta->max_pax ? (int) $meta->min_pax . '-' . (int) $meta->max_pax : (int) $meta->min_pax ); ?>
+									<?php /* translators: 1: Pax count, 2: Person label */
+									printf( esc_html__( '%1$s %2$s', 'wptravelengine-elementor-widgets' ), $meta->max_pax ? (int) $meta->min_pax . '-' . (int) $meta->max_pax : (int) $meta->min_pax, $pax_label ); ?>
 								</span>
 							</div>
 						</span>

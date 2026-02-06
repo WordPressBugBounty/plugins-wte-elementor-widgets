@@ -209,7 +209,8 @@ foreach($meta_data as $item){
 						</div>
 						<?php
 					}
-						if ( $showPrice ) { ?>
+						$display_price = $meta->has_sale ? $meta->sale_price : $meta->price;
+						if ( $showPrice && ! empty( $display_price ) && $display_price > 0 ) { ?>
 							<div class="wpte-card__price wpte-card__price--layout-3">
 								<?php if ( wte_array_get( $settings, 'showStrikedPrice', true ) && $meta->has_sale ) : ?>
 									<div class="striked-price">
@@ -218,10 +219,10 @@ foreach($meta_data as $item){
 									</div>
 								<?php endif;
 								if ( $showPrice ) : ?>
-									<ins class="actual-price"><?php echo wte_esc_price( wte_get_formated_price_html( $meta->has_sale ? $meta->sale_price : $meta->price ) ); ?></ins>
+									<ins class="actual-price"><?php echo wte_esc_price( wte_get_formated_price_html( $display_price ) ); ?></ins>
 								<?php endif; ?>
-							</div>	
-							<?php 
+							</div>
+							<?php
 						}
 
 					if($viewMreBtn && !empty($viewMreBtnTxt)) echo '</div>'; // close wpte-card__price-wrapper

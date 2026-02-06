@@ -145,8 +145,51 @@
                 }
 
                 templateModalLoader.remove();
-                contentWrap.html('<div class="cw-error">Error: ' + errorThrown + '</div>');
-                console.error("AJAX request failed:", textStatus, errorThrown);
+
+                let errorMessage = errorThrown || 'Unknown error';
+                let errorDetails = '';
+
+                // Provide more helpful error messages based on status
+                if (jqXHR.status === 0) {
+                    errorMessage = 'Network connection failed';
+                    errorDetails = 'Please check your internet connection and firewall settings.';
+                } else if (jqXHR.status === 403) {
+                    errorMessage = 'Access forbidden';
+                    errorDetails = 'The request was blocked. Please check your server\'s firewall or security plugin settings.';
+                } else if (jqXHR.status === 500) {
+                    errorMessage = 'Server error';
+                    errorDetails = 'The server encountered an error. Please try again later or contact support.';
+                } else if (jqXHR.status === 502 || jqXHR.status === 503 || jqXHR.status === 504) {
+                    errorMessage = 'Server unavailable';
+                    errorDetails = 'The template server is temporarily unavailable. Please try again later.';
+                }
+
+                contentWrap.html(`
+                    <div class="cw-error-message">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 20px; opacity: 0.5; color: #d63638;">
+                            <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 8V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M12 16H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <h3>${errorMessage}</h3>
+                        ${errorDetails ? `<p>${errorDetails}</p>` : ''}
+                        <button class="cw-retry-btn transform-scale">
+                            Retry
+                        </button>
+                    </div>
+                `);
+
+                // Add retry functionality
+                elementorPreview.find('.cw-retry-btn').on('click', function() {
+                    displayTemplates(elementorPreview, serverToFetch);
+                });
+
+                console.error("AJAX request failed:", {
+                    status: jqXHR.status,
+                    statusText: textStatus,
+                    error: errorThrown,
+                    responseText: jqXHR.responseText
+                });
             });
     }
 
@@ -224,15 +267,29 @@
     }
 
     async function fetchRequiredPlugins(server = 'travel-monster') {
-        let response = await fetch(`https://wptravelenginedemo.com/${server}/wp-json/wpte-elementor-templates/v1/patterns/`);
-        let designApi = await response.json();
-        const requiredPlugins = {};
-        for (let dataContent of designApi) {
-            if (dataContent.meta && dataContent.meta.required_plugins) {
-                requiredPlugins[dataContent.id] = dataContent.meta.required_plugins;
+        try {
+            // Use WordPress AJAX instead of direct fetch to avoid CORS issues
+            const response = await $.ajax({
+                url: etAdmin.ajaxURL,
+                type: 'POST',
+                data: {
+                    action: 'fetch_required_plugins',
+                    nonce: etAdmin.nonce,
+                    server: server
+                }
+            });
+
+            if (response.success && response.data) {
+                return response.data;
+            } else {
+                console.error('Failed to fetch required plugins:', response.data?.message || 'Unknown error');
+                return {};
             }
+        } catch (error) {
+            console.error('Error fetching required plugins:', error);
+            // Return empty object to allow graceful degradation
+            return {};
         }
-        return requiredPlugins;
     }
 
     function importTemplates(elementorPreview, value) {
@@ -307,12 +364,61 @@
                             elementorPreview.find('.cw-template-modal-body').append(loadingElementorPreview(`${etAdmin.templatesText.stay}`));
                         },
                     })
-                        .fail(function (jqXHR) {
-                            let errorMessage = jqXHR.statusText;
-                            console.log(errorMessage);
+                        .fail(function (jqXHR, textStatus, errorThrown) {
+                            let errorMessage = 'Failed to import template';
+                            let errorDetails = '';
+
+                            // Try to parse error response
+                            if (jqXHR.responseJSON && jqXHR.responseJSON.data && jqXHR.responseJSON.data.message) {
+                                errorMessage = jqXHR.responseJSON.data.message;
+                            } else if (jqXHR.status === 0) {
+                                errorMessage = 'Network connection failed';
+                                errorDetails = 'Unable to reach the template server. Please check your internet connection.';
+                            } else if (jqXHR.status === 403) {
+                                errorMessage = 'Access denied';
+                                errorDetails = 'Your server firewall or security plugin is blocking the request.';
+                            } else if (jqXHR.status === 500) {
+                                errorMessage = 'Server error occurred';
+                                errorDetails = 'Please try again or contact support if the issue persists.';
+                            }
+
+                            console.error('Import failed:', {
+                                status: jqXHR.status,
+                                error: errorThrown,
+                                response: jqXHR.responseJSON
+                            });
+
                             elementorPreview.find('.cw-template-modal-loader-wrapper').remove();
+                            elementorPreview.find('.cw-insert-temp').attr("disabled", false);
+
+                            // Show error notification
+                            elementorPreview.find('.cw-template-modal-body').append(`
+                                <div class="cw-import-error">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 15px; color: #d63638;">
+                                        <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <path d="M15 9L9 15M9 9L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <h3>${errorMessage}</h3>
+                                    ${errorDetails ? `<p>${errorDetails}</p>` : ''}
+                                    <button class="cw-close-error transform-scale">
+                                        Close
+                                    </button>
+                                </div>
+                            `);
+
+                            elementorPreview.find('.cw-close-error').on('click', function() {
+                                elementorPreview.find('.cw-import-error').remove();
+                            });
                         })
                         .done(function (response) {
+                            if (!response.success) {
+                                // Handle unsuccessful response
+                                let errorMsg = response.data && response.data.message ? response.data.message : 'Import failed';
+                                console.error('Import failed:', errorMsg);
+                                elementorPreview.find('.cw-template-modal-loader-wrapper').remove();
+                                elementorPreview.find('.cw-insert-temp').attr("disabled", false);
+                                return;
+                            }
 
                             let contentData = response.data;
 

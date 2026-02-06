@@ -92,27 +92,43 @@ class CustomTripsTabWidget extends Widget {
 	 */
 	public function get_custom_trip_tabs() {
 		$settings = get_option( 'wp_travel_engine_settings', array() );
-		$trip = new \WPTravelEngine\Core\Models\Post\Trip( get_the_ID() );
-		
+		$post_id = get_the_ID();
+
+		// In global template context, we may not have a valid trip ID
+		// Check if we're editing a trip or if we're in a template context
+		$post_type = get_post_type( $post_id );
+		$is_trip = 'trip' === $post_type;
+
 		$filtered_default_array = array();
 		$def_tabs = array( 'itinerary', 'cost', 'dates', 'faqs', 'map', 'review' );
+
 		foreach ( $settings[ 'trip_tabs' ][ 'id' ] ?? [] as $key => $i ) {
 			$i     = (int) $i;
 			$field = $settings[ 'trip_tabs' ][ 'field' ][ $i ] ?? '';
 			if ( 1 === $i || in_array( $field, $def_tabs ) ) {
 				continue;
 			}
-			$filtered_default_array[ 'tab_' . $i ] = [
-				'title'   => (string) $trip->get_setting( 'tab_' . $i . '_title', '' ),
-				'content' => (string) $trip->get_setting( 'tab_content.' . $i . '_wpeditor', '' ),
-			];
-		}
-		
-		return $filtered_default_array;
 
-		echo '<pre>';
-		print_r($filtered_default_array);
-		echo '</pre>';
+			// Get global tab label from settings
+			$global_tab_label = $settings[ 'trip_tabs' ][ 'name' ][ $i ] ?? sprintf( __( 'Custom Tab %d', 'wptravelengine-elementor-widgets' ), $i );
+
+			// Only get trip-specific data if we're on an actual trip page
+			if ( $is_trip ) {
+				$trip = new \WPTravelEngine\Core\Models\Post\Trip( $post_id );
+				$filtered_default_array[ 'tab_' . $i ] = [
+					'title'   => (string) $trip->get_setting( 'tab_' . $i . '_title', $global_tab_label ),
+					'content' => (string) $trip->get_setting( 'tab_content.' . $i . '_wpeditor', '' ),
+				];
+			} else {
+				// In template context, use global tab settings
+				$filtered_default_array[ 'tab_' . $i ] = [
+					'title'   => $global_tab_label,
+					'content' => '', // Will be populated when template is applied to actual trip
+				];
+			}
+		}
+
+		return $filtered_default_array;
 	}
 	/**
 	 * Get Custom Trip Tabs Selector.

@@ -895,13 +895,8 @@ $controls = array(
 );
 
 //Add controls to add Trips by taxonomy
-$taxonomies = array(
-	'destination' => __( 'Destination', 'wptravelengine-elementor-widgets' ),
-	'activities'  => __( 'Activities', 'wptravelengine-elementor-widgets' ),
-	'trip_types'  => __( 'Trip Types', 'wptravelengine-elementor-widgets' ),
-	'difficulty'  => __( 'Difficulty', 'wptravelengine-elementor-widgets' ),
-	'trip_tag'    => __( 'Trip Tag', 'wptravelengine-elementor-widgets' ),
-);
+// Dynamically get all WP Travel Engine taxonomies including custom ones
+$taxonomies = wptravelengineeb_get_trip_taxonomies();
 
 $terms_display_settings = array();
 foreach ( $taxonomies as $filter_name => $filter_args ) {

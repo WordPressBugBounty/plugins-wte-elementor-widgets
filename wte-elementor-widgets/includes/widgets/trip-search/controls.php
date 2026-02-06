@@ -52,6 +52,7 @@ $selectors = array(
 	),
 	'search_input_padding'                   => array(
 		'{{WRAPPER}} .wpte-elementor-widget .wpte-trip__search-fields .wpte-trip__adv-field .wpte__input' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
+		'{{WRAPPER}} .wpte-elementor-widget .wpte-trip__search-fields .wpte-trip__adv-field.wpte__select-field::after' => 'right: {{RIGHT}}{{UNIT}} !important;',
 	),
 	'search_item_spacing'                    => array(
 		'{{WRAPPER}} .wpte-elementor-widget .wpte-trip__adv-field.wpte__select-field .wpte__select-options ul li span' => 'padding-top: calc({{SIZE}}{{UNIT}} / 2 ); padding-bottom: calc({{SIZE}}{{UNIT}} / 2 );',

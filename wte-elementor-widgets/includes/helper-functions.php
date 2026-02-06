@@ -170,8 +170,8 @@ function wptravelengineeb_get_icon_by_slug($slug){
                     viewBox="0 0 24 25" 
                     fill="none" 
                     xmlns="http://www.w3.org/2000/svg">
-                    <g opacity="0.48">
-                    <path d="M21 10.3018H3M16 2.30176V6.30176M8 2.30176V6.30176M7.8 22.3018H16.2C17.8802 22.3018 18.7202 22.3018 19.362 21.9748C19.9265 21.6872 20.3854 21.2282 20.673 20.6637C21 20.022 21 19.1819 21 17.5018V9.10176C21 7.4216 21 6.58152 20.673 5.93979C20.3854 5.3753 19.9265 4.91636 19.362 4.62874C18.7202 4.30176 17.8802 4.30176 16.2 4.30176H7.8C6.11984 4.30176 5.27976 4.30176 4.63803 4.62874C4.07354 4.91636 3.6146 5.3753 3.32698 5.93979C3 6.58152 3 7.4216 3 9.10176V17.5018C3 19.1819 3 20.022 3.32698 20.6637C3.6146 21.2282 4.07354 21.6872 4.63803 21.9748C5.27976 22.3018 6.11984 22.3018 7.8 22.3018Z" stroke="#0F1D23" stroke-width="1.39" stroke-linecap="round" stroke-linejoin="round"/>
+                    <g opacity="1">
+                    <path d="M21 10.3018H3M16 2.30176V6.30176M8 2.30176V6.30176M7.8 22.3018H16.2C17.8802 22.3018 18.7202 22.3018 19.362 21.9748C19.9265 21.6872 20.3854 21.2282 20.673 20.6637C21 20.022 21 19.1819 21 17.5018V9.10176C21 7.4216 21 6.58152 20.673 5.93979C20.3854 5.3753 19.9265 4.91636 19.362 4.62874C18.7202 4.30176 17.8802 4.30176 16.2 4.30176H7.8C6.11984 4.30176 5.27976 4.30176 4.63803 4.62874C4.07354 4.91636 3.6146 5.3753 3.32698 5.93979C3 6.58152 3 7.4216 3 9.10176V17.5018C3 19.1819 3 20.022 3.32698 20.6637C3.6146 21.2282 4.07354 21.6872 4.63803 21.9748C5.27976 22.3018 6.11984 22.3018 7.8 22.3018Z" stroke="currentColor" stroke-width="1.39" stroke-linecap="round" stroke-linejoin="round"/>
                     </g>
                 </svg>
             </span>
@@ -248,4 +248,77 @@ if ( ! function_exists( 'wptravelengineeb_rand_md5' ) ) {
 		}
 		return md5( time() . '-' . uniqid( wp_rand(), true ) . '-' . wp_rand() );
 	}
+}
+
+/**
+ * Get custom filter options from WP Travel Engine.
+ *
+ * @return array Custom filter options for the select control.
+ */
+function wptravelengineeb_get_custom_filter_options() {
+	$custom_filters = \get_option( 'wte_custom_filters', array() );
+	$options = array();
+
+	foreach ( $custom_filters as $slug => $filter ) {
+        if ( is_array( $filter ) && isset( $filter['label'] ) ) {
+            $options[ $slug ] = $filter['label'];
+        }
+    }
+
+	// Fallback prompt when there are no custom filters
+	if ( empty( $options ) ) {
+		$options[''] = \__( 'No Custom Filters found', 'wptravelengine-elementor-widgets' );
+	}
+
+	return $options;
+}
+
+/**
+ * Get all WP Travel Engine taxonomies dynamically.
+ *
+ * Returns an array of all taxonomies registered for the WP Travel Engine post type,
+ * including both default taxonomies and any custom taxonomies created by users.
+ *
+ * @since 1.4.8
+ * @return array Associative array of taxonomy slugs and labels.
+ */
+function wptravelengineeb_get_trip_taxonomies() {
+	// Check if WP Travel Engine is active and post type constant is defined
+	if ( ! defined( 'WP_TRAVEL_ENGINE_POST_TYPE' ) ) {
+		// Return default taxonomies as fallback
+		return array(
+			'destination' => __( 'Destination', 'wptravelengine-elementor-widgets' ),
+			'activities'  => __( 'Activities', 'wptravelengine-elementor-widgets' ),
+			'trip_types'  => __( 'Trip Types', 'wptravelengine-elementor-widgets' ),
+			'difficulty'  => __( 'Difficulty', 'wptravelengine-elementor-widgets' ),
+			'trip_tag'    => __( 'Trip Tag', 'wptravelengine-elementor-widgets' ),
+		);
+	}
+
+	// Get all taxonomies registered for WP Travel Engine post type
+	$taxonomies = get_object_taxonomies( WP_TRAVEL_ENGINE_POST_TYPE, 'objects' );
+
+	$taxonomy_list = array();
+
+	if ( is_array( $taxonomies ) && ! empty( $taxonomies ) ) {
+		foreach ( $taxonomies as $taxonomy_slug => $taxonomy_object ) {
+			// Only include public taxonomies
+			if ( isset( $taxonomy_object->public ) && $taxonomy_object->public ) {
+				$taxonomy_list[ $taxonomy_slug ] = $taxonomy_object->label;
+			}
+		}
+	}
+
+	// If no taxonomies found, return default ones
+	if ( empty( $taxonomy_list ) ) {
+		return array(
+			'destination' => __( 'Destination', 'wptravelengine-elementor-widgets' ),
+			'activities'  => __( 'Activities', 'wptravelengine-elementor-widgets' ),
+			'trip_types'  => __( 'Trip Types', 'wptravelengine-elementor-widgets' ),
+			'difficulty'  => __( 'Difficulty', 'wptravelengine-elementor-widgets' ),
+			'trip_tag'    => __( 'Trip Tag', 'wptravelengine-elementor-widgets' ),
+		);
+	}
+
+	return $taxonomy_list;
 }

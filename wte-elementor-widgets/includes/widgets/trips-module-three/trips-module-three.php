@@ -75,13 +75,8 @@ class Widget_Trips_Module_Three extends Widget {
 	protected function render() {
 		$attributes = $this->get_settings_for_display();
 		
-		$attributes['default_taxonomies'] = array(
-			'destination',
-			'activities',
-			'trip_types',
-			'difficulty',
-			'trip_tag',
-		);
+		// Dynamically get all WP Travel Engine taxonomies including custom ones
+		$attributes['default_taxonomies'] = array_keys( wptravelengineeb_get_trip_taxonomies() );
 
 		if ( isset( $attributes['listby'] ) ) {
 			$query_args = array(

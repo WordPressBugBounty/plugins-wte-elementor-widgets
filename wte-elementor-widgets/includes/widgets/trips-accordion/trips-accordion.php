@@ -47,7 +47,8 @@ class Widget_Trips_Accordion extends Widget
 	public function get_style_depends()
 	{
 
-		wp_register_style('wpte-trips-accordion', plugin_dir_url(WPTRAVELENGINEEB_FILE__) . 'dist/css/wpte-trips-accordion.css');
+		wp_register_style('wpte-trips-accordion', plugin_dir_url(WPTRAVELENGINEEB_FILE__) . 'dist/css/wpte-trips-accordion.css', array(), filemtime(plugin_dir_path(WPTRAVELENGINEEB_FILE__) . 'dist/css/wpte-trips-accordion.css'));
+		
 
 		return array('wpte-trips-accordion');
 	}
@@ -93,13 +94,8 @@ class Widget_Trips_Accordion extends Widget
 	{
 		$attributes = $this->get_settings_for_display();
 
-		$attributes['default_taxonomies'] = array(
-			'destination',
-			'activities',
-			'trip_types',
-			'difficulty',
-			'trip_tag',
-		);
+		// Dynamically get all WP Travel Engine taxonomies including custom ones
+		$attributes['default_taxonomies'] = array_keys( wptravelengineeb_get_trip_taxonomies() );
 
 		if (isset($attributes['listby'])) {
 			$query_args = array(

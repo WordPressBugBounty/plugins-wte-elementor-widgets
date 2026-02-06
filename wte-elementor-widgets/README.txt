@@ -3,9 +3,9 @@ Contributors: wptravelengine
 Plugin link: https://wptravelengine.com/
 Tags: Tour booking, Tour operator, Travel, Travel agency, Travel booking
 Requires at least: 5.0
-Tested up to: 6.7
+Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.4.3
+Stable tag: 1.5.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -181,6 +181,41 @@ The plugin is optimized for speed and performance, so it will not slow down your
 9. Trips Widget Slider Controls.
 
 == Changelog ==
+
+= 1.5.0 - 28th January, 2026 =
+* Improved: Updated trip layouts to display participants labels more clearly.
+* Fixed: Resolved an issue where header tag font sizes did not apply correctly on pages not edited with Elementor.
+
+= 1.4.9 – 13th January, 2026 =
+* Fixed: The issue where predefined WPTE templates were not showing on Elementor pages has been resolved.
+
+= 1.4.8 – 1st January, 2026 =
+* Feature: Added a WPTE Builder post type for creating custom headers and footers using widgets in the Travel Monster theme.
+* Feature: Added custom filters to the Trip Slider widget.
+* Fixed: Fixed an issue where custom trip info icons were not displaying in the Trip Info widget.
+* Fixed: Resolved an issue with the Custom Trip Tabs widget not working in global Elementor templates for single trip pages.
+* Fixed: Fixed the wishlist feature not working in widgets.
+* Fixed: Resolved an issue where demo content was appearing in the Trip Itinerary widget.
+
+= 1.4.7 – 24th November, 2025=
+* Feature: Added new setting for Trip Tabs widget where default taxonomy are displayed if not selected.
+
+= 1.4.6 – 12th November, 2025=
+* Fixed: Minor design issue fixed in Trip Search widget.
+
+= 1.4.5 – 11th November, 2025=
+* Feature: Added new feature to display Custom Taxonomy in Advanced Trips One widget.
+* Fixed: Updated Fixed Starting Date widget to solve issue with 'Show More Dates' button.
+* Fixed: Minor styling issues in Trip Accordion widget.
+* Fixed: Added handling for missing terms in Trips Tab widget.
+* Enhancement: Trip price is not displayed in the widgets if the price is not set.
+* Enhancement: Enhanced Trip Cost Includes widget controls and styling consistency.
+* Enhancement: Added background styling in Trips Tax Slider widget.
+
+= 1.4.4 – 28th October, 2025=
+* Improved: Updated the Trip Itinerary widget to be compatible with the new Advanced Itinerary Builder additional info fields.
+* Fixed: Trips Tab widget loading issue has been fixed.
+
 = 1.4.3 – 16th September, 2025 =
 * Fixed: Demo content now properly displays on the trip review widget.
 * Fixed: Activity Tour Booking Duration is now fully compatible with widgets.

@@ -78,23 +78,65 @@ class Widget_Trips_Tab extends Widget {
 
 	/**
 	 * Summary of check_empty_taxonomy
-	 * @param mixed $attributes
-	 * @param mixed $taxonomy
+	 *
+	 * @param array  $attributes Widget attributes.
+	 * @param string $taxonomy   Selected taxonomy.
+	 * @param array  $terms      Optional term list to evaluate.
 	 * 
 	 * @since 1.3.6
 	 * @return bool
 	 */
-	protected function check_empty_taxonomy( $attributes ) {
-	
-		$destination = $attributes[ '' . 'destination' . '_termstoDisplay' ];
-		$activities = $attributes[ '' . 'activities' . '_termstoDisplay' ];
-		$trip_types = $attributes[ '' . 'trip_types' . '_termstoDisplay' ];
-
-		if ( ! empty( $destination ) || ! empty( $activities ) || ! empty( $trip_types ) ) {
-			return true;
+	protected function check_empty_taxonomy( $attributes, $taxonomy = 'destination', $terms = array() ) {
+		if ( empty( $terms ) ) {
+			$terms = $this->get_terms_for_display( $taxonomy, $attributes );
 		}
 
-		return false;
+		return ! empty( $terms );
+	}
+	
+	/**
+	 * Retrieve terms for the selected taxonomy based on the listing strategy.
+	 *
+	 * @since 1.3.6
+	 *
+	 * @param string $taxonomy   Taxonomy slug.
+	 * @param array  $attributes Widget attributes.
+	 *
+	 * @return array
+	 */
+	protected function get_terms_for_display( $taxonomy, $attributes ) {
+		$list_items = wte_array_get( $attributes, 'listItems', 'default' );
+
+		if ( 'byid' === $list_items ) {
+			$terms_key      = "{$taxonomy}_termstoDisplay";
+			$selected_terms = isset( $attributes[ $terms_key ] ) ? (array) $attributes[ $terms_key ] : array();
+			$prepared_terms = array();
+
+			foreach ( $selected_terms as $term_id ) {
+				$term = get_term( $term_id, $taxonomy );
+
+				if ( $term && ! is_wp_error( $term ) ) {
+					$prepared_terms[] = $term;
+				}
+			}
+
+			return $prepared_terms;
+		}
+
+		$terms = get_terms(
+			array(
+				'taxonomy'   => $taxonomy,
+				'hide_empty' => true,
+				'order' => 'DESC',
+                'number' => $attributes['tripsCount'],
+			)
+		);
+
+		if ( is_wp_error( $terms ) ) {
+			return array();
+		}
+
+		return $terms;
 	}
 	
 	protected function get_swiper_pagination($attributes){
@@ -179,24 +221,34 @@ class Widget_Trips_Tab extends Widget {
 	protected function render() {
 		$attributes = $this->get_settings_for_display();
 		$taxlistby  = wte_array_get( $attributes, 'listby', 'destination' );
+		$listItems  = wte_array_get( $attributes, 'listItems', 'default' );
 
-		$attributes['default_taxonomies'] = array(
-			'destination',
-			'activities',
-			'trip_types'
-		);
+		$trip_args      = array();
+		$terms_for_tabs = $this->get_terms_for_display( $taxlistby, $attributes );
 
-		$trip_args = array();
-
-		if ( isset( $attributes['listby'] ) ) {
+		if ( isset( $attributes['listby'] ) && 'byid' === $listItems ) {
 			$trip_args = array(
 				'post_type'      => \WP_TRAVEL_ENGINE_POST_TYPE,
 				'posts_per_page' => $attributes['tripsCount'],
 				'fields'         => 'ids',
 				'post_status'    => 'publish',
 			);
+		} elseif ( ! empty( $terms_for_tabs ) ) {
+			$trip_args = array(
+				'post_type'      => \WP_TRAVEL_ENGINE_POST_TYPE,
+				'posts_per_page' => $attributes['tripsCount'],
+				'fields'         => 'ids',
+				'tax_query'      => array(
+					array(
+						'taxonomy' => $taxlistby,
+						'field'    => 'term_id',
+						'terms'    => wp_list_pluck( $terms_for_tabs, 'term_id' ),
+					),
+				),
+				'post_status'    => 'publish',
+			);
 		}
-		$trip_posts   = get_posts( $trip_args );
+		$trip_posts   = ! empty( $trip_args ) ? get_posts( $trip_args ) : array();
 
 		$ribbonType        = wte_array_get( $attributes, 'ribbonType', '3' );
 		$ribbonAlignment   = wte_array_get( $attributes, 'ribbonAlignment', 'left' );
@@ -326,99 +378,78 @@ class Widget_Trips_Tab extends Widget {
 		);
 
 		$widget_id = $this->get_id();
-
 		if ( $trip_posts && is_array( $trip_posts ) ) : ?>
 			<div <?php $this->print_render_attribute_string( 'main-wrapper-classes' ); ?>>
-				<?php if( $this->check_empty_taxonomy( $attributes ) ) : ?>
+				<?php if ( $this->check_empty_taxonomy( $attributes, $taxlistby, $terms_for_tabs ) ) : ?>
 					<div <?php $this->print_render_attribute_string( 'tab-nav' ); ?>>
-						<?php 
-						foreach ( $attributes['default_taxonomies'] as $taxonomy ) {
-							if( $taxlistby == $taxonomy ){
-								$terms_check = $attributes[ '' . $taxonomy . '_termstoDisplay' ];
-								if( isset( $terms_check ) ){
-									foreach( $terms_check as $index => $single_term ){
-										$term = get_term( $single_term, $taxonomy );
-										?>
-										<button id="tab-<?php echo esc_attr( $term->term_id ); ?>-<?php echo esc_attr( $widget_id ); ?>" type="button" role="tab" aria-selected="<?php echo ( $index == 0 ) ? 'true' : 'false'; ?>" aria-controls="tabpanel-<?php echo esc_attr( $term->term_id ); ?>-<?php echo esc_attr( $widget_id ); ?>">
-											<?php echo esc_html( $term->name ); ?>
-										</button>
-										<?php
-									}
-								}
-							}
-						}
-					?>
+						<?php foreach ( $terms_for_tabs as $index => $term ) : ?>
+							<button id="tab-<?php echo esc_attr( $term->term_id ); ?>-<?php echo esc_attr( $widget_id ); ?>" type="button" role="tab" aria-selected="<?php echo ( 0 === $index ) ? 'true' : 'false'; ?>" aria-controls="tabpanel-<?php echo esc_attr( $term->term_id ); ?>-<?php echo esc_attr( $widget_id ); ?>">
+								<?php echo esc_html( $term->name ); ?>
+							</button>
+						<?php endforeach; ?>
 					</div>
 					<div class="wpte-trips-tab__content">
 						<?php 
 						if( isset( $attributes['listby'] ) ){
-							foreach ( $attributes['default_taxonomies'] as $taxonomy ) {
-								if( $taxlistby == $taxonomy ){
-									$terms_check = $attributes[ '' . $taxonomy . '_termstoDisplay' ];
-										if( isset( $terms_check ) ){
-											foreach( $terms_check as $index => $single_term ){
-												$term = get_term( $single_term, $taxonomy );
-												?>
-													<div id="tabpanel-<?php echo esc_attr( $term->term_id ); ?>-<?php echo esc_attr( $widget_id ); ?>" class="<?php echo ( $index == 0 ) ? esc_attr('visible') : esc_attr('is-hidden'); ?>" role="tabpanel" tabindex="0" aria-labelledby="tab-<?php echo esc_attr( $term->term_id ); ?>">
-														<?php if( $enableSlider == 'yes' ) : ?>
-															<div <?php $this->print_render_attribute_string( 'swiper-wrapper' ); ?>>
-														<?php endif; ?>
-															<div class="<?php echo ( $enableSlider == 'yes' ) ? esc_attr('wpte-trips-tab__swiper-wrapper swiper-wrapper') : esc_attr('wpte-grid'); ?>">
-																<?php
-																	if ( isset( $attributes['listby'] ) ) {
-																		$query_args = array(
-																			'post_type'      => \WP_TRAVEL_ENGINE_POST_TYPE,
-																			'posts_per_page' => $attributes['tripsCount'],
-																			'fields'         => 'ids',
-																			'post_status'    => 'publish',
-																		);
-																	}
-																	
-																	$query_args['suppress_filters'] = false;
-																	$query_args['tax_query'][] = array(
-																		'taxonomy' => $taxonomy,
-																		'field'    => 'term_id',
-																		'terms'    => $single_term  // The term ID
-																	);
-																	$trips   = get_posts( $query_args );
-																	$results_array = [];
-																	if( $trips ){
-																		foreach( $trips as $trip_id ){
-																			$duration_mapping    = array(
-																				'days'   => array( __( 'Day', 'wptravelengine-elementor-widgets' ), __( 'Days', 'wptravelengine-elementor-widgets' ) ),
-																				'nights' => array( __( 'Night', 'wptravelengine-elementor-widgets' ), __( 'Nights', 'wptravelengine-elementor-widgets' ) ),
-																				'hours'  => array( __( 'Hour', 'wptravelengine-elementor-widgets' ), __( 'Hours', 'wptravelengine-elementor-widgets' ) ),
-																			);
-																			$results_array['duration'] = $duration_mapping;
-																			$args                = array( $attributes, $trip_id, $results_array );
-																			
-																			if ( $layout_data == '1' || $layout_data == '4' ) {
-																				include __DIR__ . '/layout-1-4.php';
-																			} else if ( $layout_data == '2' || $layout_data == '3' ) {
-																				include __DIR__ . '/layout-2-3.php';
-																			} else {
-																				include __DIR__ . '/layout-5.php';
-																			}
-																		}
-																	}
-																?>
-															</div>
-														<?php if( $enableSlider == 'yes' ) : ?>
-															</div>
-															<?php $this->get_swiper_pagination($attributes); ?>
-														<?php endif; ?>
-													</div>
-												<?php
-											}
-										}
-									}
-								}
+							foreach ( $terms_for_tabs as $index => $term ) {
+								?>
+								<div id="tabpanel-<?php echo esc_attr( $term->term_id ); ?>-<?php echo esc_attr( $widget_id ); ?>" class="<?php echo ( 0 === $index ) ? esc_attr('visible') : esc_attr('is-hidden'); ?>" role="tabpanel" tabindex="0" aria-labelledby="tab-<?php echo esc_attr( $term->term_id ); ?>">
+									<?php if( $enableSlider == 'yes' ) : ?>
+										<div <?php $this->print_render_attribute_string( 'swiper-wrapper' ); ?>>
+									<?php endif; ?>
+										<div class="<?php echo ( $enableSlider == 'yes' ) ? esc_attr('wpte-trips-tab__swiper-wrapper swiper-wrapper') : esc_attr('wpte-grid'); ?>">
+											<?php
+												$query_args = array(
+													'post_type'        => \WP_TRAVEL_ENGINE_POST_TYPE,
+													'posts_per_page'   => $attributes['tripsCount'],
+													'fields'           => 'ids',
+													'post_status'      => 'publish',
+													'suppress_filters' => false,
+													'tax_query'        => array(
+														array(
+															'taxonomy' => $taxlistby,
+															'field'    => 'term_id',
+															'terms'    => $term->term_id,
+														),
+													),
+												);
+
+												$trips   = get_posts( $query_args );
+												$results_array = [];
+												if( $trips ){
+													foreach( $trips as $trip_id ){
+														$duration_mapping    = array(
+															'days'   => array( __( 'Day', 'wptravelengine-elementor-widgets' ), __( 'Days', 'wptravelengine-elementor-widgets' ) ),
+															'nights' => array( __( 'Night', 'wptravelengine-elementor-widgets' ), __( 'Nights', 'wptravelengine-elementor-widgets' ) ),
+															'hours'  => array( __( 'Hour', 'wptravelengine-elementor-widgets' ), __( 'Hours', 'wptravelengine-elementor-widgets' ) ),
+														);
+														$results_array['duration'] = $duration_mapping;
+														$args                = array( $attributes, $trip_id, $results_array );
+														
+														if ( $layout_data == '1' || $layout_data == '4' ) {
+															include __DIR__ . '/layout-1-4.php';
+														} else if ( $layout_data == '2' || $layout_data == '3' ) {
+															include __DIR__ . '/layout-2-3.php';
+														} else {
+															include __DIR__ . '/layout-5.php';
+														}
+													}
+												}
+											?>
+										</div>
+									<?php if( $enableSlider == 'yes' ) : ?>
+										</div>
+										<?php $this->get_swiper_pagination($attributes); ?>
+									<?php endif; ?>
+								</div>
+								<?php
 							}
+						}
 						?>
 					</div>
 					<?php
 					else :
-						echo esc_html__('No terms selected. Please assign a term.','wptravelengine-elementor-widgets');
+						echo esc_html__('No terms available for the selected taxonomy.','wptravelengine-elementor-widgets');
 					endif; ?>
 			</div>
 		<?php

@@ -63,7 +63,9 @@ $_trip_facts = array(
 						$icon = '';
 						if ( ! empty( $global_trip_facts['field_icon'][ $key ] ) ) {
 							$icon = $global_trip_facts['field_icon'][ $key ];
-							echo '<div class="wte-trip-fact-icon-wrapper"><span class="icon-holder">' . wptravelengine_svg_by_fa_icon( $icon, false ) . '</span></div>';
+							// Check if icon is an uploaded image (has 'id') or a Font Awesome icon.
+							$icon_data = isset( $icon['id'] ) ? wp_get_attachment_image( $icon['id'], 'thumbnail', true ) : wptravelengine_svg_by_fa_icon( $icon, false );
+							echo '<div class="wte-trip-fact-icon-wrapper"><span class="icon-holder">' . $icon_data . '</span></div>';
 						}
 
 						$field_value = isset( $_trip_facts[ $key ][ $key ] ) ? $_trip_facts[ $key ][ $key ] : '';

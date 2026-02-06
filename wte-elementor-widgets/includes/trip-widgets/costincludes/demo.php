@@ -6,6 +6,8 @@
  * @package wptravelengine-elementor-widgets
  */
 
+use Elementor\Icons_Manager;
+
 $attributes    = (object) $attributes;
 $icon          = isset( $attributes->{'icon'} ) ? $attributes->{'icon'} : '';
 $cost_includes = array(
@@ -14,17 +16,27 @@ $cost_includes = array(
 	'Meals.',
 	'Internal flights',
 );
-$costincludes  = array();
 ?>
 
-<div class="post-data cost">
+<div id="wte-costincludes" class="post-data cost">
 	<div class="content">
-		<?php
-		foreach ( $cost_includes as $key => $include ) {
-			$costincludes[] = '<li><i class="' . $icon['value'] . '"></i>' . esc_html( $include ) . '</li>';
-		}
-		?>
-		<ul <?php echo empty( $icon['value'] ) ? 'id="include-result"' : 'class="custom-icon"'; ?>> <?php echo wp_kses_post( implode( '', $costincludes ) ); ?> </ul>
+		<?php if ( ! empty( $cost_includes ) ) : ?>
+			<ul <?php echo ( empty( $icon ) || empty( $icon['value'] ) ) ? 'id="include-result"' : 'class="custom-icon"'; ?>>
+				<?php foreach ( $cost_includes as $include ) :
+					if ( ! empty( trim( $include ) ) ) : ?>
+						<li class="cost-include-item">
+							<?php if ( ! empty( $icon ) && isset( $icon['value'] ) && ! empty( $icon['value'] ) ) :
+								if ( ! is_array( $icon['value'] ) ) : ?>
+									<i class="<?php echo esc_attr( $icon['value'] ); ?>"></i>
+								<?php else :
+									Icons_Manager::render_icon( $icon, array( 'aria-hidden' => 'true' ) );
+								endif;
+							endif; ?>
+							<span><?php echo esc_html( trim( $include ) ); ?></span>
+						</li>
+					<?php endif;
+				endforeach; ?>
+			</ul>
+		<?php endif; ?>
 	</div>
 </div>
-<?php

@@ -259,10 +259,7 @@ $controls = array(
 				'type'      => 'NUMBER',
 				'label'     => __('Number of Trips', 'wptravelengine-elementor-widgets'),
 				'default'   => 6,
-				'min'       => '1',
-				'condition' => array(
-					'listby!' => 'byid',
-				),
+				'min'       => '1'
 			),
 			'offset'     => array(
 				'type'      => 'NUMBER',
@@ -280,6 +277,16 @@ $controls = array(
 					'trip_types'  => __( 'Trip Types', 'wptravelengine-elementor-widgets' ),
 				),
 			),
+            'listItems' => array(
+                'type'    => 'SELECT',
+				'label'   => __('List By', 'wptravelengine-elementor-widgets'),
+				'default' => 'default',
+				'options' => array(
+					'default' => __( 'Default', 'wptravelengine-elementor-widgets' ),
+					'byid'  => __( 'Choose from the list', 'wptravelengine-elementor-widgets' ),
+				)
+            )
+
 		),
 	),
 	'additional_settings'   => array(
@@ -1374,11 +1381,8 @@ $controls = array(
 );
 
 //Add controls to add Trips by taxonomy
-$taxonomies = array(
-	'destination' => __( 'Destination', 'wptravelengine-elementor-widgets' ),
-	'activities'  => __( 'Activities', 'wptravelengine-elementor-widgets' ),
-	'trip_types'  => __( 'Trip Types', 'wptravelengine-elementor-widgets' )
-);
+// Dynamically get all WP Travel Engine taxonomies including custom ones
+$taxonomies = wptravelengineeb_get_trip_taxonomies();
 
 $terms_display_settings = array();
 foreach ( $taxonomies as $filter_name => $filter_args ) {
@@ -1388,6 +1392,7 @@ foreach ( $taxonomies as $filter_name => $filter_args ) {
 		'taxonomy_name' => $filter_name,
 		'condition'     => array(
 			'listby' => $filter_name,
+			'listItems' => 'byid',
 		),
 		'multiple'      => true,
 	);

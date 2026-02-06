@@ -39,6 +39,7 @@ class Templates_Design {
 	public function __construct() {
 		add_action( 'wp_ajax_render_templates_designs', [ $this, 'render_templates_designs' ] );
 		add_action( 'wp_ajax_process_data_for_import', [ $this, 'process_data_for_import' ] );
+		add_action( 'wp_ajax_fetch_required_plugins', [ $this, 'fetch_required_plugins' ] );
 	}
 
     /*
@@ -56,26 +57,156 @@ class Templates_Design {
     }
 
     /**
+     * Make remote request with retry logic and better error handling
+     *
+     * @param string $url The URL to make the request to.
+     * @param int $retries The number of retries to make.
+     * @return array|WP_Error The response from the request.
+     */
+    private function make_remote_request( $url, $retries = 3 ) {
+        $attempt = 0;
+        $last_error = null;
+
+        while ( $attempt < $retries ) {
+            $response = wp_remote_get( $url, array(
+                'timeout'     => 30,
+                'httpversion' => '1.1',
+                'sslverify'   => true,
+            ) );
+
+            if ( ! is_wp_error( $response ) ) {
+                $response_code = wp_remote_retrieve_response_code( $response );
+
+                if ( $response_code === 200 ) {
+                    return $response;
+                }
+
+                $last_error = new \WP_Error(
+                    'http_error',
+                    sprintf( 'HTTP %d: %s', $response_code, wp_remote_retrieve_response_message( $response ) )
+                );
+            } else {
+                $last_error = $response;
+            }
+
+            $attempt++;
+
+            // Exponential backoff: wait 1s, 2s, 4s
+            if ( $attempt < $retries ) {
+                sleep( pow( 2, $attempt - 1 ) );
+            }
+        }
+
+        return $last_error;
+    }
+
+    /**
      * Get the templates array from the API
      *
      * @param string $server
      * @return array
      */
     public function get_templates_array( $server = 'travel-monster'){
-        $apiData =  wp_remote_get("https://wptravelenginedemo.com/" . $server ."/wp-json/wpte-elementor-templates/v1/patterns/");
-       
+        $url = "https://wptravelenginedemo.com/" . $server ."/wp-json/wpte-elementor-templates/v1/patterns/";
+
+        // Check if external requests are blocked
+        if ( $this->is_http_blocked( $url ) ) {
+            error_log( 'WP Travel Engine Elementor: External requests to ' . $url . ' are blocked. Please add "wptravelenginedemo.com" to WP_ACCESSIBLE_HOSTS.' );
+            return array( 'error' => __( 'External requests are blocked. Please contact your administrator.', 'wptravelengine-elementor-widgets' ) );
+        }
+
+        $apiData = $this->make_remote_request( $url );
+
         if( ! is_wp_error( $apiData ) && wp_remote_retrieve_response_code( $apiData ) == 200){
             $body = wp_remote_retrieve_body( $apiData );
             $data = json_decode( $body );
             $apiArray = [];
             if ( is_array($data)) {
-                foreach ( $data as $demoAPI ){ 
-                    array_push($apiArray, $demoAPI );
-                } 
+                $apiArray = $data;
             }
             return (array) $apiArray;
         }
+
+        // Log the error for debugging
+        if ( is_wp_error( $apiData ) ) {
+            error_log( 'WP Travel Engine Elementor: Failed to fetch templates - ' . $apiData->get_error_message() );
+            return array( 'error' => $apiData->get_error_message() );
+        }
+
         return [];
+    }
+
+    /**
+     * Check if HTTP requests are blocked for the given URL
+     *
+     * @param string $url
+     * @return bool
+     */
+    private function is_http_blocked( $url ) {
+        if ( ! defined( 'WP_HTTP_BLOCK_EXTERNAL' ) || ! WP_HTTP_BLOCK_EXTERNAL ) {
+            return false;
+        }
+
+        $host = parse_url( $url, PHP_URL_HOST );
+
+        if ( defined( 'WP_ACCESSIBLE_HOSTS' ) ) {
+            $accessible_hosts = preg_split( '|,\s*|', WP_ACCESSIBLE_HOSTS );
+            if ( in_array( $host, $accessible_hosts ) || in_array( '*.' . $host, $accessible_hosts ) ) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Validate URL against whitelist to prevent SSRF attacks
+     *
+     * @param string $url The URL to validate.
+     * @return true|WP_Error True if valid, WP_Error if invalid.
+     */
+    private function validate_api_url( $url ) {
+        // Parse URL
+        $parsed = parse_url( $url );
+
+        // Check if URL is valid
+        if ( ! $parsed || ! isset( $parsed['host'] ) || ! isset( $parsed['scheme'] ) ) {
+            return new \WP_Error(
+                'invalid_url',
+                __( 'Invalid URL format', 'wptravelengine-elementor-widgets' )
+            );
+        }
+
+        // Only allow HTTP and HTTPS schemes
+        if ( ! in_array( $parsed['scheme'], array( 'http', 'https' ), true ) ) {
+            return new \WP_Error(
+                'invalid_scheme',
+                __( 'Only HTTP and HTTPS protocols are allowed', 'wptravelengine-elementor-widgets' )
+            );
+        }
+
+        // Whitelist: Only allow requests to wptravelenginedemo.com
+        $allowed_hosts = array( 'wptravelenginedemo.com', 'www.wptravelenginedemo.com' );
+        if ( ! in_array( $parsed['host'], $allowed_hosts, true ) ) {
+            return new \WP_Error(
+                'invalid_host',
+                sprintf(
+                    __( 'Requests are only allowed to %s', 'wptravelengine-elementor-widgets' ),
+                    'wptravelenginedemo.com'
+                )
+            );
+        }
+
+        // Additional security: Block private/internal IP addresses
+        $ip = gethostbyname( $parsed['host'] );
+        if ( filter_var( $ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE ) === false ) {
+            return new \WP_Error(
+                'private_ip',
+                __( 'Requests to private IP addresses are not allowed', 'wptravelengine-elementor-widgets' )
+            );
+        }
+
+        return true;
     }
 
     /**
@@ -127,6 +258,44 @@ class Templates_Design {
         // phpcs:ignore WordPress.Security.NonceVerification.Missing.
         $server = isset($_POST['server']) ? sanitize_text_field($_POST['server']) : 'wptravelengine-elementor-widgets';
         $data = $this->get_templates_array($server);
+
+        // Check if there was an error fetching templates
+        if ( isset( $data['error'] ) ) {
+            ?>
+            <div class="cw-error-message">
+                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 20px; opacity: 0.5;">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 8V12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 16H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h3><?php esc_html_e( 'Unable to Load Templates', 'wptravelengine-elementor-widgets' ); ?></h3>
+                <p><?php echo esc_html( $data['error'] ); ?></p>
+                <details>
+                    <summary><?php esc_html_e( 'Troubleshooting Steps', 'wptravelengine-elementor-widgets' ); ?></summary>
+                    <ol>
+                        <li><?php esc_html_e( 'Check your internet connection', 'wptravelengine-elementor-widgets' ); ?></li>
+                        <li><?php esc_html_e( 'Verify your server can make outbound HTTP requests', 'wptravelengine-elementor-widgets' ); ?></li>
+                        <li><?php esc_html_e( 'Check if your firewall is blocking wptravelenginedemo.com', 'wptravelengine-elementor-widgets' ); ?></li>
+                        <li><?php esc_html_e( 'If WP_HTTP_BLOCK_EXTERNAL is enabled, add wptravelenginedemo.com to WP_ACCESSIBLE_HOSTS', 'wptravelengine-elementor-widgets' ); ?></li>
+                        <li><?php esc_html_e( 'Contact your hosting provider if the issue persists', 'wptravelengine-elementor-widgets' ); ?></li>
+                    </ol>
+                </details>
+            </div>
+            <?php
+            wp_die();
+        }
+
+        // Check if no templates were found
+        if ( empty( $data ) ) {
+            ?>
+            <div class="cw-error-message" style="padding: 40px 20px; text-align: center;">
+                <h3 style="margin: 0 0 10px 0;"><?php esc_html_e( 'No Templates Found', 'wptravelengine-elementor-widgets' ); ?></h3>
+                <p style="margin: 0; color: #646970;"><?php esc_html_e( 'No templates are currently available. Please try again later.', 'wptravelengine-elementor-widgets' ); ?></p>
+            </div>
+            <?php
+            wp_die();
+        }
+
         $cat_list = $this->get_category_list($data);
 		?>
         <div class="cw-pattern-library__content">
@@ -248,27 +417,91 @@ class Templates_Design {
         \check_ajax_referer( 'elementor_import_site', 'nonce' );
 
         if ( ! \current_user_can( 'edit_posts' ) ) {
-            \wp_send_json_error( __( 'You are not allowed to perform this action', 'wptravelengine-elementor-widgets' ) );
+            \wp_send_json_error( array(
+                'message' => __( 'You are not allowed to perform this action', 'wptravelengine-elementor-widgets' )
+            ) );
         }
 
         $apiURL = isset( $_POST['apiURL'] ) ? \esc_url_raw( $_POST['apiURL'] ) : '';
-        $response = \wp_safe_remote_get( $apiURL );
+
+        if ( empty( $apiURL ) ) {
+            \wp_send_json_error( array(
+                'message' => __( 'Invalid API URL provided', 'wptravelengine-elementor-widgets' )
+            ) );
+        }
+
+        // SECURITY: Validate URL to prevent SSRF attacks
+        $validation = $this->validate_api_url( $apiURL );
+        if ( is_wp_error( $validation ) ) {
+            \wp_send_json_error( array(
+                'message' => $validation->get_error_message(),
+                'code' => $validation->get_error_code()
+            ) );
+        }
+
+        // Check if external requests are blocked
+        if ( $this->is_http_blocked( $apiURL ) ) {
+            \wp_send_json_error( array(
+                'message' => __( 'External requests are blocked. Please add "wptravelenginedemo.com" to WP_ACCESSIBLE_HOSTS in your wp-config.php file.', 'wptravelengine-elementor-widgets' ),
+                'code' => 'http_blocked'
+            ) );
+        }
+
+        $response = $this->make_remote_request( $apiURL );
 
         if ( \is_wp_error( $response ) ) {
-            \wp_send_json_error( \wp_remote_retrieve_body( $response ) );
+            \wp_send_json_error( array(
+                'message' => sprintf(
+                    __( 'Failed to fetch template data: %s', 'wptravelengine-elementor-widgets' ),
+                    $response->get_error_message()
+                ),
+                'code' => $response->get_error_code()
+            ) );
+        }
+
+        $response_code = \wp_remote_retrieve_response_code( $response );
+        if ( $response_code !== 200 ) {
+            \wp_send_json_error( array(
+                'message' => sprintf(
+                    __( 'Server returned error code: %d', 'wptravelengine-elementor-widgets' ),
+                    $response_code
+                ),
+                'code' => 'http_' . $response_code
+            ) );
         }
 
         $body = \wp_remote_retrieve_body( $response );
         $data = json_decode( $body, true );
-        $meta = json_decode( $data['content'], true);
 
-        if ( empty( $meta ) ) {
-            \wp_send_json_error( __( 'No Content Found', 'wptravelengine-elementor-widgets' ) );
+        if ( empty( $data ) || ! isset( $data['content'] ) ) {
+            \wp_send_json_error( array(
+                'message' => __( 'Invalid response format from API', 'wptravelengine-elementor-widgets' ),
+                'code' => 'invalid_response'
+            ) );
         }
 
-        $import      = new \WPTRAVELENGINEEB\Import_Content();
-        $import_data = $import->import( $meta['content'] );
-        \wp_send_json_success( $import_data );
+        $meta = json_decode( $data['content'], true);
+
+        if ( empty( $meta ) || ! isset( $meta['content'] ) ) {
+            \wp_send_json_error( array(
+                'message' => __( 'No Content Found in template', 'wptravelengine-elementor-widgets' ),
+                'code' => 'no_content'
+            ) );
+        }
+
+        try {
+            $import      = new \WPTRAVELENGINEEB\Import_Content();
+            $import_data = $import->import( $meta['content'] );
+            \wp_send_json_success( $import_data );
+        } catch ( \Exception $e ) {
+            \wp_send_json_error( array(
+                'message' => sprintf(
+                    __( 'Import failed: %s', 'wptravelengine-elementor-widgets' ),
+                    $e->getMessage()
+                ),
+                'code' => 'import_error'
+            ) );
+        }
     }
 
     /**
@@ -297,7 +530,7 @@ class Templates_Design {
     public function get_active_plugins() {
         $active_plugins = get_plugins();
         $plugins = array();
-    
+
         foreach ($active_plugins as $key => $plugin) {
             if ( is_plugin_active( $key ) ) {
                 $extract = explode( '/', $key );
@@ -310,7 +543,77 @@ class Templates_Design {
                 );
             }
         }
-    
+
         return $plugins;
     }
+
+    /**
+     * AJAX handler to fetch required plugins for templates
+     * This routes the JavaScript fetch() through WordPress to avoid CORS issues
+     *
+     * @return void
+     */
+    public function fetch_required_plugins() {
+        // Verify nonce for security
+        \check_ajax_referer( 'elementor_import_site', 'nonce' );
+
+        if ( ! \current_user_can( 'edit_posts' ) ) {
+            \wp_send_json_error( array(
+                'message' => __( 'You are not allowed to perform this action', 'wptravelengine-elementor-widgets' )
+            ) );
+        }
+
+        $server = isset( $_POST['server'] ) ? \sanitize_text_field( $_POST['server'] ) : 'travel-monster';
+        $url = "https://wptravelenginedemo.com/{$server}/wp-json/wpte-elementor-templates/v1/patterns/";
+
+        // SECURITY: Validate URL to prevent SSRF attacks
+        $validation = $this->validate_api_url( $url );
+        if ( is_wp_error( $validation ) ) {
+            \wp_send_json_error( array(
+                'message' => $validation->get_error_message(),
+                'code' => $validation->get_error_code()
+            ) );
+        }
+
+        // Check if external requests are blocked
+        if ( $this->is_http_blocked( $url ) ) {
+            \wp_send_json_error( array(
+                'message' => __( 'External requests are blocked. Please add "wptravelenginedemo.com" to WP_ACCESSIBLE_HOSTS in your wp-config.php file.', 'wptravelengine-elementor-widgets' ),
+                'code' => 'http_blocked'
+            ) );
+        }
+
+        $response = $this->make_remote_request( $url );
+
+        if ( \is_wp_error( $response ) ) {
+            \wp_send_json_error( array(
+                'message' => sprintf(
+                    __( 'Failed to fetch templates: %s', 'wptravelengine-elementor-widgets' ),
+                    $response->get_error_message()
+                ),
+                'code' => $response->get_error_code()
+            ) );
+        }
+
+        $body = \wp_remote_retrieve_body( $response );
+        $data = json_decode( $body, true );
+
+        if ( empty( $data ) || ! is_array( $data ) ) {
+            \wp_send_json_error( array(
+                'message' => __( 'No templates found or invalid response format', 'wptravelengine-elementor-widgets' ),
+                'code' => 'invalid_response'
+            ) );
+        }
+
+        // Extract required plugins for each template
+        $required_plugins = array();
+        foreach ( $data as $template ) {
+            if ( isset( $template['id'] ) && isset( $template['meta']['required_plugins'] ) ) {
+                $required_plugins[ $template['id'] ] = $template['meta']['required_plugins'];
+            }
+        }
+
+        \wp_send_json_success( $required_plugins );
+    }
+
 }

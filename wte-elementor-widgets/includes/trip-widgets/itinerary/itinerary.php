@@ -7,17 +7,25 @@
  */
 
 global $post;
-$_tabs                 = get_post_meta( $post->ID, 'wp_travel_engine_setting', true );
-$show_tab_titles       = apply_filters( 'wpte_show_tab_titles_inside_tabs', true );
-$wp_travel_engine_tabs = get_post_meta( $post->ID, 'wp_travel_engine_setting', true );
+
+// Use trip ID passed from widget if available (handles Elementor editor context correctly)
+// The $wte_trip_id variable is set by the widget's render() method using Elementor's document API
+if ( isset( $wte_trip_id ) && $wte_trip_id > 0 ) {
+	$trip_id = $wte_trip_id;
+} elseif ( isset( $post->ID ) ) {
+	$trip_id = $post->ID;
+} else {
+	$trip_id = get_the_ID();
+}
+
+$_tabs           = get_post_meta( $trip_id, 'wp_travel_engine_setting', true );
+$show_tab_titles = apply_filters( 'wpte_show_tab_titles_inside_tabs', true );
 
 if ( ! $show_tab_titles ) {
 	return;
 }
 
-$trip_id                   = $post->ID;
-$trip_settings             = get_post_meta( $trip_id, 'wp_travel_engine_setting', true );
-$tab_title                 = isset( $trip_settings['trip_itinerary_title'] ) && ! empty( $trip_settings['trip_itinerary_title'] ) ? $trip_settings['trip_itinerary_title'] : '';
+$tab_title                 = isset( $_tabs['trip_itinerary_title'] ) && ! empty( $_tabs['trip_itinerary_title'] ) ? $_tabs['trip_itinerary_title'] : '';
 $wp_travel_engine_settings = get_option( 'wp_travel_engine_settings' );
 
 // get the attributes from the widget.
@@ -54,89 +62,95 @@ $show_chart      = isset( $attributes['show_chart'] ) ? $attributes['show_chart'
 <?php
 
 if ( ! defined( 'WTEAI_VERSION' ) ) {
+	// Get itinerary data like WP Travel Engine does
+	$inner_content = ! empty( $_tabs['itinerary']['itinerary_content_inner'] ) ? $_tabs['itinerary']['itinerary_content_inner'] : ( isset( $_tabs['itinerary']['itinerary_content'] ) ? $_tabs['itinerary']['itinerary_content'] : array() );
+	$itineraries   = isset( $_tabs['itinerary']['itinerary_title'] ) ? $_tabs['itinerary']['itinerary_title'] : array();
 	?>
 	<div class="post-data itinerary wte-trip-itinerary-v2">
 		<?php
-		$arr_keys = array();
-		if ( isset( $_tabs['itinerary'] ) && ! empty( $_tabs['itinerary'] ) ) {
-			$arr_keys = array_keys( $_tabs['itinerary']['itinerary_title'] );
-			$maxlen = !empty($arr_keys) ? max($arr_keys) : 0;
+		if ( empty( $itineraries ) ) {
+			return;
 		}
-		foreach ( $arr_keys as $key => $value ) {
-			if ( array_key_exists( $value, $_tabs['itinerary']['itinerary_title'] ) && ! empty( $value ) ) {
-				?>
-				<div class="itinerary-row <?php echo ( $expand_all === 'yes' ) ? 'active' : ''; ?>">
-					<div class="wte-itinerary-head-wrap">
-						<div class="title
-						<?php
-						echo 0 === $key ? esc_attr( $first_day_icon ) : '';
-						echo count( $arr_keys ) - 1 === $key ? esc_attr( $last_day_icon ) : '';
-						?>
-						">
-						<?php
-						if ( isset( $attributes['first_day_icon']['value'] ) && '' !== $attributes['first_day_icon']['value'] && 0 === $key ) {
-							echo "<span class='custom-icon'>";
-							\Elementor\Icons_Manager::render_icon( $attributes['first_day_icon'] );
-							echo '</span>';
-						}
-						if ( isset( $attributes['last_day_icon']['value'] ) && '' !== $attributes['last_day_icon']['value'] && count( $arr_keys ) - 1 === $key ) {
-							echo "<span class='custom-icon'>";
-							\Elementor\Icons_Manager::render_icon( $attributes['last_day_icon'] );
-							echo '</span>';
-						}
-						?>
-							<?php printf( esc_html__( 'Day %s : ', 'wptravelengine-elementor-widgets' ), esc_attr( $value ) ); ?>
-						</div>
-						<a class="accordion-tabs-toggle <?php echo $expand_all === 'yes' ? 'active' : ''; ?>" href="javascript:void(0);">
-								<span class="dashicons dashicons-arrow-down custom-toggle-tabs rotator <?php echo $expand_all === 'yes' ? 'open' : ''; ?> <?php
-								echo esc_attr( $expand_on_icon );
-								echo esc_attr( $expand_off_icon );
-								?>
-								">
-								<?php
-								if ( isset( $attributes['expand_on_icon']['value'] ) && '' !== $attributes['expand_on_icon']['value'] ) {
-									echo "<span class='icon-on'>";
-									\Elementor\Icons_Manager::render_icon( $attributes['expand_on_icon'] );
-									echo '</span>';
-								}
-								if ( isset( $attributes['expand_off_icon']['value'] ) && '' !== $attributes['expand_off_icon']['value'] ) {
-									echo "<span class='icon-off'>";
-									\Elementor\Icons_Manager::render_icon( $attributes['expand_off_icon'] );
-									echo '</span>';
-								}
-								?>
-								</span>
-							<div class="itinerary-title">
-								<?php $tab_title = isset( $_tabs['itinerary']['itinerary_title'][ $value ] ) ? esc_attr( $_tabs['itinerary']['itinerary_title'][ $value ] ) : ''; ?>
-								<span>
-								<?php
-								echo wp_kses(
-									$tab_title,
-									array(
-										'span'   => array(),
-										'strong' => array(),
-									)
-								);
-								?>
-								</span>
-							</div>
-						</a>
+		$total_items   = count( $itineraries );
+		$current_index = 0;
+
+		// Loop directly over itineraries like WP Travel Engine does
+		foreach ( $itineraries as $key => $title ) {
+			$is_first = ( $current_index === 0 );
+			$is_last  = ( $current_index === $total_items - 1 );
+			?>
+			<div class="itinerary-row <?php echo ( $expand_all === 'yes' ) ? 'active' : ''; ?>">
+				<div class="wte-itinerary-head-wrap">
+					<div class="title
+					<?php
+					echo $is_first ? esc_attr( $first_day_icon ) : '';
+					echo $is_last ? esc_attr( $last_day_icon ) : '';
+					?>
+					">
+					<?php
+					if ( isset( $attributes['first_day_icon']['value'] ) && '' !== $attributes['first_day_icon']['value'] && $is_first ) {
+						echo "<span class='custom-icon'>";
+						\Elementor\Icons_Manager::render_icon( $attributes['first_day_icon'] );
+						echo '</span>';
+					}
+					if ( isset( $attributes['last_day_icon']['value'] ) && '' !== $attributes['last_day_icon']['value'] && $is_last ) {
+						echo "<span class='custom-icon'>";
+						\Elementor\Icons_Manager::render_icon( $attributes['last_day_icon'] );
+						echo '</span>';
+					}
+					// Use custom day label if available, otherwise default to "Day X"
+					if ( isset( $_tabs['itinerary']['itinerary_days_label'][ $key ] ) && ! empty( $_tabs['itinerary']['itinerary_days_label'][ $key ] ) ) {
+						echo esc_attr( $_tabs['itinerary']['itinerary_days_label'][ $key ] ) . ' : ';
+					} else {
+						printf( esc_html__( 'Day %s : ', 'wptravelengine-elementor-widgets' ), esc_attr( $key ) );
+					}
+					?>
 					</div>
-					
-					<div class="itinerary-content <?php echo $expand_all === 'yes' ? 'show' : ''; ?>">
-						<div class="content">
-							<?php
-							$content = wte_array_get( $_tabs, 'itinerary.itinerary_content_inner.' . $value, '' );
-							if ( empty( $content ) ) {
-								$content = wte_array_get( $_tabs, 'itinerary.itinerary_content.' . $value, '' );
-							}
-							echo wp_kses_post( wpautop( $content ) );
+					<a class="accordion-tabs-toggle <?php echo $expand_all === 'yes' ? 'active' : ''; ?>" href="javascript:void(0);">
+						<?php if ( ! empty( $inner_content[ $key ] ) ) : ?>
+							<span class="dashicons dashicons-arrow-down custom-toggle-tabs rotator <?php echo $expand_all === 'yes' ? 'open' : ''; ?> <?php
+							echo esc_attr( $expand_on_icon );
+							echo esc_attr( $expand_off_icon );
 							?>
+							">
+							<?php
+							if ( isset( $attributes['expand_on_icon']['value'] ) && '' !== $attributes['expand_on_icon']['value'] ) {
+								echo "<span class='icon-on'>";
+								\Elementor\Icons_Manager::render_icon( $attributes['expand_on_icon'] );
+								echo '</span>';
+							}
+							if ( isset( $attributes['expand_off_icon']['value'] ) && '' !== $attributes['expand_off_icon']['value'] ) {
+								echo "<span class='icon-off'>";
+								\Elementor\Icons_Manager::render_icon( $attributes['expand_off_icon'] );
+								echo '</span>';
+							}
+							?>
+							</span>
+						<?php endif; ?>
+						<div class="itinerary-title">
+							<span>
+							<?php
+							echo wp_kses(
+								$title,
+								array(
+									'span'   => array(),
+									'strong' => array(),
+								)
+							);
+							?>
+							</span>
 						</div>
+					</a>
+				</div>
+
+				<div class="itinerary-content <?php echo $expand_all === 'yes' ? 'show' : ''; ?>">
+					<div class="content" style="<?php echo empty( $inner_content[ $key ] ) ? 'margin: 0;' : ''; ?>">
+						<?php echo wp_kses_post( isset( $inner_content[ $key ] ) ? $inner_content[ $key ] : '' ); ?>
 					</div>
 				</div>
-				<?php
-			}
+			</div>
+			<?php
+			++$current_index;
 		}
 		?>
 	</div>
@@ -146,14 +160,13 @@ if ( ! defined( 'WTEAI_VERSION' ) ) {
 	<div class="post-data itinerary">
 		<?php
 
-		$wte_advanced_itinerary = get_post_meta( $post->ID, 'wte_advanced_itinerary', true );
+		$wte_advanced_itinerary = get_post_meta( $trip_id, 'wte_advanced_itinerary', true );
 		$arr_keys               = array();
 		if ( isset( $_tabs['itinerary'] ) && ! empty( $_tabs['itinerary'] ) ) {
-			$arr_keys = array_keys( $wp_travel_engine_tabs['itinerary']['itinerary_title'] );
-			$maxlen   = !empty($arr_keys) ? max($arr_keys) : 0;
+			$arr_keys = array_keys( $_tabs['itinerary']['itinerary_title'] );
 		}
 		foreach ( $arr_keys as $key => $value ) {
-			if ( array_key_exists( $value, $wp_travel_engine_tabs['itinerary']['itinerary_title'] ) ) {
+			if ( array_key_exists( $value, $_tabs['itinerary']['itinerary_title'] ) ) {
 				?>
 		<div id="advanced-itinerary-tabs<?php echo esc_attr( $value ); ?>" data-id="<?php echo esc_attr( $value ); ?>"
 			class="itinerary-row advanced-itinerary-row <?php echo ! empty( $expand_all === 'yes' ) ? 'active' : ''; ?>">
@@ -178,8 +191,8 @@ if ( ! defined( 'WTEAI_VERSION' ) ) {
 				?>
 					<span class="itinerary-day">
 					<?php
-					if ( isset( $wp_travel_engine_tabs['itinerary']['itinerary_days_label'][ $value ] ) && ! empty( $wp_travel_engine_tabs['itinerary']['itinerary_days_label'][ $value ] ) ) {
-						echo $itinerary_days_label_header = esc_attr( $wp_travel_engine_tabs['itinerary']['itinerary_days_label'][ $value ] );
+					if ( isset( $_tabs['itinerary']['itinerary_days_label'][ $value ] ) && ! empty( $_tabs['itinerary']['itinerary_days_label'][ $value ] ) ) {
+						echo $itinerary_days_label_header = esc_attr( $_tabs['itinerary']['itinerary_days_label'][ $value ] );
 					} else {
 						esc_html_e( 'Day ', 'wptravelengine-elementor-widgets' ) . ' ' . esc_html_e( esc_attr( str_pad( $value, 2, '0', STR_PAD_LEFT ) ), 'wte-advanced-itinerary', 'wptravelengine-elementor-widgets' );
 					}
@@ -206,7 +219,7 @@ if ( ! defined( 'WTEAI_VERSION' ) ) {
 					?>
 					</span>
 					<div class="itinerary-title">
-						<span><?php echo ( isset( $wp_travel_engine_tabs['itinerary']['itinerary_title'][ $value ] ) ? esc_attr( $wp_travel_engine_tabs['itinerary']['itinerary_title'][ $value ] ) : '' ); ?></span>
+						<span><?php echo ( isset( $_tabs['itinerary']['itinerary_title'][ $value ] ) ? esc_attr( $_tabs['itinerary']['itinerary_title'][ $value ] ) : '' ); ?></span>
 					</div>
 				</a>
 			</div>
@@ -214,10 +227,10 @@ if ( ! defined( 'WTEAI_VERSION' ) ) {
 				<div class="content">
 					<p>
 					<?php
-					if ( isset( $wp_travel_engine_tabs['itinerary']['itinerary_content_inner'][ $value ] ) && '' !== $wp_travel_engine_tabs['itinerary']['itinerary_content_inner'][ $value ] ) {
-								$content_itinerary = wpautop( $wp_travel_engine_tabs['itinerary']['itinerary_content_inner'][ $value ] );
+					if ( isset( $_tabs['itinerary']['itinerary_content_inner'][ $value ] ) && '' !== $_tabs['itinerary']['itinerary_content_inner'][ $value ] ) {
+								$content_itinerary = wpautop( $_tabs['itinerary']['itinerary_content_inner'][ $value ] );
 					} else {
-						$content_itinerary = wpautop( $wp_travel_engine_tabs['itinerary']['itinerary_content'][ $value ] );
+						$content_itinerary = wpautop( $_tabs['itinerary']['itinerary_content'][ $value ] );
 					}
 					echo wp_kses_post( wpautop( $content_itinerary ) );
 					?>
@@ -353,4 +366,3 @@ if ( ! defined( 'WTEAI_VERSION' ) ) {
 	<?php
 }
 ?>
-<?php

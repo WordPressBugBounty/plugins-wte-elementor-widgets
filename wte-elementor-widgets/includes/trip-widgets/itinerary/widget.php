@@ -109,7 +109,6 @@ class ItineraryWidget extends Widget {
 	protected function register_controls() {
 		wp_enqueue_style( 'wte-fonts-style' );
 		$settings = WPTRAVELENGINEEB\Widgets_Controller::instance()->get_core_widget_setting( $this->widget_name, 'controls' );
-		$controls = isset( $settings['controls'] ) && is_array( $settings['controls'] ) ? $settings['controls'] : array();
 		$this->_wte_add_controls( $settings );
 		$controls = include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/itinerary/controls.php';
 		$this->_wte_add_controls( $controls );
@@ -121,15 +120,16 @@ class ItineraryWidget extends Widget {
 	 * @since 1.3.0
 	 */
 	protected function render() {
-		$attributes               = $this->get_settings_for_display();
-		$is_elementor_editor_page = $this->is_elementor_editor_page();
-		if ( file_exists( WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/itinerary/itinerary.php' ) ) {
-			$tabs = get_post_meta( get_the_ID(), 'wp_travel_engine_setting', true );
-			if ( empty( $tabs['itinerary'] ) && $is_elementor_editor_page ) {
-				include_once WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/itinerary/demo.php';
-			} else {
-				include_once WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/itinerary/itinerary.php';
-			}
+		$attributes    = $this->get_settings_for_display();
+		$wte_trip_id   = get_the_ID();
+		$trip_settings = get_post_meta( $wte_trip_id, 'wp_travel_engine_setting', true );
+		$_itinerary    = isset( $trip_settings['itinerary'] ) ? $trip_settings['itinerary'] : array();
+
+		// Only show demo content when in Elementor editor AND there's no itinerary data
+		if ( empty( $_itinerary ) && $this->is_elementor_editor_page() ) {
+			include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/itinerary/demo.php';
+		} elseif ( file_exists( WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/itinerary/itinerary.php' ) ) {
+			include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/itinerary/itinerary.php';
 		} else {
 			echo esc_html__( 'Oops! No preview/output available for this widget.', 'wptravelengine-elementor-widgets' );
 		}

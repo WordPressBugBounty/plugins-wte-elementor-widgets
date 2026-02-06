@@ -68,7 +68,9 @@ $figure_class = $cardLayout === '3' ? 'wpte-card--grid wpte-card--overlap wpte-c
 						endif;
 						?>
 					</a>
-					<?php if ($showPrice && $cardLayout === '3') : ?>
+					<?php
+					$display_price = $meta->has_sale ? $meta->sale_price : $meta->price;
+					if ($showPrice && ! empty( $display_price ) && $display_price > 0 && $cardLayout === '3') : ?>
 							<span <?php $this->print_render_attribute_string('price-data'); ?>>
 								<?php if (wte_array_get($settings, 'showStrikedPrice', true) && $meta->has_sale) : ?>
 									<div class="striked-price">
@@ -77,7 +79,7 @@ $figure_class = $cardLayout === '3' ? 'wpte-card--grid wpte-card--overlap wpte-c
 									</div>
 								<?php endif;
 								if ($showPrice) : ?>
-									<ins class="actual-price"><?php echo wte_esc_price(wte_get_formated_price_html($meta->has_sale ? $meta->sale_price : $meta->price)); ?></ins>
+									<ins class="actual-price"><?php echo wte_esc_price(wte_get_formated_price_html($display_price)); ?></ins>
 								<?php endif; ?>
 							</span>
 						<?php endif; ?>
@@ -248,7 +250,9 @@ $figure_class = $cardLayout === '3' ? 'wpte-card--grid wpte-card--overlap wpte-c
 								<a href="<?php echo esc_url(get_the_permalink($trip_id)); ?>" class="wpte-card__button"><?php echo esc_html(wte_array_get($settings, 'viewMoreButtonText', __('View Details', 'wptravelengine-elementor-widgets'))); ?></a>
 							</div>
 						<?php endif; ?>
-						<?php if ($showPrice) : ?>
+						<?php
+						$display_price = $meta->has_sale ? $meta->sale_price : $meta->price;
+						if ($showPrice && ! empty( $display_price ) && $display_price > 0) : ?>
 							<span <?php $this->print_render_attribute_string('price-data'); ?>>
 								<?php if (wte_array_get($settings, 'showStrikedPrice', true) && $meta->has_sale) : ?>
 									<div class="striked-price">
@@ -257,7 +261,7 @@ $figure_class = $cardLayout === '3' ? 'wpte-card--grid wpte-card--overlap wpte-c
 									</div>
 								<?php endif;
 								if ($showPrice) : ?>
-									<ins class="actual-price"><?php echo wte_esc_price(wte_get_formated_price_html($meta->has_sale ? $meta->sale_price : $meta->price)); ?></ins>
+									<ins class="actual-price"><?php echo wte_esc_price(wte_get_formated_price_html($display_price)); ?></ins>
 								<?php endif; ?>
 							</span>
 						<?php endif; ?>

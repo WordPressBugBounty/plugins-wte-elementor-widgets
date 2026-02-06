@@ -82,30 +82,47 @@ function initTripsTab($scope, $) {
         initSwiperForTab(tabpanel) {
             let swiperContainer = tabpanel.querySelector('.wpte-trips-tab__swiper');
             if (swiperContainer && !swiperContainer.swiper) {
-                let nextEl = swiperContainer.parentElement.querySelector('.tab-btn-next');
-                let prevEl = swiperContainer.parentElement.querySelector('.tab-btn-prev');
-                let paginationEl = swiperContainer.parentElement.querySelector('.tab-page');
-                let options = Object.assign({
-                    navigation: {
-                        nextEl: nextEl || '.tab-btn-next',
-                        prevEl: prevEl || '.tab-btn-prev',
-                    },
-                    pagination: {
-                        el: paginationEl || '.tab-page',
-                        type: 'bullets',
-                        clickable: true
-                    },
-                }, swiperContainer.dataset.swiperOptions ? JSON.parse(swiperContainer.dataset.swiperOptions) : {});
+                // Check if Swiper is available
+                if (typeof elementorFrontend !== 'undefined' && 
+                    elementorFrontend.utils && 
+                    elementorFrontend.utils.swiper) {
+                    
+                    let nextEl = swiperContainer.parentElement.querySelector('.tab-btn-next');
+                    let prevEl = swiperContainer.parentElement.querySelector('.tab-btn-prev');
+                    let paginationEl = swiperContainer.parentElement.querySelector('.tab-page');
+                    let options = Object.assign({
+                        navigation: {
+                            nextEl: nextEl || '.tab-btn-next',
+                            prevEl: prevEl || '.tab-btn-prev',
+                        },
+                        pagination: {
+                            el: paginationEl || '.tab-page',
+                            type: 'bullets',
+                            clickable: true
+                        },
+                    }, swiperContainer.dataset.swiperOptions ? JSON.parse(swiperContainer.dataset.swiperOptions) : {});
 
-                swiperContainer.swiper = new elementorFrontend.utils.swiper(swiperContainer, options);
+                    try {
+                        swiperContainer.swiper = new elementorFrontend.utils.swiper(swiperContainer, options);
+                    } catch (error) {
+                        console.warn('WP Travel Engine: Swiper initialization failed:', error);
+                    }
+                } else {
+                    console.warn('WP Travel Engine: Swiper is not available. Please ensure Swiper dependency is properly loaded.');
+                }
             }
         }
 
         destroySwiperForTab(tabpanel) {
             let swiperContainer = tabpanel.querySelector('.wpte-trips-tab__swiper');
             if (swiperContainer && swiperContainer.swiper) {
-                swiperContainer.swiper.destroy(true, true);
-                swiperContainer.swiper = null;
+                try {
+                    swiperContainer.swiper.destroy(true, true);
+                    swiperContainer.swiper = null;
+                } catch (error) {
+                    console.warn('WP Travel Engine: Swiper destruction failed:', error);
+                    swiperContainer.swiper = null;
+                }
             }
         }
 

@@ -73,7 +73,8 @@ $add_wrap_class = (1 === $index || 2 === $index) ? 'wpte-card--grid wpte-card--o
 			elseif('2' === $layout_data && wte_array_get( $settings, 'showWishlist', false )) :
 				wptravelengineeb_get_wishlist( $trip_id );
             endif;
-			if ( $showPrice && (1 === $index || 2 === $index )) : ?>
+			$display_price = $meta->has_sale ? $meta->sale_price : $meta->price;
+			if ( $showPrice && (1 === $index || 2 === $index ) && ! empty( $display_price ) && $display_price > 0 ) : ?>
 				<span class="wpte-card__price wpte-card__price--layout-1">
 					<?php if ( wte_array_get( $settings, 'showStrikedPrice_hero', true ) && $meta->has_sale ) : ?>
 						<div class="striked-price">
@@ -82,9 +83,9 @@ $add_wrap_class = (1 === $index || 2 === $index) ? 'wpte-card--grid wpte-card--o
 						</div>
 					<?php endif;
 					if ( $showPrice ) : ?>
-						<ins class="actual-price"><?php echo wte_esc_price( wte_get_formated_price_html( $meta->has_sale ? $meta->sale_price : $meta->price ) ); ?></ins>
+						<ins class="actual-price"><?php echo wte_esc_price( wte_get_formated_price_html( $display_price ) ); ?></ins>
 					<?php endif; ?>
-				</span>	
+				</span>
 			<?php endif; ?>
 		</div>
         <div class="wpte-card__content">
@@ -221,7 +222,8 @@ $add_wrap_class = (1 === $index || 2 === $index) ? 'wpte-card--grid wpte-card--o
                     </div>
                     <?php 
                 endif;
-                if ( $showPrice && '2' === $layout_data && 1 !== $index && 2 !== $index) : ?>
+                $display_price = $meta->has_sale ? $meta->sale_price : $meta->price;
+                if ( $showPrice && '2' === $layout_data && 1 !== $index && 2 !== $index && ! empty( $display_price ) && $display_price > 0 ) : ?>
                     <span class="wpte-card__price wpte-card__price--layout-3">
                         <?php if ( wte_array_get( $settings, 'showStrikedPrice', true ) && $meta->has_sale ) : ?>
                             <div class="striked-price">
@@ -230,9 +232,9 @@ $add_wrap_class = (1 === $index || 2 === $index) ? 'wpte-card--grid wpte-card--o
                             </div>
                         <?php endif;
                         if ( $showPrice ) : ?>
-                            <ins class="actual-price"><?php echo wte_esc_price( wte_get_formated_price_html( $meta->has_sale ? $meta->sale_price : $meta->price ) ); ?></ins>
+                            <ins class="actual-price"><?php echo wte_esc_price( wte_get_formated_price_html( $display_price ) ); ?></ins>
                         <?php endif; ?>
-                    </span>	
+                    </span>
                 <?php endif;
             if ($layout_data === '2') echo '</div>'; //end class .wpte-card__meta-wrapper ?>
         </div>

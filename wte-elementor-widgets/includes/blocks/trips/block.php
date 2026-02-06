@@ -92,7 +92,15 @@ if ( $results && is_array( $results ) ) :
 			'hours'  => array( __( 'Hour', 'wptravelengine-elementor-widgets' ), __( 'Hours', 'wptravelengine-elementor-widgets' ) ),
 		);
 		$results['duration'] = $duration_mapping;
-		$args                = array( $attributes, $trip, $results );
+		$pax_label = __( 'People', 'wptravelengine-elementor-widgets' );
+		if ( function_exists( 'wptravelengine_get_label_by_slug' ) ) {
+			$updated_pax_label = wptravelengine_get_label_by_slug( 'person', ! empty( $meta->max_pax ) ? $meta->max_pax : $meta->min_pax );
+			if ( ! empty( $updated_pax_label ) ) {
+				$pax_label = $updated_pax_label;
+			}
+		}
+		 
+		$args                = array( $attributes, $trip, $results, $pax_label );
 		( 'slider' === $layout ) && print( '<div class="swiper-slide">' );
 		$layout_path = __DIR__ . '/layouts/' . sanitize_file_name('layout-' . $attributes['cardlayout'] . '.php');
 		if ( file_exists( $layout_path ) ) {

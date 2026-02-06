@@ -3,13 +3,13 @@
  * Plugin Name: WP Travel Engine - Elementor Widgets
  * Plugin URI: http://wordpress.org/plugins/wte-elementor-widgets
  * Description: The plugin helps you to use Elementor to create a travel booking website. It seamlessly works with WP Travel Engine, the most popular travel booking plugin, to display trips/tours, destinations, activities, trip types and advanced search.
- * Version: 1.4.3
+ * Version: 1.5.0
  * Author: WP Travel Engine
  * Author URI: http://wptravelengine.com
  * Requires at least: 5.0
  * Requires Plugins: wp-travel-engine, elementor
  * Requires PHP: 7.4
- * Tested up to: 6.7
+ * Tested up to: 6.9
  * WTE requires at least: 5.2
  * WTE tested up to: 6.2.1
  * License: GPLv3
@@ -27,7 +27,7 @@ defined( 'ABSPATH' ) || exit;
 
 define( 'WPTRAVELENGINEEB_FILE__', __FILE__ );
 define( 'WPTRAVELENGINEEB_PATH', plugin_dir_path( WPTRAVELENGINEEB_FILE__ ) );
-define( 'WPTRAVELENGINEEB_VERSION', '1.4.3' );
+define( 'WPTRAVELENGINEEB_VERSION', '1.5.0' );
 define( 'WPTRAVELENGINEEB_REQUIRES_AT_LEAST', '5.2.0' );
 define( 'WPTRAVELENGINEEB_NEWCONTROL', '<span class="wte-elementor-new-control"> New</span>' );
 register_activation_hook( __FILE__, 'wptravelengineeb_activation' );

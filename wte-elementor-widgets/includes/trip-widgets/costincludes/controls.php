@@ -20,7 +20,9 @@ $selectors = array(
 
 	// Icon.
 	'icon_size'               => array(
+		'{{WRAPPER}} .elementor-widget-container .post-data .content ul li' => '--icon-size: {{SIZE}}{{UNIT}};',
 		'{{WRAPPER}} .elementor-widget-container .post-data .content ul li:before, {{WRAPPER}} .elementor-widget-container .post-data .content .custom-icon li i, {{WRAPPER}} .elementor-widget-container .post-data .content .custom-icon li svg' => 'font-size: {{SIZE}}{{UNIT}};',
+		'{{WRAPPER}} .elementor-widget-container .post-data .content .custom-icon li svg' => 'width: {{SIZE}}{{UNIT}}; height: {{SIZE}}{{UNIT}};',
 		'{{WRAPPER}} .elementor-widget-container .post-data .content ul li, {{WRAPPER}} ul#include-result li' => 'padding-left: calc({{SIZE}}{{UNIT}} + 14px);',
 	),
 	'icon_color'              => array(
