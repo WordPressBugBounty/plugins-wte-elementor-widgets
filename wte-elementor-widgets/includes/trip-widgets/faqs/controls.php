@@ -75,7 +75,7 @@ $selectors = array(
 
 	// Toogle.
 	'toogle_background_color' => array(
-		'{{WRAPPER}} .elementor-widget-container .post-data .expand-all-button input[type=checkbox]:checked' => 'background-color: {{VALUE}};',
+		'{{WRAPPER}} .elementor-widget-container .post-data .expand-all-button input[type=checkbox]:checked' => 'background-color: {{VALUE}} !important;',
 	),
 
 	// Icon.

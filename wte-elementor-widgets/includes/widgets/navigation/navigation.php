@@ -62,6 +62,16 @@ class Widget_Navigation extends Widget_Base {
 	}
 
 	/**
+	 * Get script dependencies.
+	 *
+	 * @since 1.5.1
+	 * @return array
+	 */
+	public function get_script_depends() {
+		return array( 'wptravelengineeeb-trips' );
+	}
+
+	/**
 	 * Register widget controls.
 	 */
 	protected function register_controls() {

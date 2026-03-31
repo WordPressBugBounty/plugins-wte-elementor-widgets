@@ -322,3 +322,37 @@ function wptravelengineeb_get_trip_taxonomies() {
 
 	return $taxonomy_list;
 }
+
+/**
+ * Get allowed HTML tags for trip content including iframes.
+ *
+ * Extends wp_kses_post() to allow iframe tags for embedding videos, maps, and other rich media.
+ * Maintains security by allow-listing specific iframe attributes only.
+ *
+ * @since 1.5.1
+ * @return array Allowed HTML tags and attributes.
+ */
+function wptravelengineeb_kses_allowed_html() {
+	$allowed_html = wp_kses_allowed_html( 'post' );
+
+	// Add iframe support with security attributes
+	$allowed_html['iframe'] = array(
+		'src'             => true,
+		'width'           => true,
+		'height'          => true,
+		'frameborder'     => true,
+		'allow'           => true,
+		'allowfullscreen' => true,
+		'title'           => true,
+		'class'           => true,
+		'id'              => true,
+		'style'           => true,
+		'loading'         => true,
+		'name'            => true,
+		'sandbox'         => true,
+		'srcdoc'          => true,
+		'referrerpolicy'  => true,
+	);
+
+	return $allowed_html;
+}

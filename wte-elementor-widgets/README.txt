@@ -5,7 +5,7 @@ Tags: Tour booking, Tour operator, Travel, Travel agency, Travel booking
 Requires at least: 5.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.5.0
+Stable tag: 1.5.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -181,6 +181,12 @@ The plugin is optimized for speed and performance, so it will not slow down your
 9. Trips Widget Slider Controls.
 
 == Changelog ==
+
+= 1.5.1 - 31st March, 2026 =
+* Feature: Off Canvas Menu Widget.
+* Feature: Option to enable Builder Mobile Header from Customizer.
+* Fix: Days and Nights settings carried over when editing trips with Elementor.
+* Fix: Typography controls not applying to Day Title in Itinerary widget.
 
 = 1.5.0 - 28th January, 2026 =
 * Improved: Updated trip layouts to display participants labels more clearly.

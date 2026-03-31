@@ -117,7 +117,7 @@ class Customizer {
 				$wp_customize,
 				'wpte_header_builder_id',
 				array(
-					'label'           => __( 'Choose Header', 'wptravelengine-elementor-widgets' ),
+					'label'           => __( 'Choose Header (Desktop)', 'wptravelengine-elementor-widgets' ),
 					'section'         => 'main_header_builder',
 					'choices'         => $this->get_builder_posts( Header_Footer_Builder::HEADER_POST_TYPE ),
 					'priority'        => 2,
@@ -125,6 +125,55 @@ class Customizer {
 				)
 			)
 		);
+
+		// Enable Builder Mobile Header Toggle Setting.
+		$wp_customize->add_setting(
+			'wpte_enable_mobile_header',
+			array(
+				'default'           => false,
+				'sanitize_callback' => 'absint',
+			)
+		);
+
+		$wp_customize->add_control(
+			new \Travel_Monster_Toggle_Control(
+				$wp_customize,
+				'wpte_enable_mobile_header',
+				array(
+					'label'           => __( 'Enable Builder Mobile Header', 'wptravelengine-elementor-widgets' ),
+					'section'         => 'main_header_builder',
+					'priority'        => 3,
+					'active_callback' => array( $this, 'is_header_builder_active' ),
+				)
+			)
+		);
+
+		// Mobile Header Builder ID Setting.
+		$wp_customize->add_setting(
+			'wpte_mobile_header_builder_id',
+			array(
+				'default'           => '',
+				'sanitize_callback' => 'absint',
+			)
+		);
+
+		$wp_customize->add_control(
+			new \Travel_Monster_Select_Control(
+				$wp_customize,
+				'wpte_mobile_header_builder_id',
+				array(
+					'label'           => __( 'Choose Header (Mobile)', 'wptravelengine-elementor-widgets' ),
+					'description'     => __( 'Select a header template to use on mobile devices. If not set, the default mobile header will be used.', 'wptravelengine-elementor-widgets' ),
+					'section'         => 'main_header_builder',
+					'choices'         => $this->get_builder_posts( Header_Footer_Builder::MOBILE_MENU_POST_TYPE ),
+					'priority'        => 4,
+					'active_callback' => array( $this, 'is_mobile_header_enabled' ),
+				)
+			)
+		);
+
+		// Hide Mobile Header Settings section when builder mobile header is enabled.
+		$this->modify_mobile_header_section_visibility( $wp_customize );
 	}
 
 	/**
@@ -203,6 +252,32 @@ class Customizer {
 	}
 
 	/**
+	 * Hide the Mobile Header Settings section when builder mobile header is enabled.
+	 *
+	 * @param \WP_Customize_Manager $wp_customize The WordPress Customizer object.
+	 * @return void
+	 */
+	private function modify_mobile_header_section_visibility( $wp_customize ) {
+		$section = $wp_customize->get_section( 'mobile_header_settings' );
+		if ( $section ) {
+			$section->active_callback = array( $this, 'is_prebuilt_mobile_header_active' );
+		}
+	}
+
+	/**
+	 * Active callback for Mobile Header Settings section.
+	 * Returns false when builder header is active and builder mobile header is enabled.
+	 *
+	 * @return bool
+	 */
+	public function is_prebuilt_mobile_header_active() {
+		if ( 'builder' === \get_theme_mod( 'wpte_header_type', 'prebuilt' ) && \get_theme_mod( 'wpte_enable_mobile_header', false ) ) {
+			return false;
+		}
+		return true;
+	}
+
+	/**
 	 * Modify Upper Footer and Bottom Footer sections visibility based on footer type.
 	 *
 	 * @param \WP_Customize_Manager $wp_customize The WordPress Customizer object.
@@ -261,13 +336,25 @@ class Customizer {
 	 */
 	public function is_header_builder_active( $control ) {
 		$header_type = $control->manager->get_setting( 'wpte_header_type' )->value();
-
-		if ( 'builder' === $header_type  ) return true;
-		
-		return false;
-
+		return 'builder' === $header_type;
 	}
-	 
+
+	/**
+	 * Active callback: returns true when the mobile header toggle is enabled.
+	 *
+	 * @param \WP_Customize_Control $control The control object.
+	 * @return bool
+	 */
+	public function is_mobile_header_enabled( $control ) {
+		return (bool) $control->manager->get_setting( 'wpte_enable_mobile_header' )->value();
+	}
+
+	/**
+	 * Active callback for Footer Builder ID control.
+	 *
+	 * @param \WP_Customize_Control $control The control object.
+	 * @return bool
+	 */
 	public function is_footer_builder_active( $control ) {
 		$footer_type = $control->manager->get_setting( 'wpte_footer_type' )->value();
 		return 'builder' === $footer_type;
@@ -297,6 +384,7 @@ class Customizer {
 		}
 		return 'prebuilt';
 	}
+
 }
 
 // Initialize the Customizer.

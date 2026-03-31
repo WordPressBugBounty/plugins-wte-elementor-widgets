@@ -112,7 +112,7 @@ class OverviewWidget extends Widget {
 		}?>
 		<div id="wte-overview" class="overview-content">
 			<?php printf( '<%1$s class="wpte-overview-title">%2$s</%1$s>', esc_html( $html_tag ), esc_html( ( $show_title && $tab_title ) ? esc_html( $tab_title ) : '' ) ); ?>
-			<?php echo wp_kses_post( $overview ); ?> 
+			<?php echo wp_kses( $overview, wptravelengineeb_kses_allowed_html() ); ?>
 		</div>
 		<?php
 	}

@@ -1053,6 +1053,12 @@ class Widgets_Controller {
 				'title'               => __( 'Site Logo', 'wptravelengine-elementor-widgets' ),
 				'icon'                => 'icon-wte-logo',
 			);
+
+			$widgets['wptravelengine-off-canvas'] = array(
+				'title'               => __( 'Off Canvas', 'wptravelengine-elementor-widgets' ),
+				'icon'                => 'eicon-sidebar',
+			);
+
 		}
 
 		$core_widget_collection = apply_filters(

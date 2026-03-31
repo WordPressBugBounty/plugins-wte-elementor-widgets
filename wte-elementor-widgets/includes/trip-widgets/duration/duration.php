@@ -17,7 +17,9 @@ $duration_unit = isset( $post_meta['trip_duration_unit'] ) && '' !== $post_meta[
 $nights = isset( $post_meta[ 'trip_duration_nights' ] ) && '' !== $post_meta[ 'trip_duration_nights' ]
 	? $post_meta[ 'trip_duration_nights' ] : '';
 
-$trip_duration_format  = $option_meta[ 'trip_duration_format' ] ?? 'days_and_nights';
+// Get WP Travel Engine global settings to respect Trip Duration Format preference
+$wp_travel_engine_settings = get_option( 'wp_travel_engine_settings', array() );
+$trip_duration_format      = isset( $wp_travel_engine_settings['trip_duration_format'] ) ? $wp_travel_engine_settings['trip_duration_format'] : 'days_and_nights';
 
 // Retrieve attributes from elementor.
 $attributes    = (object) $attributes;
@@ -42,16 +44,14 @@ $display_style = isset( $attributes->{'displayStyle'} ) ? $attributes->{'display
 			</span>
 		</span>
 	
-		<?php if ( ! empty( $nights ) ){?>
+		<?php if ( ! empty( $nights ) && 'days_and_nights' === $trip_duration_format && 'hours' !== $duration_unit ) { ?>
 			<span class="wte-title-duration wte-duration-night <?php echo esc_attr( $display_style ); ?>">
-				<?php if( 'days_and_nights' === $trip_duration_format && ! empty( $nights ) && 'hours' !== $duration_unit ) { ?>
-					<span class="duration">
-						<?php echo esc_html( number_format_i18n( $nights) ); ?>
-					</span>
-					<span class="days">
-						<?php printf( esc_html( _nx( 'Night', 'Nights', $nights , 'nights', 'wptravelengine-elementor-widgets' ) ) ); ?>
-					</span>
-				<?php } ?>
+				<span class="duration">
+					<?php echo esc_html( number_format_i18n( $nights ) ); ?>
+				</span>
+				<span class="days">
+					<?php printf( esc_html( _nx( 'Night', 'Nights', $nights, 'nights', 'wptravelengine-elementor-widgets' ) ) ); ?>
+				</span>
 			</span>
 		<?php } ?>
 		

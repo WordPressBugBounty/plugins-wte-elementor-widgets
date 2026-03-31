@@ -57,7 +57,7 @@ $html_tag         = wptravelengineeb_normalize_html_tag( $attributes->{'html_tag
 								<p>
 								<?php
 									$faq_content = isset( $faq['faq_content'][ $value ] ) ? $faq['faq_content'][ $value ] : '';
-									echo wp_kses_post( wpautop ( $faq_content ) );
+									echo wp_kses( wpautop ( $faq_content ), wptravelengineeb_kses_allowed_html() );
 								?>
 								</p>
 							</div>

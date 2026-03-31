@@ -26,7 +26,7 @@ if ( ! $show_tab_titles ) {
 }
 
 $tab_title                 = isset( $_tabs['trip_itinerary_title'] ) && ! empty( $_tabs['trip_itinerary_title'] ) ? $_tabs['trip_itinerary_title'] : '';
-$wp_travel_engine_settings = get_option( 'wp_travel_engine_settings' );
+$wp_travel_engine_settings = get_option( 'wp_travel_engine_settings', false );
 
 // get the attributes from the widget.
 $show_title      = isset( $attributes['show_title'] ) ? $attributes['show_title'] : 'yes';
@@ -39,6 +39,8 @@ $last_day_icon   = isset( $attributes['last_day_icon']['value'] ) && ! empty( $a
 $expand_on_icon  = isset( $attributes['expand_on_icon']['value'] ) && ! empty( $attributes['expand_on_icon']['value'] ) ? 'custom-expand-on-icon' : '';
 $expand_off_icon = isset( $attributes['expand_off_icon']['value'] ) && ! empty( $attributes['expand_off_icon']['value'] ) ? ' custom-expand-off-icon' : '';
 $show_chart      = isset( $attributes['show_chart'] ) ? $attributes['show_chart'] : 'yes';
+//Additional itinerary info position.
+$additional_itinerary_info_position = $wp_travel_engine_settings['wte_advance_itinerary']['info_display_position'] ?? 'below_title';
 
 ?>
 	<div id="wte-itinerary" class="wte-itinerary-header-wrapper">
@@ -145,7 +147,7 @@ if ( ! defined( 'WTEAI_VERSION' ) ) {
 
 				<div class="itinerary-content <?php echo $expand_all === 'yes' ? 'show' : ''; ?>">
 					<div class="content" style="<?php echo empty( $inner_content[ $key ] ) ? 'margin: 0;' : ''; ?>">
-						<?php echo wp_kses_post( isset( $inner_content[ $key ] ) ? $inner_content[ $key ] : '' ); ?>
+						<?php echo wp_kses( isset( $inner_content[ $key ] ) ? $inner_content[ $key ] : '', wptravelengineeb_kses_allowed_html() ); ?>
 					</div>
 				</div>
 			</div>
@@ -225,6 +227,9 @@ if ( ! defined( 'WTEAI_VERSION' ) ) {
 			</div>
 			<div class="itinerary-content <?php echo ( $expand_all == 'yes' ) ? 'show' : ''; ?>">
 				<div class="content">
+					<?php if ( $additional_itinerary_info_position === 'below_title' ) :
+						include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/itinerary/additional-info-fields-template.php';
+					endif; ?>
 					<p>
 					<?php
 					if ( isset( $_tabs['itinerary']['itinerary_content_inner'][ $value ] ) && '' !== $_tabs['itinerary']['itinerary_content_inner'][ $value ] ) {
@@ -232,12 +237,14 @@ if ( ! defined( 'WTEAI_VERSION' ) ) {
 					} else {
 						$content_itinerary = wpautop( $_tabs['itinerary']['itinerary_content'][ $value ] );
 					}
-					echo wp_kses_post( wpautop( $content_itinerary ) );
+					echo wp_kses( wpautop( $content_itinerary ), wptravelengineeb_kses_allowed_html() );
 					?>
 							</p>
 				</div>
-				<?php
-						$itinerary_galleries_ids = isset( $wte_advanced_itinerary['advanced_itinerary']['itinerary_image'][ $value ] ) && ! empty( $wte_advanced_itinerary['advanced_itinerary']['itinerary_image'][ $value ] ) ? $wte_advanced_itinerary['advanced_itinerary']['itinerary_image'][ $value ] : '';
+				<?php if ( $additional_itinerary_info_position === 'below_description' ) :
+					include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/itinerary/additional-info-fields-template.php';
+				endif;
+				$itinerary_galleries_ids = isset( $wte_advanced_itinerary['advanced_itinerary']['itinerary_image'][ $value ] ) && ! empty( $wte_advanced_itinerary['advanced_itinerary']['itinerary_image'][ $value ] ) ? $wte_advanced_itinerary['advanced_itinerary']['itinerary_image'][ $value ] : '';
 				if ( isset( $itinerary_galleries_ids ) && is_array( $itinerary_galleries_ids ) && ! empty( $itinerary_galleries_ids ) ) {
 					?>
 				<div class="itenary-detail-gallery">

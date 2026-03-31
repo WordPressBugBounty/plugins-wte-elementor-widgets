@@ -43,6 +43,27 @@ class Header_Footer_Builder {
 	const FOOTER_POST_TYPE = 'wpte_footer';
 
 	/**
+	 * Mobile Menu post type name.
+	 *
+	 * @var string
+	 */
+	const MOBILE_MENU_POST_TYPE = 'wpte_mobile_menu';
+
+	/**
+	 * Mobile Header post type name.
+	 *
+	 * @var string
+	 */
+	const MOBILE_HEADER_POST_TYPE = 'wpte_mobile_header';
+
+	/**
+	 * Off Canvas post type name.
+	 *
+	 * @var string
+	 */
+	const OFFCANVAS_POST_TYPE = 'wpte_offcanvas';
+
+	/**
 	 * Menu slug for WPTE Builder.
 	 *
 	 * @var string
@@ -127,8 +148,9 @@ class Header_Footer_Builder {
 	 * @return void
 	 */
 	public function enqueue_header_builder_styles() {
-		$header_type = \get_theme_mod( 'wpte_header_type', 'prebuilt' );
-		$header_id   = \get_theme_mod( 'wpte_header_builder_id', '' );
+		$header_type      = \get_theme_mod( 'wpte_header_type', 'prebuilt' );
+		$header_id        = \get_theme_mod( 'wpte_header_builder_id', '' );
+		$mobile_header_id = \get_theme_mod( 'wpte_mobile_header_builder_id', '' );
 
 		// Only add styles if header builder is active.
 		if ( 'builder' !== $header_type || empty( $header_id ) ) {
@@ -138,6 +160,22 @@ class Header_Footer_Builder {
 		$header_post = \get_post( $header_id );
 		if ( ! $header_post || 'publish' !== $header_post->post_status ) {
 			return;
+		}
+
+		$enable_mobile_header = \get_theme_mod( 'wpte_enable_mobile_header', false );
+
+		// Add CSS for mobile builder header when the toggle is enabled (regardless of content).
+		if ( $enable_mobile_header && ! empty( $mobile_header_id ) ) {
+			$css = '
+				.wte-mobile-header { display: none; }
+				@media only screen and (max-width: 1024px) {
+					.site-header.wte-header-builder.has-mobile-builder { display: block; }
+					.site-header.wte-header-builder.has-mobile-builder .wte-desktop-header { display: none; }
+					.wte-mobile-header { display: block; }
+					.mobile-header { display: none !important; }
+				}
+			';
+			\wp_add_inline_style( 'travel-monster-style', $css );
 		}
 	}
 
@@ -198,12 +236,14 @@ class Header_Footer_Builder {
 
 	/**
 	 * Render custom header from Elementor builder.
-	 * Shows Elementor header on desktop and theme's mobile header on responsive.
+	 * Shows Elementor header on desktop and either a custom mobile builder header
+	 * or the theme's prebuilt mobile header on responsive views.
 	 *
 	 * @return void
 	 */
 	public function render_custom_header() {
-		$header_id = \get_theme_mod( 'wpte_header_builder_id', '' );
+		$header_id        = \get_theme_mod( 'wpte_header_builder_id', '' );
+		$mobile_header_id = \get_theme_mod( 'wpte_mobile_header_builder_id', '' );
 
 		if ( empty( $header_id ) ) {
 			return;
@@ -212,12 +252,23 @@ class Header_Footer_Builder {
 		$header_content = self::get_header_content( $header_id );
 
 		if ( ! empty( $header_content ) ) {
-			echo '<header class="site-header wte-header-builder" itemtype="https://schema.org/WPHeader" itemscope>';
+			$enable_mobile_header  = (bool) \get_theme_mod( 'wpte_enable_mobile_header', false );
+			$has_mobile_builder    = $enable_mobile_header && ! empty( $mobile_header_id );
+			$mobile_header_content = $has_mobile_builder ? self::get_mobile_menu_content( $mobile_header_id ) : '';
+
+			echo '<header class="site-header wte-header-builder' . ( $has_mobile_builder ? ' has-mobile-builder' : '' ) . '" itemtype="https://schema.org/WPHeader" itemscope>';
 			// Desktop header (Elementor content) - hidden on mobile via CSS.
 			echo '<div class="wte-desktop-header">';
 			// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			echo $header_content;
 			echo '</div>';
+			// Mobile header (Elementor content) - shown only on mobile when builder mobile is enabled.
+			if ( $has_mobile_builder ) {
+				echo '<div class="wte-mobile-header">';
+				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo $mobile_header_content;
+				echo '</div>';
+			}
 			echo '</header>';
 			?>
 			<div class="header-search-wrap search-modal cover-modal" data-modal-target-string=".search-modal">
@@ -231,8 +282,8 @@ class Header_Footer_Builder {
 				</div>
 			</div>
 		<?php
-			// Render theme's mobile header for responsive views.
-			if ( \function_exists( 'travel_monster_mobile_header' ) ) {
+			// Render theme's mobile header only when builder mobile header is NOT enabled.
+			if ( ! $has_mobile_builder && \function_exists( 'travel_monster_mobile_header' ) ) {
 				\travel_monster_mobile_header();
 			}
 		}
@@ -384,6 +435,111 @@ class Header_Footer_Builder {
 				'rest_controller_class' => 'WP_REST_Posts_Controller',
 			)
 		);
+
+		// Register Mobile Menu post type.
+		register_post_type(
+			self::MOBILE_MENU_POST_TYPE,
+			array(
+				'labels'                => array(
+					'name'                  => __( 'Mobile Menus', 'wptravelengine-elementor-widgets' ),
+					'singular_name'         => __( 'Mobile Menu', 'wptravelengine-elementor-widgets' ),
+					'all_items'             => __( 'All Mobile Menus', 'wptravelengine-elementor-widgets' ),
+					'new_item'              => __( 'New Mobile Menu', 'wptravelengine-elementor-widgets' ),
+					'add_new'               => __( 'Add New', 'wptravelengine-elementor-widgets' ),
+					'add_new_item'          => __( 'Add New Mobile Menu', 'wptravelengine-elementor-widgets' ),
+					'edit_item'             => __( 'Edit Mobile Menu', 'wptravelengine-elementor-widgets' ),
+					'view_item'             => __( 'View Mobile Menu', 'wptravelengine-elementor-widgets' ),
+					'search_items'          => __( 'Search Mobile Menus', 'wptravelengine-elementor-widgets' ),
+					'not_found'             => __( 'No Mobile Menus found', 'wptravelengine-elementor-widgets' ),
+					'not_found_in_trash'    => __( 'No Mobile Menus found in trash', 'wptravelengine-elementor-widgets' ),
+					'menu_name'             => __( 'WTE Mobile Menus', 'wptravelengine-elementor-widgets' ),
+				),
+				'public'                => true,
+				'hierarchical'          => false,
+				'show_ui'               => true,
+				'show_in_menu'          => false,
+				'show_in_nav_menus'     => false,
+				'supports'              => array( 'title', 'elementor' ),
+				'has_archive'           => false,
+				'rewrite'               => false,
+				'query_var'             => false,
+				'capability_type'       => 'post',
+				'menu_icon'             => 'dashicons-welcome-widgets-menus',
+				'show_in_rest'          => true,
+				'rest_base'             => 'wpte_mobile_menu',
+				'rest_controller_class' => 'WP_REST_Posts_Controller',
+			)
+		);
+
+		// Register Mobile Header post type.
+		register_post_type(
+			self::MOBILE_HEADER_POST_TYPE,
+			array(
+				'labels'                => array(
+					'name'                  => __( 'Mobile Headers', 'wptravelengine-elementor-widgets' ),
+					'singular_name'         => __( 'Mobile Header', 'wptravelengine-elementor-widgets' ),
+					'all_items'             => __( 'All Mobile Headers', 'wptravelengine-elementor-widgets' ),
+					'new_item'              => __( 'New Mobile Header', 'wptravelengine-elementor-widgets' ),
+					'add_new'               => __( 'Add New', 'wptravelengine-elementor-widgets' ),
+					'add_new_item'          => __( 'Add New Mobile Header', 'wptravelengine-elementor-widgets' ),
+					'edit_item'             => __( 'Edit Mobile Header', 'wptravelengine-elementor-widgets' ),
+					'view_item'             => __( 'View Mobile Header', 'wptravelengine-elementor-widgets' ),
+					'search_items'          => __( 'Search Mobile Headers', 'wptravelengine-elementor-widgets' ),
+					'not_found'             => __( 'No Mobile Headers found', 'wptravelengine-elementor-widgets' ),
+					'not_found_in_trash'    => __( 'No Mobile Headers found in trash', 'wptravelengine-elementor-widgets' ),
+					'menu_name'             => __( 'WTE Mobile Headers', 'wptravelengine-elementor-widgets' ),
+				),
+				'public'                => true,
+				'hierarchical'          => false,
+				'show_ui'               => true,
+				'show_in_menu'          => false,
+				'show_in_nav_menus'     => false,
+				'supports'              => array( 'title', 'elementor' ),
+				'has_archive'           => false,
+				'rewrite'               => false,
+				'query_var'             => false,
+				'capability_type'       => 'post',
+				'menu_icon'             => 'dashicons-welcome-widgets-menus',
+				'show_in_rest'          => true,
+				'rest_base'             => 'wpte_mobile_header',
+				'rest_controller_class' => 'WP_REST_Posts_Controller',
+			)
+		);
+
+		// Register Off Canvas post type.
+		register_post_type(
+			self::OFFCANVAS_POST_TYPE,
+			array(
+				'labels'                => array(
+					'name'                  => __( 'Off Canvas', 'wptravelengine-elementor-widgets' ),
+					'singular_name'         => __( 'Off Canvas', 'wptravelengine-elementor-widgets' ),
+					'all_items'             => __( 'All Off Canvas', 'wptravelengine-elementor-widgets' ),
+					'new_item'              => __( 'New Off Canvas', 'wptravelengine-elementor-widgets' ),
+					'add_new'               => __( 'Add New', 'wptravelengine-elementor-widgets' ),
+					'add_new_item'          => __( 'Add New Off Canvas', 'wptravelengine-elementor-widgets' ),
+					'edit_item'             => __( 'Edit Off Canvas', 'wptravelengine-elementor-widgets' ),
+					'view_item'             => __( 'View Off Canvas', 'wptravelengine-elementor-widgets' ),
+					'search_items'          => __( 'Search Off Canvas', 'wptravelengine-elementor-widgets' ),
+					'not_found'             => __( 'No Off Canvas found', 'wptravelengine-elementor-widgets' ),
+					'not_found_in_trash'    => __( 'No Off Canvas found in trash', 'wptravelengine-elementor-widgets' ),
+					'menu_name'             => __( 'WTE Off Canvas', 'wptravelengine-elementor-widgets' ),
+				),
+				'public'                => true,
+				'hierarchical'          => false,
+				'show_ui'               => true,
+				'show_in_menu'          => false,
+				'show_in_nav_menus'     => false,
+				'supports'              => array( 'title', 'elementor' ),
+				'has_archive'           => false,
+				'rewrite'               => false,
+				'query_var'             => false,
+				'capability_type'       => 'post',
+				'menu_icon'             => 'dashicons-welcome-widgets-menus',
+				'show_in_rest'          => true,
+				'rest_base'             => 'wpte_offcanvas',
+				'rest_controller_class' => 'WP_REST_Posts_Controller',
+			)
+		);
 	}
 
 	/**
@@ -421,6 +577,24 @@ class Header_Footer_Builder {
 			'edit.php?post_type=' . self::FOOTER_POST_TYPE
 		);
 
+		// Add Mobile Menu submenu under WPTE Builder.
+		add_submenu_page(
+			self::MENU_SLUG,
+			esc_html__( 'Mobile Menu', 'wptravelengine-elementor-widgets' ),
+			esc_html__( 'Mobile Menu', 'wptravelengine-elementor-widgets' ),
+			'manage_options',
+			'edit.php?post_type=' . self::MOBILE_MENU_POST_TYPE
+		);
+
+		// Add Off Canvas Builder submenu under WPTE Builder.
+		add_submenu_page(
+			self::MENU_SLUG,
+			esc_html__( 'Off Canvas Builder', 'wptravelengine-elementor-widgets' ),
+			esc_html__( 'Off Canvas Builder', 'wptravelengine-elementor-widgets' ),
+			'manage_options',
+			'edit.php?post_type=' . self::OFFCANVAS_POST_TYPE
+		);
+
 		// Remove the default submenu item that duplicates the parent.
 		remove_submenu_page( self::MENU_SLUG, self::MENU_SLUG );
 	}
@@ -451,7 +625,7 @@ class Header_Footer_Builder {
 			return $single_template;
 		}
 
-		if ( defined( 'ELEMENTOR_PATH' ) && ( self::HEADER_POST_TYPE === $post->post_type || self::FOOTER_POST_TYPE === $post->post_type ) ) {
+		if ( defined( 'ELEMENTOR_PATH' ) && in_array( $post->post_type, array( self::HEADER_POST_TYPE, self::FOOTER_POST_TYPE, self::MOBILE_HEADER_POST_TYPE, self::MOBILE_MENU_POST_TYPE, self::OFFCANVAS_POST_TYPE ), true ) ) {
 			$elementor_canvas = ELEMENTOR_PATH . '/modules/page-templates/templates/canvas.php';
 
 			if ( file_exists( $elementor_canvas ) ) {
@@ -551,6 +725,42 @@ class Header_Footer_Builder {
 				'order'          => 'ASC',
 			)
 		);
+	}
+
+	/**
+	 * Get all published mobile menus.
+	 *
+	 * @return array Array of mobile menu posts.
+	 */
+	public static function get_mobile_menus() {
+		return get_posts(
+			array(
+				'post_type'      => self::MOBILE_MENU_POST_TYPE,
+				'post_status'    => 'publish',
+				'posts_per_page' => -1,
+				'orderby'        => 'title',
+				'order'          => 'ASC',
+			)
+		);
+	}
+
+	/**
+	 * Get mobile menu content by ID.
+	 *
+	 * @param int $menu_id The mobile menu post ID.
+	 * @return string The rendered mobile menu content.
+	 */
+	public static function get_mobile_menu_content( $menu_id ) {
+		if ( ! $menu_id || ! class_exists( '\Elementor\Plugin' ) ) {
+			return '';
+		}
+
+		$menu_post = get_post( $menu_id );
+		if ( ! $menu_post || 'publish' !== $menu_post->post_status ) {
+			return '';
+		}
+
+		return \Elementor\Plugin::instance()->frontend->get_builder_content_for_display( $menu_id );
 	}
 }
 

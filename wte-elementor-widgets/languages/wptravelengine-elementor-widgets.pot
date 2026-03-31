@@ -2,9 +2,9 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Travel Engine - Elementor Widgets 1.5.0\n"
+"Project-Id-Version: WP Travel Engine - Elementor Widgets 1.5.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-28 07:16:25+00:00\n"
+"POT-Creation-Date: 2026-03-31 06:06:28+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -413,8 +413,8 @@ msgid "Group Size"
 msgstr ""
 
 #: includes/class-customizer.php:75
-#: includes/class-header-footer-builder.php:409
-#: includes/class-header-footer-builder.php:410
+#: includes/class-header-footer-builder.php:565
+#: includes/class-header-footer-builder.php:566
 msgid "Header Builder"
 msgstr ""
 
@@ -422,211 +422,365 @@ msgstr ""
 msgid "Type of Header"
 msgstr ""
 
-#: includes/class-customizer.php:98 includes/class-customizer.php:170
+#: includes/class-customizer.php:98 includes/class-customizer.php:219
 msgid "Prebuilt"
 msgstr ""
 
-#: includes/class-customizer.php:99 includes/class-customizer.php:171
+#: includes/class-customizer.php:99 includes/class-customizer.php:220
 msgid "Builder"
 msgstr ""
 
 #: includes/class-customizer.php:120
-msgid "Choose Header"
+msgid "Choose Header (Desktop)"
 msgstr ""
 
-#: includes/class-customizer.php:147
-#: includes/class-header-footer-builder.php:418
-#: includes/class-header-footer-builder.php:419
+#: includes/class-customizer.php:143
+msgid "Enable Builder Mobile Header"
+msgstr ""
+
+#: includes/class-customizer.php:165
+msgid "Choose Header (Mobile)"
+msgstr ""
+
+#: includes/class-customizer.php:166
+msgid ""
+"Select a header template to use on mobile devices. If not set, the default "
+"mobile header will be used."
+msgstr ""
+
+#: includes/class-customizer.php:196
+#: includes/class-header-footer-builder.php:574
+#: includes/class-header-footer-builder.php:575
 msgid "Footer Builder"
 msgstr ""
 
-#: includes/class-customizer.php:167
+#: includes/class-customizer.php:216
 msgid "Type of Footer"
 msgstr ""
 
-#: includes/class-customizer.php:192
+#: includes/class-customizer.php:241
 msgid "Choose Footer"
 msgstr ""
 
-#: includes/class-customizer.php:244
+#: includes/class-customizer.php:319
 msgid "-- Select --"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:225
+#: includes/class-header-footer-builder.php:276
 msgid "search form close"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:297
+#: includes/class-header-footer-builder.php:348
 msgid "Headers"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:298
+#: includes/class-header-footer-builder.php:349
 msgid "Header"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:299
+#: includes/class-header-footer-builder.php:350
 msgid "All Headers"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:300
+#: includes/class-header-footer-builder.php:351
 msgid "Header Archives"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:301
+#: includes/class-header-footer-builder.php:352
 msgid "Header Attributes"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:302
+#: includes/class-header-footer-builder.php:353
 msgid "Insert into Header"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:303
+#: includes/class-header-footer-builder.php:354
 msgid "Uploaded to this Header"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:308
+#: includes/class-header-footer-builder.php:359
 msgid "Filter Headers list"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:309
+#: includes/class-header-footer-builder.php:360
 msgid "Headers list navigation"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:310
+#: includes/class-header-footer-builder.php:361
 msgid "Headers list"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:311
+#: includes/class-header-footer-builder.php:362
 msgid "New Header"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:312
-#: includes/class-header-footer-builder.php:360
+#: includes/class-header-footer-builder.php:363
+#: includes/class-header-footer-builder.php:411
+#: includes/class-header-footer-builder.php:448
+#: includes/class-header-footer-builder.php:483
+#: includes/class-header-footer-builder.php:518
 msgid "Add New"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:313
+#: includes/class-header-footer-builder.php:364
 msgid "Add New Header"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:314
+#: includes/class-header-footer-builder.php:365
 msgid "Edit Header"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:315
+#: includes/class-header-footer-builder.php:366
 msgid "View Header"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:316
+#: includes/class-header-footer-builder.php:367
 msgid "View Headers"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:317
+#: includes/class-header-footer-builder.php:368
 msgid "Search Headers"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:318
+#: includes/class-header-footer-builder.php:369
 msgid "No Headers found"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:319
+#: includes/class-header-footer-builder.php:370
 msgid "No Headers found in trash"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:320
+#: includes/class-header-footer-builder.php:371
 msgid "Parent Header:"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:321
+#: includes/class-header-footer-builder.php:372
 msgid "WTE Headers"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:345
+#: includes/class-header-footer-builder.php:396
 msgid "Footers"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:346
+#: includes/class-header-footer-builder.php:397
 msgid "Footer"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:347
+#: includes/class-header-footer-builder.php:398
 msgid "All Footers"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:348
+#: includes/class-header-footer-builder.php:399
 msgid "Footer Archives"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:349
+#: includes/class-header-footer-builder.php:400
 msgid "Footer Attributes"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:350
+#: includes/class-header-footer-builder.php:401
 msgid "Insert into Footer"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:351
+#: includes/class-header-footer-builder.php:402
 msgid "Uploaded to this Footer"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:356
+#: includes/class-header-footer-builder.php:407
 msgid "Filter Footers list"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:357
+#: includes/class-header-footer-builder.php:408
 msgid "Footers list navigation"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:358
+#: includes/class-header-footer-builder.php:409
 msgid "Footers list"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:359
+#: includes/class-header-footer-builder.php:410
 msgid "New Footer"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:361
+#: includes/class-header-footer-builder.php:412
 msgid "Add New Footer"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:362
+#: includes/class-header-footer-builder.php:413
 msgid "Edit Footer"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:363
+#: includes/class-header-footer-builder.php:414
 msgid "View Footer"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:364
+#: includes/class-header-footer-builder.php:415
 msgid "View Footers"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:365
+#: includes/class-header-footer-builder.php:416
 msgid "Search Footers"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:366
+#: includes/class-header-footer-builder.php:417
 msgid "No Footers found"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:367
+#: includes/class-header-footer-builder.php:418
 msgid "No Footers found in trash"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:368
+#: includes/class-header-footer-builder.php:419
 msgid "Parent Footer:"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:369
+#: includes/class-header-footer-builder.php:420
 msgid "WTE Footers"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:397
-#: includes/class-header-footer-builder.php:398
+#: includes/class-header-footer-builder.php:444
+msgid "Mobile Menus"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:445
+#: includes/class-header-footer-builder.php:583
+#: includes/class-header-footer-builder.php:584
+msgid "Mobile Menu"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:446
+msgid "All Mobile Menus"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:447
+msgid "New Mobile Menu"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:449
+msgid "Add New Mobile Menu"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:450
+msgid "Edit Mobile Menu"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:451
+msgid "View Mobile Menu"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:452
+msgid "Search Mobile Menus"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:453
+msgid "No Mobile Menus found"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:454
+msgid "No Mobile Menus found in trash"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:455
+msgid "WTE Mobile Menus"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:479
+msgid "Mobile Headers"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:480
+msgid "Mobile Header"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:481
+msgid "All Mobile Headers"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:482
+msgid "New Mobile Header"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:484
+msgid "Add New Mobile Header"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:485
+msgid "Edit Mobile Header"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:486
+msgid "View Mobile Header"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:487
+msgid "Search Mobile Headers"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:488
+msgid "No Mobile Headers found"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:489
+msgid "No Mobile Headers found in trash"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:490
+msgid "WTE Mobile Headers"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:514
+#: includes/class-header-footer-builder.php:515 includes/class-widgets.php:1058
+#: includes/widgets/off-canvas/off-canvas.php:42
+msgid "Off Canvas"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:516
+msgid "All Off Canvas"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:517
+msgid "New Off Canvas"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:519
+msgid "Add New Off Canvas"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:520
+msgid "Edit Off Canvas"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:521
+msgid "View Off Canvas"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:522
+msgid "Search Off Canvas"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:523
+msgid "No Off Canvas found"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:524
+msgid "No Off Canvas found in trash"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:525
+msgid "WTE Off Canvas"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:553
+#: includes/class-header-footer-builder.php:554
 msgid "WPTE Builder"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:478
+#: includes/class-header-footer-builder.php:592
+#: includes/class-header-footer-builder.php:593
+msgid "Off Canvas Builder"
+msgstr ""
+
+#: includes/class-header-footer-builder.php:652
 msgid "WP Travel Engine - Header/Footer"
 msgstr ""
 
@@ -709,7 +863,8 @@ msgstr ""
 #: includes/widgets/featured-trips/controls.php:808
 #: includes/widgets/featured-trips/controls.php:877
 #: includes/widgets/featured-trips/controls.php:908
-#: includes/widgets/navigation/navigation.php:251
+#: includes/widgets/navigation/navigation.php:261
+#: includes/widgets/off-canvas/off-canvas.php:476
 #: includes/widgets/search/search.php:200
 #: includes/widgets/terms/controls.php:227
 #: includes/widgets/terms/controls.php:253
@@ -2648,29 +2803,35 @@ msgstr ""
 msgid "Importing content - kindly stay on this page."
 msgstr ""
 
-#: includes/trip-widgets/booking/booking.php:50
+#: includes/trip-widgets/booking/booking.php:61
 #: includes/trip-widgets/booking/controls.php:205
 #: includes/trip-widgets/booking/demo.php:11
 msgid "Check Availability"
 msgstr ""
 
-#: includes/trip-widgets/booking/booking.php:51
+#: includes/trip-widgets/booking/booking.php:62
 #: includes/trip-widgets/booking/demo.php:12
 msgid "Need help with booking?"
 msgstr ""
 
-#: includes/trip-widgets/booking/booking.php:75
+#: includes/trip-widgets/booking/booking.php:86
 msgid "Hide Prices"
 msgstr ""
 
-#: includes/trip-widgets/booking/booking.php:78
+#: includes/trip-widgets/booking/booking.php:89
 #: includes/trip-widgets/booking/demo.php:27
 msgid "Show Prices"
 msgstr ""
 
-#: includes/trip-widgets/booking/booking.php:94
+#: includes/trip-widgets/booking/booking.php:105
 #: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:250
 msgid "Group Discount Available"
+msgstr ""
+
+#: includes/trip-widgets/booking/booking.php:147
+#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:266
+#. translators: %d is a placeholder with the sale percentage.
+msgid "Sold Out"
 msgstr ""
 
 #: includes/trip-widgets/booking/controls.php:18
@@ -2722,6 +2883,8 @@ msgstr ""
 #: includes/widgets/advanced-trips-four/controls.php:915
 #: includes/widgets/advanced-trips-three/controls.php:914
 #: includes/widgets/featured-trips/controls.php:849
+#: includes/widgets/off-canvas-button/off-canvas-button.php:93
+#: includes/widgets/off-canvas-button/off-canvas-button.php:163
 #: includes/widgets/terms/controls.php:539
 #: includes/widgets/tour-search/controls.php:343
 #: includes/widgets/trip-search/controls.php:218
@@ -2742,6 +2905,8 @@ msgstr ""
 #: includes/trip-widgets/booking/controls.php:207
 #: includes/trip-widgets/ratings/controls.php:50
 #: includes/widgets/contact/contact.php:107
+#: includes/widgets/off-canvas/off-canvas.php:144
+#: includes/widgets/off-canvas-button/off-canvas-button.php:115
 msgid "Text"
 msgstr ""
 
@@ -2876,8 +3041,11 @@ msgstr ""
 #: includes/widgets/featured-trips/controls.php:556
 #: includes/widgets/featured-trips/controls.php:678
 #: includes/widgets/featured-trips/controls.php:873
-#: includes/widgets/navigation/navigation.php:168
-#: includes/widgets/navigation/navigation.php:297
+#: includes/widgets/navigation/navigation.php:178
+#: includes/widgets/navigation/navigation.php:307
+#: includes/widgets/off-canvas/off-canvas.php:346
+#: includes/widgets/off-canvas/off-canvas.php:565
+#: includes/widgets/off-canvas-button/off-canvas-button.php:209
 #: includes/widgets/terms/controls.php:223
 #: includes/widgets/terms/controls.php:300
 #: includes/widgets/terms/controls.php:434
@@ -3082,6 +3250,13 @@ msgstr ""
 #: includes/widgets/featured-trips/controls.php:835
 #: includes/widgets/featured-trips/controls.php:882
 #: includes/widgets/featured-trips/controls.php:913
+#: includes/widgets/off-canvas/off-canvas.php:352
+#: includes/widgets/off-canvas/off-canvas.php:381
+#: includes/widgets/off-canvas/off-canvas.php:527
+#: includes/widgets/off-canvas/off-canvas.php:571
+#: includes/widgets/off-canvas/off-canvas.php:589
+#: includes/widgets/off-canvas-button/off-canvas-button.php:215
+#: includes/widgets/off-canvas-button/off-canvas-button.php:244
 #: includes/widgets/terms/controls.php:304
 #: includes/widgets/terms/controls.php:315
 #: includes/widgets/terms/controls.php:346
@@ -3287,10 +3462,10 @@ msgstr ""
 #: includes/widgets/featured-trips/controls.php:560
 #: includes/widgets/featured-trips/controls.php:571
 #: includes/widgets/featured-trips/controls.php:604
-#: includes/widgets/navigation/navigation.php:175
-#: includes/widgets/navigation/navigation.php:196
-#: includes/widgets/navigation/navigation.php:304
-#: includes/widgets/navigation/navigation.php:325
+#: includes/widgets/navigation/navigation.php:185
+#: includes/widgets/navigation/navigation.php:206
+#: includes/widgets/navigation/navigation.php:314
+#: includes/widgets/navigation/navigation.php:335
 #: includes/widgets/search/search.php:116
 #: includes/widgets/trips-accordion/controls.php:574
 #: includes/widgets/trips-accordion/controls.php:585
@@ -3459,6 +3634,7 @@ msgstr ""
 #: includes/widgets/featured-trips/controls.php:280
 #: includes/widgets/featured-trips/controls.php:742
 #: includes/widgets/featured-trips/controls.php:792
+#: includes/widgets/off-canvas/off-canvas.php:190
 #: includes/widgets/terms/controls.php:192
 #: includes/widgets/terms/controls.php:844
 #: includes/widgets/trip-tax-module-one/controls.php:246
@@ -3571,6 +3747,7 @@ msgstr ""
 #: includes/widgets/featured-trips/controls.php:288
 #: includes/widgets/featured-trips/controls.php:750
 #: includes/widgets/featured-trips/controls.php:796
+#: includes/widgets/off-canvas/off-canvas.php:194
 #: includes/widgets/terms/controls.php:200
 #: includes/widgets/terms/controls.php:852
 #: includes/widgets/trip-tax-module-one/controls.php:254
@@ -3667,7 +3844,9 @@ msgstr ""
 #: includes/widgets/featured-trips/controls.php:393
 #: includes/widgets/featured-trips/controls.php:891
 #: includes/widgets/featured-trips/controls.php:922
-#: includes/widgets/navigation/navigation.php:263
+#: includes/widgets/navigation/navigation.php:273
+#: includes/widgets/off-canvas/off-canvas.php:427
+#: includes/widgets/off-canvas-button/off-canvas-button.php:290
 #: includes/widgets/search/search.php:144
 #: includes/widgets/terms/controls.php:241
 #: includes/widgets/terms/controls.php:276
@@ -3807,7 +3986,11 @@ msgstr ""
 #: includes/widgets/featured-trips/controls.php:250
 #: includes/widgets/featured-trips/controls.php:300
 #: includes/widgets/featured-trips/controls.php:858
-#: includes/widgets/navigation/navigation.php:282
+#: includes/widgets/navigation/navigation.php:292
+#: includes/widgets/off-canvas/off-canvas.php:406
+#: includes/widgets/off-canvas/off-canvas.php:488
+#: includes/widgets/off-canvas/off-canvas.php:612
+#: includes/widgets/off-canvas-button/off-canvas-button.php:269
 #: includes/widgets/terms/controls.php:208
 #: includes/widgets/terms/controls.php:323
 #: includes/widgets/terms/controls.php:366
@@ -3912,6 +4095,9 @@ msgstr ""
 #: includes/widgets/featured-trips/controls.php:460
 #: includes/widgets/featured-trips/controls.php:567
 #: includes/widgets/featured-trips/controls.php:904
+#: includes/widgets/off-canvas/off-canvas.php:375
+#: includes/widgets/off-canvas/off-canvas.php:583
+#: includes/widgets/off-canvas-button/off-canvas-button.php:238
 #: includes/widgets/terms/controls.php:249
 #: includes/widgets/terms/controls.php:311
 #: includes/widgets/terms/controls.php:503
@@ -4380,6 +4566,7 @@ msgstr ""
 #: includes/trip-widgets/itinerary/controls.php:173
 #: includes/trip-widgets/itinerary/controls.php:265
 #: includes/trip-widgets/overview/controls.php:48
+#: includes/widgets/off-canvas/off-canvas.php:248
 #: includes/widgets/tour-search/controls.php:164
 msgid "Show"
 msgstr ""
@@ -4398,6 +4585,7 @@ msgstr ""
 #: includes/trip-widgets/itinerary/controls.php:174
 #: includes/trip-widgets/itinerary/controls.php:266
 #: includes/trip-widgets/overview/controls.php:49
+#: includes/widgets/off-canvas/off-canvas.php:249
 #: includes/widgets/tour-search/controls.php:165
 msgid "Hide"
 msgstr ""
@@ -4640,6 +4828,9 @@ msgstr ""
 #: includes/trip-widgets/highlights/controls.php:94
 #: includes/trip-widgets/reviewform/controls.php:430
 #: includes/widgets/contact/contact.php:93
+#: includes/widgets/off-canvas/off-canvas.php:130
+#: includes/widgets/off-canvas/off-canvas.php:268
+#: includes/widgets/off-canvas-button/off-canvas-button.php:101
 msgid "Icon"
 msgstr ""
 
@@ -4743,6 +4934,8 @@ msgid "Icon Controls"
 msgstr ""
 
 #: includes/trip-widgets/facts/controls.php:36
+#: includes/widgets/off-canvas/off-canvas.php:154
+#: includes/widgets/off-canvas-button/off-canvas-button.php:125
 msgid "Icon Position"
 msgstr ""
 
@@ -5026,10 +5219,6 @@ msgstr ""
 msgid "Book Now label"
 msgstr ""
 
-#: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:266
-msgid "Sold Out"
-msgstr ""
-
 #: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:268
 msgid "Sold Out label"
 msgstr ""
@@ -5180,6 +5369,9 @@ msgstr ""
 #: includes/widgets/contact/contact.php:338
 #: includes/widgets/featured-trips/controls.php:527
 #: includes/widgets/featured-trips/controls.php:614
+#: includes/widgets/off-canvas/off-canvas.php:308
+#: includes/widgets/off-canvas/off-canvas.php:550
+#: includes/widgets/off-canvas-button/off-canvas-button.php:171
 #: includes/widgets/search/search.php:181
 #: includes/widgets/trips-accordion/controls.php:541
 #: includes/widgets/trips-accordion/controls.php:628
@@ -5258,12 +5450,16 @@ msgid "Always Show All Itinerary"
 msgstr ""
 
 #: includes/trip-widgets/itinerary/controls.php:165
-#: includes/widgets/navigation/navigation.php:121
+#: includes/widgets/navigation/navigation.php:131
+#: includes/widgets/off-canvas/off-canvas.php:209
+#: includes/widgets/off-canvas/off-canvas.php:220
 msgid "Yes"
 msgstr ""
 
 #: includes/trip-widgets/itinerary/controls.php:166
-#: includes/widgets/navigation/navigation.php:122
+#: includes/widgets/navigation/navigation.php:132
+#: includes/widgets/off-canvas/off-canvas.php:210
+#: includes/widgets/off-canvas/off-canvas.php:221
 msgid "No"
 msgstr ""
 
@@ -5484,28 +5680,29 @@ msgid ""
 msgstr ""
 
 #: includes/trip-widgets/itinerary/demo.php:119
-#: includes/trip-widgets/itinerary/itinerary.php:105
+#: includes/trip-widgets/itinerary/itinerary.php:107
 #. translators: %s: Day number.
 msgid "Day %s : "
 msgstr ""
 
-#: includes/trip-widgets/itinerary/itinerary.php:197
+#: includes/trip-widgets/itinerary/itinerary.php:199
 msgid "Day "
 msgstr ""
 
-#: includes/trip-widgets/itinerary/itinerary.php:297
+#: includes/trip-widgets/itinerary/itinerary.php:304
 msgid "Breakfast"
 msgstr ""
 
-#: includes/trip-widgets/itinerary/itinerary.php:298
+#: includes/trip-widgets/itinerary/itinerary.php:305
 msgid "Lunch"
 msgstr ""
 
-#: includes/trip-widgets/itinerary/itinerary.php:299
+#: includes/trip-widgets/itinerary/itinerary.php:306
 msgid "Dinner"
 msgstr ""
 
-#: includes/trip-widgets/itinerary/itinerary.php:343
+#: includes/trip-widgets/itinerary/itinerary.php:350
+#: includes/widgets/off-canvas/off-canvas.php:286
 msgid "Close"
 msgstr ""
 
@@ -5858,7 +6055,8 @@ msgstr ""
 #: includes/widgets/advanced-trips-three/controls.php:451
 #: includes/widgets/advanced-trips-two/controls.php:426
 #: includes/widgets/featured-trips/controls.php:361
-#: includes/widgets/navigation/navigation.php:222
+#: includes/widgets/navigation/navigation.php:232
+#: includes/widgets/off-canvas/off-canvas.php:458
 #: includes/widgets/search/search.php:214
 #: includes/widgets/terms/controls.php:463
 #: includes/widgets/trip-tax-module-one/controls.php:327
@@ -7097,13 +7295,13 @@ msgstr ""
 
 #: includes/widgets/contact/contact.php:152
 #: includes/widgets/contact/contact.php:171
-#: includes/widgets/navigation/navigation.php:103
+#: includes/widgets/navigation/navigation.php:113
 msgid "Row - horizontal"
 msgstr ""
 
 #: includes/widgets/contact/contact.php:156
 #: includes/widgets/contact/contact.php:175
-#: includes/widgets/navigation/navigation.php:107
+#: includes/widgets/navigation/navigation.php:117
 msgid "Column - vertical"
 msgstr ""
 
@@ -7162,49 +7360,180 @@ msgstr ""
 msgid "No trips found."
 msgstr ""
 
-#: includes/widgets/navigation/navigation.php:73
+#: includes/widgets/navigation/navigation.php:83
 msgid "General Settings"
 msgstr ""
 
-#: includes/widgets/navigation/navigation.php:81
+#: includes/widgets/navigation/navigation.php:91
 msgid "Choose a menu"
 msgstr ""
 
-#: includes/widgets/navigation/navigation.php:89
+#: includes/widgets/navigation/navigation.php:99
 msgid "Select a Menu"
 msgstr ""
 
-#: includes/widgets/navigation/navigation.php:99
+#: includes/widgets/navigation/navigation.php:109
 msgid "Menu Direction"
 msgstr ""
 
-#: includes/widgets/navigation/navigation.php:118
+#: includes/widgets/navigation/navigation.php:128
 msgid "Stretch Menu"
 msgstr ""
 
-#: includes/widgets/navigation/navigation.php:132
+#: includes/widgets/navigation/navigation.php:142
 msgid "Menu Items"
 msgstr ""
 
-#: includes/widgets/navigation/navigation.php:140
+#: includes/widgets/navigation/navigation.php:150
 msgid "Items Spacing"
 msgstr ""
 
-#: includes/widgets/navigation/navigation.php:189
-#: includes/widgets/navigation/navigation.php:318
+#: includes/widgets/navigation/navigation.php:199
+#: includes/widgets/navigation/navigation.php:328
 msgid "Hover/Active"
 msgstr ""
 
-#: includes/widgets/navigation/navigation.php:214
+#: includes/widgets/navigation/navigation.php:224
 msgid "Submenu"
 msgstr ""
 
-#: includes/widgets/navigation/navigation.php:274
+#: includes/widgets/navigation/navigation.php:284
 msgid "Item Styling"
 msgstr ""
 
-#: includes/widgets/navigation/navigation.php:376
+#: includes/widgets/navigation/navigation.php:386
 msgid "Please select a menu from the widget settings."
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:101
+msgid "Select"
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:122
+#: includes/widgets/off-canvas/off-canvas.php:300
+msgid "Toggle Button"
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:147
+#: includes/widgets/off-canvas-button/off-canvas-button.php:118
+msgid "Menu"
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:158
+#: includes/widgets/off-canvas-button/off-canvas-button.php:129
+msgid "Before"
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:162
+#: includes/widgets/off-canvas-button/off-canvas-button.php:133
+msgid "After"
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:178
+msgid "Panel Settings"
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:186
+msgid "Panel Side"
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:206
+msgid "Show Overlay"
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:217
+msgid "Close on Overlay Click"
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:229
+msgid "Off Canvas Content"
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:236
+#. translators: %s: link to Off Canvas builder
+msgid ""
+"Build your panel content in the <a href=\"%s\" target=\"_blank\">Off Canvas "
+"Builder</a>."
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:245
+msgid "Panel Preview"
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:260
+#: includes/widgets/off-canvas/off-canvas.php:542
+msgid "Close Button"
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:283
+msgid "Label"
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:322
+#: includes/widgets/off-canvas-button/off-canvas-button.php:185
+msgid "Icon & Text Gap"
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:363
+#: includes/widgets/off-canvas/off-canvas.php:392
+#: includes/widgets/off-canvas-button/off-canvas-button.php:226
+#: includes/widgets/off-canvas-button/off-canvas-button.php:255
+#: includes/widgets/tour-search/controls.php:296
+#: includes/widgets/tour-search/controls.php:322
+msgid "Background"
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:450
+msgid "Panel"
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:518
+msgid "Overlay"
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:635
+msgid "Please select an Off Canvas from the widget settings."
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:641
+msgid "The selected Off Canvas template is not published."
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:651
+msgid ""
+"No Elementor content found. Please edit this template with Elementor and "
+"add some content."
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:684
+#: includes/widgets/off-canvas-button/off-canvas-button.php:326
+msgid "Open menu"
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:705
+msgid "Off Canvas Menu"
+msgstr ""
+
+#: includes/widgets/off-canvas/off-canvas.php:741
+msgid "Close menu"
+msgstr ""
+
+#: includes/widgets/off-canvas-button/off-canvas-button.php:42
+msgid "Off Canvas Button"
+msgstr ""
+
+#: includes/widgets/off-canvas-button/off-canvas-button.php:146
+msgid "Target Panel ID"
+msgstr ""
+
+#: includes/widgets/off-canvas-button/off-canvas-button.php:148
+msgid "e.g. my-mobile-menu"
+msgstr ""
+
+#: includes/widgets/off-canvas-button/off-canvas-button.php:149
+msgid ""
+"Enter the Panel ID set in the Off Canvas widget. Leave empty if there is "
+"only one Off Canvas panel on the page."
 msgstr ""
 
 #: includes/widgets/search/search.php:79
@@ -7347,11 +7676,6 @@ msgstr ""
 
 #: includes/widgets/tour-search/controls.php:261
 msgid "Item Padding"
-msgstr ""
-
-#: includes/widgets/tour-search/controls.php:296
-#: includes/widgets/tour-search/controls.php:322
-msgid "Background"
 msgstr ""
 
 #: includes/widgets/tour-search/tour-search.php:65
@@ -7676,42 +8000,42 @@ msgid_plural "%1$d Nights"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/class-header-footer-builder.php:304
+#: includes/class-header-footer-builder.php:355
 msgctxt "wpte_header"
 msgid "Featured Image"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:305
+#: includes/class-header-footer-builder.php:356
 msgctxt "wpte_header"
 msgid "Set featured image"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:306
+#: includes/class-header-footer-builder.php:357
 msgctxt "wpte_header"
 msgid "Remove featured image"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:307
+#: includes/class-header-footer-builder.php:358
 msgctxt "wpte_header"
 msgid "Use as featured image"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:352
+#: includes/class-header-footer-builder.php:403
 msgctxt "wpte_footer"
 msgid "Featured Image"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:353
+#: includes/class-header-footer-builder.php:404
 msgctxt "wpte_footer"
 msgid "Set featured image"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:354
+#: includes/class-header-footer-builder.php:405
 msgctxt "wpte_footer"
 msgid "Remove featured image"
 msgstr ""
 
-#: includes/class-header-footer-builder.php:355
+#: includes/class-header-footer-builder.php:406
 msgctxt "wpte_footer"
 msgid "Use as featured image"
 msgstr ""
@@ -7762,21 +8086,21 @@ msgid_plural "%s travel reviews"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/trip-widgets/duration/duration.php:36
+#: includes/trip-widgets/duration/duration.php:38
 msgctxt "days"
 msgid "Day"
 msgid_plural "Days"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/trip-widgets/duration/duration.php:39
+#: includes/trip-widgets/duration/duration.php:41
 msgctxt "hours"
 msgid "Hour"
 msgid_plural "Hours"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/trip-widgets/duration/duration.php:52
+#: includes/trip-widgets/duration/duration.php:53
 msgctxt "nights"
 msgid "Night"
 msgid_plural "Nights"

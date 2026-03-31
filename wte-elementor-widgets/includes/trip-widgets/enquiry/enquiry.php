@@ -78,8 +78,9 @@ if ( function_exists( 'get_privacy_policy_url' ) && get_privacy_policy_url() ) {
 		<?php
 		do_action( 'wte_enquiry_contact_form_before_submit_button' );
 		?>
-        <input type="submit" class="enquiry-submit" name="enquiry_submit_button" id="enquiry_submit_button"
-               value="<?php echo esc_attr( $button_text ); ?>">
+        <button type="submit" class="wte-button enquiry-submit" name="enquiry_submit_button" id="enquiry_submit_button">
+			<?php echo esc_attr( $button_text ); ?>
+		</button>
 		<?php
 		do_action( 'wte_enquiry_contact_form_after_submit_button' );
 		?>

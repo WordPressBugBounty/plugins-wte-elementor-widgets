@@ -24,6 +24,17 @@ $trip    = $post;
 $trip_id = $post->ID;
 $wtetrip = \wte_get_trip( $trip_id );
 $package = $wtetrip->default_package;
+
+// Check if all FSD booking slots are sold out.
+// wte_get_trip() returns the deprecated Posttype\Trip which lacks has_date(),
+// so instantiate the modern Core Trip model that the core template uses.
+$has_available_dates = true;
+if ( class_exists( '\WPTravelEngine\Core\Models\Post\Trip' ) ) {
+	$_trip_for_date_check = new \WPTravelEngine\Core\Models\Post\Trip( $post );
+	if ( method_exists( $_trip_for_date_check, 'has_date' ) ) {
+		$has_available_dates = $_trip_for_date_check->has_date();
+	}
+}
 // Pricing Section layout Options.
 $form_layout           = isset( $settings['pricing_section_layout'] ) ? $settings['pricing_section_layout'] : 'layout-1';
 $class_based_on_layout = isset( $settings['pricing_section_layout'] ) ? ' wpte-form-' . $settings['pricing_section_layout'] . '' : ' wpte-form-layout-1';
@@ -121,7 +132,7 @@ $trip_booking_data = array(
 						<ul>
 						<?php
 						$settings = $this->get_settings_for_display();
-						echo '<div ' . esc_attr( $this->get_render_attribute_string( 'highlightContent' ) ) . '>' . wp_kses_post( $this->get_settings( 'highlightContent' ) ) . '</div>';
+						echo '<div ' . esc_attr( $this->get_render_attribute_string( 'highlightContent' ) ) . '>' . wp_kses( $this->get_settings( 'highlightContent' ), wptravelengineeb_kses_allowed_html() ) . '</div>';
 						?>
 						</ul>
 					</div>
@@ -131,7 +142,11 @@ $trip_booking_data = array(
 						?>
 						<div class="wpte-bf-btn-wrap">
 						<?php
-						if ( empty( $settings['checkAvailabilityLink']['url'] ) || '#' === $settings['checkAvailabilityLink']['url'] ) {
+						if ( ! $has_available_dates ) {
+							?>
+							<button type="button" class="wpte-bf-btn wpte-button-disabled" disabled><?php esc_html_e( 'Sold Out', 'wptravelengine-elementor-widgets' ); ?></button>
+							<?php
+						} elseif ( empty( $settings['checkAvailabilityLink']['url'] ) || '#' === $settings['checkAvailabilityLink']['url'] ) {
 							?>
 								<button type="button" id="open-booking-modal" class="wpte-bf-btn wte-book-now" data-trip-booking="<?php echo esc_attr( wp_json_encode( $trip_booking_data ) ); ?>">
 									<?php echo wp_kses_post( $check_availability_text ); ?>
@@ -140,7 +155,7 @@ $trip_booking_data = array(
 						} else {
 							$this->add_link_attributes( 'checkAvailabilityLink', $settings['checkAvailabilityLink'] );
 							?>
-								<a 
+								<a
 								<?php
 								echo wp_kses(
 									$this->get_render_attribute_string(
@@ -156,6 +171,7 @@ $trip_booking_data = array(
 						}
 						?>
 						</div>
+					<?php do_action( 'wptravelengine_after_booking_button' ); ?>
 					<?php endif; ?>
 				<?php endif; ?>
 			</div>

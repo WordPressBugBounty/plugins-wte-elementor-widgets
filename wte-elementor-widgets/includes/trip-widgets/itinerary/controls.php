@@ -65,9 +65,9 @@ $selectors = array(
 	),
 
 	// Days Title Section.
-	'days_title_typography'   => '{{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .title, {{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .title, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title',
+	'days_title_typography'   => '{{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .title, {{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title, {{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title span, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .title, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title span',
 	'days_title_color'        => array(
-		'{{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .title, {{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .title, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title span' => 'color: {{VALUE}};',
+		'{{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .title, {{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .title, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title span' => 'color: {{VALUE}} !important;',
 	),
 	'days_title_padding'      => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .title, {{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .title, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
@@ -90,7 +90,7 @@ $selectors = array(
 
 	// Toggle Section.
 	'expand_all_toggle'       => array(
-		'{{WRAPPER}} .elementor-widget-container .wte-itinerary-header-wrapper .wp-travel-engine-itinerary-header .toggle-button .checkbox' => 'background-color: {{VALUE}};',
+		'{{WRAPPER}} .elementor-widget-container .wte-itinerary-header-wrapper .wp-travel-engine-itinerary-header .toggle-button input[type=checkbox]:checked' => 'background-color: {{VALUE}} !important;',
 	),
 	'expand_icon'             => array(
 		'{{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .rotator::before, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .rotator::after' => 'background-color: {{VALUE}};',

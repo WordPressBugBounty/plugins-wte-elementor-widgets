@@ -45,7 +45,7 @@
             <?php
         }
     }
-    if ( isset( $wp_travel_engine_setting['enable_video_gallery'] ) && 'true' === $wp_travel_engine_setting['enable_video_gallery'] && $show_videopopup ) {
+    if ( ! empty( $wp_travel_engine_setting['enable_video_gallery'] ) && $show_videopopup ) {
         global $post;
         $_post_id = is_object( $post ) && isset( $post->ID ) ? $post->ID : false;
         $atts     = '';

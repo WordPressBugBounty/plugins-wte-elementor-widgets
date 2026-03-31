@@ -118,6 +118,7 @@ final class Plugin {
 		add_action( 'elementor/frontend/after_register_scripts', array( $this, 'register_scripts' ), 9999 );
 		add_action( 'elementor/frontend/before_enqueue_styles', array( $this, 'register_styles' ), 20 );
 		add_action( 'elementor/editor/before_enqueue_styles', array( $this, 'register_styles' ) );
+		add_action( 'elementor/editor/after_enqueue_scripts', array( $this, 'enqueue_offcanvas_editor_script' ) );
 
 		// Ensure styles and scripts are loaded on frontend for Global Templates.
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_styles' ) );
@@ -244,6 +245,15 @@ final class Plugin {
 			true
 		);
 
+		// Off Canvas widget script — enqueued on all Elementor pages (tiny file, always needed when header is active).
+		wp_enqueue_script(
+			'wte-offcanvas',
+			plugin_dir_url( WPTRAVELENGINEEB_FILE__ ) . 'dist/js/wte-offcanvas.js',
+			array(),
+			WPTRAVELENGINEEB_VERSION,
+			true
+		);
+
 		$wpte_animation_path = plugin_dir_path( WPTRAVELENGINEEB_FILE__ ) . 'dist/js/wpte-animation.js';
 		if ( file_exists( $wpte_animation_path ) ) {
 			wp_register_script(
@@ -275,6 +285,21 @@ final class Plugin {
 				}
 			}			
 		}
+	}
+
+	/**
+	 * Enqueue Off Canvas editor script in the Elementor editor parent frame.
+	 *
+	 * @since 1.5.2
+	 */
+	public function enqueue_offcanvas_editor_script() {
+		wp_enqueue_script(
+			'wte-offcanvas-editor',
+			plugin_dir_url( WPTRAVELENGINEEB_FILE__ ) . 'dist/js/wte-offcanvas-editor.js',
+			array( 'jquery' ),
+			WPTRAVELENGINEEB_VERSION,
+			true
+		);
 	}
 
 	/**

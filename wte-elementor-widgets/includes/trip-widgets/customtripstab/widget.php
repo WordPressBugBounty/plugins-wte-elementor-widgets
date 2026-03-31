@@ -189,7 +189,7 @@ class CustomTripsTabWidget extends Widget {
 				?>
 				<?php if( !empty( $selected_tab['content'] ) ) : ?>
 					<div class="wpte-custom-tab-content">
-						<?php echo wp_kses_post($selected_tab['content']); ?>
+						<?php echo wp_kses( $selected_tab['content'], wptravelengineeb_kses_allowed_html() ); ?>
 					</div>
 				<?php endif; ?>
 			</div>
