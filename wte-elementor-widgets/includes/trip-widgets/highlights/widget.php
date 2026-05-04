@@ -62,7 +62,7 @@ class HighlightsWidget extends Widget {
 	public function get_categories() {
 		return array( 'single-wptravelengine' );
 	}
-	
+
 	/**
 	 * Set Widget Icon.
 	 *
@@ -96,8 +96,8 @@ class HighlightsWidget extends Widget {
 	protected function render() {
 		$attributes = $this->get_settings_for_display();
 		global $post;
-		$highlights               = array();
-		$demo_trip_highlights     = array(
+		$highlights           = array();
+		$demo_trip_highlights = array(
 			'0' => array(
 				'highlight_text' => __( 'Spectacular views of Everest, Lhotse, Nuptse, and other towering peaks', 'wptravelengine-elementor-widgets' ),
 			),
@@ -117,9 +117,9 @@ class HighlightsWidget extends Widget {
 				'highlight_text' => __( 'Immersing yourself in the warmth of local Sherpa hospitality', 'wptravelengine-elementor-widgets' ),
 			),
 		);
-		
+
 		$trip_settings            = get_post_meta( $post->ID, 'wp_travel_engine_setting', true );
-		$trip_highlights_title    = isset( $trip_settings[ 'trip_highlights_title' ] ) ? $trip_settings[ 'trip_highlights_title' ] : '';
+		$trip_highlights_title    = isset( $trip_settings['trip_highlights_title'] ) ? $trip_settings['trip_highlights_title'] : '';
 		$trip_highlights          = $trip_settings['trip_highlights'] ?? '';
 		$is_elementor_editor_page = $this->is_elementor_editor_page();
 		if ( $is_elementor_editor_page && empty( $trip_highlights ) ) {
@@ -132,8 +132,8 @@ class HighlightsWidget extends Widget {
 			}
 		}
 
-		$show_title      = isset($attributes['show_title'] ) ? $attributes['show_title'] : 'yes';
-		$html_tag        = wptravelengineeb_normalize_html_tag( $attributes['html_tag'] ?? 'h3' );
+		$show_title = isset( $attributes['show_title'] ) ? $attributes['show_title'] : 'yes';
+		$html_tag   = wptravelengineeb_normalize_html_tag( $attributes['html_tag'] ?? 'h3' );
 
 		?>
 		<div id="wte-highlights" class="highlights-content">

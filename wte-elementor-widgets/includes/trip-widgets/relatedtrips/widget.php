@@ -61,7 +61,7 @@ class RelatedTripsWidget extends Widget {
 	public function get_categories() {
 		return array( 'single-wptravelengine' );
 	}
-	
+
 	/**
 	 * Set Widget Icon.
 	 *
@@ -91,7 +91,7 @@ class RelatedTripsWidget extends Widget {
 	 * @since 1.3.0
 	 */
 	protected function render() {
-		$attributes = $this->get_settings_for_display();
+		$attributes               = $this->get_settings_for_display();
 		$is_elementor_editor_page = $this->is_elementor_editor_page();
 		if ( file_exists( WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/relatedtrips/relatedtrips.php' ) ) {
 			include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/relatedtrips/relatedtrips.php';

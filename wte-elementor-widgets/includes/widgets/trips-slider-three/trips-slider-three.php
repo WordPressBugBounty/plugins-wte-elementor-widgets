@@ -9,7 +9,7 @@
 namespace WPTRAVELENGINEEB;
 
 use WPTRAVELENGINEEB\Widget;
-use \Elementor\Icons_Manager;
+use Elementor\Icons_Manager;
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -42,7 +42,7 @@ class Widget_Trips_Slider_Three extends Widget {
 	 */
 	public function get_style_depends() {
 		wp_register_style( 'wpte-trip-slider', plugin_dir_url( WPTRAVELENGINEEB_FILE__ ) . 'dist/css/wpte-trips-slider.css' );
-		
+
 		return array( 'wpte-trip-slider' );
 	}
 
@@ -50,9 +50,9 @@ class Widget_Trips_Slider_Three extends Widget {
 	 * Javascripts dependencies.
 	 */
 	public function get_script_depends() {
-		wp_register_script('wpte-trips-slider', plugin_dir_url(WPTRAVELENGINEEB_FILE__) . 'includes/widgets/trips-slider-three/thumb.js', array('jquery'), WPTRAVELENGINEEB_VERSION, true);
+		wp_register_script( 'wpte-trips-slider', plugin_dir_url( WPTRAVELENGINEEB_FILE__ ) . 'includes/widgets/trips-slider-three/thumb.js', array( 'jquery' ), WPTRAVELENGINEEB_VERSION, true );
 
-		return array( 'trip-wishlist', 'wptravelengineeeb-trips', 'wpte-trips-slider');
+		return array( 'trip-wishlist', 'wptravelengineeeb-trips', 'wpte-trips-slider' );
 	}
 
 	/**
@@ -75,7 +75,7 @@ class Widget_Trips_Slider_Three extends Widget {
 		$this->_wte_add_controls( $controls );
 	}
 
-	protected function get_swiper_pagination($attributes, $_id){
+	protected function get_swiper_pagination( $attributes, $_id ) {
 		$prev_arrow_class = ! empty( $attributes['slider_prev_arrow_icon']['value'] ) ? 'custom-prev-arrow' : '';
 		$next_arrow_class = ! empty( $attributes['slider_next_arrow_icon']['value'] ) ? ' custom-next-arrow' : '';
 		$hidden_class_xl  = 'yes' !== wte_array_get( $attributes, 'arrow', 'yes' ) ? 'hide-xl' : '';
@@ -87,10 +87,10 @@ class Widget_Trips_Slider_Three extends Widget {
 		$hidden_pg_md     = 'yes' !== wte_array_get( $attributes, 'pagination_tablet', 'yes' ) ? 'hide-md' : '';
 		$hidden_pg_sm     = 'yes' !== wte_array_get( $attributes, 'pagination_mobile', 'yes' ) ? 'hide-sm' : '';
 
-		$this->add_render_attribute( 
-			'swiper-navigation', 
-			'class', 
-			[
+		$this->add_render_attribute(
+			'swiper-navigation',
+			'class',
+			array(
 				'wpte-swiper-nav',
 				esc_attr( $hidden_class_lg ),
 				esc_attr( $hidden_class_md ),
@@ -98,26 +98,26 @@ class Widget_Trips_Slider_Three extends Widget {
 				esc_attr( $prev_arrow_class ),
 				esc_attr( $next_arrow_class ),
 				esc_attr( $hidden_class_xl ),
-			] 
+			)
 		);
 
-		$this->add_render_attribute( 
-			'swiper-pagination', 
-			'class', 
-			[
+		$this->add_render_attribute(
+			'swiper-pagination',
+			'class',
+			array(
 				'wpte-swiper-page',
-				'slider-' . esc_attr($_id) .'-pagination',
+				'slider-' . esc_attr( $_id ) . '-pagination',
 				esc_attr( $hidden_pg_xl ),
 				esc_attr( $hidden_pg_lg ),
 				esc_attr( $hidden_pg_md ),
 				esc_attr( $hidden_pg_sm ),
-			] 
+			)
 		);
 
 		?>
 			<div <?php $this->print_render_attribute_string( 'swiper-navigation' ); ?>>
 				<!-- If we need navigation buttons -->
-				<div class="wpte-swiper-btn-prev trips-slider-<?php echo esc_attr($_id); ?>-prev">
+				<div class="wpte-swiper-btn-prev trips-slider-<?php echo esc_attr( $_id ); ?>-prev">
 				<?php
 				if ( ! empty( $attributes['slider_prev_arrow_icon'] ) && is_array( $attributes['slider_prev_arrow_icon'] ) && ! empty( $attributes['slider_prev_arrow_icon']['value'] ) && ! is_array( $attributes['slider_prev_arrow_icon']['value'] ) ) :
 					?>
@@ -131,7 +131,7 @@ class Widget_Trips_Slider_Three extends Widget {
 					endif;
 					?>
 				</div>
-				<div class="wpte-swiper-btn-next trips-slider-<?php echo esc_attr($_id); ?>-next">
+				<div class="wpte-swiper-btn-next trips-slider-<?php echo esc_attr( $_id ); ?>-next">
 				<?php
 				if ( ! empty( $attributes['slider_next_arrow_icon'] ) && is_array( $attributes['slider_next_arrow_icon'] ) && ! empty( $attributes['slider_next_arrow_icon']['value'] ) && ! is_array( $attributes['slider_next_arrow_icon']['value'] ) ) :
 					?>
@@ -147,7 +147,7 @@ class Widget_Trips_Slider_Three extends Widget {
 			</div>
 		</div><!-- .wpte-swiper-navigation -->
 			<!-- If we need pagination -->
-			<?php if('3' !== wte_array_get( $attributes, 'cardlayout', '1' )) { ?>
+			<?php if ( '3' !== wte_array_get( $attributes, 'cardlayout', '1' ) ) { ?>
 				<div <?php $this->print_render_attribute_string( 'swiper-pagination' ); ?>></div>
 			<?php } ?>
 		<?php
@@ -165,7 +165,7 @@ class Widget_Trips_Slider_Three extends Widget {
 		$attributes['default_taxonomies'] = array_keys( wptravelengineeb_get_trip_taxonomies() );
 
 		if ( isset( $attributes['listby'] ) ) {
-			$query_args = array(
+			$query_args                     = array(
 				'post_type'      => \WP_TRAVEL_ENGINE_POST_TYPE,
 				'posts_per_page' => $attributes['tripsCount'],
 				'fields'         => 'ids',
@@ -230,32 +230,32 @@ class Widget_Trips_Slider_Three extends Widget {
 
 		$results = array_combine( array_column( $results, 'ID' ), $results );
 
-		$_id			   = $this->get_id();
+		$_id               = $this->get_id();
 		$ribbonType        = wte_array_get( $attributes, 'ribbonType', '3' );
 		$ribbonAlignment   = wte_array_get( $attributes, 'ribbonAlignment', 'left' );
 		$discountType      = wte_array_get( $attributes, 'discountType', '1' );
 		$discountAlignment = wte_array_get( $attributes, 'discountAlignment', 'left' );
 		$priceType         = wte_array_get( $attributes, 'priceType', '1' );
-		$layout_data 	   = wte_array_get( $attributes, 'cardlayout', '1' );
+		$layout_data       = wte_array_get( $attributes, 'cardlayout', '1' );
 
-		//swiper settings
+		// swiper settings
 		$slider_settings = array(
-			'speed'         => wte_array_get( $attributes, 'speed', 300 ),
-			'effect'        => 'slide',
-			'loop'          => wte_array_get( $attributes, 'loop', 'yes' ) === 'yes',
-			'wrapperClass'  => 'wte-swiper-wrapper',
-			'spaceBetween'  => 0,
-			'centeredSlides'=> $layout_data === '2' ? false : true,
-			'navigation' => [
-				'nextEl' => ".trips-slider-". esc_attr($_id) ."-next",
-				'prevEl' => ".trips-slider-". esc_attr($_id) ."-prev",
-			],
-			'pagination' => [
-				'el'        => ".slider-". esc_attr($_id) ."-pagination",
+			'speed'          => wte_array_get( $attributes, 'speed', 300 ),
+			'effect'         => 'slide',
+			'loop'           => wte_array_get( $attributes, 'loop', 'yes' ) === 'yes',
+			'wrapperClass'   => 'wte-swiper-wrapper',
+			'spaceBetween'   => 0,
+			'centeredSlides' => $layout_data === '2' ? false : true,
+			'navigation'     => array(
+				'nextEl' => '.trips-slider-' . esc_attr( $_id ) . '-next',
+				'prevEl' => '.trips-slider-' . esc_attr( $_id ) . '-prev',
+			),
+			'pagination'     => array(
+				'el'        => '.slider-' . esc_attr( $_id ) . '-pagination',
 				'clickable' => true,
-			],
-			'slidesPerView' => $layout_data === '2' ? wte_array_get( $attributes, 'slidesPerViewDesktop_mobile', 1 ) : 1,
-			'breakpoints' => wte_array_get(
+			),
+			'slidesPerView'  => $layout_data === '2' ? wte_array_get( $attributes, 'slidesPerViewDesktop_mobile', 1 ) : 1,
+			'breakpoints'    => wte_array_get(
 				$attributes,
 				'breakpoints',
 				array(
@@ -263,140 +263,144 @@ class Widget_Trips_Slider_Three extends Widget {
 						'slidesPerView' => $layout_data === '2' ? (int) wte_array_get( $attributes, 'slidesPerViewDesktop_tablet', 3 ) : 2,
 					),
 					1025 => array(
-						'slidesPerView' => $layout_data === '2' ? (int) wte_array_get( $attributes, 'slidesPerViewDesktop_laptop', 3 )  : 3,
+						'slidesPerView' => $layout_data === '2' ? (int) wte_array_get( $attributes, 'slidesPerViewDesktop_laptop', 3 ) : 3,
 					),
 					1367 => array(
 						'slidesPerView' => $layout_data === '2' ? (int) wte_array_get( $attributes, 'slidesPerViewDesktop', 3 ) : 3,
 					),
 				)
-			)
+			),
 		);
-		if( $layout_data === '1' || $layout_data === '3' ){
-			$slider_settings['effect'] = 'coverflow';
-			$slider_settings['coverflowEffect'] = [
-				'rotate' => $layout_data === '1' ? 20 : 0,
-				'stretch' => 80,
-				'depth' => 210,
-				'modifier' => 1,
-				'scale' => 0.9,
+		if ( $layout_data === '1' || $layout_data === '3' ) {
+			$slider_settings['effect']          = 'coverflow';
+			$slider_settings['coverflowEffect'] = array(
+				'rotate'       => $layout_data === '1' ? 20 : 0,
+				'stretch'      => 80,
+				'depth'        => 210,
+				'modifier'     => 1,
+				'scale'        => 0.9,
 				'slideShadows' => false,
-			];
+			);
 		}
 
-		if( $layout_data === '2'){
+		if ( $layout_data === '2' ) {
 			$slider_settings['spaceBetween'] = wte_array_get( $attributes, 'spaceBetween', 30 );
 		}
 
-		if( $layout_data === '3'){
-			$slider_settings['thumbs'] = ['swiper' => [
-				'el' => '.wpte-trips-slider__thumbs-wrapper',
-			]];
+		if ( $layout_data === '3' ) {
+			$slider_settings['thumbs']     = array(
+				'swiper' => array(
+					'el' => '.wpte-trips-slider__thumbs-wrapper',
+				),
+			);
 			$slider_settings['pagination'] = false;
 		}
 
 		if ( wte_array_get( $attributes, 'autoplay', 'yes' ) === 'yes' ) {
 			$slider_settings['autoplay'] = array(
-				'delay' => (int) wte_array_get( $attributes, 'autoplaydelay', 3000 ),
+				'delay'                => (int) wte_array_get( $attributes, 'autoplaydelay', 3000 ),
 				'disableOnInteraction' => false,
 			);
 		}
 
-		//Add classes to render on the HTML
-		$this->add_render_attribute( 
-			'main-wrapper-classes', 
-			'class', 
-			[
+		// Add classes to render on the HTML
+		$this->add_render_attribute(
+			'main-wrapper-classes',
+			'class',
+			array(
 				'wpte-trips-slider',
 				'wpte-trips-slider_three',
 				'wpte-elementor-widget',
 				isset( $attributes['cardlayout'] ) && ! empty( $attributes['cardlayout'] ) ? esc_attr( "layout-{$attributes['cardlayout']}" ) : 'layout-1',
-			] 
-		);
-		
-		$this->add_render_attribute( 
-			'inner-wrapper-classes', 
-			'class', 
-			[
-				'category-slider',
-			] 
+			)
 		);
 
-		$this->add_render_attribute( 
-			'swiper-wrapper', 
-			'class', 
-			[
+		$this->add_render_attribute(
+			'inner-wrapper-classes',
+			'class',
+			array(
+				'category-slider',
+			)
+		);
+
+		$this->add_render_attribute(
+			'swiper-wrapper',
+			'class',
+			array(
 				'wpte-swiper',
 				'swiper',
-			] 
+			)
 		);
 
-		$this->add_render_attribute( 
-			'swiper-wrapper', 
-			'data-swiper-options', 
-			[
-				esc_attr( wp_json_encode( $slider_settings ) )
-			] 
+		$this->add_render_attribute(
+			'swiper-wrapper',
+			'data-swiper-options',
+			array(
+				esc_attr( wp_json_encode( $slider_settings ) ),
+			)
 		);
 
-		$this->add_render_attribute( 
-			'featured-ribbon', 
-			'class', 
-			[
+		$this->add_render_attribute(
+			'featured-ribbon',
+			'class',
+			array(
 				'wpte-badge',
 				'wpte-badge_featured',
 				'wpte-badge--layout-' . $ribbonType,
-				'wpte-badge--' . $ribbonAlignment
-			] 
+				'wpte-badge--' . $ribbonAlignment,
+			)
 		);
-		
-		$this->add_render_attribute( 
-			'discount-badge', 
-			'class', 
-			[
+
+		$this->add_render_attribute(
+			'discount-badge',
+			'class',
+			array(
 				'wpte-badge',
 				'wpte-badge_discount',
 				'wpte-badge--layout-' . $discountType,
-				'wpte-badge--' . $discountAlignment
-			] 
-		);
-		
-		$this->add_render_attribute( 
-			'price-data', 
-			'class', 
-			[
-				'wpte-card__price',
-				'wpte-card__price--layout-'. $priceType
-			] 
+				'wpte-badge--' . $discountAlignment,
+			)
 		);
 
-		if ( $results && is_array( $results ) ) : ?>
+		$this->add_render_attribute(
+			'price-data',
+			'class',
+			array(
+				'wpte-card__price',
+				'wpte-card__price--layout-' . $priceType,
+			)
+		);
+
+		if ( $results && is_array( $results ) ) :
+			?>
 			<div <?php $this->print_render_attribute_string( 'main-wrapper-classes' ); ?>>
 				<div <?php $this->print_render_attribute_string( 'inner-wrapper-classes' ); ?>>
 					<div <?php $this->print_render_attribute_string( 'swiper-wrapper' ); ?>>
 						<div class="wte-swiper-wrapper swiper-wrapper">
 							<?php
-								foreach ( $attributes['filters']['tripsToDisplay'] as $trip_id ) :
-									if ( ! isset( $results[ $trip_id ] ) ) {
-										continue;
-									}
-									$trip                = $results[ $trip_id ];
-									$duration_mapping    = array(
-										'days'   => array( __( 'Day', 'wptravelengine-elementor-widgets' ), __( 'Days', 'wptravelengine-elementor-widgets' ) ),
-										'nights' => array( __( 'Night', 'wptravelengine-elementor-widgets' ), __( 'Nights', 'wptravelengine-elementor-widgets' ) ),
-										'hours'  => array( __( 'Hour', 'wptravelengine-elementor-widgets' ), __( 'Hours', 'wptravelengine-elementor-widgets' ) ),
-									);
-									$results['duration'] = $duration_mapping;
-									$args                = array( $attributes, $trip, $results );
-									
-									include __DIR__ . '/view.php';
+							foreach ( $attributes['filters']['tripsToDisplay'] as $trip_id ) :
+								if ( ! isset( $results[ $trip_id ] ) ) {
+									continue;
+								}
+								$trip                = $results[ $trip_id ];
+								$duration_mapping    = array(
+									'days'   => array( __( 'Day', 'wptravelengine-elementor-widgets' ), __( 'Days', 'wptravelengine-elementor-widgets' ) ),
+									'nights' => array( __( 'Night', 'wptravelengine-elementor-widgets' ), __( 'Nights', 'wptravelengine-elementor-widgets' ) ),
+									'hours'  => array( __( 'Hour', 'wptravelengine-elementor-widgets' ), __( 'Hours', 'wptravelengine-elementor-widgets' ) ),
+								);
+								$results['duration'] = $duration_mapping;
+								$args                = array( $attributes, $trip, $results );
+
+								include __DIR__ . '/view.php';
 
 								endforeach;
 							?>
 						</div><!-- .wte-swiper-wrapper -->
 					</div><!-- .wpte-swiper -->
-					<?php $this->get_swiper_pagination($attributes, $_id); ?>
+					<?php $this->get_swiper_pagination( $attributes, $_id ); ?>
 				</div> <!-- .category-slider -->
-				<?php if( $layout_data === '3'){
+				<?php
+				if ( $layout_data === '3' ) {
 					?>
 					<div class="wpte-trips-slider__thumbs-wrapper">
 						<div class="swiper-wrapper">
@@ -407,17 +411,18 @@ class Widget_Trips_Slider_Three extends Widget {
 									continue;
 								}
 								$trip_data = $results[ $trip_id ];
-								$args   = array( $attributes, $trip_data, $index );
+								$args      = array( $attributes, $trip_data, $index );
 								include __DIR__ . '/thumb.php';
-								$index++;
-							endforeach; ?>
+								++$index;
+							endforeach;
+							?>
 						</div>
 					</div>
 				<?php } ?>
 			</div>
-		<?php
+			<?php
 		else :
-			echo esc_html__('No trips available. Please add a new trip.','wptravelengine-elementor-widgets');
+			echo esc_html__( 'No trips available. Please add a new trip.', 'wptravelengine-elementor-widgets' );
 		endif;
 	}
 }

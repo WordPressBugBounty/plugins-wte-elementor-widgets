@@ -121,7 +121,8 @@ $show_chart      = isset( $attributes['show_chart'] ) ? $attributes['show_chart'
 					</div>
 					<a class="accordion-tabs-toggle <?php echo ! empty( $expand_all ) ? 'active' : ''; ?>" href="javascript:void(0);">
 						<?php if ( $show_expand_all ) { ?>
-							<span class="dashicons dashicons-arrow-down custom-toggle-tabs rotator <?php echo ! empty( $expand_all ) ? 'open' : ''; ?> <?php
+							<span class="dashicons dashicons-arrow-down custom-toggle-tabs rotator <?php echo ! empty( $expand_all ) ? 'open' : ''; ?>
+							<?php
 							echo esc_attr( $expand_on_icon );
 							echo esc_attr( $expand_off_icon );
 							?>

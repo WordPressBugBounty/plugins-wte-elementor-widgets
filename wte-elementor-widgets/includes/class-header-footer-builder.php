@@ -91,7 +91,12 @@ class Header_Footer_Builder {
 			return;
 		}
 
-		add_action( 'init', array( $this, 'register_post_types' ), 15 );
+		// If init has already fired (e.g. activated via AJAX during demo import), call directly.
+		if ( did_action( 'init' ) ) {
+			$this->register_post_types();
+		} else {
+			add_action( 'init', array( $this, 'register_post_types' ), 15 );
+		}
 		add_action( 'admin_menu', array( $this, 'add_menu_pages' ), 99 );
 		add_filter( 'single_template', array( $this, 'load_canvas_template' ) );
 		add_action( 'elementor/elements/categories_registered', array( $this, 'add_header_footer_category' ), 1 );
@@ -104,7 +109,7 @@ class Header_Footer_Builder {
 
 		// Enqueue admin styles (for menu icon).
 		add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_styles' ) );
-		
+
 		// Enqueue header builder styles.
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_header_builder_styles' ) );
 	}
@@ -281,7 +286,7 @@ class Header_Footer_Builder {
 					<?php get_search_form(); ?>
 				</div>
 			</div>
-		<?php
+			<?php
 			// Render theme's mobile header only when builder mobile header is NOT enabled.
 			if ( ! $has_mobile_builder && \function_exists( 'travel_monster_mobile_header' ) ) {
 				\travel_monster_mobile_header();
@@ -441,18 +446,18 @@ class Header_Footer_Builder {
 			self::MOBILE_MENU_POST_TYPE,
 			array(
 				'labels'                => array(
-					'name'                  => __( 'Mobile Menus', 'wptravelengine-elementor-widgets' ),
-					'singular_name'         => __( 'Mobile Menu', 'wptravelengine-elementor-widgets' ),
-					'all_items'             => __( 'All Mobile Menus', 'wptravelengine-elementor-widgets' ),
-					'new_item'              => __( 'New Mobile Menu', 'wptravelengine-elementor-widgets' ),
-					'add_new'               => __( 'Add New', 'wptravelengine-elementor-widgets' ),
-					'add_new_item'          => __( 'Add New Mobile Menu', 'wptravelengine-elementor-widgets' ),
-					'edit_item'             => __( 'Edit Mobile Menu', 'wptravelengine-elementor-widgets' ),
-					'view_item'             => __( 'View Mobile Menu', 'wptravelengine-elementor-widgets' ),
-					'search_items'          => __( 'Search Mobile Menus', 'wptravelengine-elementor-widgets' ),
-					'not_found'             => __( 'No Mobile Menus found', 'wptravelengine-elementor-widgets' ),
-					'not_found_in_trash'    => __( 'No Mobile Menus found in trash', 'wptravelengine-elementor-widgets' ),
-					'menu_name'             => __( 'WTE Mobile Menus', 'wptravelengine-elementor-widgets' ),
+					'name'               => __( 'Mobile Menus', 'wptravelengine-elementor-widgets' ),
+					'singular_name'      => __( 'Mobile Menu', 'wptravelengine-elementor-widgets' ),
+					'all_items'          => __( 'All Mobile Menus', 'wptravelengine-elementor-widgets' ),
+					'new_item'           => __( 'New Mobile Menu', 'wptravelengine-elementor-widgets' ),
+					'add_new'            => __( 'Add New', 'wptravelengine-elementor-widgets' ),
+					'add_new_item'       => __( 'Add New Mobile Menu', 'wptravelengine-elementor-widgets' ),
+					'edit_item'          => __( 'Edit Mobile Menu', 'wptravelengine-elementor-widgets' ),
+					'view_item'          => __( 'View Mobile Menu', 'wptravelengine-elementor-widgets' ),
+					'search_items'       => __( 'Search Mobile Menus', 'wptravelengine-elementor-widgets' ),
+					'not_found'          => __( 'No Mobile Menus found', 'wptravelengine-elementor-widgets' ),
+					'not_found_in_trash' => __( 'No Mobile Menus found in trash', 'wptravelengine-elementor-widgets' ),
+					'menu_name'          => __( 'WTE Mobile Menus', 'wptravelengine-elementor-widgets' ),
 				),
 				'public'                => true,
 				'hierarchical'          => false,
@@ -476,18 +481,18 @@ class Header_Footer_Builder {
 			self::MOBILE_HEADER_POST_TYPE,
 			array(
 				'labels'                => array(
-					'name'                  => __( 'Mobile Headers', 'wptravelengine-elementor-widgets' ),
-					'singular_name'         => __( 'Mobile Header', 'wptravelengine-elementor-widgets' ),
-					'all_items'             => __( 'All Mobile Headers', 'wptravelengine-elementor-widgets' ),
-					'new_item'              => __( 'New Mobile Header', 'wptravelengine-elementor-widgets' ),
-					'add_new'               => __( 'Add New', 'wptravelengine-elementor-widgets' ),
-					'add_new_item'          => __( 'Add New Mobile Header', 'wptravelengine-elementor-widgets' ),
-					'edit_item'             => __( 'Edit Mobile Header', 'wptravelengine-elementor-widgets' ),
-					'view_item'             => __( 'View Mobile Header', 'wptravelengine-elementor-widgets' ),
-					'search_items'          => __( 'Search Mobile Headers', 'wptravelengine-elementor-widgets' ),
-					'not_found'             => __( 'No Mobile Headers found', 'wptravelengine-elementor-widgets' ),
-					'not_found_in_trash'    => __( 'No Mobile Headers found in trash', 'wptravelengine-elementor-widgets' ),
-					'menu_name'             => __( 'WTE Mobile Headers', 'wptravelengine-elementor-widgets' ),
+					'name'               => __( 'Mobile Headers', 'wptravelengine-elementor-widgets' ),
+					'singular_name'      => __( 'Mobile Header', 'wptravelengine-elementor-widgets' ),
+					'all_items'          => __( 'All Mobile Headers', 'wptravelengine-elementor-widgets' ),
+					'new_item'           => __( 'New Mobile Header', 'wptravelengine-elementor-widgets' ),
+					'add_new'            => __( 'Add New', 'wptravelengine-elementor-widgets' ),
+					'add_new_item'       => __( 'Add New Mobile Header', 'wptravelengine-elementor-widgets' ),
+					'edit_item'          => __( 'Edit Mobile Header', 'wptravelengine-elementor-widgets' ),
+					'view_item'          => __( 'View Mobile Header', 'wptravelengine-elementor-widgets' ),
+					'search_items'       => __( 'Search Mobile Headers', 'wptravelengine-elementor-widgets' ),
+					'not_found'          => __( 'No Mobile Headers found', 'wptravelengine-elementor-widgets' ),
+					'not_found_in_trash' => __( 'No Mobile Headers found in trash', 'wptravelengine-elementor-widgets' ),
+					'menu_name'          => __( 'WTE Mobile Headers', 'wptravelengine-elementor-widgets' ),
 				),
 				'public'                => true,
 				'hierarchical'          => false,
@@ -511,18 +516,18 @@ class Header_Footer_Builder {
 			self::OFFCANVAS_POST_TYPE,
 			array(
 				'labels'                => array(
-					'name'                  => __( 'Off Canvas', 'wptravelengine-elementor-widgets' ),
-					'singular_name'         => __( 'Off Canvas', 'wptravelengine-elementor-widgets' ),
-					'all_items'             => __( 'All Off Canvas', 'wptravelengine-elementor-widgets' ),
-					'new_item'              => __( 'New Off Canvas', 'wptravelengine-elementor-widgets' ),
-					'add_new'               => __( 'Add New', 'wptravelengine-elementor-widgets' ),
-					'add_new_item'          => __( 'Add New Off Canvas', 'wptravelengine-elementor-widgets' ),
-					'edit_item'             => __( 'Edit Off Canvas', 'wptravelengine-elementor-widgets' ),
-					'view_item'             => __( 'View Off Canvas', 'wptravelengine-elementor-widgets' ),
-					'search_items'          => __( 'Search Off Canvas', 'wptravelengine-elementor-widgets' ),
-					'not_found'             => __( 'No Off Canvas found', 'wptravelengine-elementor-widgets' ),
-					'not_found_in_trash'    => __( 'No Off Canvas found in trash', 'wptravelengine-elementor-widgets' ),
-					'menu_name'             => __( 'WTE Off Canvas', 'wptravelengine-elementor-widgets' ),
+					'name'               => __( 'Off Canvas', 'wptravelengine-elementor-widgets' ),
+					'singular_name'      => __( 'Off Canvas', 'wptravelengine-elementor-widgets' ),
+					'all_items'          => __( 'All Off Canvas', 'wptravelengine-elementor-widgets' ),
+					'new_item'           => __( 'New Off Canvas', 'wptravelengine-elementor-widgets' ),
+					'add_new'            => __( 'Add New', 'wptravelengine-elementor-widgets' ),
+					'add_new_item'       => __( 'Add New Off Canvas', 'wptravelengine-elementor-widgets' ),
+					'edit_item'          => __( 'Edit Off Canvas', 'wptravelengine-elementor-widgets' ),
+					'view_item'          => __( 'View Off Canvas', 'wptravelengine-elementor-widgets' ),
+					'search_items'       => __( 'Search Off Canvas', 'wptravelengine-elementor-widgets' ),
+					'not_found'          => __( 'No Off Canvas found', 'wptravelengine-elementor-widgets' ),
+					'not_found_in_trash' => __( 'No Off Canvas found in trash', 'wptravelengine-elementor-widgets' ),
+					'menu_name'          => __( 'WTE Off Canvas', 'wptravelengine-elementor-widgets' ),
 				),
 				'public'                => true,
 				'hierarchical'          => false,

@@ -110,7 +110,7 @@ $image_size        = 'custom' === $image_size && $image_custom_size ? Widget::wt
 			<?php if ( \wte_array_get( $settings, 'layoutFilters.showDescription', false ) ) : ?>
 				<div class="wpte-trip-content">
 				<p>
-					<?php echo esc_html( \wte_get_the_excerpt( $trip->ID, wte_array_get( $settings, 'excerptLength', 10 ) ) );?>
+					<?php echo esc_html( \wte_get_the_excerpt( $trip->ID, wte_array_get( $settings, 'excerptLength', 10 ) ) ); ?>
 				</p>
 				</div>
 			<?php endif; ?>
@@ -154,8 +154,10 @@ $image_size        = 'custom' === $image_size && $image_custom_size ? Widget::wt
 						<?php if ( wte_array_get( $settings, 'layoutFilters.showGroupSize', false ) && (int) $meta->min_pax ) : ?>
 						<span class="wpte-trip-meta wpte-trip-pax">
 							<span class="wpte-icon-users"></span>
-							<?php /* translators: 1: Pax count, 2: Person label */
-							printf( esc_html__( '%1$s %2$s', 'wptravelengine-elementor-widgets' ), (int) $meta->max_pax ? $meta->min_pax . '-' . $meta->max_pax : (int) $meta->min_pax, $pax_label ); ?>
+							<?php
+							/* translators: 1: Pax count, 2: Person label */
+							printf( esc_html__( '%1$s %2$s', 'wptravelengine-elementor-widgets' ), (int) $meta->max_pax ? $meta->min_pax . '-' . $meta->max_pax : (int) $meta->min_pax, $pax_label );
+							?>
 						</span>
 						<?php endif; ?>
 
@@ -164,7 +166,7 @@ $image_size        = 'custom' === $image_size && $image_custom_size ? Widget::wt
 				<?php
 				$display_price = $meta->has_sale ? $meta->sale_price : $meta->price;
 				if ( wte_array_get( $settings, 'layoutFilters.showPrice', true ) && ! empty( $display_price ) && $display_price > 0 ) :
-				?>
+					?>
 					<div class="wpte-trip-price-wrap align-items-end">
 						<?php if ( wte_array_get( $settings, 'layoutFilters.showStrikedPrice', true ) && $meta->has_sale ) : ?>
 							<del><?php echo wte_esc_price( wte_get_formated_price_html( $meta->price ) ); ?></del>

@@ -308,8 +308,16 @@ class Widget_Off_Canvas extends Widget {
 				'label'      => __( 'Icon Size', 'wptravelengine-elementor-widgets' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em' ),
-				'range'      => array( 'px' => array( 'min' => 10, 'max' => 60 ) ),
-				'default'    => array( 'size' => 24, 'unit' => 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min' => 10,
+						'max' => 60,
+					),
+				),
+				'default'    => array(
+					'size' => 24,
+					'unit' => 'px',
+				),
 				'selectors'  => array(
 					'{{WRAPPER}} .wte-offcanvas-btn-wrapper' => '--btn-icon-size: {{SIZE}}{{UNIT}};',
 				),
@@ -322,7 +330,12 @@ class Widget_Off_Canvas extends Widget {
 				'label'      => __( 'Icon & Text Gap', 'wptravelengine-elementor-widgets' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em' ),
-				'range'      => array( 'px' => array( 'min' => 0, 'max' => 30 ) ),
+				'range'      => array(
+					'px' => array(
+						'min' => 0,
+						'max' => 30,
+					),
+				),
 				'selectors'  => array(
 					'{{WRAPPER}} .wte-offcanvas-toggle' => 'gap: {{SIZE}}{{UNIT}};',
 				),
@@ -459,11 +472,23 @@ class Widget_Off_Canvas extends Widget {
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', '%', 'vw' ),
 				'range'      => array(
-					'px' => array( 'min' => 200, 'max' => 800 ),
-					'%'  => array( 'min' => 10, 'max' => 100 ),
-					'vw' => array( 'min' => 10, 'max' => 100 ),
+					'px' => array(
+						'min' => 200,
+						'max' => 800,
+					),
+					'%'  => array(
+						'min' => 10,
+						'max' => 100,
+					),
+					'vw' => array(
+						'min' => 10,
+						'max' => 100,
+					),
 				),
-				'default'    => array( 'size' => 320, 'unit' => 'px' ),
+				'default'    => array(
+					'size' => 320,
+					'unit' => 'px',
+				),
 				'selectors'  => array(
 					'{{WRAPPER}} .wte-offcanvas-panel' => '--offcanvas-width: {{SIZE}}{{UNIT}};',
 				),
@@ -550,8 +575,16 @@ class Widget_Off_Canvas extends Widget {
 				'label'      => __( 'Icon Size', 'wptravelengine-elementor-widgets' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em' ),
-				'range'      => array( 'px' => array( 'min' => 10, 'max' => 60 ) ),
-				'default'    => array( 'size' => 20, 'unit' => 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min' => 10,
+						'max' => 60,
+					),
+				),
+				'default'    => array(
+					'size' => 20,
+					'unit' => 'px',
+				),
 				'selectors'  => array(
 					'{{WRAPPER}} .wte-offcanvas-close' => '--close-size: {{SIZE}}{{UNIT}};',
 				),
@@ -619,7 +652,6 @@ class Widget_Off_Canvas extends Widget {
 		);
 
 		$this->end_controls_section();
-
 	}
 
 	/**

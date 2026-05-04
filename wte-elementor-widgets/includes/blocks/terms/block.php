@@ -63,15 +63,16 @@ if ( wte_array_get( $attributes, 'slider.autoplay', 'yes' ) === 'yes' ) {
 		'delay' => (int) wte_array_get( $attributes, 'slider.autoplaydelay', 3000 ),
 	);
 }
-$attributes = (object) $attributes;
-$width      = $attributes->{'cardlayout'} == 2 ? 'full-width' : '';
+$attributes     = (object) $attributes;
+$width          = $attributes->{'cardlayout'} == 2 ? 'full-width' : '';
 $arrow_position = isset( $attributes->{'slider_arrow_position'} ) ? $attributes->{'slider_arrow_position'} : 'default';
 if ( $results && is_array( $results ) ) :
 	?>
 <div class="wp-block-wptravelengine wpte-gblock-wrapper wpte-elementor-widget">
-	<div class="<?php echo esc_attr( "category-{$layout} wte-d-flex wte-layout-{$layout} wpte-trip-list-wrapper {$arrow_position}" ); ?> <?php
+	<div class="<?php echo esc_attr( "category-{$layout} wte-d-flex wte-layout-{$layout} wpte-trip-list-wrapper {$arrow_position}" ); ?>
+	<?php
 	if ( $layout != 'slider' ) {
-		echo isset( $attributes->{'itemsPerRow'} ) && ! empty( $attributes->{'itemsPerRow'} ) ? esc_attr( " wte-col-{$attributes->{'itemsPerRow'}} {$width}") : '';
+		echo isset( $attributes->{'itemsPerRow'} ) && ! empty( $attributes->{'itemsPerRow'} ) ? esc_attr( " wte-col-{$attributes->{'itemsPerRow'}} {$width}" ) : '';
 		echo isset( $attributes->{'itemsPerRow_tablet'} ) && ! empty( $attributes->{'itemsPerRow_tablet'} ) ? esc_attr( " columns-tablet-{$attributes->{'itemsPerRow_tablet'}} {$width}" ) : '';
 		echo isset( $attributes->{'itemsPerRow_mobile'} ) && ! empty( $attributes->{'itemsPerRow_mobile'} ) ? esc_attr( " columns-mobile-{$attributes->{'itemsPerRow_mobile'}} {$width}" ) : '';
 	} else {
@@ -88,7 +89,7 @@ if ( $results && is_array( $results ) ) :
 		$args = array( $attributes, $results[ $term_id ], $results );
 		( 'slider' === $layout ) && print( '<div class="swiper-slide">' );
 
-		$layout_path = __DIR__ . "/layouts/" . sanitize_file_name("layout-{$attributes->cardlayout}.php");
+		$layout_path = __DIR__ . '/layouts/' . sanitize_file_name( "layout-{$attributes->cardlayout}.php" );
 		if ( file_exists( $layout_path ) ) {
 			include $layout_path;
 		} else {
@@ -96,7 +97,7 @@ if ( $results && is_array( $results ) ) :
 		}
 
 		( 'slider' === $layout ) && print( '</div>' );
-		$position++;
+		++$position;
 
 		endforeach;
 	if ( 'slider' === $layout ) :

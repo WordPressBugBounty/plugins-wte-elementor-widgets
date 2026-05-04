@@ -30,11 +30,11 @@ $enquiry_form_fields = $fields->get_enquiry_form_fields( $_post_id, $args = arra
 
 $privacy_policy_fields = array();
 if ( function_exists( 'get_privacy_policy_url' ) && get_privacy_policy_url() ) {
-	$privacy_policy_fields[ 'enquiry_confirmation' ] = array(
+	$privacy_policy_fields['enquiry_confirmation'] = array(
 		'type'              => 'checkbox',
 		'label'             => __( 'Privacy Policy', 'wptravelengine-elementor-widgets' ),
 		// translators: %s: privacy policy link.
-		'options' => array( 'on' => isset( $wp_travel_engine_settings[ 'gdpr_msg' ] ) ? esc_attr( $wp_travel_engine_settings[ 'gdpr_msg' ] ) . get_the_privacy_policy_link() . '.' : sprintf( __( 'By contacting us, you agree to our <a href="%1$s">Privacy Policy</a>', 'wptravelengine-elementor-widgets' ), get_privacy_policy_url() ) ),
+		'options'           => array( 'on' => isset( $wp_travel_engine_settings['gdpr_msg'] ) ? esc_attr( $wp_travel_engine_settings['gdpr_msg'] ) . get_the_privacy_policy_link() . '.' : sprintf( __( 'By contacting us, you agree to our <a href="%1$s">Privacy Policy</a>', 'wptravelengine-elementor-widgets' ), get_privacy_policy_url() ) ),
 		'name'              => 'enquiry_confirmation',
 		'wrapper_class'     => 'row-form confirm-holder',
 		'id'                => 'enquiry_confirmation',
@@ -46,11 +46,11 @@ if ( function_exists( 'get_privacy_policy_url' ) && get_privacy_policy_url() ) {
 		),
 		'priority'          => 80,
 	);
-} else if ( current_user_can( 'edit_theme_options' ) ) {
+} elseif ( current_user_can( 'edit_theme_options' ) ) {
 	// translators: %1$s: opening p tag, %2$s: closing p tag.
 	$privacy_policy_lbl = sprintf( __( '%1$sPrivacy Policy page not set or not published, please check Admin Dashboard > Settings > Privacy.%2$s', 'wptravelengine-elementor-widgets' ), '<p style="color:red;">', '</p>' );
 
-	$privacy_policy_fields[ 'enquiry_confirmation' ] = array(
+	$privacy_policy_fields['enquiry_confirmation'] = array(
 		'type'     => 'text_info',
 		'label'    => __( 'Privacy Policy', 'wptravelengine-elementor-widgets' ),
 		'id'       => 'enquiry_confirmation',
@@ -60,8 +60,8 @@ if ( function_exists( 'get_privacy_policy_url' ) && get_privacy_policy_url() ) {
 }
 ?>
 <div class="wte_enquiry_contact_form-wrap" id="wte_enquiry_form_scroll_wrapper">
-    <form name="wte_enquiry_contact_form" action="#" method="post" id="wte_enquiry_contact_form"
-          class="wte_enquiry_contact_form">
+	<form name="wte_enquiry_contact_form" action="#" method="post" id="wte_enquiry_contact_form"
+			class="wte_enquiry_contact_form">
 		<?php
 		// Print display fields.
 		$form_field->init( $enquiry_form_fields )->render();
@@ -74,15 +74,15 @@ if ( function_exists( 'get_privacy_policy_url' ) && get_privacy_policy_url() ) {
 		}
 		wp_nonce_field( 'wte_enquiry_send_mail', 'nonce' );
 		?>
-        <input type="hidden" name="action" value="wte_enquiry_send_mail">
+		<input type="hidden" name="action" value="wte_enquiry_send_mail">
 		<?php
 		do_action( 'wte_enquiry_contact_form_before_submit_button' );
 		?>
-        <button type="submit" class="wte-button enquiry-submit" name="enquiry_submit_button" id="enquiry_submit_button">
+		<button type="submit" class="wte-button enquiry-submit" name="enquiry_submit_button" id="enquiry_submit_button">
 			<?php echo esc_attr( $button_text ); ?>
 		</button>
 		<?php
 		do_action( 'wte_enquiry_contact_form_after_submit_button' );
 		?>
-    </form>
+	</form>
 </div>

@@ -7,14 +7,14 @@ namespace WPTRAVELENGINEEB;
 
 list( $settings, $term_object, $results ) = $args;
 
-$thumbnail = null;
-$terms_image_size       = isset( $settings->{'terms_image_size'} ) && $settings->{'terms_image_size'} ? $settings->{'terms_image_size'} : '';
-$terms_image_custom_size       = isset( $settings->{'terms_image_custom_size'} ) && $settings->{'terms_image_custom_size'} ? $settings->{'terms_image_custom_size'} : '';
+$thumbnail               = null;
+$terms_image_size        = isset( $settings->{'terms_image_size'} ) && $settings->{'terms_image_size'} ? $settings->{'terms_image_size'} : '';
+$terms_image_custom_size = isset( $settings->{'terms_image_custom_size'} ) && $settings->{'terms_image_custom_size'} ? $settings->{'terms_image_custom_size'} : '';
 $terms_image_size        = 'custom' === $terms_image_size && $terms_image_custom_size ? Widget::wte_get_custom_image_size( $terms_image_custom_size ) : $terms_image_size;
-$thumbnail = wp_get_attachment_image_src( $term_object->thumbnail, $terms_image_size );
-$image_title = get_the_title( $term_object->thumbnail );
-$alt_text = get_post_meta( $term_object->thumbnail, '_wp_attachment_image_alt', true );
-$alt_attribute = $alt_text ? $alt_text  : $image_title;
+$thumbnail               = wp_get_attachment_image_src( $term_object->thumbnail, $terms_image_size );
+$image_title             = get_the_title( $term_object->thumbnail );
+$alt_text                = get_post_meta( $term_object->thumbnail, '_wp_attachment_image_alt', true );
+$alt_attribute           = $alt_text ? $alt_text : $image_title;
 
 $show_cta_button       = isset( $settings->{'layoutFilters'}['showCTAButton'] ) && $settings->{'layoutFilters'}['showCTAButton'];
 $show_view_more_button = isset( $settings->{'layoutFilters'}['showViewMoreButton'] ) && $settings->{'layoutFilters'}['showViewMoreButton'];
@@ -31,7 +31,7 @@ $show_trip_counts      = isset( $settings->{'layoutFilters'}['showTripCounts'] )
 				</a>
 				<?php endif; ?>
 			</figure>
-			<?php if ( count( $term_object->children ) > 0 ||  $show_view_more_button ) : ?>
+			<?php if ( count( $term_object->children ) > 0 || $show_view_more_button ) : ?>
 			<div class="wpte-trip-category-overlay">
 				<?php if ( count( $term_object->children ) > 0 ) : ?>
 				<div class="wpte-trip-subcat-wrap">
@@ -51,7 +51,7 @@ $show_trip_counts      = isset( $settings->{'layoutFilters'}['showTripCounts'] )
 					</div>
 				<?php endif; ?>
 			</div>
-			<?php endif;?>
+			<?php endif; ?>
 		</div>
 		<?php if ( $show_cta_button ) : ?>
 			<div class="wpte-trip-category-text-wrap">
@@ -59,7 +59,7 @@ $show_trip_counts      = isset( $settings->{'layoutFilters'}['showTripCounts'] )
 					<?php
 					if ( $show_trip_counts ) :
 						$count_label = $settings->{'countLabel'};
-						if ( strpos( $settings->{'countLabel'}, '|') !== false ) {
+						if ( strpos( $settings->{'countLabel'}, '|' ) !== false ) {
 							$countlabels = explode( '|', $settings->{'countLabel'} );
 							$count_label = (int) $term_object->count === 1 ? $countlabels[0] : $countlabels[1];
 						}

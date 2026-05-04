@@ -94,7 +94,7 @@ final class Plugin {
 		/**
 		 * Add custom templates import functionality if elementor is activated
 		 */
-		if( class_exists( 'Elementor\\Plugin' ) ){
+		if ( class_exists( 'Elementor\\Plugin' ) ) {
 			require_once WPTRAVELENGINEEB_PATH . 'includes/import-templates/elementor-import-templates.php';
 		}
 
@@ -129,10 +129,16 @@ final class Plugin {
 
 		add_action( 'elementor/controls/register', array( $this, 'register_controls' ) );
 		// Set default elementor library post.
-		add_action( 'init', array( $this, 'create_elementor_library_post_once' ) );
+		// If init has already fired (e.g. activated via AJAX during demo import), call directly.
+		if ( did_action( 'init' ) ) {
+			$this->create_elementor_library_post_once();
+		} else {
+			add_action( 'init', array( $this, 'create_elementor_library_post_once' ) );
+		}
 
 		/**
 		 * Elementor Ajax.
+		 *
 		 * @since 1.4.3
 		 */
 		add_action( 'wp_ajax_elementor_ajax', array( $this, 'elementor_ajax' ), 2 );
@@ -140,7 +146,7 @@ final class Plugin {
 
 	/**
 	 * Normalizes the html tag of the elementor editor.
-	 * 
+	 *
 	 * @since 1.4.3
 	 */
 	public function elementor_ajax() {
@@ -165,11 +171,11 @@ final class Plugin {
 
 					foreach ( $elements as &$element ) {
 						$inner_elements = &$element['elements'];
-						if ( !!$inner_elements ) {
+						if ( (bool) $inner_elements ) {
 							foreach ( $inner_elements as &$inner_element ) {
 								if ( isset( $inner_element['settings']['html_tag'] ) ) {
 									$inner_element['settings']['html_tag'] = wptravelengineeb_normalize_html_tag( $inner_element['settings']['html_tag'] );
-									$update_actions = true;
+									$update_actions                        = true;
 								}
 							}
 						}
@@ -181,7 +187,7 @@ final class Plugin {
 
 					if ( is_array( $settings ) && isset( $settings['html_tag'] ) ) {
 						$settings['html_tag'] = wptravelengineeb_normalize_html_tag( $settings['html_tag'] );
-						$update_actions = true;
+						$update_actions       = true;
 					}
 
 					break;
@@ -283,7 +289,7 @@ final class Plugin {
 						}
 					}
 				}
-			}			
+			}
 		}
 	}
 
@@ -338,17 +344,17 @@ final class Plugin {
 	 * @since 1.5.0 Updated to check if the page is built with Elementor.
 	 */
 	public function add_elementor_page_body_class( $classes ) {
-        if ( ! in_array( 'elementor-page', $classes, true ) && class_exists( '\Elementor\Plugin' ) ) {
-            $post = get_post();
-            if ( $post && is_object( $post ) ) {
-                $elementor_page = \Elementor\Plugin::$instance->documents->get( $post->ID );
-                if ( $elementor_page && $elementor_page->is_built_with_elementor() ) {
-                    $classes[] = 'elementor-page';
-                }
-            }
-        }
-        return $classes;
-    }
+		if ( ! in_array( 'elementor-page', $classes, true ) && class_exists( '\Elementor\Plugin' ) ) {
+			$post = get_post();
+			if ( $post && is_object( $post ) ) {
+				$elementor_page = \Elementor\Plugin::$instance->documents->get( $post->ID );
+				if ( $elementor_page && $elementor_page->is_built_with_elementor() ) {
+					$classes[] = 'elementor-page';
+				}
+			}
+		}
+		return $classes;
+	}
 
 	/**
 	 * Register and localize the trip-wishlist script for Elementor widgets.

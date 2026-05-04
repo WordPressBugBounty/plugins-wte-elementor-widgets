@@ -6,14 +6,14 @@ namespace WPTRAVELENGINEEB;
  */
 list( $settings, $term_object ) = $args;
 
-$thumbnail = null;
-$terms_image_size       = isset( $settings->{'terms_image_size'} ) && $settings->{'terms_image_size'} ? $settings->{'terms_image_size'} : '';
-$terms_image_custom_size       = isset( $settings->{'terms_image_custom_size'} ) && $settings->{'terms_image_custom_size'} ? $settings->{'terms_image_custom_size'} : '';
+$thumbnail               = null;
+$terms_image_size        = isset( $settings->{'terms_image_size'} ) && $settings->{'terms_image_size'} ? $settings->{'terms_image_size'} : '';
+$terms_image_custom_size = isset( $settings->{'terms_image_custom_size'} ) && $settings->{'terms_image_custom_size'} ? $settings->{'terms_image_custom_size'} : '';
 $terms_image_size        = 'custom' === $terms_image_size && $terms_image_custom_size ? Widget::wte_get_custom_image_size( $terms_image_custom_size ) : $terms_image_size;
-$thumbnail = wp_get_attachment_image_src( $term_object->thumbnail, $terms_image_size );
-$image_title = get_the_title( $term_object->thumbnail );
-$alt_text = get_post_meta( $term_object->thumbnail, '_wp_attachment_image_alt', true );
-$alt_attribute = $alt_text ? $alt_text : $image_title;
+$thumbnail               = wp_get_attachment_image_src( $term_object->thumbnail, $terms_image_size );
+$image_title             = get_the_title( $term_object->thumbnail );
+$alt_text                = get_post_meta( $term_object->thumbnail, '_wp_attachment_image_alt', true );
+$alt_attribute           = $alt_text ? $alt_text : $image_title;
 
 $show_cta_button  = isset( $settings->{'layoutFilters'}['showCTAButton'] ) && $settings->{'layoutFilters'}['showCTAButton'];
 $show_trip_counts = isset( $settings->{'layoutFilters'}['showTripCounts'] ) && $settings->{'layoutFilters'}['showTripCounts'];
@@ -33,13 +33,13 @@ $show_trip_counts = isset( $settings->{'layoutFilters'}['showTripCounts'] ) && $
 			<div class="wpte-trip-category-text-wrap">
 				<h2 class="wpte-trip-category-title"><a href="<?php echo esc_url( $term_object->link ); ?>"><?php echo esc_html( $term_object->name ); ?></a>
 				<?php
-					if ( $show_trip_counts ) :
-						$count_label = $settings->{'countLabel'};
-						if ( strpos( $settings->{'countLabel'}, '|') !== false ) {
-							$countlabels = explode( '|', $settings->{'countLabel'} );
-							$count_label = (int) $term_object->count === 1 ? $countlabels[0] : $countlabels[1];
-						}
-						?>
+				if ( $show_trip_counts ) :
+					$count_label = $settings->{'countLabel'};
+					if ( strpos( $settings->{'countLabel'}, '|' ) !== false ) {
+						$countlabels = explode( '|', $settings->{'countLabel'} );
+						$count_label = (int) $term_object->count === 1 ? $countlabels[0] : $countlabels[1];
+					}
+					?>
 						<span class="trip-count">(<?php echo esc_html( sprintf( '%1$d %2$s', $term_object->count, $count_label ) ); ?>)</span>
 					<?php endif; ?>
 				<span class="wpte-icon">

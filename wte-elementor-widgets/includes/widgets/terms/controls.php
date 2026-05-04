@@ -136,7 +136,7 @@ $selectors = array(
 	'slider_arrow_padding'             => array(
 		'{{WRAPPER}} .wpte-elementor-widget .wpte-swiper-navigation .wpte-swiper-button-prev, {{WRAPPER}} .wpte-elementor-widget .wpte-swiper-navigation .wpte-swiper-button-next' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
-	'slider_arrow_margin'             => array(
+	'slider_arrow_margin'              => array(
 		'{{WRAPPER}} .wpte-elementor-widget .wpte-swiper-navigation .wpte-swiper-button-prev, {{WRAPPER}} .wpte-elementor-widget .wpte-swiper-navigation .wpte-swiper-button-next' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
 	'slider_arrow_bg_color'            => array(
@@ -633,7 +633,7 @@ $controls = array(
 					'arrow-bottom-left'   => __( 'Bottom Left', 'wptravelengine-elementor-widgets' ),
 					'arrow-bottom-center' => __( 'Bottom Center', 'wptravelengine-elementor-widgets' ),
 					'arrow-bottom-right'  => __( 'Bottom Right', 'wptravelengine-elementor-widgets' ),
-					'default'       => __( 'Default', 'wptravelengine-elementor-widgets' ),
+					'default'             => __( 'Default', 'wptravelengine-elementor-widgets' ),
 				),
 			),
 			'slider_arrow_padding'     => array(
@@ -642,7 +642,7 @@ $controls = array(
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => $selectors['slider_arrow_padding'],
 			),
-			'slider_arrow_margin'     => array(
+			'slider_arrow_margin'      => array(
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'label'      => __( 'Arrow margin', 'wptravelengine-elementor-widgets' ),
 				'size_units' => array( 'px', '%', 'em' ),

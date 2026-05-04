@@ -62,7 +62,7 @@ class MapWidget extends Widget {
 	public function get_categories() {
 		return array( 'single-wptravelengine' );
 	}
-	
+
 	/**
 	 * Set Widget Icon.
 	 *

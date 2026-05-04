@@ -160,7 +160,7 @@ class Widget_Site_Logo extends Widget_Base {
 				// Check if transparent header is enabled and transparent logo exists
 				$ed_transparent_header = get_theme_mod( 'ed_transparent_header', false );
 				$transparent_logo      = get_theme_mod( 'transparent_logo_upload', '' );
-				
+
 				// Use transparent logo if transparent header is enabled and transparent logo is set
 				if ( $ed_transparent_header && ! empty( $transparent_logo ) ) :
 					?>

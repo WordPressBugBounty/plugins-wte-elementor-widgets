@@ -91,7 +91,7 @@ $months_arr    = array_unique(
 				</thead>
 				<tbody>
 					<?php
-					$today = gmdate( 'Y-m-d' );
+					$today              = gmdate( 'Y-m-d' );
 					$future_dates_count = 0;
 					if ( ! empty( $sorted_fsd ) ) {
 						$trip_duration_unit = null;
@@ -101,7 +101,7 @@ $months_arr    = array_unique(
 								$trip_duration_unit = ! empty( $trip_settings['trip_duration_unit'] ) ? $trip_settings['trip_duration_unit'] : 'days';
 							}
 							if ( strtotime( $today ) <= strtotime( $fsd['start_date'] ) ) {
-								$future_dates_count++;
+								++$future_dates_count;
 								$fsd['trip_duration_unit'] = $trip_duration_unit;
 								wte_fsd_get_template( 'table-row.php', $fsd );
 							}

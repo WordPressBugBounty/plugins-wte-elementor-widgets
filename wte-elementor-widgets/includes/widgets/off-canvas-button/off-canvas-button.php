@@ -171,8 +171,16 @@ class Widget_Off_Canvas_Button extends Widget_Base {
 				'label'      => __( 'Icon Size', 'wptravelengine-elementor-widgets' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em' ),
-				'range'      => array( 'px' => array( 'min' => 10, 'max' => 60 ) ),
-				'default'    => array( 'size' => 24, 'unit' => 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min' => 10,
+						'max' => 60,
+					),
+				),
+				'default'    => array(
+					'size' => 24,
+					'unit' => 'px',
+				),
 				'selectors'  => array(
 					'{{WRAPPER}} .wte-offcanvas-btn-wrapper' => '--btn-icon-size: {{SIZE}}{{UNIT}};',
 				),
@@ -185,7 +193,12 @@ class Widget_Off_Canvas_Button extends Widget_Base {
 				'label'      => __( 'Icon & Text Gap', 'wptravelengine-elementor-widgets' ),
 				'type'       => Controls_Manager::SLIDER,
 				'size_units' => array( 'px', 'em' ),
-				'range'      => array( 'px' => array( 'min' => 0, 'max' => 30 ) ),
+				'range'      => array(
+					'px' => array(
+						'min' => 0,
+						'max' => 30,
+					),
+				),
 				'selectors'  => array(
 					'{{WRAPPER}} .wte-offcanvas-toggle' => 'gap: {{SIZE}}{{UNIT}};',
 				),
@@ -311,10 +324,10 @@ class Widget_Off_Canvas_Button extends Widget_Base {
 	 * Render widget output.
 	 */
 	protected function render() {
-		$settings  = $this->get_settings_for_display();
-		$target_id = ! empty( $settings['target_id'] ) ? sanitize_html_class( $settings['target_id'] ) : '';
-		$has_icon  = ! empty( $settings['button_icon']['value'] );
-		$has_text  = ! empty( $settings['button_text'] );
+		$settings   = $this->get_settings_for_display();
+		$target_id  = ! empty( $settings['target_id'] ) ? sanitize_html_class( $settings['target_id'] ) : '';
+		$has_icon   = ! empty( $settings['button_icon']['value'] );
+		$has_text   = ! empty( $settings['button_text'] );
 		$icon_first = ( 'before' === $settings['icon_position'] ) || ! $has_text;
 
 		$this->add_render_attribute(

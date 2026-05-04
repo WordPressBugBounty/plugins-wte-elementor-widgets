@@ -39,7 +39,7 @@ $last_day_icon   = isset( $attributes['last_day_icon']['value'] ) && ! empty( $a
 $expand_on_icon  = isset( $attributes['expand_on_icon']['value'] ) && ! empty( $attributes['expand_on_icon']['value'] ) ? 'custom-expand-on-icon' : '';
 $expand_off_icon = isset( $attributes['expand_off_icon']['value'] ) && ! empty( $attributes['expand_off_icon']['value'] ) ? ' custom-expand-off-icon' : '';
 $show_chart      = isset( $attributes['show_chart'] ) ? $attributes['show_chart'] : 'yes';
-//Additional itinerary info position.
+// Additional itinerary info position.
 $additional_itinerary_info_position = $wp_travel_engine_settings['wte_advance_itinerary']['info_display_position'] ?? 'below_title';
 
 ?>
@@ -110,7 +110,8 @@ if ( ! defined( 'WTEAI_VERSION' ) ) {
 					</div>
 					<a class="accordion-tabs-toggle <?php echo $expand_all === 'yes' ? 'active' : ''; ?>" href="javascript:void(0);">
 						<?php if ( ! empty( $inner_content[ $key ] ) ) : ?>
-							<span class="dashicons dashicons-arrow-down custom-toggle-tabs rotator <?php echo $expand_all === 'yes' ? 'open' : ''; ?> <?php
+							<span class="dashicons dashicons-arrow-down custom-toggle-tabs rotator <?php echo $expand_all === 'yes' ? 'open' : ''; ?>
+							<?php
 							echo esc_attr( $expand_on_icon );
 							echo esc_attr( $expand_off_icon );
 							?>
@@ -202,7 +203,8 @@ if ( ! defined( 'WTEAI_VERSION' ) ) {
 						:</span>
 				</div>
 				<a class="accordion-tabs-toggle <?php echo $expand_all === 'yes' ? 'active' : ''; ?>" href="javascript:void(0);">
-					<span class="dashicons dashicons-arrow-down custom-toggle-tabs rotator <?php echo $expand_all === 'yes' ? 'open' : ''; ?> <?php
+					<span class="dashicons dashicons-arrow-down custom-toggle-tabs rotator <?php echo $expand_all === 'yes' ? 'open' : ''; ?>
+					<?php
 					echo esc_attr( $expand_on_icon );
 					echo esc_attr( $expand_off_icon );
 					?>
@@ -227,9 +229,11 @@ if ( ! defined( 'WTEAI_VERSION' ) ) {
 			</div>
 			<div class="itinerary-content <?php echo ( $expand_all == 'yes' ) ? 'show' : ''; ?>">
 				<div class="content">
-					<?php if ( $additional_itinerary_info_position === 'below_title' ) :
+					<?php
+					if ( $additional_itinerary_info_position === 'below_title' ) :
 						include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/itinerary/additional-info-fields-template.php';
-					endif; ?>
+					endif;
+					?>
 					<p>
 					<?php
 					if ( isset( $_tabs['itinerary']['itinerary_content_inner'][ $value ] ) && '' !== $_tabs['itinerary']['itinerary_content_inner'][ $value ] ) {
@@ -241,7 +245,8 @@ if ( ! defined( 'WTEAI_VERSION' ) ) {
 					?>
 							</p>
 				</div>
-				<?php if ( $additional_itinerary_info_position === 'below_description' ) :
+				<?php
+				if ( $additional_itinerary_info_position === 'below_description' ) :
 					include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/itinerary/additional-info-fields-template.php';
 				endif;
 				$itinerary_galleries_ids = isset( $wte_advanced_itinerary['advanced_itinerary']['itinerary_image'][ $value ] ) && ! empty( $wte_advanced_itinerary['advanced_itinerary']['itinerary_image'][ $value ] ) ? $wte_advanced_itinerary['advanced_itinerary']['itinerary_image'][ $value ] : '';
@@ -294,7 +299,7 @@ if ( ! defined( 'WTEAI_VERSION' ) ) {
 						// Empty for default case.
 						$before_meal_string = '';
 						$before_meal_string = apply_filters( 'wte_filtered_advanced_itinerary_meal_before_text', $before_meal_string );
-						echo wp_kses_post($before_meal_string);
+						echo wp_kses_post( $before_meal_string );
 						?>
 						<span>
 							<?php
@@ -330,7 +335,7 @@ if ( ! defined( 'WTEAI_VERSION' ) ) {
 							<?php
 							if ( isset( $wte_advanced_itinerary['advanced_itinerary']['itinerary_sleep_mode_description'][ $value ] ) && $wte_advanced_itinerary['advanced_itinerary']['itinerary_sleep_mode_description'][ $value ] != '' ) {
 								echo '<a href="JavaScript:void(0);">' . esc_attr( $wte_advanced_itinerary['advanced_itinerary']['sleep_modes'][ $value ] ) . '<span>';
-								echo  '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20 10C20 15.5228 15.5228 20 10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10ZM10 5C9.44771 5 9 5.44772 9 6C9 6.55228 9.44771 7 10 7H10.01C10.5623 7 11.01 6.55228 11.01 6C11.01 5.44772 10.5623 5 10.01 5H10ZM11 10C11 9.44772 10.5523 9 10 9C9.44771 9 9 9.44772 9 10V14C9 14.5523 9.44771 15 10 15C10.5523 15 11 14.5523 11 14V10Z" fill="currentColor"/></svg>';
+								echo '<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20 10C20 15.5228 15.5228 20 10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10ZM10 5C9.44771 5 9 5.44772 9 6C9 6.55228 9.44771 7 10 7H10.01C10.5623 7 11.01 6.55228 11.01 6C11.01 5.44772 10.5623 5 10.01 5H10ZM11 10C11 9.44772 10.5523 9 10 9C9.44771 9 9 9.44772 9 10V14C9 14.5523 9.44771 15 10 15C10.5523 15 11 14.5523 11 14V10Z" fill="currentColor"/></svg>';
 								echo '</span></a>';
 							} else {
 								echo esc_attr( $wte_advanced_itinerary['advanced_itinerary']['sleep_modes'][ $value ] );

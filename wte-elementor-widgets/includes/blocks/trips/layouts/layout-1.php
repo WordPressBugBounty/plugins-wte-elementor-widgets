@@ -40,7 +40,7 @@ $wte_global        = get_option( 'wp_travel_engine_settings', true );
 			<div class="category-trip-prc-title-wrap">
 				<?php if ( wte_array_get( $settings, 'layoutFilters.showTitle', true ) ) : ?>
 					<h2 class="category-trip-title" itemprop="name">
-						<a itemprop="url" href="<?php echo esc_url( get_the_permalink( $trip ) ); ?>"><?php echo esc_html($trip->post_title); ?></a>
+						<a itemprop="url" href="<?php echo esc_url( get_the_permalink( $trip ) ); ?>"><?php echo esc_html( $trip->post_title ); ?></a>
 					</h2>
 				<?php endif; ?>
 
@@ -129,14 +129,17 @@ $wte_global        = get_option( 'wp_travel_engine_settings', true );
 						<?php if ( wte_array_get( $settings, 'layoutFilters.showGroupSize', false ) && (int) $meta->min_pax ) : ?>
 							<span class="wpte-trip-meta category-trip-dur wpte-trip-pax">
 								<span class="wpte-icon-users"></span>
-								<?php /* translators: 1: Pax count, 2: Person label */
-								printf( esc_html__( '%1$s %2$s', 'wptravelengine-elementor-widgets' ), (int) $meta->max_pax ? $meta->min_pax . '-' . $meta->max_pax : (int) $meta->min_pax, $pax_label ); ?>
+								<?php
+								/* translators: 1: Pax count, 2: Person label */
+								printf( esc_html__( '%1$s %2$s', 'wptravelengine-elementor-widgets' ), (int) $meta->max_pax ? $meta->min_pax . '-' . $meta->max_pax : (int) $meta->min_pax, $pax_label );
+								?>
 							</span>
 						<?php endif; ?>
 					</div>
 					<?php
 					$display_price = $meta->has_sale ? $meta->sale_price : $meta->price;
-					if ( wte_array_get( $settings, 'layoutFilters.showPrice', true ) && ! empty( $display_price ) && $display_price > 0 ) : ?>
+					if ( wte_array_get( $settings, 'layoutFilters.showPrice', true ) && ! empty( $display_price ) && $display_price > 0 ) :
+						?>
 						<div class="category-trip-budget">
 							<?php if ( wte_array_get( $settings, 'layoutFilters.showDiscount', false ) && $meta->discount_percent ) : ?>
 								<div class="category-disc-feat-wrap">
@@ -159,7 +162,7 @@ $wte_global        = get_option( 'wp_travel_engine_settings', true );
 				<?php if ( \wte_array_get( $settings, 'layoutFilters.showDescription', false ) ) : ?>
 					<div class="category-trip-desc">
 						<p>
-							<?php echo esc_html( \wte_get_the_excerpt( $trip->ID, wte_array_get( $settings, 'excerptLength', 10 ) ) );?>
+							<?php echo esc_html( \wte_get_the_excerpt( $trip->ID, wte_array_get( $settings, 'excerptLength', 10 ) ) ); ?>
 						</p>
 					</div>
 				<?php endif; ?>
@@ -202,7 +205,7 @@ $wte_global        = get_option( 'wp_travel_engine_settings', true );
 					switch ( $dates_layout ) {
 						case 'months_list':
 							$available_months = array_map(
-								function( $fsd ) {
+								function ( $fsd ) {
 									return date_i18n( 'n', strtotime( $fsd['start_date'] ) );
 								},
 								$fsds

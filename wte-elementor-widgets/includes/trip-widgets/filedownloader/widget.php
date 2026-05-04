@@ -62,7 +62,7 @@ class FileDownLoaderWidget extends Widget {
 	public function get_categories() {
 		return array( 'single-wptravelengine' );
 	}
-	
+
 	/**
 	 * Set Widget Icon.
 	 *
@@ -108,9 +108,9 @@ class FileDownLoaderWidget extends Widget {
 			} else {
 				echo esc_html__( '<p>Oops! No preview/output available for this widget.</p>', 'wptravelengine-elementor-widgets' );
 			}
-		}else {
+		} else {
 			$is_elementor_editor_page = $this->is_elementor_editor_page();
-			if( ! $is_elementor_editor_page ){
+			if ( ! $is_elementor_editor_page ) {
 				return '';
 			}
 			?>
@@ -136,6 +136,5 @@ class FileDownLoaderWidget extends Widget {
 				</div>
 			<?php
 		}
-		
 	}
 }

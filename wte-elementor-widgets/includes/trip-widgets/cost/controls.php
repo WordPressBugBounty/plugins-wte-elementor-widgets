@@ -11,62 +11,62 @@ namespace WPTRAVELENGINEEB;
 $selectors = array(
 	// Cost Excludes.
 	'costexcludes_title_typography' => '{{WRAPPER}} .elementor-widget-container .post-data .content .cost-excludes h3',
-	'costexcludes_typography' => '{{WRAPPER}} .elementor-widget-container .post-data .content .cost-excludes ul li',
-	'exclude_color'                   => array(
+	'costexcludes_typography'       => '{{WRAPPER}} .elementor-widget-container .post-data .content .cost-excludes ul li',
+	'exclude_color'                 => array(
 		'{{WRAPPER}} .elementor-widget-container .post-data .content .cost-excludes ul li' => 'color: {{VALUE}};',
 	),
-	'costexcludes_margin'     => array(
+	'costexcludes_margin'           => array(
 		'{{WRAPPER}} .elementor-widget-container .post-data .content .cost-excludes ul li' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
 	),
 
 	// Icon.
-	'exclude_icon_size'               => array(
+	'exclude_icon_size'             => array(
 		'{{WRAPPER}} .elementor-widget-container .post-data .content .cost-excludes ul li' => '--icon-size: {{SIZE}}{{UNIT}};',
 		'{{WRAPPER}} .elementor-widget-container .post-data .content .cost-excludes ul li, {{WRAPPER}} ul#exclude-result li' => 'padding-left: calc({{SIZE}}{{UNIT}} + 14px);',
 	),
-	'exclude_icon_color'              => array(
+	'exclude_icon_color'            => array(
 		'{{WRAPPER}} .elementor-widget-container .post-data .content #exclude-result li:before' => 'background: {{VALUE}};',
 		'{{WRAPPER}} .elementor-widget-container .post-data .content .cost-excludes ul.custom-icon li i, {{WRAPPER}} .elementor-widget-container .post-data .content .cost-excludes ul.custom-icon li svg' => 'color: {{VALUE}};',
 	),
 
-    // Cost Includes.
+	// Cost Includes.
 	'costincludes_title_typography' => '{{WRAPPER}} .elementor-widget-container .post-data .content .cost-includes h3',
-	'costincludes_typography' => '{{WRAPPER}} .elementor-widget-container .post-data .content .cost-includes ul li',
-	'include_color'                   => array(
+	'costincludes_typography'       => '{{WRAPPER}} .elementor-widget-container .post-data .content .cost-includes ul li',
+	'include_color'                 => array(
 		'{{WRAPPER}} .elementor-widget-container .post-data .content .cost-includes ul li' => 'color: {{VALUE}};',
 	),
-	'costincludes_margin'     => array(
+	'costincludes_margin'           => array(
 		'{{WRAPPER}} .elementor-widget-container .post-data .content .cost-includes ul li' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
 	),
 
 	// Icon.
-	'include_icon_size'               => array(
+	'include_icon_size'             => array(
 		'{{WRAPPER}} .elementor-widget-container .post-data .content .cost-includes ul li' => '--icon-size: {{SIZE}}{{UNIT}};',
 		'{{WRAPPER}} .elementor-widget-container .post-data .content .cost-includes ul li, {{WRAPPER}} ul#include-result li' => 'padding-left: calc({{SIZE}}{{UNIT}} + 14px);',
 	),
-	'include_icon_color'              => array(
+	'include_icon_color'            => array(
 		'{{WRAPPER}} .elementor-widget-container .post-data .content #include-result li:before' => 'background: {{VALUE}};',
 		'{{WRAPPER}} .elementor-widget-container .post-data .content .cost-includes ul.custom-icon li i, {{WRAPPER}} .elementor-widget-container .post-data .content .cost-includes ul.custom-icon li svg' => 'color: {{VALUE}};',
 	),
 );
 
 $controls = array(
-	'title'           => __( 'Trip Cost', 'wptravelengine-elementor-widgets' ),
-	'icon'            => 'wtei-b-trips',
-	'categories'      => 'wptravelengine',
-	'controls'        => array(),
-    'cost_section'    => array(
-        'type'        => \Elementor\Controls_Manager::TAB_STYLE,
-        'label'       => __( 'Cost', 'wptravelengine-elementor-widgets' ),
-        'subcontrols' => array(
-			'show_title' => array(
+	'title'                   => __( 'Trip Cost', 'wptravelengine-elementor-widgets' ),
+	'icon'                    => 'wtei-b-trips',
+	'categories'              => 'wptravelengine',
+	'controls'                => array(),
+	'cost_section'            => array(
+		'type'        => \Elementor\Controls_Manager::TAB_STYLE,
+		'label'       => __( 'Cost', 'wptravelengine-elementor-widgets' ),
+		'subcontrols' => array(
+			'show_title'             => array(
 				'label'     => __( 'Show Title', 'wptravelengine-elementor-widgets' ),
 				'type'      => \Elementor\Controls_Manager::SWITCHER,
 				'label_on'  => __( 'Show', 'wptravelengine-elementor-widgets' ),
 				'label_off' => __( 'Hide', 'wptravelengine-elementor-widgets' ),
 				'default'   => 'yes',
 			),
-			'html_tag'   => array(
+			'html_tag'               => array(
 				'type'    => 'SELECT',
 				'label'   => __( 'HTML Tag', 'wptravelengine-elementor-widgets' ),
 				'default' => 'h3',
@@ -82,46 +82,46 @@ $controls = array(
 					'p'    => __( 'p', 'wptravelengine-elementor-widgets' ),
 				),
 			),
-			'showCostInclude' => array(
+			'showCostInclude'        => array(
 				'label'   => __( 'Show Cost Include', 'wptravelengine-elementor-widgets' ),
 				'type'    => 'SWITCHER',
 				'default' => 'yes',
 			),
-			'IncludeTitleTypogrpahy'=> array(
-				'type'     => \Elementor\Group_Control_Typography::get_type(),
-				'selector' => $selectors['costincludes_title_typography'],
-				'label'    => __( 'Title Typography', 'wptravelengine-elementor-widgets' ),
+			'IncludeTitleTypogrpahy' => array(
+				'type'      => \Elementor\Group_Control_Typography::get_type(),
+				'selector'  => $selectors['costincludes_title_typography'],
+				'label'     => __( 'Title Typography', 'wptravelengine-elementor-widgets' ),
 				'condition' => array( 'showCostInclude' => 'yes' ),
 			),
-            'showCostExclude' => array(
+			'showCostExclude'        => array(
 				'label'   => __( 'Show Cost Exclude', 'wptravelengine-elementor-widgets' ),
 				'type'    => 'SWITCHER',
 				'default' => 'yes',
 			),
-			'ExcludeTitleTypogrpahy'=> array(
-				'type'     => \Elementor\Group_Control_Typography::get_type(),
-				'selector' => $selectors['costexcludes_title_typography'],
-				'label'    => __( 'Title Typography', 'wptravelengine-elementor-widgets' ),
+			'ExcludeTitleTypogrpahy' => array(
+				'type'      => \Elementor\Group_Control_Typography::get_type(),
+				'selector'  => $selectors['costexcludes_title_typography'],
+				'label'     => __( 'Title Typography', 'wptravelengine-elementor-widgets' ),
 				'condition' => array( 'showCostExclude' => 'yes' ),
 			),
-        ),
-    ),
+		),
+	),
 	'include_general_section' => array(
 		'type'        => \Elementor\Controls_Manager::TAB_STYLE,
 		'label'       => __( 'Include List Items', 'wptravelengine-elementor-widgets' ),
-        'condition' => array( 'showCostInclude' => 'yes' ),
+		'condition'   => array( 'showCostInclude' => 'yes' ),
 		'subcontrols' => array(
-			'include_cost_typography'     => array(
+			'include_cost_typography' => array(
 				'type'     => \Elementor\Group_Control_Typography::get_type(),
 				'selector' => $selectors['costincludes_typography'],
 				'label'    => __( 'Typography', 'wptravelengine-elementor-widgets' ),
 			),
-			'include_color'               => array(
+			'include_color'           => array(
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'label'     => __( 'Color', 'wptravelengine-elementor-widgets' ),
 				'selectors' => $selectors['include_color'],
 			),
-			'costincludes_margin' => array(
+			'costincludes_margin'     => array(
 				'label'      => esc_html__( 'Margin', 'wptravelengine-elementor-widgets' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
@@ -132,7 +132,7 @@ $controls = array(
 	'include_icon_section'    => array(
 		'type'        => \Elementor\Controls_Manager::TAB_STYLE,
 		'label'       => __( 'Include Icon', 'wptravelengine-elementor-widgets' ),
-        'condition' => array( 'showCostInclude' => 'yes' ),
+		'condition'   => array( 'showCostInclude' => 'yes' ),
 		'subcontrols' => array(
 			'include_icon_color' => array(
 				'type'      => \Elementor\Controls_Manager::COLOR,
@@ -180,19 +180,19 @@ $controls = array(
 	'exclude_general_section' => array(
 		'type'        => \Elementor\Controls_Manager::TAB_STYLE,
 		'label'       => __( 'Exclude List Items', 'wptravelengine-elementor-widgets' ),
-        'condition' => array( 'showCostExclude' => 'yes' ),
+		'condition'   => array( 'showCostExclude' => 'yes' ),
 		'subcontrols' => array(
-			'exclude_cost_typography'     => array(
+			'exclude_cost_typography' => array(
 				'type'     => \Elementor\Group_Control_Typography::get_type(),
 				'selector' => $selectors['costexcludes_typography'],
 				'label'    => __( 'Typography', 'wptravelengine-elementor-widgets' ),
 			),
-			'exclude_color'               => array(
+			'exclude_color'           => array(
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'label'     => __( 'Color', 'wptravelengine-elementor-widgets' ),
 				'selectors' => $selectors['exclude_color'],
 			),
-			'costexcludes_margin' => array(
+			'costexcludes_margin'     => array(
 				'label'      => esc_html__( 'Margin', 'wptravelengine-elementor-widgets' ),
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'size_units' => array( 'px', '%', 'em' ),
@@ -203,7 +203,7 @@ $controls = array(
 	'exclude_icon_section'    => array(
 		'type'        => \Elementor\Controls_Manager::TAB_STYLE,
 		'label'       => __( 'Exclude Icon', 'wptravelengine-elementor-widgets' ),
-        'condition' => array( 'showCostExclude' => 'yes' ),
+		'condition'   => array( 'showCostExclude' => 'yes' ),
 		'subcontrols' => array(
 			'exclude_icon_color' => array(
 				'type'      => \Elementor\Controls_Manager::COLOR,

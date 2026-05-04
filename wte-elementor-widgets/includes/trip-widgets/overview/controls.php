@@ -38,7 +38,7 @@ $selectors = array(
 
 $controls = array(
 	'categories'      => 'wptravelengine',
-	'title_settings'       => array(
+	'title_settings'  => array(
 		'type'        => 'control_section',
 		'label'       => __( 'Title', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(

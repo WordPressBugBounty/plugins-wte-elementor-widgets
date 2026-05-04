@@ -120,19 +120,21 @@ class Widget extends Widget_Base {
 	}
 
 	public function get_all_posts() {
-        
-        $posts = get_posts([
-            'post_type'         => WP_TRAVEL_ENGINE_POST_TYPE,
-            'post_style'        => 'all_types',
-            'posts_per_page'    => '-1',
-        ]);
 
-        if ( !empty( $posts ) ) {
-            return wp_list_pluck( $posts, 'post_title', 'ID' );
-        }
+		$posts = get_posts(
+			array(
+				'post_type'      => WP_TRAVEL_ENGINE_POST_TYPE,
+				'post_style'     => 'all_types',
+				'posts_per_page' => '-1',
+			)
+		);
 
-        return [];
-    }
+		if ( ! empty( $posts ) ) {
+			return wp_list_pluck( $posts, 'post_title', 'ID' );
+		}
+
+		return array();
+	}
 	/**
 	 * Get the image width and height values for custom image size.
 	 *
@@ -173,12 +175,12 @@ class Widget extends Widget_Base {
 				continue;
 			}
 			if ( isset( $args->is_responsive ) && $args->is_responsive == true ) {
-				$args->name = $id;
-				$default_args = [
+				$args->name   = $id;
+				$default_args = array(
 					'type'  => $args->type,
 					'label' => $args->label,
-				];
-		
+				);
+
 				$merged = wp_parse_args( $args, $default_args );
 
 				$this->add_responsive_control(

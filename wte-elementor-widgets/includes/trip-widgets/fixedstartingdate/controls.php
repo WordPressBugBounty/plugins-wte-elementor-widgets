@@ -393,12 +393,12 @@ $controls = array(
 				'label'      => __( 'Padding', 'wptravelengine-elementor-widgets' ),
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => $selectors['chooseDate_padding'],
-				'default'	 => [
+				'default'    => array(
 					'top'    => '5',
 					'right'  => '32',
 					'bottom' => '5',
 					'left'   => '10',
-				]
+				),
 			),
 			'chooseDate_color'         => array(
 				'type'      => \Elementor\Controls_Manager::COLOR,
@@ -414,11 +414,11 @@ $controls = array(
 			'chooseDate_border'        => array(
 				'type'     => \Elementor\Group_Control_Border::get_type(),
 				'selector' => $selectors['chooseDate_border'],
-				'default'  => [
+				'default'  => array(
 					'width' => '1',
-					'type' => 'solid',
+					'type'  => 'solid',
 					'color' => '#eaeaea',
-				]
+				),
 			),
 			'chooseDate_border_radius' => array(
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,

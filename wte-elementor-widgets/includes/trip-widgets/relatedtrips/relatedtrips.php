@@ -126,7 +126,7 @@ if ( ! empty( $attributes->{'slider'}['autoplay'] ) ? $attributes->{'slider'}['a
 if ( $results && is_array( $results ) ) :
 	?>
 	<div class="<?php echo esc_attr( $attributes->{'cardlayout'} !== '6' ? 'wp-block-wptravelengine-trips' : '' ); ?> wpte-gblock-wrapper elementor-addon wpte-elementor-widget">
-	<div class="<?php echo esc_attr( "category-{$layout}" .  $attributes->{'cardlayout'} !== '6'  ? " wte-d-flex wpte-trip-list-wrapper" : "" );  ?>
+	<div class="<?php echo esc_attr( "category-{$layout}" . $attributes->{'cardlayout'} !== '6' ? ' wte-d-flex wpte-trip-list-wrapper' : '' ); ?>
 	<?php
 	if ( 'slider' !== $layout ) {
 		echo esc_attr( " wte-col-{$column} columns-{$column}" );
@@ -154,7 +154,7 @@ if ( $results && is_array( $results ) ) :
 		$arguments = json_decode( wp_json_encode( $attributes ), true );
 		$args      = array( $arguments, $trip, $results );
 		( 'slider' === $layout ) && print( '<div class="swiper-slide">' );
-		$layout_path = $template_path . '/layouts/' . sanitize_file_name('layout-' . $attributes->{'cardlayout'} . '.php');
+		$layout_path = $template_path . '/layouts/' . sanitize_file_name( 'layout-' . $attributes->{'cardlayout'} . '.php' );
 		if ( file_exists( $layout_path ) ) {
 			include $layout_path;
 		} else {
@@ -238,6 +238,6 @@ if ( $results && is_array( $results ) ) :
 		<?php
 	endif;
 	echo '</div>';
-else :
-	if( $is_elementor_editor_page ) echo esc_html__( 'No trips available. Please add a new trip.', 'wptravelengine-elementor-widgets' );
+elseif ( $is_elementor_editor_page ) :
+		echo esc_html__( 'No trips available. Please add a new trip.', 'wptravelengine-elementor-widgets' );
 endif;

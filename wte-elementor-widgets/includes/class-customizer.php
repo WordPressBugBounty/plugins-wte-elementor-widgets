@@ -72,9 +72,9 @@ class Customizer {
 		$wp_customize->add_section(
 			'main_header_builder',
 			array(
-				'title'             => __( 'Header Builder', 'wptravelengine-elementor-widgets' ),
-				'priority'          => 10,
-				'panel'             => 'layout_header',
+				'title'    => __( 'Header Builder', 'wptravelengine-elementor-widgets' ),
+				'priority' => 10,
+				'panel'    => 'layout_header',
 			)
 		);
 
@@ -384,7 +384,6 @@ class Customizer {
 		}
 		return 'prebuilt';
 	}
-
 }
 
 // Initialize the Customizer.

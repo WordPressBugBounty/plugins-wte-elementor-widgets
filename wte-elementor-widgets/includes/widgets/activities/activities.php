@@ -16,13 +16,13 @@ defined( 'ABSPATH' ) || exit;
  */
 class Widget_Activities extends Widget {
 
-    /**
-     *
-     * @var $widget_name
-     */
+	/**
+	 *
+	 * @var $widget_name
+	 */
 	public $widget_name = 'wptravelengine-activities';
 
-    /**
+	/**
 	 * Widget Settings.
 	 */
 	protected function register_controls() {
@@ -35,5 +35,4 @@ class Widget_Activities extends Widget {
 
 		$this->_wte_add_controls( $controls );
 	}
-
 }

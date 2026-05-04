@@ -14,60 +14,60 @@ defined( 'ABSPATH' ) || exit;
  *
  * @since 1.3.7
  */
-class Widget_Trip_Tax_Two extends Widget { 
-    
-    /**
-    *
-    * @var $widget_name
-    */
-    public $widget_name = 'wptravelengine-trip-tax-two';
+class Widget_Trip_Tax_Two extends Widget {
 
-    /**
-    * Widget keywords.
-    *
-    * @since 1.3.7
-    *
-    * @var array
-    */
-    protected $keywords = array( 'trip', 'wp travel engine', 'wte', 'destination', 'activities' );
+	/**
+	 *
+	 * @var $widget_name
+	 */
+	public $widget_name = 'wptravelengine-trip-tax-two';
 
-    /**
-    * Style dependencies.
-    */
-    public function get_style_depends() {
-        wp_register_style( 'wpte-trips-tax', plugin_dir_url( WPTRAVELENGINEEB_FILE__ ) . 'dist/css/wpte-trips-tax.css' );
-        
-        return array( 'wpte-trips-tax' );
-    }
+	/**
+	 * Widget keywords.
+	 *
+	 * @since 1.3.7
+	 *
+	 * @var array
+	 */
+	protected $keywords = array( 'trip', 'wp travel engine', 'wte', 'destination', 'activities' );
 
-    /**
-    * Javascripts dependencies.
-    */
-    public function get_script_depends() {
-        return array( );
-    }
+	/**
+	 * Style dependencies.
+	 */
+	public function get_style_depends() {
+		wp_register_style( 'wpte-trips-tax', plugin_dir_url( WPTRAVELENGINEEB_FILE__ ) . 'dist/css/wpte-trips-tax.css' );
 
-    /**
-    * Widget categories.
-    */
-    public function get_categories() {
-        return array( 'wptravelengine' );
-    }
+		return array( 'wpte-trips-tax' );
+	}
 
-    /**
-    * Widget Settings.
-    */
-    protected function register_controls() {
-        $settings = Widgets_Controller::instance()->get_core_widget_setting( $this->widget_name, 'controls' );
-        $controls = isset( $settings['controls'] ) && is_array( $settings['controls'] ) ? $settings['controls'] : array();
-        $this->_wte_add_controls( $settings );
+	/**
+	 * Javascripts dependencies.
+	 */
+	public function get_script_depends() {
+		return array();
+	}
 
-        $controls = include WPTRAVELENGINEEB_PATH . 'includes/widgets/trip-tax-two/controls.php';
+	/**
+	 * Widget categories.
+	 */
+	public function get_categories() {
+		return array( 'wptravelengine' );
+	}
 
-        $this->_wte_add_controls( $controls );
-    }
-            
-    /**
+	/**
+	 * Widget Settings.
+	 */
+	protected function register_controls() {
+		$settings = Widgets_Controller::instance()->get_core_widget_setting( $this->widget_name, 'controls' );
+		$controls = isset( $settings['controls'] ) && is_array( $settings['controls'] ) ? $settings['controls'] : array();
+		$this->_wte_add_controls( $settings );
+
+		$controls = include WPTRAVELENGINEEB_PATH . 'includes/widgets/trip-tax-two/controls.php';
+
+		$this->_wte_add_controls( $controls );
+	}
+
+	/**
 	 * Renders Widget.
 	 *
 	 * @since 1.3.0
@@ -91,11 +91,10 @@ class Widget_Trip_Tax_Two extends Widget {
 				} else {
 					$attributes['listItems'] = array();
 				}
-
 			} else {
-				$tax_selected = $attributes['selectTax'] === 'destination' ? $attributes['listItemsDestination'] : ( $attributes['selectTax'] === 'trip_types' ? $attributes['listItemsTripTypes'] : $attributes['listItemsActivities']);
+				$tax_selected = $attributes['selectTax'] === 'destination' ? $attributes['listItemsDestination'] : ( $attributes['selectTax'] === 'trip_types' ? $attributes['listItemsTripTypes'] : $attributes['listItemsActivities'] );
 
-				if ( isset($tax_selected) && is_array( $tax_selected ) ) {
+				if ( isset( $tax_selected ) && is_array( $tax_selected ) ) {
 					$attributes['listItems'] = $tax_selected;
 				} else {
 					$attributes['listItems'] = array();
@@ -119,45 +118,45 @@ class Widget_Trip_Tax_Two extends Widget {
 			}
 		}
 
-		//Add classes to render on the HTML
-		$this->add_render_attribute( 
-			'main-wrapper-classes', 
-			'class', 
-			[
+		// Add classes to render on the HTML
+		$this->add_render_attribute(
+			'main-wrapper-classes',
+			'class',
+			array(
 				'wpte-trips-tax',
 				'wpte-trips-tax_two',
 				'wpte-elementor-widget',
 				isset( $attributes['cardlayout'] ) && ! empty( $attributes['cardlayout'] ) ? esc_attr( "layout-{$attributes['cardlayout']}" ) : 'layout-1',
-			] 
+			)
 		);
 
-		$this->add_render_attribute( 
-			'inner-wrapper', 
-			'class', 
-			[
-				'wpte-grid'
-			] 
+		$this->add_render_attribute(
+			'inner-wrapper',
+			'class',
+			array(
+				'wpte-grid',
+			)
 		);
 
 		if ( $results && is_array( $results ) ) : ?>
 			<div <?php $this->print_render_attribute_string( 'main-wrapper-classes' ); ?>>
 				<div <?php $this->print_render_attribute_string( 'inner-wrapper' ); ?>>
 					<?php
-						foreach ( $attributes['listItems'] as $term_id ) :
-							if ( ! isset( $results[ $term_id ] ) ) {
-								continue;
-							}
-							$args = array( $attributes, $results[ $term_id ], $results );
-							
-							include __DIR__ . '/view.php';
-							
+					foreach ( $attributes['listItems'] as $term_id ) :
+						if ( ! isset( $results[ $term_id ] ) ) {
+							continue;
+						}
+						$args = array( $attributes, $results[ $term_id ], $results );
+
+						include __DIR__ . '/view.php';
+
 						endforeach;
 					?>
 				</div><!-- .wte-adv-trips -->
 			</div>
-		<?php
+			<?php
 		else :
-			echo esc_html__('No taxonomy available. Please add a new term.','wptravelengine-elementor-widgets');
+			echo esc_html__( 'No taxonomy available. Please add a new term.', 'wptravelengine-elementor-widgets' );
 		endif;
 	}
 }

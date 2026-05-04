@@ -223,7 +223,7 @@ $selectors = array(
 		'{{WRAPPER}} .wpte-elementor-widget .wpte-trip-single:not(.wpte-layout-4) .featured-text-wrap .featured-text, {{WRAPPER}} .wpte-elementor-widget .category-feat-ribbon .category-feat-ribbon-txt' => 'color: {{VALUE}};',
 		'{{WRAPPER}} .wpte-elementor-widget .featured-text-wrap svg path' => 'fill: {{VALUE}};',
 		'{{WRAPPER}} .category-trips-single.wpte-layout-6 .category-trip-fig .category-feat-ribbon .category-feat-ribbon-txt' => 'color: {{VALUE}} !important;',
-		
+
 	),
 	'feat_tag_bg_color'                => array(
 		'{{WRAPPER}} .wpte-elementor-widget .wpte-trip-single:not(.wpte-layout-4) .featured-text-wrap, {{WRAPPER}} .wpte-elementor-widget .category-feat-ribbon .category-feat-ribbon-txt' => 'background-color: {{VALUE}};',
@@ -235,7 +235,7 @@ $selectors = array(
 	'discount_tag_color'               => array(
 		'{{WRAPPER}} .wpte-elementor-widget .category-trips-single-inner-wrap .discount-text-wrap .discount-percent' => 'color: {{VALUE}};',
 	),
-	'discount_tag_bg_color'            => array( 
+	'discount_tag_bg_color'            => array(
 		'{{WRAPPER}} .wpte-elementor-widget .category-trips-single-inner-wrap .discount-text-wrap' => 'background-color: {{VALUE}};',
 		'{{WRAPPER}} .wpte-elementor-widget .category-trips-single-inner-wrap .discount-text-wrap::before' => 'background-color: {{VALUE}};',
 		'{{WRAPPER}} .wpte-elementor-widget .category-trips-single-inner-wrap .discount-text-wrap::after' => 'background-color: {{VALUE}};',
@@ -552,10 +552,10 @@ $controls = array(
 				'label' => __( 'Reviews', 'wptravelengine-elementor-widgets' ),
 				'type'  => 'SWITCHER',
 			),
-			'showWishlist'           => array(
-				'label' => __( 'Show Wishlist', 'wptravelengine-elementor-widgets' ),
-				'type'  => 'SWITCHER',
-				'condition'   => array( 'cardlayout' => '6' ),
+			'showWishlist'          => array(
+				'label'     => __( 'Show Wishlist', 'wptravelengine-elementor-widgets' ),
+				'type'      => 'SWITCHER',
+				'condition' => array( 'cardlayout' => '6' ),
 			),
 			'showDiscount'          => array(
 				'label'   => __( 'Discount', 'wptravelengine-elementor-widgets' ),

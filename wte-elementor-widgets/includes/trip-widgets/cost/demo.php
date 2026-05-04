@@ -35,20 +35,28 @@ $cost_includes_content = array(
 			<div class="cost-includes <?php echo ! empty( $include_icon['value'] ) ? 'has-custom-icon' : ''; ?>">
 				<h3><?php esc_html_e( 'Cost Includes', 'wptravelengine-elementor-widgets' ); ?></h3>
 				<ul id="include-result">
-					<?php foreach ( $cost_includes_content as $include ) :
-						if ( ! empty( trim( $include ) ) ) : ?>
+					<?php
+					foreach ( $cost_includes_content as $include ) :
+						if ( ! empty( trim( $include ) ) ) :
+							?>
 							<li class="cost-include-item">
-								<?php if ( ! empty( $include_icon ) && isset( $include_icon['value'] ) && ! empty( $include_icon['value'] ) ) :
-									if ( ! is_array( $include_icon['value'] ) ) : ?>
+								<?php
+								if ( ! empty( $include_icon ) && isset( $include_icon['value'] ) && ! empty( $include_icon['value'] ) ) :
+									if ( ! is_array( $include_icon['value'] ) ) :
+										?>
 										<i class="<?php echo esc_attr( $include_icon['value'] ); ?>"></i>
-									<?php else :
+										<?php
+									else :
 										Icons_Manager::render_icon( $include_icon, array( 'aria-hidden' => 'true' ) );
 									endif;
-								endif; ?>
+								endif;
+								?>
 								<span><?php echo esc_html( trim( $include ) ); ?></span>
 							</li>
-						<?php endif;
-					endforeach; ?>
+							<?php
+						endif;
+					endforeach;
+					?>
 				</ul>
 			</div>
 		<?php endif; ?>
@@ -57,20 +65,28 @@ $cost_includes_content = array(
 			<div class="cost-excludes <?php echo ! empty( $exclude_icon['value'] ) ? 'has-custom-icon' : ''; ?>">
 				<h3><?php esc_html_e( 'Cost Excludes', 'wptravelengine-elementor-widgets' ); ?></h3>
 				<ul id="exclude-result">
-					<?php foreach ( $cost_excludes_content as $exclude ) :
-						if ( ! empty( trim( $exclude ) ) ) : ?>
+					<?php
+					foreach ( $cost_excludes_content as $exclude ) :
+						if ( ! empty( trim( $exclude ) ) ) :
+							?>
 							<li class="cost-exclude-item">
-								<?php if ( ! empty( $exclude_icon ) && isset( $exclude_icon['value'] ) && ! empty( $exclude_icon['value'] ) ) :
-									if ( ! is_array( $exclude_icon['value'] ) ) : ?>
+								<?php
+								if ( ! empty( $exclude_icon ) && isset( $exclude_icon['value'] ) && ! empty( $exclude_icon['value'] ) ) :
+									if ( ! is_array( $exclude_icon['value'] ) ) :
+										?>
 										<i class="<?php echo esc_attr( $exclude_icon['value'] ); ?>"></i>
-									<?php else :
+										<?php
+									else :
 										Icons_Manager::render_icon( $exclude_icon, array( 'aria-hidden' => 'true' ) );
 									endif;
-								endif; ?>
+								endif;
+								?>
 								<span><?php echo esc_html( trim( $exclude ) ); ?></span>
 							</li>
-						<?php endif;
-					endforeach; ?>
+							<?php
+						endif;
+					endforeach;
+					?>
 				</ul>
 			</div>
 		<?php endif; ?>

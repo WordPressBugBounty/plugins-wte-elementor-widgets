@@ -32,7 +32,7 @@ $search_filters = $attributes->{'searchFilters'};
 
 uasort(
 	$search_filters,
-	function( $sf1, $sf2 ) {
+	function ( $sf1, $sf2 ) {
 		return $sf1['order'] - $sf2['order'];
 	}
 );
@@ -49,7 +49,6 @@ $is_horizontal = isset( $attributes->{'searchFormOrientation'} ) && $attributes-
 <div class="wpte-gblock-wrapper wpte-elementor-widget">
 	<?php
 	if ( $show_title || $show_subtitle ) :
-		;
 		?>
 		<div class="wpte-gblock-title-wrap">
 			<?php

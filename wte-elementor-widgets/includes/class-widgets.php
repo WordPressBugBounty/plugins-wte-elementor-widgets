@@ -41,7 +41,7 @@ class Widgets_Controller {
 	public function load_wte_icons() {
 		wp_enqueue_style( 'wte-blocks-index' );
 	}
-	
+
 
 	public function add_elementor_categories( $elements_manager ) {
 
@@ -921,142 +921,142 @@ class Widgets_Controller {
 			},
 		);
 
-		//Add new widgets to the core widgets collection
+		// Add new widgets to the core widgets collection
 		$widgets['wptravelengine-advanced-trips-one'] = array(
-			'title'               => __( 'Advanced Trips 1', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'wte-adv-trips',
+			'title' => __( 'Advanced Trips 1', 'wptravelengine-elementor-widgets' ),
+			'icon'  => 'wte-adv-trips',
 		);
 
 		$widgets['wptravelengine-advanced-trips-two'] = array(
-			'title'               => __( 'Advanced Trips 2', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'wte-adv-trips',
+			'title' => __( 'Advanced Trips 2', 'wptravelengine-elementor-widgets' ),
+			'icon'  => 'wte-adv-trips',
 		);
 
 		$widgets['wptravelengine-advanced-trips-three'] = array(
-			'title'               => __( 'Advanced Trips 3', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'wte-adv-trips',
+			'title' => __( 'Advanced Trips 3', 'wptravelengine-elementor-widgets' ),
+			'icon'  => 'wte-adv-trips',
 		);
 
 		$widgets['wptravelengine-advanced-trips-four'] = array(
-			'title'               => __( 'Advanced Trips 4', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'wte-adv-trips',
+			'title' => __( 'Advanced Trips 4', 'wptravelengine-elementor-widgets' ),
+			'icon'  => 'wte-adv-trips',
 		);
 
 		$widgets['wptravelengine-trips-list'] = array(
-			'title'               => __( 'Trips List', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'wte-trips-list',
+			'title' => __( 'Trips List', 'wptravelengine-elementor-widgets' ),
+			'icon'  => 'wte-trips-list',
 		);
 
 		$widgets['wptravelengine-featured-trips'] = array(
-			'title'               => __( 'Featured Trip', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'wte-feat-trips',
+			'title' => __( 'Featured Trip', 'wptravelengine-elementor-widgets' ),
+			'icon'  => 'wte-feat-trips',
 		);
 
 		$widgets['wptravelengine-trips-accordion'] = array(
-			'title'               => __( 'Trips Accordion', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'wte-trips-accordion',
+			'title' => __( 'Trips Accordion', 'wptravelengine-elementor-widgets' ),
+			'icon'  => 'wte-trips-accordion',
 		);
 
 		$widgets['wptravelengine-trips-module-one'] = array(
-			'title'               => __( 'Trips Module 1', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'wte-trips-module',
+			'title' => __( 'Trips Module 1', 'wptravelengine-elementor-widgets' ),
+			'icon'  => 'wte-trips-module',
 		);
 
 		$widgets['wptravelengine-trips-module-two'] = array(
-			'title'               => __( 'Trips Module 2', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'wte-trips-module',
+			'title' => __( 'Trips Module 2', 'wptravelengine-elementor-widgets' ),
+			'icon'  => 'wte-trips-module',
 		);
 
 		$widgets['wptravelengine-trips-module-three'] = array(
-			'title'               => __( 'Trips Module 3', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'wte-trips-module',
+			'title' => __( 'Trips Module 3', 'wptravelengine-elementor-widgets' ),
+			'icon'  => 'wte-trips-module',
 		);
 
 		$widgets['wptravelengine-trips-tab'] = array(
-			'title'               => __( 'Trips Tab', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'wte-trips-tab',
+			'title' => __( 'Trips Tab', 'wptravelengine-elementor-widgets' ),
+			'icon'  => 'wte-trips-tab',
 		);
 
 		$widgets['wptravelengine-trips-slider'] = array(
-			'title'               => __( 'Trips Slider', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'wte-trips-slider',
+			'title' => __( 'Trips Slider', 'wptravelengine-elementor-widgets' ),
+			'icon'  => 'wte-trips-slider',
 		);
 
 		$widgets['wptravelengine-trips-slider-two'] = array(
-			'title'               => __( 'Trips Slider 2', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'wte-trips-slider',
+			'title' => __( 'Trips Slider 2', 'wptravelengine-elementor-widgets' ),
+			'icon'  => 'wte-trips-slider',
 		);
 
 		$widgets['wptravelengine-trips-slider-three'] = array(
-			'title'               => __( 'Trips Slider 3', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'wte-trips-slider',
+			'title' => __( 'Trips Slider 3', 'wptravelengine-elementor-widgets' ),
+			'icon'  => 'wte-trips-slider',
 		);
 
 		$widgets['wptravelengine-trip-tax-module-one'] = array(
-			'title'               => __( 'Destination/Activities Module 1', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'wte-trips-tax-module',
+			'title' => __( 'Destination/Activities Module 1', 'wptravelengine-elementor-widgets' ),
+			'icon'  => 'wte-trips-tax-module',
 		);
 
 		$widgets['wptravelengine-trip-tax-module-two'] = array(
-			'title'               => __( 'Destination/Activities Module 2', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'wte-trips-tax-module',
+			'title' => __( 'Destination/Activities Module 2', 'wptravelengine-elementor-widgets' ),
+			'icon'  => 'wte-trips-tax-module',
 		);
 
 		$widgets['wptravelengine-trip-tax-one'] = array(
-			'title'               => __( 'Destination/Activities 1', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'wte-trips-tax',
+			'title' => __( 'Destination/Activities 1', 'wptravelengine-elementor-widgets' ),
+			'icon'  => 'wte-trips-tax',
 		);
 
 		$widgets['wptravelengine-trip-tax-two'] = array(
-			'title'               => __( 'Destination/Activities 2', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'wte-trips-tax',
+			'title' => __( 'Destination/Activities 2', 'wptravelengine-elementor-widgets' ),
+			'icon'  => 'wte-trips-tax',
 		);
 
 		$widgets['wptravelengine-trips-tax-slider-one'] = array(
-			'title'               => __( 'Destination/Activities Slider 1', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'wte-trips-tax-slider',
+			'title' => __( 'Destination/Activities Slider 1', 'wptravelengine-elementor-widgets' ),
+			'icon'  => 'wte-trips-tax-slider',
 		);
 
 		$widgets['wptravelengine-trips-tax-slider-two'] = array(
-			'title'               => __( 'Destination/Activities Slider 2', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'wte-trips-tax-slider',
+			'title' => __( 'Destination/Activities Slider 2', 'wptravelengine-elementor-widgets' ),
+			'icon'  => 'wte-trips-tax-slider',
 		);
 
 		$widgets['wptravelengine-trips-tax-slider-three'] = array(
-			'title'               => __( 'Destination/Activities Slider 3', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'wte-trips-tax-slider',
+			'title' => __( 'Destination/Activities Slider 3', 'wptravelengine-elementor-widgets' ),
+			'icon'  => 'wte-trips-tax-slider',
 		);
 
 		$widgets['wptravelengine-tour-search'] = array(
-			'title'               => __( 'Tour Search', 'wptravelengine-elementor-widgets' ),
-			'icon'                => 'icon-wte-search',
+			'title' => __( 'Tour Search', 'wptravelengine-elementor-widgets' ),
+			'icon'  => 'icon-wte-search',
 		);
 
 		// Add Travel Monster specific widgets only when Travel Monster theme is active.
 		if ( Header_Footer_Builder::is_travel_monster_theme_active() ) {
 			$widgets['wptravelengine-contact'] = array(
-				'title'               => __( 'Contact', 'wptravelengine-elementor-widgets' ),
-				'icon'                => 'icon-wte-contact',
+				'title' => __( 'Contact', 'wptravelengine-elementor-widgets' ),
+				'icon'  => 'icon-wte-contact',
 			);
 
 			$widgets['wptravelengine-navigation'] = array(
-				'title'               => __( 'Navigation Menu', 'wptravelengine-elementor-widgets' ),
-				'icon'                => 'icon-wte-menu',
+				'title' => __( 'Navigation Menu', 'wptravelengine-elementor-widgets' ),
+				'icon'  => 'icon-wte-menu',
 			);
 
 			$widgets['wptravelengine-search'] = array(
-				'title'               => __( 'Search', 'wptravelengine-elementor-widgets' ),
-				'icon'                => 'icon-wte-search',
+				'title' => __( 'Search', 'wptravelengine-elementor-widgets' ),
+				'icon'  => 'icon-wte-search',
 			);
 
 			$widgets['wptravelengine-site-logo'] = array(
-				'title'               => __( 'Site Logo', 'wptravelengine-elementor-widgets' ),
-				'icon'                => 'icon-wte-logo',
+				'title' => __( 'Site Logo', 'wptravelengine-elementor-widgets' ),
+				'icon'  => 'icon-wte-logo',
 			);
 
 			$widgets['wptravelengine-off-canvas'] = array(
-				'title'               => __( 'Off Canvas', 'wptravelengine-elementor-widgets' ),
-				'icon'                => 'eicon-sidebar',
+				'title' => __( 'Off Canvas', 'wptravelengine-elementor-widgets' ),
+				'icon'  => 'eicon-sidebar',
 			);
 
 		}

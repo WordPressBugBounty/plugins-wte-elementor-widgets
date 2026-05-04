@@ -33,18 +33,18 @@ $selectors = array(
 		'{{WRAPPER}} .elementor-widget-container .highlights-content' => 'text-shadow: {{HORIZONTAL}}px {{VERTICAL}}px {{BLUR}}px {{COLOR}};',
 	),
 	// Icon.
-	'icon_size'               => array(
+	'icon_size'                => array(
 		'{{WRAPPER}} .elementor-widget-container .wpte-trip-highlights li:before' => 'font-size: {{SIZE}}{{UNIT}};',
 		'{{WRAPPER}} .elementor-widget-container .wpte-trip-highlights li' => 'padding-left: calc({{SIZE}}{{UNIT}} + 14px);',
 	),
-	'icon_color'              => array(
+	'icon_color'               => array(
 		'{{WRAPPER}} .elementor-widget-container .wpte-trip-highlights li:before' => 'background: {{VALUE}};',
 	),
 );
 
 $controls = array(
 	'categories'      => 'wptravelengine',
-	'title_settings'       => array(
+	'title_settings'  => array(
 		'type'        => 'control_section',
 		'label'       => __( 'Title', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(
@@ -75,33 +75,33 @@ $controls = array(
 	),
 	'general_section' => array(
 		'type'        => 'control_section',
-		'label'       => __('General', 'wptravelengine-elementor-widgets'),
+		'label'       => __( 'General', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(
 			'general_typography' => array(
 				'type'     => \Elementor\Group_Control_Typography::get_type(),
 				'selector' => $selectors['general_typography'],
-				'label'    => __('Typography', 'wptravelengine-elementor-widgets'),
+				'label'    => __( 'Typography', 'wptravelengine-elementor-widgets' ),
 			),
 			'general_color'      => array(
 				'type'      => \Elementor\Controls_Manager::COLOR,
-				'label'     => esc_html__('Color', 'wptravelengine-elementor-widgets'),
+				'label'     => esc_html__( 'Color', 'wptravelengine-elementor-widgets' ),
 				'selectors' => $selectors['general_color'],
-			)
+			),
 		),
 	),
 	'icon_section'    => array(
 		'type'        => 'control_section',
-		'label'       => __('Icon', 'wptravelengine-elementor-widgets'),
+		'label'       => __( 'Icon', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(
 			'icon_color' => array(
 				'type'      => \Elementor\Controls_Manager::COLOR,
-				'label'     => esc_html__('Color', 'wptravelengine-elementor-widgets'),
+				'label'     => esc_html__( 'Color', 'wptravelengine-elementor-widgets' ),
 				'selectors' => $selectors['icon_color'],
 			),
 			'icon_size'  => array(
 				'type'       => 'SLIDER',
-				'label'      => esc_html__('Size', 'wptravelengine-elementor-widgets'),
-				'size_units' => array('px', '%', 'em', 'rem'),
+				'label'      => esc_html__( 'Size', 'wptravelengine-elementor-widgets' ),
+				'size_units' => array( 'px', '%', 'em', 'rem' ),
 				'default'    => array(
 					'size' => 20,
 				),
@@ -116,7 +116,7 @@ $controls = array(
 					),
 				),
 				'selectors'  => $selectors['icon_size'],
-			)
+			),
 		),
 	),
 );

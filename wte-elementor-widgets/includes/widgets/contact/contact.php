@@ -124,10 +124,10 @@ class Widget_Contact extends Widget_Base {
 		$this->add_control(
 			'contact_list',
 			array(
-				'label'   => __( 'Contact list', 'wptravelengine-elementor-widgets' ),
-				'type'    => Controls_Manager::REPEATER,
-				'fields'  => $repeater->get_controls(),
-				'default' => array(
+				'label'       => __( 'Contact list', 'wptravelengine-elementor-widgets' ),
+				'type'        => Controls_Manager::REPEATER,
+				'fields'      => $repeater->get_controls(),
+				'default'     => array(
 					array(
 						'contact_label' => __( 'Email', 'wptravelengine-elementor-widgets' ),
 						'contact_icon'  => array(

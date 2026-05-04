@@ -3,7 +3,7 @@
  * Plugin Name: WP Travel Engine - Elementor Widgets
  * Plugin URI: http://wordpress.org/plugins/wte-elementor-widgets
  * Description: The plugin helps you to use Elementor to create a travel booking website. It seamlessly works with WP Travel Engine, the most popular travel booking plugin, to display trips/tours, destinations, activities, trip types and advanced search.
- * Version: 1.5.1
+ * Version: 1.5.2
  * Author: WP Travel Engine
  * Author URI: http://wptravelengine.com
  * Requires at least: 5.0
@@ -27,7 +27,7 @@ defined( 'ABSPATH' ) || exit;
 
 define( 'WPTRAVELENGINEEB_FILE__', __FILE__ );
 define( 'WPTRAVELENGINEEB_PATH', plugin_dir_path( WPTRAVELENGINEEB_FILE__ ) );
-define( 'WPTRAVELENGINEEB_VERSION', '1.5.1' );
+define( 'WPTRAVELENGINEEB_VERSION', '1.5.2' );
 define( 'WPTRAVELENGINEEB_REQUIRES_AT_LEAST', '5.2.0' );
 define( 'WPTRAVELENGINEEB_NEWCONTROL', '<span class="wte-elementor-new-control"> New</span>' );
 register_activation_hook( __FILE__, 'wptravelengineeb_activation' );
@@ -48,7 +48,6 @@ register_deactivation_hook( __FILE__, 'wptravelengineeb_deactivation' );
  * @since 1.0.0
  */
 function wptravelengineeb_deactivation() {
-
 }
 
 /**
@@ -58,7 +57,7 @@ function wptravelengineeb_deactivation() {
  */
 add_action(
 	'plugins_loaded',
-	function() {
+	function () {
 		if ( ! defined( 'WP_TRAVEL_ENGINE_VERSION' ) || version_compare( WP_TRAVEL_ENGINE_VERSION, WPTRAVELENGINEEB_REQUIRES_AT_LEAST, '<' ) ) {
 			$dependencies[] = '<a class="thickbox open-plugin-details-modal" href="' . admin_url( 'plugin-install.php' ) . '?tab=plugin-information&plugin=wp-travel-engine&TB_iframe=true&width=640&height=500" target="__blank">WP Travel Engine</a>';
 		}
@@ -70,7 +69,7 @@ add_action(
 		if ( ! empty( $dependencies ) ) {
 			add_action(
 				'admin_notices',
-				function() use ( $dependencies ) {
+				function () use ( $dependencies ) {
 					echo wp_kses_post(
 						sprintf(
 							'<div class="error"><p>'

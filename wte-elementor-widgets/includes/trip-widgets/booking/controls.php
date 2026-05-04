@@ -169,21 +169,14 @@ $selectors = array(
 
 $settings['trip_highlights'] = isset( $settings['trip_highlights'] ) && is_array( $settings['trip_highlights'] ) && count( $settings['trip_highlights'] ) > 0 ? $settings['trip_highlights'] : $static_hightlight;
 $highlights                  = isset( $settings['trip_highlights'] ) && is_array( $settings['trip_highlights'] ) ? $settings['trip_highlights'] : array();
-if ( isset( $settings['trip_highlights'] ) && is_array( $settings['trip_highlights'] ) && count( $settings['trip_highlights'] ) > 0 ) :
-	?>
-	<div class="wpte-bf-content">
-		<ul>
-			<?php
-			foreach ( $highlights as $highlight ) {
-				$highlight         = (object) $highlight;
-				$trip_highlights[] = '<li>' . esc_html( $highlight->highlight ) . ( ! empty( $highlight->help ) ? '<span class="wpte-custom-tooltip" data-title="' . esc_attr( $highlight->help ) . '"> <em> - ( ' . esc_attr( $highlight->help ) . ' )</em></span>' : '' ) . '</li>';
-			}
-			$highlights_content = implode( '', $trip_highlights );
-			?>
-		</ul>
-	</div>
-	<?php
-endif;
+if ( isset( $settings['trip_highlights'] ) && is_array( $settings['trip_highlights'] ) && count( $settings['trip_highlights'] ) > 0 ) {
+	$trip_highlights = array();
+	foreach ( $highlights as $highlight ) {
+		$highlight         = (object) $highlight;
+		$trip_highlights[] = '<li>' . esc_html( $highlight->highlight ) . ( ! empty( $highlight->help ) ? '<span class="wpte-custom-tooltip" data-title="' . esc_attr( $highlight->help ) . '"> <em> - ( ' . esc_attr( $highlight->help ) . ' )</em></span>' : '' ) . '</li>';
+	}
+	$highlights_content = implode( '', $trip_highlights );
+}
 $controls = array(
 	'booking_button_settings'  => array(
 		'type'        => 'control_section',

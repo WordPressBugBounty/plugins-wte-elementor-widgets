@@ -16,96 +16,96 @@ $info_available = defined( 'WTEAI_VERSION' ) && version_compare( WP_TRAVEL_ENGIN
 
 $selectors = array(
 	// General Section.
-	'card_typography'         => '{{WRAPPER}} .elementor-widget-container',
-	'card_alignment'          => array(
+	'card_typography'                  => '{{WRAPPER}} .elementor-widget-container',
+	'card_alignment'                   => array(
 		'{{WRAPPER}} .elementor-widget-container' => 'text-align: {{VALUE}};',
 	),
-	'card_color'              => array(
+	'card_color'                       => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-itinerary-header-wrapper, {{WRAPPER}} .elementor-widget-container .itinerary, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .title, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title span, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .itinerary-content span, {{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2, {{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .title, {{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title' => 'color: {{VALUE}};',
 	),
-	'card_background_color'   => array(
+	'card_background_color'            => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-itinerary-header-wrapper, {{WRAPPER}} .elementor-widget-container .itinerary, {{WRAPPER}} .elementor-widget-container .itinerary .advanced-itinerary-row, {{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2, {{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row' => 'background-color: {{VALUE}};',
 	),
-	'card_border'             => '{{WRAPPER}} .elementor-widget-container',
-	'card_border_radius'      => array(
+	'card_border'                      => '{{WRAPPER}} .elementor-widget-container',
+	'card_border_radius'               => array(
 		'{{WRAPPER}} .elementor-widget-container' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
-	'card_padding'            => array(
+	'card_padding'                     => array(
 		'{{WRAPPER}} .elementor-widget-container' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
-	'card_margin'             => array(
+	'card_margin'                      => array(
 		'{{WRAPPER}} .elementor-widget-container' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
 
 	// Title Section.
-	'title_typography'        => '{{WRAPPER}} .elementor-widget-container .wte-itinerary-header-wrapper .wpte-itinerary-title',
-	'title_color'             => array(
+	'title_typography'                 => '{{WRAPPER}} .elementor-widget-container .wte-itinerary-header-wrapper .wpte-itinerary-title',
+	'title_color'                      => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-itinerary-header-wrapper .wp-travel-engine-itinerary-header .wpte-itinerary-title' => 'color: {{VALUE}};',
 	),
-	'title_padding'           => array(
+	'title_padding'                    => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-itinerary-header-wrapper .wp-travel-engine-itinerary-header' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
-	'title_margin'            => array(
+	'title_margin'                     => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-itinerary-header-wrapper .wp-travel-engine-itinerary-header' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
 
 	// Chart Section.
-	'chart_typography'        => '{{WRAPPER}} .elementor-widget-container .wte-itinerary-header-wrapper .altitude-chart-container div',
-	'chart_color'             => array(
+	'chart_typography'                 => '{{WRAPPER}} .elementor-widget-container .wte-itinerary-header-wrapper .altitude-chart-container div',
+	'chart_color'                      => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-itinerary-header-wrapper .altitude-chart-container div' => 'color: {{VALUE}};',
 	),
-	'chart_background_color'  => array(
+	'chart_background_color'           => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-itinerary-header-wrapper .altitude-chart-container div' => 'background-color: {{VALUE}};',
 	),
-	'chart_padding'           => array(
+	'chart_padding'                    => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-itinerary-header-wrapper .altitude-chart-container div' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
-	'chart_margin'            => array(
+	'chart_margin'                     => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-itinerary-header-wrapper .altitude-chart-container' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
 
 	// Days Title Section.
-	'days_title_typography'   => '{{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .title, {{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title, {{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title span, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .title, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title span',
-	'days_title_color'        => array(
+	'days_title_typography'            => '{{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .title, {{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title, {{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title span, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .title, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title span',
+	'days_title_color'                 => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .title, {{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .title, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title span' => 'color: {{VALUE}} !important;',
 	),
-	'days_title_padding'      => array(
+	'days_title_padding'               => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .title, {{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .title, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
-	'days_title_margin'       => array(
+	'days_title_margin'                => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .title, {{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .title, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .itinerary-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
 
 	// Days Content Section.
-	'days_content_typography' => '{{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .itinerary-content .content, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .itinerary-content',
-	'days_content_color'      => array(
+	'days_content_typography'          => '{{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .itinerary-content .content, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .itinerary-content',
+	'days_content_color'               => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .itinerary-content .content, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .itinerary-content, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .itinerary-content span' => 'color: {{VALUE}};',
 	),
-	'days_content_padding'    => array(
+	'days_content_padding'             => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .itinerary-content .content, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .itinerary-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
-	'days_content_margin'     => array(
+	'days_content_margin'              => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-trip-itinerary-v2 .itinerary-row .itinerary-content .content, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .itinerary-content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
 
 	// Toggle Section.
-	'expand_all_toggle'       => array(
+	'expand_all_toggle'                => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-itinerary-header-wrapper .wp-travel-engine-itinerary-header .toggle-button input[type=checkbox]:checked' => 'background-color: {{VALUE}} !important;',
 	),
-	'expand_icon'             => array(
+	'expand_icon'                      => array(
 		'{{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .rotator::before, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .rotator::after' => 'background-color: {{VALUE}};',
 		'{{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .accordion-tabs-toggle .rotator' => 'border-color: {{VALUE}};color: {{VALUE}}',
 	),
 
 	// Icons Section.
-	'day_icon'                => array(
+	'day_icon'                         => array(
 		'{{WRAPPER}} .elementor-widget-container .itinerary-row .wte-itinerary-head-wrap .title::before, {{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .wte-itinerary-head-wrap .title::before, {{WRAPPER}} .title.has-custom-icon .custom-icon' => 'background-color: {{VALUE}};',
 	),
 
 	// Additional Info Section.
-	'additional_info_typography' => '{{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .itinerary-content .wpte-itinerary-infos .wpte-itinerary-info-item',
-	'additional_info_icon_color' => array(
-    	'{{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .itinerary-content .wpte-itinerary-infos .wpte-itinerary-info-item .wpte-itinerary-info-item-icon' => 'color: {{VALUE}};',
+	'additional_info_typography'       => '{{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .itinerary-content .wpte-itinerary-infos .wpte-itinerary-info-item',
+	'additional_info_icon_color'       => array(
+		'{{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .itinerary-content .wpte-itinerary-infos .wpte-itinerary-info-item .wpte-itinerary-info-item-icon' => 'color: {{VALUE}};',
 	),
 	'additional_info_title_color'      => array(
 		'{{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .itinerary-content .wpte-itinerary-infos .wpte-itinerary-info-item .wpte-itinerary-info-item-content .wpte-itinerary-info-item-content-title' => 'color: {{VALUE}};',
@@ -116,17 +116,17 @@ $selectors = array(
 	'additional_info_background_color' => array(
 		'{{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .itinerary-content .wpte-itinerary-infos .wpte-itinerary-info-item' => 'background-color: {{VALUE}};',
 	),
-	'additional_info_padding'    => array(
+	'additional_info_padding'          => array(
 		'{{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .itinerary-content .wpte-itinerary-infos .wpte-itinerary-info-item' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
-	'additional_info_margin'     => array(
+	'additional_info_margin'           => array(
 		'{{WRAPPER}} .elementor-widget-container .itinerary .itinerary-row .itinerary-content .wpte-itinerary-infos .wpte-itinerary-info-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
 );
 
 $controls = array(
 	// Content.
-	'title_settings'       => array(
+	'title_settings'          => array(
 		'type'        => 'control_section',
 		'label'       => __( 'Title', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(
@@ -155,7 +155,7 @@ $controls = array(
 			),
 		),
 	),
-	'expand_all_settings'  => array(
+	'expand_all_settings'     => array(
 		'type'        => 'control_section',
 		'label'       => __( 'Expand All', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(
@@ -181,7 +181,7 @@ $controls = array(
 			),
 		),
 	),
-	'icon_settings'        => array(
+	'icon_settings'           => array(
 		'type'        => 'control_section',
 		'label'       => __( 'Icons', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(
@@ -255,7 +255,7 @@ $controls = array(
 			),
 		),
 	),
-	'additional_settings'  => defined( 'WTEAI_VERSION' ) ? array(
+	'additional_settings'     => defined( 'WTEAI_VERSION' ) ? array(
 		'type'        => 'control_section',
 		'label'       => __( 'Additional', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(
@@ -269,7 +269,7 @@ $controls = array(
 		),
 	) : array(),
 	// Style.
-	'general_section'      => array(
+	'general_section'         => array(
 		'type'        => \Elementor\Controls_Manager::TAB_STYLE,
 		'label'       => __( 'General', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(
@@ -313,7 +313,7 @@ $controls = array(
 			),
 		),
 	),
-	'title_section'        => array(
+	'title_section'           => array(
 		'type'        => \Elementor\Controls_Manager::TAB_STYLE,
 		'label'       => __( 'Title', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(
@@ -341,7 +341,7 @@ $controls = array(
 			),
 		),
 	),
-	'chart_section'        => defined( 'WTEAI_VERSION' ) ? array(
+	'chart_section'           => defined( 'WTEAI_VERSION' ) ? array(
 		'type'        => \Elementor\Controls_Manager::TAB_STYLE,
 		'label'       => __( 'Chart', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(
@@ -368,7 +368,7 @@ $controls = array(
 			),
 		),
 	) : array(),
-	'days_title_section'   => array(
+	'days_title_section'      => array(
 		'type'        => \Elementor\Controls_Manager::TAB_STYLE,
 		'label'       => __( 'Days Title', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(
@@ -396,7 +396,7 @@ $controls = array(
 			),
 		),
 	),
-	'days_content_section' => array(
+	'days_content_section'    => array(
 		'type'        => \Elementor\Controls_Manager::TAB_STYLE,
 		'label'       => __( 'Days Content', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(
@@ -424,7 +424,7 @@ $controls = array(
 			),
 		),
 	),
-	'toggle_section'       => array(
+	'toggle_section'          => array(
 		'type'        => \Elementor\Controls_Manager::TAB_STYLE,
 		'label'       => __( 'Toggle', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(
@@ -437,30 +437,30 @@ $controls = array(
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'label'     => __( 'Expand Icon Color', 'wptravelengine-elementor-widgets' ),
 				'selectors' => $selectors['expand_icon'],
-			)
+			),
 		),
 	),
-	'icon_section'         => array(
+	'icon_section'            => array(
 		'type'        => \Elementor\Controls_Manager::TAB_STYLE,
 		'label'       => __( 'Icons', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(
-			'day_icon'       => array(
+			'day_icon' => array(
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'label'     => __( 'Color', 'wptravelengine-elementor-widgets' ),
 				'selectors' => $selectors['day_icon'],
-			)
+			),
 		),
 	),
-	'additional_info_section'        => $info_available ? array(
+	'additional_info_section' => $info_available ? array(
 		'type'        => \Elementor\Controls_Manager::TAB_STYLE,
 		'label'       => __( 'Additional Itinerary Info', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(
-			'additional_info_typography'  => array(
+			'additional_info_typography'       => array(
 				'type'     => \Elementor\Group_Control_Typography::get_type(),
 				'label'    => __( 'Typography', 'wptravelengine-elementor-widgets' ),
 				'selector' => $selectors['additional_info_typography'],
 			),
-			'additional_info_icon_color'      => array(
+			'additional_info_icon_color'       => array(
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'label'     => __( 'Icon Color', 'wptravelengine-elementor-widgets' ),
 				'selectors' => $selectors['additional_info_icon_color'],
@@ -475,25 +475,25 @@ $controls = array(
 				'label'     => __( 'Value Color', 'wptravelengine-elementor-widgets' ),
 				'selectors' => $selectors['additional_info_value_color'],
 			),
-			'additional_info_background_color'      => array(
+			'additional_info_background_color' => array(
 				'type'      => \Elementor\Controls_Manager::COLOR,
 				'label'     => __( 'Background Color', 'wptravelengine-elementor-widgets' ),
 				'selectors' => $selectors['additional_info_background_color'],
 			),
-			'additional_info_padding'    => array(
+			'additional_info_padding'          => array(
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'label'      => __( 'Padding', 'wptravelengine-elementor-widgets' ),
 				'size_units' => array( 'px', 'em', '%' ),
 				'selectors'  => $selectors['additional_info_padding'],
 			),
-			'additional_info_margin'     => array(
+			'additional_info_margin'           => array(
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'label'      => __( 'Margin', 'wptravelengine-elementor-widgets' ),
 				'size_units' => array( 'px', 'em', '%' ),
 				'selectors'  => $selectors['additional_info_margin'],
 			),
 		),
-	) : array (),
+	) : array(),
 );
 
 return $controls;

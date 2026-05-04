@@ -22,17 +22,16 @@ if ( ! class_exists( '\Elementor\Plugin' ) ) {
  *
  * Elementor template library local source handler class is responsible for
  * handling local Elementor templates saved by the user locally on their site.
- *
  */
 class Import_Content extends Source_Local {
 
 	/**
 	 * Update post meta.
 	 *
-	 * @param  array   $data Elementor Data.
+	 * @param  array $data Elementor Data.
 	 * @return array   $data Elementor Imported Data.
 	 */
-	public function import( $data = array()) {
+	public function import( $data = array() ) {
 
 		if ( ! empty( $data ) ) {
 

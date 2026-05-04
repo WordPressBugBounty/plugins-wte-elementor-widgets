@@ -15,26 +15,26 @@ namespace WPTRAVELENGINEEB;
 $current_post_type = get_post_type();
 if ( ! $current_post_type && isset( $_POST['editor_post_id'] ) ) {
 	// phpcs:ignore WordPress.Security.NonceVerification.Missing
-	$editor_post_id = absint( wp_unslash( $_POST['editor_post_id'] ) );
+	$editor_post_id    = absint( wp_unslash( $_POST['editor_post_id'] ) );
 	$current_post_type = get_post_type( $editor_post_id );
 }
 $show_custom_tabs = in_array( $current_post_type, array( 'trip', 'elementor_library' ), true );
 
 $controls = array(
 	// Content.
-	'general_section'      => array(
+	'general_section' => array(
 		'type'        => 'control_section',
 		'label'       => __( 'General', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(
-			'custom_trip_tabs'       => array(
-				'label'     => __('Custom Trip Tabs', 'wptravelengine-elementor-widgets'),
-				'type'      => 'SELECT',
-				'options'   => $show_custom_tabs ? $this->get_custom_trip_tabs_selector() : [],
-				'default'   => '',
-			)
+			'custom_trip_tabs' => array(
+				'label'   => __( 'Custom Trip Tabs', 'wptravelengine-elementor-widgets' ),
+				'type'    => 'SELECT',
+				'options' => $show_custom_tabs ? $this->get_custom_trip_tabs_selector() : array(),
+				'default' => '',
+			),
 		),
 	),
-	'title_settings'       => array(
+	'title_settings'  => array(
 		'type'        => 'control_section',
 		'label'       => __( 'Title', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(

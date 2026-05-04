@@ -14,8 +14,8 @@ $duration      = isset( $post_meta['trip_duration'] ) && '' !== $post_meta['trip
 $duration_unit = isset( $post_meta['trip_duration_unit'] ) && '' !== $post_meta['trip_duration_unit']
 	? $post_meta['trip_duration_unit'] : 'days';
 
-$nights = isset( $post_meta[ 'trip_duration_nights' ] ) && '' !== $post_meta[ 'trip_duration_nights' ]
-	? $post_meta[ 'trip_duration_nights' ] : '';
+$nights = isset( $post_meta['trip_duration_nights'] ) && '' !== $post_meta['trip_duration_nights']
+	? $post_meta['trip_duration_nights'] : '';
 
 // Get WP Travel Engine global settings to respect Trip Duration Format preference
 $wp_travel_engine_settings = get_option( 'wp_travel_engine_settings', array() );

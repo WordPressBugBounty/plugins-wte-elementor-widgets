@@ -131,8 +131,10 @@ $meta_dir          = wte_array_get( $settings, 'meta_direction', false );
 					<?php if ( wte_array_get( $settings, 'layoutFilters.showGroupSize', false ) && (int) $meta->min_pax ) : ?>
 					<span class="wpte-trip-meta wpte-trip-pax">
 						<span class="wpte-icon-users"></span>
-						<?php /* translators: 1: Pax count, 2: Person label */
-						printf( esc_html__( '%1$s %2$s', 'wptravelengine-elementor-widgets' ), (int) $meta->max_pax ? $meta->min_pax . '-' . $meta->max_pax : (int) $meta->min_pax, $pax_label ); ?>
+						<?php
+						/* translators: 1: Pax count, 2: Person label */
+						printf( esc_html__( '%1$s %2$s', 'wptravelengine-elementor-widgets' ), (int) $meta->max_pax ? $meta->min_pax . '-' . $meta->max_pax : (int) $meta->min_pax, $pax_label );
+						?>
 					</span>
 					<?php endif; ?>
 				</div>
@@ -141,7 +143,7 @@ $meta_dir          = wte_array_get( $settings, 'meta_direction', false );
 				<?php
 				$display_price = $meta->has_sale ? $meta->sale_price : $meta->price;
 				if ( wte_array_get( $settings, 'layoutFilters.showPrice', true ) && ! empty( $display_price ) && $display_price > 0 ) :
-				?>
+					?>
 				<div class="wpte-trip-price-wrap">
 					<?php if ( wte_array_get( $settings, 'layoutFilters.showStrikedPrice', true ) && $meta->has_sale ) : ?>
 						<del><?php echo wte_esc_price( wte_get_formated_price_html( $meta->price ) ); ?></del>

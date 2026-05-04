@@ -7,17 +7,17 @@
  */
 
 $controls = array(
-	'rating'                  => array(
+	'rating' => array(
 		'type'        => 'control_section',
 		'label'       => __( 'General', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(
-			'shortcode' => array(
+			'shortcode'       => array(
 				'label'       => __( 'Shortcode', 'wptravelengine-elementor-widgets' ),
 				'type'        => \Elementor\Controls_Manager::TEXT,
 				'placeholder' => __( 'Enter shortcode here', 'wptravelengine-elementor-widgets' ),
 				'default'     => '[trip_file_downloads]',
 			),
-			'hideTitle'  => array(
+			'hideTitle'       => array(
 				'label'        => __( 'Hide Header Text', 'wptravelengine-elementor-widgets' ),
 				'type'         => 'SWITCHER',
 				'default'      => 'yes',
@@ -26,7 +26,7 @@ $controls = array(
 					'{{WRAPPER}} .elementor-widget-container .file-downloadable-wrap .file.downloadable-header' => 'display: {{VALUE}}',
 				),
 			),
-			'hideDescription'   => array(
+			'hideDescription' => array(
 				'label'        => __( 'Hide Header Description', 'wptravelengine-elementor-widgets' ),
 				'type'         => 'SWITCHER',
 				'default'      => 'yes',

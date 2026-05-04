@@ -14,8 +14,8 @@ defined( 'ABSPATH' ) || exit;
  * @var bool $fullwidth_class Is full width banner enabled?
  */
 
-if ( isset( $wpte_trip_images[ 'enable' ] ) ) {
-	unset( $wpte_trip_images[ 'enable' ] );	
+if ( isset( $wpte_trip_images['enable'] ) ) {
+	unset( $wpte_trip_images['enable'] );
 }
 
 if ( $thumbnail_id = get_post_thumbnail_id( $trip_id ) ) {
@@ -29,8 +29,8 @@ if ( $thumbnail_id = get_post_thumbnail_id( $trip_id ) ) {
 	<div class="wpte-gallery-wrapper <?php echo esc_attr( $banner_layout ); ?>">
 		<div class="wpte-multi-banner-layout<?php echo esc_attr( $fullwidth_class ); ?>">
 			<?php
-			if( 'banner-layout-1' === $banner_layout ) {
-				$images_to_display = array($wpte_trip_images[0]);
+			if ( 'banner-layout-1' === $banner_layout ) {
+				$images_to_display = array( $wpte_trip_images[0] );
 			} else {
 				/**
 				 * Use this filter to generate markup for images.
@@ -63,9 +63,11 @@ if ( $thumbnail_id = get_post_thumbnail_id( $trip_id ) ) {
 			}
 			?>
 		</div>
-		<?php if ( $show_gallerypopup === 'yes' || $show_videopopup === 'yes' ) :
-			extract([$show_gallerypopup, $show_videopopup, $popup_position]);
+		<?php
+		if ( $show_gallerypopup === 'yes' || $show_videopopup === 'yes' ) :
+			extract( array( $show_gallerypopup, $show_videopopup, $popup_position ) );
 			include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/carousel/gallery-popup.php';
-		endif; ?>
+		endif;
+		?>
 	</div>
 </div>

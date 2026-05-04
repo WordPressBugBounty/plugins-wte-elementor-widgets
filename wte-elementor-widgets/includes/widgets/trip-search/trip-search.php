@@ -16,13 +16,13 @@ defined( 'ABSPATH' ) || exit;
  */
 class Widget_Trip_Search extends Widget {
 
-    /**
-     *
-     * @var $widget_name
-     */
+	/**
+	 *
+	 * @var $widget_name
+	 */
 	public $widget_name = 'wptravelengine-trip-search';
 
-    /**
+	/**
 	 * Widget Settings.
 	 */
 	protected function register_controls() {

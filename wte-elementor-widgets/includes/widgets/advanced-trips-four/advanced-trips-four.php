@@ -42,7 +42,7 @@ class Widget_Advanced_Trips_Four extends Widget {
 	 */
 	public function get_style_depends() {
 		wp_register_style( 'wpte-adv-trips', plugin_dir_url( WPTRAVELENGINEEB_FILE__ ) . 'dist/css/wpte-adv-trips.css' );
-		
+
 		return array( 'wpte-adv-trips' );
 	}
 
@@ -50,7 +50,7 @@ class Widget_Advanced_Trips_Four extends Widget {
 	 * Javascripts dependencies.
 	 */
 	public function get_script_depends() {
-		return array( 'trip-wishlist');
+		return array( 'trip-wishlist' );
 	}
 
 	/**
@@ -85,7 +85,7 @@ class Widget_Advanced_Trips_Four extends Widget {
 		$attributes['default_taxonomies'] = array_keys( wptravelengineeb_get_trip_taxonomies() );
 
 		if ( isset( $attributes['listby'] ) ) {
-			$query_args = array(
+			$query_args                     = array(
 				'post_type'      => \WP_TRAVEL_ENGINE_POST_TYPE,
 				'posts_per_page' => $attributes['tripsCount'],
 				'fields'         => 'ids',
@@ -156,55 +156,55 @@ class Widget_Advanced_Trips_Four extends Widget {
 		$discountAlignment = wte_array_get( $attributes, 'discountAlignment', 'left' );
 		$priceType         = wte_array_get( $attributes, 'priceType', '1' );
 
-		//Add classes to render on the HTML
-		$this->add_render_attribute( 
-			'main-wrapper-classes', 
-			'class', 
-			[
+		// Add classes to render on the HTML
+		$this->add_render_attribute(
+			'main-wrapper-classes',
+			'class',
+			array(
 				'wpte-adv-trips',
 				'wpte-adv-trips_four',
 				'wpte-elementor-widget',
 				isset( $attributes['cardlayout'] ) && ! empty( $attributes['cardlayout'] ) ? esc_attr( "layout-{$attributes['cardlayout']}" ) : 'layout-1',
-			] 
-		);
-		
-		$this->add_render_attribute( 
-			'inner-wrapper', 
-			'class', 
-			[
-				'wpte-grid'
-			] 
+			)
 		);
 
-		$this->add_render_attribute( 
-			'featured-ribbon', 
-			'class', 
-			[
+		$this->add_render_attribute(
+			'inner-wrapper',
+			'class',
+			array(
+				'wpte-grid',
+			)
+		);
+
+		$this->add_render_attribute(
+			'featured-ribbon',
+			'class',
+			array(
 				'wpte-badge',
 				'wpte-badge_featured',
 				'wpte-badge--layout-' . $ribbonType,
-				'wpte-badge--' . $ribbonAlignment
-			] 
+				'wpte-badge--' . $ribbonAlignment,
+			)
 		);
-		
-		$this->add_render_attribute( 
-			'discount-badge', 
-			'class', 
-			[
+
+		$this->add_render_attribute(
+			'discount-badge',
+			'class',
+			array(
 				'wpte-badge',
 				'wpte-badge_discount',
 				'wpte-badge--layout-' . $discountType,
-				'wpte-badge--' . $discountAlignment
-			] 
+				'wpte-badge--' . $discountAlignment,
+			)
 		);
-		
-		$this->add_render_attribute( 
-			'price-data', 
-			'class', 
-			[
+
+		$this->add_render_attribute(
+			'price-data',
+			'class',
+			array(
 				'wpte-card__price',
-				'wpte-card__price--layout-'. $priceType
-			] 
+				'wpte-card__price--layout-' . $priceType,
+			)
 		);
 
 		if ( $results && is_array( $results ) ) : ?>
@@ -212,28 +212,28 @@ class Widget_Advanced_Trips_Four extends Widget {
 				<div <?php $this->print_render_attribute_string( 'inner-wrapper' ); ?>>
 					<?php
 						$index = 1;
-						foreach ( $attributes['filters']['tripsToDisplay'] as $trip_id ) :
-							if ( ! isset( $results[ $trip_id ] ) ) {
-								continue;
-							}
-							$trip                = $results[ $trip_id ];
-							$duration_mapping    = array(
-								'days'   => array( __( 'Day', 'wptravelengine-elementor-widgets' ), __( 'Days', 'wptravelengine-elementor-widgets' ) ),
-								'nights' => array( __( 'Night', 'wptravelengine-elementor-widgets' ), __( 'Nights', 'wptravelengine-elementor-widgets' ) ),
-								'hours'  => array( __( 'Hour', 'wptravelengine-elementor-widgets' ), __( 'Hours', 'wptravelengine-elementor-widgets' ) ),
-							);
-							$results['duration'] = $duration_mapping;
-							$args                = array( $attributes, $trip, $results, $index );
-							
-							include __DIR__ . '/view.php';
-							$index++;
+					foreach ( $attributes['filters']['tripsToDisplay'] as $trip_id ) :
+						if ( ! isset( $results[ $trip_id ] ) ) {
+							continue;
+						}
+						$trip                = $results[ $trip_id ];
+						$duration_mapping    = array(
+							'days'   => array( __( 'Day', 'wptravelengine-elementor-widgets' ), __( 'Days', 'wptravelengine-elementor-widgets' ) ),
+							'nights' => array( __( 'Night', 'wptravelengine-elementor-widgets' ), __( 'Nights', 'wptravelengine-elementor-widgets' ) ),
+							'hours'  => array( __( 'Hour', 'wptravelengine-elementor-widgets' ), __( 'Hours', 'wptravelengine-elementor-widgets' ) ),
+						);
+						$results['duration'] = $duration_mapping;
+						$args                = array( $attributes, $trip, $results, $index );
+
+						include __DIR__ . '/view.php';
+						++$index;
 						endforeach;
 					?>
 				</div><!-- .wte-adv-trips -->
 			</div>
-		<?php
+			<?php
 		else :
-			echo esc_html__('No trips available. Please add a new trip.','wptravelengine-elementor-widgets');
+			echo esc_html__( 'No trips available. Please add a new trip.', 'wptravelengine-elementor-widgets' );
 		endif;
 	}
 }

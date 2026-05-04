@@ -21,7 +21,7 @@ class Widget_Trip_Types extends Widget {
 	 * @var $widget_name
 	 */
 	public $widget_name = 'wptravelengine-trip-types';
-	
+
 	/**
 	 * Widget Settings.
 	 */
@@ -35,5 +35,4 @@ class Widget_Trip_Types extends Widget {
 
 		$this->_wte_add_controls( $controls );
 	}
-
 }

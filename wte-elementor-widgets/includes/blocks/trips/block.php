@@ -22,13 +22,13 @@ if ( ! empty( $attributes['filters']['tripsToDisplay'] ) ) {
 
 $results = array_combine( array_column( $results, 'ID' ), $results );
 
-$layout       = wte_array_get( $attributes, 'layout', 'grid' );
-$column_desktop       = wte_array_get( $attributes, 'tripsCountPerRow', 3 );
-$column_tablet       = wte_array_get( $attributes, 'tripsCountPerRow_tablet', 2 );
-$column_mobile      = wte_array_get( $attributes, 'tripsCountPerRow_mobile', 1 );
-$settings     = get_option( 'wp_travel_engine_settings', array() );
-$dates_layout = ! empty( $settings['fsd_dates_layout'] ) ? $settings['fsd_dates_layout'] : 'dates_list';
-$show_heading = wte_array_get( $attributes, 'showSectionHeading', false );
+$layout         = wte_array_get( $attributes, 'layout', 'grid' );
+$column_desktop = wte_array_get( $attributes, 'tripsCountPerRow', 3 );
+$column_tablet  = wte_array_get( $attributes, 'tripsCountPerRow_tablet', 2 );
+$column_mobile  = wte_array_get( $attributes, 'tripsCountPerRow_mobile', 1 );
+$settings       = get_option( 'wp_travel_engine_settings', array() );
+$dates_layout   = ! empty( $settings['fsd_dates_layout'] ) ? $settings['fsd_dates_layout'] : 'dates_list';
+$show_heading   = wte_array_get( $attributes, 'showSectionHeading', false );
 
 $show_section_description = wte_array_get( $attributes, 'showSectionDescription', false );
 
@@ -67,7 +67,7 @@ if ( wte_array_get( $attributes, 'slider.autoplay', 'yes' ) === 'yes' ) {
 if ( $results && is_array( $results ) ) :
 	echo '<div class="wp-block-wptravelengine-trips wpte-gblock-wrapper elementor-addon wpte-elementor-widget">';   ?>
 	<div class="<?php echo esc_attr( "category-{$layout} wte-d-flex wpte-trip-list-wrapper" ); ?>
-						   <?php
+							<?php
 							if ( $layout != 'slider' ) {
 								echo isset( $column_desktop ) && ! empty( $column_desktop ) ? esc_attr( " wte-col-{$column_desktop}" ) : '';
 								echo isset( $column_tablet ) && ! empty( $column_tablet ) ? esc_attr( " columns-tablet-{$column_tablet}" ) : '';
@@ -92,24 +92,24 @@ if ( $results && is_array( $results ) ) :
 			'hours'  => array( __( 'Hour', 'wptravelengine-elementor-widgets' ), __( 'Hours', 'wptravelengine-elementor-widgets' ) ),
 		);
 		$results['duration'] = $duration_mapping;
-		$pax_label = __( 'People', 'wptravelengine-elementor-widgets' );
+		$pax_label           = __( 'People', 'wptravelengine-elementor-widgets' );
 		if ( function_exists( 'wptravelengine_get_label_by_slug' ) ) {
 			$updated_pax_label = wptravelengine_get_label_by_slug( 'person', ! empty( $meta->max_pax ) ? $meta->max_pax : $meta->min_pax );
 			if ( ! empty( $updated_pax_label ) ) {
 				$pax_label = $updated_pax_label;
 			}
 		}
-		 
-		$args                = array( $attributes, $trip, $results, $pax_label );
+
+		$args = array( $attributes, $trip, $results, $pax_label );
 		( 'slider' === $layout ) && print( '<div class="swiper-slide">' );
-		$layout_path = __DIR__ . '/layouts/' . sanitize_file_name('layout-' . $attributes['cardlayout'] . '.php');
+		$layout_path = __DIR__ . '/layouts/' . sanitize_file_name( 'layout-' . $attributes['cardlayout'] . '.php' );
 		if ( file_exists( $layout_path ) ) {
 			include $layout_path;
 		} else {
 			include __DIR__ . '/layouts/layout-1.php';
 		}
 		( 'slider' === $layout ) && print( '</div>' );
-		$position++;
+		++$position;
 			endforeach;
 	if ( 'slider' === $layout ) :
 		?>
@@ -187,5 +187,5 @@ if ( $results && is_array( $results ) ) :
 endif;
 	echo '</div>';
 else :
-	echo esc_html__('No trips available. Please add a new trip.','wptravelengine-elementor-widgets');
+	echo esc_html__( 'No trips available. Please add a new trip.', 'wptravelengine-elementor-widgets' );
 endif;

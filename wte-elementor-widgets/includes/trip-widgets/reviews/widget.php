@@ -60,7 +60,7 @@ class ReviewsWidget extends Widget {
 	public function get_categories() {
 		return array( 'single-wptravelengine' );
 	}
-	
+
 	/**
 	 * Set Widget Icon.
 	 *
@@ -93,14 +93,14 @@ class ReviewsWidget extends Widget {
 		if ( defined( 'WTE_TRIP_REVIEW_VERSION' ) ) {
 			$attributes = $this->get_settings_for_display();
 			if ( file_exists( WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/reviews/reviews.php' ) ) {
-				$comments = get_comments(
+				$comments                 = get_comments(
 					array(
 						'post_id'     => get_the_ID(),
 						'status'      => 'approve',
 						'post_status' => 'publish',
 					)
 				);
-			$is_elementor_editor_page = $this->is_elementor_editor_page();
+				$is_elementor_editor_page = $this->is_elementor_editor_page();
 				if ( empty( $comments ) && $is_elementor_editor_page ) {
 					include_once WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/reviews/demo.php';
 				} else {
@@ -111,7 +111,7 @@ class ReviewsWidget extends Widget {
 			}
 		} else {
 			$is_elementor_editor_page = $this->is_elementor_editor_page();
-			if( ! $is_elementor_editor_page ){
+			if ( ! $is_elementor_editor_page ) {
 				return '';
 			}
 			?>

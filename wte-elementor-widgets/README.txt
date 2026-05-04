@@ -5,7 +5,7 @@ Tags: Tour booking, Tour operator, Travel, Travel agency, Travel booking
 Requires at least: 5.0
 Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.5.1
+Stable tag: 1.5.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -181,6 +181,12 @@ The plugin is optimized for speed and performance, so it will not slow down your
 9. Trips Widget Slider Controls.
 
 == Changelog ==
+
+= 1.5.2 - 4th May, 2026 =
+* Fixed: Resolved an issue in Layout 1 where trip star ratings were not displaying correctly, improving overall interaction.
+* Fixed: Corrected a problem where navigation menu links changed color unexpectedly on hover due to theme accent settings.
+* Fixed: Removed unwanted spacing caused by default paragraph padding in the Header/Footer Builder.
+* Fixed: Prevented submenu items from overflowing outside the screen when a large number of items are added in the Navigation widget.
 
 = 1.5.1 - 31st March, 2026 =
 * Feature: Off Canvas Menu Widget.

@@ -63,5 +63,4 @@ class Trip_Selector_Control extends \Elementor\Base_Data_Control {
 		</div>
 		<?php
 	}
-
 }

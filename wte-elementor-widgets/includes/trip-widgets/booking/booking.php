@@ -68,8 +68,8 @@ $show_button             = isset( $attributes->{'showButton'} ) ? $attributes->{
 $show_info               = isset( $attributes->{'showInfoSection'} ) ? $attributes->{'showInfoSection'} : true;
 $show_groupdiscount      = isset( $attributes->{'showGroupDiscount'} ) ? $attributes->{'showGroupDiscount'} : true;
 // Get the currency symbol
-$currency_code   = isset( $settings['currency_code'] ) ? $settings['currency_code'] : '';
-$currency_symbol = wp_travel_engine_get_currency_symbol( $currency_code );
+$currency_code     = isset( $settings['currency_code'] ) ? $settings['currency_code'] : '';
+$currency_symbol   = wp_travel_engine_get_currency_symbol( $currency_code );
 $trip_booking_data = array(
 	'tripID'      => $post->ID,
 	'nonce'       => wp_create_nonce( 'wte_add_trip_to_cart' ),
@@ -171,7 +171,7 @@ $trip_booking_data = array(
 						}
 						?>
 						</div>
-					<?php do_action( 'wptravelengine_after_booking_button' ); ?>
+						<?php do_action( 'wptravelengine_after_booking_button' ); ?>
 					<?php endif; ?>
 				<?php endif; ?>
 			</div>

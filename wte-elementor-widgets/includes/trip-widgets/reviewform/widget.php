@@ -60,7 +60,7 @@ class ReviewFormWidget extends Widget {
 	public function get_categories() {
 		return array( 'single-wptravelengine' );
 	}
-	
+
 	/**
 	 * Set Widget Icon.
 	 *
@@ -119,7 +119,7 @@ class ReviewFormWidget extends Widget {
 			}
 		} else {
 			$is_elementor_editor_page = $this->is_elementor_editor_page();
-			if( ! $is_elementor_editor_page ){
+			if ( ! $is_elementor_editor_page ) {
 				return '';
 			}
 			?>

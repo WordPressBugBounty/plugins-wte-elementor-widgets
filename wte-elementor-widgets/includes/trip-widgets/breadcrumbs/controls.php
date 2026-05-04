@@ -62,23 +62,23 @@ $controls = array(
 				'type'          => 'CHOOSE',
 				'is_responsive' => false,
 				'options'       => array(
-					'right-chevron'   => array(
+					'right-chevron' => array(
 						'title' => esc_html__( 'right chevron', 'wptravelengine-elementor-widgets' ),
 						'icon'  => 'wte-icon-right-chevron',
 					),
-					'slash' => array(
+					'slash'         => array(
 						'title' => esc_html__( '/', 'wptravelengine-elementor-widgets' ),
 						'icon'  => 'wte-icon-slash',
 					),
-					'dash'  => array(
+					'dash'          => array(
 						'title' => esc_html__( '-', 'wptravelengine-elementor-widgets' ),
 						'icon'  => 'wte-icon-dash',
 					),
-					'bar'   => array(
+					'bar'           => array(
 						'title' => esc_html__( '|', 'wptravelengine-elementor-widgets' ),
 						'icon'  => 'wte-icon-bar',
 					),
-					'none'  => array(
+					'none'          => array(
 						'title' => esc_html__( 'None', 'wptravelengine-elementor-widgets' ),
 						'icon'  => 'wte-icon-none',
 					),

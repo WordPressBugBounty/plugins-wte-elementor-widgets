@@ -22,12 +22,14 @@ $html_tag         = wptravelengineeb_normalize_html_tag( $attributes->{'html_tag
 ?>
 <div id="wte-faqs" class="post-data faq">
 	<div class="wp-travel-engine-faq-tab-header">
-		<?php if ( $show_title ) { 
+		<?php
+		if ( $show_title ) {
 			/**
 			 * Hook - Display tab content title, left for themes.
 			 */
 			do_action( 'wte_faqs_tab_title' );
-		} ?>
+		}
+		?>
 		<div class="wpte-faq-button-toggle expand-all-button">
 			<?php if ( ! empty( $faq ) ) { ?>
 				<?php if ( ! empty( $expand_all_label ) && $show_expand_all ) { ?>
@@ -57,7 +59,7 @@ $html_tag         = wptravelengineeb_normalize_html_tag( $attributes->{'html_tag
 								<p>
 								<?php
 									$faq_content = isset( $faq['faq_content'][ $value ] ) ? $faq['faq_content'][ $value ] : '';
-									echo wp_kses( wpautop ( $faq_content ), wptravelengineeb_kses_allowed_html() );
+									echo wp_kses( wpautop( $faq_content ), wptravelengineeb_kses_allowed_html() );
 								?>
 								</p>
 							</div>

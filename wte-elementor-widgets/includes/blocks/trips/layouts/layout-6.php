@@ -29,10 +29,11 @@ $meta_dir          = wte_array_get( $settings, 'meta_direction', false );
 					<div class="category-feat-ribbon">
 						<span class="category-feat-ribbon-txt"><?php esc_html_e( 'Featured', 'wptravelengine-elementor-widgets' ); ?></span>
 					</div>
-				<?php endif;
+					<?php
+				endif;
 				$display_price = $meta->has_sale ? $meta->sale_price : $meta->price;
 				if ( wte_array_get( $settings, 'layoutFilters.showPrice', true ) && ! empty( $display_price ) && $display_price > 0 ) :
-				?>
+					?>
 					<div class="wpte-trip-price-wrap">
 					<div class="normal-price">
 						<?php if ( wte_array_get( $settings, 'layoutFilters.showStrikedPrice', true ) && $meta->has_sale ) : ?>
@@ -42,15 +43,18 @@ $meta_dir          = wte_array_get( $settings, 'meta_direction', false );
 					</div>
 					<ins><?php echo wte_esc_price( wte_get_formated_price_html( $display_price ) ); ?></ins>
 					</div>
-				<?php endif;
-				if ( wte_array_get( $settings, 'layoutFilters.showDiscount', false ) && $meta->discount_percent ) : ?>
+					<?php
+				endif;
+				if ( wte_array_get( $settings, 'layoutFilters.showDiscount', false ) && $meta->discount_percent ) :
+					?>
 				<div class="discount-text-wrap">
 					<span class="discount-percent"><?php echo isset( $meta->discount_label ) ? $meta->discount_label : sprintf( esc_html__( '%1$s%% Off', 'wptravelengine-elementor-widgets' ), (float) $meta->discount_percent ); ?></span>
 				</div>
-				<?php endif;
-				
-				if ( wte_array_get( $settings, 'layoutFilters.showWishlist', false ) ){ 
-					wptravelengineeb_get_wishlist($trip_id);
+					<?php
+				endif;
+
+				if ( wte_array_get( $settings, 'layoutFilters.showWishlist', false ) ) {
+					wptravelengineeb_get_wishlist( $trip_id );
 				}
 
 				if ( wte_array_get( $settings, 'layoutFilters.showReviews', false ) ) :
@@ -90,8 +94,8 @@ $meta_dir          = wte_array_get( $settings, 'meta_direction', false );
 						$trip_duration_nights = $meta->duration['nights'];
 						$set_duration_types   = $settings['durationType'];
 						$duration_label       = array();
-						?>							
-						<span class="category-trip-meta-info">
+						?>
+												<span class="category-trip-meta-info">
 							<?php if ( $meta->duration['days'] != 0 ) : ?>
 								<span class="category-trip-meta-info-icon">
 									<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -122,7 +126,7 @@ $meta_dir          = wte_array_get( $settings, 'meta_direction', false );
 							</span>
 						<?php
 					endif;
-					
+
 					if ( wte_array_get( $settings, 'layoutFilters.showTripType', false ) ) :
 						$terms = wte_get_the_tax_term_list( $trip->ID, 'trip_types', '', ', ', '' );
 						if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) :
@@ -134,8 +138,9 @@ $meta_dir          = wte_array_get( $settings, 'meta_direction', false );
 							<?php
 						endif;
 					endif;
-					
-					if ( wte_array_get( $settings, 'layoutFilters.showGroupSize', false ) && (int) $meta->min_pax ) : ?>
+
+					if ( wte_array_get( $settings, 'layoutFilters.showGroupSize', false ) && (int) $meta->min_pax ) :
+						?>
 						<span class="category-trip-meta-info">
 							<span class="category-trip-meta-info-icon">
 								<span class="wpte-icon-users"></span>
@@ -144,8 +149,10 @@ $meta_dir          = wte_array_get( $settings, 'meta_direction', false );
 								<span class="category-trip-meta-info-label"><?php echo esc_html( wte_array_get( $settings, 'groupSizeLabel', __( 'Group Size', 'wptravelengine-elementor-widgets' ) ) ); ?>
 								</span>
 								<span class="category-trip-meta-info-value">
-									<?php /* translators: 1: Pax count, 2: Person label */
-									printf( esc_html__( '%1$s %2$s', 'wptravelengine-elementor-widgets' ), $meta->max_pax ? (int) $meta->min_pax . '-' . (int) $meta->max_pax : (int) $meta->min_pax, $pax_label ); ?>
+									<?php
+									/* translators: 1: Pax count, 2: Person label */
+									printf( esc_html__( '%1$s %2$s', 'wptravelengine-elementor-widgets' ), $meta->max_pax ? (int) $meta->min_pax . '-' . (int) $meta->max_pax : (int) $meta->min_pax, $pax_label );
+									?>
 								</span>
 							</div>
 						</span>

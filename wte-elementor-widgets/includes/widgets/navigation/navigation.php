@@ -41,7 +41,7 @@ class Widget_Navigation extends Widget_Base {
 	 */
 	public function get_title() {
 		return __( 'Navigation Menu', 'wptravelengine-elementor-widgets' );
-	}  
+	}
 
 	/**
 	 * Get widget icon.
@@ -366,7 +366,8 @@ class Widget_Navigation extends Widget_Base {
 
 		?>
 		<div <?php $this->print_render_attribute_string( 'outer-wrapper' ); ?>>
-			<?php if ( ! empty( $settings['menu_select'] ) && 'none' !== $settings['menu_select'] ) :
+			<?php
+			if ( ! empty( $settings['menu_select'] ) && 'none' !== $settings['menu_select'] ) :
 				$random = wp_rand( 1, 100 );
 				?>
 				<nav id="wte-site-navigation-<?php echo esc_attr( $random ); ?>" class="primary-navigation" <?php echo esc_attr( $data_stretch ); ?>>

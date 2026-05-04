@@ -10,43 +10,43 @@ namespace WPTRAVELENGINEEB;
 
 $selectors = array(
 	// general.
-	'general_background'           => array(
+	'general_background'      => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-title-duration' => 'background-color: {{VALUE}};',
 	),
-	'general_border_radius'        => array(
+	'general_border_radius'   => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-title-duration' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
-	'general_boxshadow'            => '{{WRAPPER}} .elementor-widget-container .wte-title-duration',
-	'general_border'               => '{{WRAPPER}} .elementor-widget-container .wte-title-duration',
+	'general_boxshadow'       => '{{WRAPPER}} .elementor-widget-container .wte-title-duration',
+	'general_border'          => '{{WRAPPER}} .elementor-widget-container .wte-title-duration',
 	// Duration.
-	'duration_typography'          => '{{WRAPPER}} .elementor-widget-container .wte-title-duration .duration',
-	'duration_padding'             => array(
+	'duration_typography'     => '{{WRAPPER}} .elementor-widget-container .wte-title-duration .duration',
+	'duration_padding'        => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-title-duration .duration' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
 	),
-	'duration_color'               => array(
+	'duration_color'          => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-title-duration:not(.wte-duration-night) .duration' => 'color: {{VALUE}};',
 	),
-	'duration_color_night'               => array(
+	'duration_color_night'    => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-title-duration.wte-duration-night .duration' => 'color: {{VALUE}};',
 	),
-	'duration_bg_color'            => array(
+	'duration_bg_color'       => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-title-duration:not(.wte-duration-night) .duration' => 'background-color: {{VALUE}};',
 	),
-	'duration_bg_color_night'            => array(
+	'duration_bg_color_night' => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-title-duration.wte-duration-night .duration' => 'background-color: {{VALUE}};',
 	),
-	'duration_border_radius'       => array(
+	'duration_border_radius'  => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-title-duration .duration' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
-	'duration_boxshadow'           => '{{WRAPPER}} .elementor-widget-container .wte-title-duration .duration',
-	'duration_border'              => '{{WRAPPER}} .elementor-widget-container .wte-title-duration .duration',
+	'duration_boxshadow'      => '{{WRAPPER}} .elementor-widget-container .wte-title-duration .duration',
+	'duration_border'         => '{{WRAPPER}} .elementor-widget-container .wte-title-duration .duration',
 
 	// Days.
-	'date_typography'              => '{{WRAPPER}} .elementor-widget-container .wte-title-duration .days',
-	'date_padding'                 => array(
+	'date_typography'         => '{{WRAPPER}} .elementor-widget-container .wte-title-duration .days',
+	'date_padding'            => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-title-duration .days' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
 	),
-	'date_title_color'             => array(
+	'date_title_color'        => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-title-duration .days' => 'color: {{VALUE}};',
 	),
 );
@@ -100,53 +100,53 @@ $controls = array(
 		'type'        => \Elementor\Controls_Manager::TAB_STYLE,
 		'label'       => __( 'Duration Unit', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(
-			'duration_typography' => array(
+			'duration_typography'  => array(
 				'type'     => \Elementor\Group_Control_Typography::get_type(),
 				'selector' => $selectors['duration_typography'],
 			),
-			'duration_padding'    => array(
+			'duration_padding'     => array(
 				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
 				'label'      => __( 'Padding', 'wptravelengine-elementor-widgets' ),
 				'size_units' => array( 'px', '%', 'em' ),
 				'selectors'  => $selectors['duration_padding'],
 			),
-			'duration_button_tabs'       => array(
+			'duration_button_tabs' => array(
 				'type' => 'start_controls_tabs',
 				'tabs' => array(
 					'duration_days'  => array(
-                        'type'        => 'start_controls_tab',
-                        'label'       => __( 'Days', 'wptravelengine-elementor-widgets' ),
-                        'subcontrols' => array(
-							'duration_color_'      => array(
+						'type'        => 'start_controls_tab',
+						'label'       => __( 'Days', 'wptravelengine-elementor-widgets' ),
+						'subcontrols' => array(
+							'duration_color_'   => array(
 								'type'      => \Elementor\Controls_Manager::COLOR,
 								'label'     => esc_html__( 'Text Color', 'wptravelengine-elementor-widgets' ),
 								'selectors' => $selectors['duration_color'],
 							),
-                        	'duration_bg_color'   => array(
+							'duration_bg_color' => array(
 								'type'      => \Elementor\Controls_Manager::COLOR,
 								'label'     => esc_html__( 'Background Color', 'wptravelengine-elementor-widgets' ),
 								'selectors' => $selectors['duration_bg_color'],
 							),
-                        ),
-                    ),
+						),
+					),
 					'duration_night' => array(
-                        'type'        => 'start_controls_tab',
-                        'label'       => __( 'Night', 'wptravelengine-elementor-widgets' ),
-                        'subcontrols' => array(
-							'duration_color_night'      => array(
+						'type'        => 'start_controls_tab',
+						'label'       => __( 'Night', 'wptravelengine-elementor-widgets' ),
+						'subcontrols' => array(
+							'duration_color_night'    => array(
 								'type'      => \Elementor\Controls_Manager::COLOR,
 								'label'     => esc_html__( 'Text Color', 'wptravelengine-elementor-widgets' ),
 								'selectors' => $selectors['duration_color_night'],
 							),
-                        	'duration_bg_color_night'   => array(
+							'duration_bg_color_night' => array(
 								'type'      => \Elementor\Controls_Manager::COLOR,
 								'label'     => esc_html__( 'Background Color', 'wptravelengine-elementor-widgets' ),
 								'selectors' => $selectors['duration_bg_color_night'],
 							),
-                        ),
-                    ),
-                ),
-            ),
+						),
+					),
+				),
+			),
 		),
 	),
 	'date_section'     => array(
