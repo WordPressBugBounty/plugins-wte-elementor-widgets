@@ -41,14 +41,8 @@ $review_title = isset( $post_meta['review']['review_title'] ) && '' !== $post_me
 			<?php
 		} else {
 			$obj = new Wte_Trip_Review_Init();
-			// Check if the trip has reviews and if not then show the message.
-			$args     = array(
-				'post_id' => $post->ID,
-				'status'  => 'approve',
-				'orderby' => 'comment_date',
-				'parent'  => 0,
-			);
-			$comments = get_comments( $args );
+			// Includes direct, additional-trip, and all-scope reviews.
+			$comments = $obj->pull_comment_data( $post->ID );
 
 			if ( empty( $comments ) ) {
 				echo esc_html__( 'Oops! No reviews found for this trip.', 'wptravelengine-elementor-widgets' );

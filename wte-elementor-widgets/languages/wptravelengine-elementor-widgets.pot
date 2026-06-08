@@ -2,9 +2,9 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Travel Engine - Elementor Widgets 1.5.2\n"
+"Project-Id-Version: WP Travel Engine - Elementor Widgets 1.5.3\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-05-04 04:18:55+00:00\n"
+"POT-Creation-Date: 2026-06-08 03:49:10+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -800,8 +800,8 @@ msgstr ""
 #: includes/trip-widgets/enquiry/controls.php:131
 #: includes/trip-widgets/enquiry/controls.php:186
 #: includes/trip-widgets/enquiry/controls.php:217
-#: includes/trip-widgets/faqs/controls.php:144
-#: includes/trip-widgets/faqs/controls.php:184
+#: includes/trip-widgets/faqs/controls.php:267
+#: includes/trip-widgets/faqs/controls.php:306
 #: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:334
 #: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:350
 #: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:366
@@ -1102,8 +1102,10 @@ msgstr ""
 #: includes/trip-widgets/enquiry/controls.php:175
 #: includes/trip-widgets/facts/controls.php:116
 #: includes/trip-widgets/facts/controls.php:132
-#: includes/trip-widgets/faqs/controls.php:123
-#: includes/trip-widgets/faqs/controls.php:157
+#: includes/trip-widgets/faqs/controls.php:171
+#: includes/trip-widgets/faqs/controls.php:218
+#: includes/trip-widgets/faqs/controls.php:246
+#: includes/trip-widgets/faqs/controls.php:279
 #: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:550
 #: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:652
 #: includes/trip-widgets/fixedstartingdate/controls.php:198
@@ -2916,6 +2918,7 @@ msgstr ""
 #: includes/trip-widgets/duration/controls.php:75
 #: includes/trip-widgets/enquiry/controls.php:71
 #: includes/trip-widgets/enquiry/controls.php:106
+#: includes/trip-widgets/faqs/demo.php:15
 #: includes/trip-widgets/filedownloader/controls.php:12
 #: includes/trip-widgets/fixedstartingdate/controls.php:193
 #: includes/trip-widgets/highlights/controls.php:78
@@ -3152,9 +3155,11 @@ msgstr ""
 #: includes/trip-widgets/facts/controls.php:121
 #: includes/trip-widgets/facts/controls.php:137
 #: includes/trip-widgets/facts/controls.php:148
-#: includes/trip-widgets/faqs/controls.php:127
-#: includes/trip-widgets/faqs/controls.php:161
-#: includes/trip-widgets/faqs/controls.php:195
+#: includes/trip-widgets/faqs/controls.php:175
+#: includes/trip-widgets/faqs/controls.php:222
+#: includes/trip-widgets/faqs/controls.php:250
+#: includes/trip-widgets/faqs/controls.php:283
+#: includes/trip-widgets/faqs/controls.php:317
 #: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:339
 #: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:355
 #: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:371
@@ -3555,6 +3560,7 @@ msgid "Space Between"
 msgstr ""
 
 #: includes/trip-widgets/booking/controls.php:334
+#: includes/trip-widgets/faqs/controls.php:191
 #: includes/trip-widgets/overview/controls.php:85
 #: includes/trip-widgets/relatedtrips/controls.php:667
 #: includes/trip-widgets/title/controls.php:50
@@ -3615,6 +3621,7 @@ msgstr ""
 
 #: includes/trip-widgets/booking/controls.php:338
 #: includes/trip-widgets/facts/controls.php:40
+#: includes/trip-widgets/faqs/controls.php:195
 #: includes/trip-widgets/overview/controls.php:89
 #: includes/trip-widgets/relatedtrips/controls.php:670
 #: includes/trip-widgets/relatedtrips/controls.php:1395
@@ -3679,6 +3686,7 @@ msgstr ""
 
 #: includes/trip-widgets/booking/controls.php:342
 #: includes/trip-widgets/facts/controls.php:64
+#: includes/trip-widgets/faqs/controls.php:199
 #: includes/trip-widgets/overview/controls.php:93
 #: includes/trip-widgets/relatedtrips/controls.php:674
 #: includes/trip-widgets/relatedtrips/controls.php:1399
@@ -3728,6 +3736,7 @@ msgstr ""
 
 #: includes/trip-widgets/booking/controls.php:346
 #: includes/trip-widgets/facts/controls.php:48
+#: includes/trip-widgets/faqs/controls.php:203
 #: includes/trip-widgets/overview/controls.php:97
 #: includes/trip-widgets/relatedtrips/controls.php:678
 #: includes/trip-widgets/relatedtrips/controls.php:1403
@@ -3946,8 +3955,10 @@ msgstr ""
 #: includes/trip-widgets/duration/controls.php:162
 #: includes/trip-widgets/enquiry/controls.php:156
 #: includes/trip-widgets/enquiry/controls.php:246
-#: includes/trip-widgets/faqs/controls.php:131
-#: includes/trip-widgets/faqs/controls.php:165
+#: includes/trip-widgets/faqs/controls.php:179
+#: includes/trip-widgets/faqs/controls.php:226
+#: includes/trip-widgets/faqs/controls.php:254
+#: includes/trip-widgets/faqs/controls.php:287
 #: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:299
 #: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:554
 #: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:656
@@ -4176,8 +4187,10 @@ msgstr ""
 #: includes/trip-widgets/costincludes/controls.php:54
 #: includes/trip-widgets/enquiry/controls.php:162
 #: includes/trip-widgets/enquiry/controls.php:252
-#: includes/trip-widgets/faqs/controls.php:138
-#: includes/trip-widgets/faqs/controls.php:172
+#: includes/trip-widgets/faqs/controls.php:186
+#: includes/trip-widgets/faqs/controls.php:233
+#: includes/trip-widgets/faqs/controls.php:261
+#: includes/trip-widgets/faqs/controls.php:294
 #: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:560
 #: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:668
 #: includes/trip-widgets/fixedstartingdate/controls.php:224
@@ -4329,7 +4342,7 @@ msgstr ""
 #: includes/trip-widgets/duration/widget.php:103
 #: includes/trip-widgets/enquiry/widget.php:99
 #: includes/trip-widgets/facts/widget.php:104
-#: includes/trip-widgets/faqs/widget.php:106
+#: includes/trip-widgets/faqs/widget.php:113
 #: includes/trip-widgets/filedownloader/widget.php:109
 #: includes/trip-widgets/map/widget.php:99
 #: includes/trip-widgets/ratings/widget.php:110
@@ -4545,7 +4558,7 @@ msgstr ""
 
 #: includes/trip-widgets/cost/controls.php:63
 #: includes/trip-widgets/customtripstab/controls.php:42
-#: includes/trip-widgets/faqs/controls.php:96
+#: includes/trip-widgets/faqs/controls.php:137
 #: includes/trip-widgets/highlights/controls.php:52
 #: includes/trip-widgets/itinerary/controls.php:134
 #: includes/trip-widgets/overview/controls.php:46
@@ -4554,8 +4567,9 @@ msgstr ""
 
 #: includes/trip-widgets/cost/controls.php:65
 #: includes/trip-widgets/customtripstab/controls.php:44
-#: includes/trip-widgets/faqs/controls.php:98
-#: includes/trip-widgets/faqs/controls.php:105
+#: includes/trip-widgets/faqs/controls.php:139
+#: includes/trip-widgets/faqs/controls.php:146
+#: includes/trip-widgets/faqs/controls.php:153
 #: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:171
 #: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:212
 #: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:219
@@ -4573,8 +4587,9 @@ msgstr ""
 
 #: includes/trip-widgets/cost/controls.php:66
 #: includes/trip-widgets/customtripstab/controls.php:45
-#: includes/trip-widgets/faqs/controls.php:99
-#: includes/trip-widgets/faqs/controls.php:106
+#: includes/trip-widgets/faqs/controls.php:140
+#: includes/trip-widgets/faqs/controls.php:147
+#: includes/trip-widgets/faqs/controls.php:154
 #: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:172
 #: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:213
 #: includes/trip-widgets/fixedstartingdate/controls-newfsd.php:220
@@ -4823,7 +4838,7 @@ msgstr ""
 #: includes/trip-widgets/costexcludes/controls.php:63
 #: includes/trip-widgets/costincludes/controls.php:63
 #: includes/trip-widgets/facts/controls.php:144
-#: includes/trip-widgets/faqs/controls.php:191
+#: includes/trip-widgets/faqs/controls.php:313
 #: includes/trip-widgets/fixedstartingdate/controls.php:433
 #: includes/trip-widgets/highlights/controls.php:94
 #: includes/trip-widgets/reviewform/controls.php:430
@@ -5046,56 +5061,60 @@ msgstr ""
 msgid "Trip - Facts"
 msgstr ""
 
-#: includes/trip-widgets/faqs/controls.php:90
+#: includes/trip-widgets/faqs/controls.php:131
 msgid "Trip - FAQs"
 msgstr ""
 
-#: includes/trip-widgets/faqs/controls.php:93
-#: includes/trip-widgets/faqs/controls.php:112
+#: includes/trip-widgets/faqs/controls.php:134
+#: includes/trip-widgets/faqs/controls.php:160
 #: includes/trip-widgets/itinerary/controls.php:160
 #: includes/trip-widgets/itinerary/controls.php:180
 msgid "Expand All"
 msgstr ""
 
-#: includes/trip-widgets/faqs/controls.php:103
+#: includes/trip-widgets/faqs/controls.php:144
+msgid "Show Category Title"
+msgstr ""
+
+#: includes/trip-widgets/faqs/controls.php:151
 #: includes/trip-widgets/itinerary/controls.php:171
 msgid "Show Expand All"
 msgstr ""
 
-#: includes/trip-widgets/faqs/controls.php:110
+#: includes/trip-widgets/faqs/controls.php:158
 #: includes/trip-widgets/itinerary/controls.php:178
 msgid "Expand All Label"
 msgstr ""
 
-#: includes/trip-widgets/faqs/controls.php:118
+#: includes/trip-widgets/faqs/controls.php:166
+msgid "Section Title"
+msgstr ""
+
+#: includes/trip-widgets/faqs/controls.php:213
+msgid "Category Title"
+msgstr ""
+
+#: includes/trip-widgets/faqs/controls.php:241
 msgid "Faq Title"
 msgstr ""
 
-#: includes/trip-widgets/faqs/controls.php:152
+#: includes/trip-widgets/faqs/controls.php:274
 msgid " Faq Content"
 msgstr ""
 
-#: includes/trip-widgets/faqs/controls.php:180
+#: includes/trip-widgets/faqs/controls.php:302
 msgid "Toogle"
 msgstr ""
 
 #: includes/trip-widgets/faqs/demo.php:11
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#: includes/trip-widgets/faqs/demo.php:19
 msgid "What is Everest Base Camp (EBC)?"
 msgstr ""
 
-#: includes/trip-widgets/faqs/demo.php:12
-msgid "How do I get to Everest Base Camp?"
-msgstr ""
-
-#: includes/trip-widgets/faqs/demo.php:13
-msgid "Do I need previous trekking experience to reach EBC?"
-msgstr ""
-
-#: includes/trip-widgets/faqs/demo.php:14
-msgid "When is the best time to trek to Everest Base Camp?"
-msgstr ""
-
-#: includes/trip-widgets/faqs/demo.php:17
+#: includes/trip-widgets/faqs/demo.php:20
 msgid ""
 "Everest Base Camp is the starting point for climbers attempting to summit "
 "Mount Everest, the highest peak in the world. It is located at an altitude "
@@ -5103,7 +5122,11 @@ msgid ""
 "region of Nepal."
 msgstr ""
 
-#: includes/trip-widgets/faqs/demo.php:18
+#: includes/trip-widgets/faqs/demo.php:24
+msgid "How do I get to Everest Base Camp?"
+msgstr ""
+
+#: includes/trip-widgets/faqs/demo.php:25
 msgid ""
 "The most common way to reach Everest Base Camp is by trekking from Lukla, a "
 "small mountain airstrip in Nepal. You can take a flight from Kathmandu to "
@@ -5111,14 +5134,26 @@ msgid ""
 "days round trip."
 msgstr ""
 
-#: includes/trip-widgets/faqs/demo.php:19
+#: includes/trip-widgets/faqs/demo.php:31
+msgid "Trekking"
+msgstr ""
+
+#: includes/trip-widgets/faqs/demo.php:35
+msgid "Do I need previous trekking experience to reach EBC?"
+msgstr ""
+
+#: includes/trip-widgets/faqs/demo.php:36
 msgid ""
 "While previous trekking experience can be helpful, it is not mandatory. The "
 "Everest Base Camp trek is challenging but can be undertaken by anyone with "
 "a good level of fitness and a strong determination to complete the journey."
 msgstr ""
 
-#: includes/trip-widgets/faqs/demo.php:20
+#: includes/trip-widgets/faqs/demo.php:40
+msgid "When is the best time to trek to Everest Base Camp?"
+msgstr ""
+
+#: includes/trip-widgets/faqs/demo.php:41
 msgid ""
 "The best time for the Everest Base Camp trek is during the pre-monsoon "
 "(spring) season (March to May) and post-monsoon (autumn) season (September "
@@ -6835,7 +6870,7 @@ msgid ""
 "%1$sGet Trip Reviews extension now%2$s."
 msgstr ""
 
-#: includes/trip-widgets/reviews/reviews.php:54
+#: includes/trip-widgets/reviews/reviews.php:48
 msgid "Oops! No reviews found for this trip."
 msgstr ""
 

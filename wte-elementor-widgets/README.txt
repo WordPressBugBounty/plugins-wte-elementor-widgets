@@ -3,9 +3,9 @@ Contributors: wptravelengine
 Plugin link: https://wptravelengine.com/
 Tags: Tour booking, Tour operator, Travel, Travel agency, Travel booking
 Requires at least: 5.0
-Tested up to: 6.9
+Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.5.2
+Stable tag: 1.5.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -181,6 +181,9 @@ The plugin is optimized for speed and performance, so it will not slow down your
 9. Trips Widget Slider Controls.
 
 == Changelog ==
+
+= 1.5.3 - 8th June, 2026 =
+* Improved: Elementor FAQ widget now supports category-based FAQ structure.
 
 = 1.5.2 - 4th May, 2026 =
 * Fixed: Resolved an issue in Layout 1 where trip star ratings were not displaying correctly, improving overall interaction.

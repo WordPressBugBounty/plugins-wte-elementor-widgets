@@ -91,13 +91,20 @@ class FaqsWidget extends Widget {
 	 * Renders Widget.
 	 *
 	 * @since 1.3.0
+	 * @since 1.5.3 Added logic to show faq categorized data when available with backward compatibility for legacy flat structure.
 	 */
 	protected function render() {
 		$attributes               = $this->get_settings_for_display();
 		$is_elementor_editor_page = $this->is_elementor_editor_page();
 		if ( file_exists( WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/faqs/faqs.php' ) ) {
-			$post_data = get_post_meta( get_the_ID(), 'wp_travel_engine_setting', true );
-			if ( empty( $post_data['faq'] ) && $is_elementor_editor_page ) {
+			$post_data     = get_post_meta( get_the_ID(), 'wp_travel_engine_setting', true );
+			$has_faqs_data = ! empty( $post_data['faqs_data']['categories'] );
+			$has_legacy    = ! empty( $post_data['faq']['faq_title'] );
+			if ( $has_faqs_data && ! wp_script_is( 'single-trip', 'enqueued' ) ) {
+				wp_enqueue_style( 'wte-trip-faqs' );
+				wp_enqueue_script( 'wte-trip-faqs' );
+			}
+			if ( ! $has_faqs_data && ! $has_legacy && $is_elementor_editor_page ) {
 				include_once WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/faqs/demo.php';
 			} else {
 				include_once WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/faqs/faqs.php';
