@@ -6,20 +6,21 @@ namespace WPTRAVELENGINEEB;
  */
 list( $settings, $trip, $results, $index ) = $args;
 
-$trip_id           = $trip->ID;
-$is_featured       = wte_is_trip_featured( $trip_id );
-$meta              = \wte_trip_get_trip_rest_metadata( $trip_id );
-$image_size        = wte_array_get( $settings, 'image_size', 'destination-thumb-size' );
-$image_custom_size = wte_array_get( $settings, 'image_custom_size', false );
-$showPrice         = wte_array_get( $settings, 'showPrice', true );
-$layout_data       = wte_array_get( $settings, 'cardlayout', '1' );
-$rating_layout     = wte_array_get( $settings, 'rating_layout', '1' );
-$showRating        = wte_array_get( $settings, 'showReviews', false );
-$price_label       = wte_array_get( $settings, 'priceLabel', __( 'from', 'wptravelengine-elementor-widgets' ) );
-$image_size        = 'custom' === $image_size && $image_custom_size ? Widget::wte_get_custom_image_size( $image_custom_size ) : $image_size;
-$position          = wte_array_get( $settings, 'loc_position', 'top' );
-$show_meta_data    = wte_array_get( $settings, 'showTripMeta', array( 'showDuration' ) );
-$show_hero_meta    = wte_array_get( $settings, 'showTripMeta_hero', array( 'showDuration', 'showDifficulty', 'showActivities' ) );
+$trip_id            = $trip->ID;
+$is_featured        = wte_is_trip_featured( $trip_id );
+$meta               = \wte_trip_get_trip_rest_metadata( $trip_id );
+$pricing_type_label = wptravelengineeb_get_trip_pricing_type_label( $trip_id );
+$image_size         = wte_array_get( $settings, 'image_size', 'destination-thumb-size' );
+$image_custom_size  = wte_array_get( $settings, 'image_custom_size', false );
+$showPrice          = wte_array_get( $settings, 'showPrice', true );
+$layout_data        = wte_array_get( $settings, 'cardlayout', '1' );
+$rating_layout      = wte_array_get( $settings, 'rating_layout', '1' );
+$showRating         = wte_array_get( $settings, 'showReviews', false );
+$price_label        = wte_array_get( $settings, 'priceLabel', __( 'from', 'wptravelengine-elementor-widgets' ) );
+$image_size         = 'custom' === $image_size && $image_custom_size ? Widget::wte_get_custom_image_size( $image_custom_size ) : $image_size;
+$position           = wte_array_get( $settings, 'loc_position', 'top' );
+$show_meta_data     = wte_array_get( $settings, 'showTripMeta', array( 'showDuration' ) );
+$show_hero_meta     = wte_array_get( $settings, 'showTripMeta_hero', array( 'showDuration', 'showDifficulty', 'showActivities' ) );
 
 // Condition applied depending on if it is hero post or normal post
 $final_meta_data = ( ( 1 === $index && '1' === $layout_data ) || ( 3 === $index && '2' === $layout_data ) ) ? $show_hero_meta : $show_meta_data;
@@ -86,6 +87,20 @@ $add_wrap_class = ( ( 1 === $index && '1' === $layout_data ) || ( 3 === $index &
 					<?php
 				endif;
 			endif;
+			if ( wte_array_get( $settings, 'showTag', false ) ) :
+				$tag_terms = get_the_terms( $trip_id, 'trip_tag' );
+				if ( ! empty( $tag_terms ) && ! is_wp_error( $tag_terms ) ) :
+					?>
+			<span class="category-trip-wtetags">
+					<?php
+					foreach ( $tag_terms as $_bt_tag ) :
+						printf( '<span><a rel="tag" target="_self" href="%s">%s</a></span>', esc_url( get_term_link( $_bt_tag ) ), esc_html( $_bt_tag->name ) );
+endforeach;
+					?>
+			</span>
+					<?php
+			endif;
+endif;
 			if ( wte_array_get( $settings, 'showTitle', true ) ) :
 				?>
 				<h2 class="wpte-card__title" itemprop="name">
@@ -265,7 +280,12 @@ $add_wrap_class = ( ( 1 === $index && '1' === $layout_data ) || ( 3 === $index &
 						endif;
 						if ( $showPrice ) :
 							?>
+							<span class="price-holder-inner">
 							<ins class="actual-price"><?php echo wte_esc_price( wte_get_formated_price_html( $display_price ) ); ?></ins>
+							<?php if ( 'yes' === wte_array_get( $settings, 'showPricingTypeLabel', false ) && $pricing_type_label ) : ?>
+							<span class="pricing-label"><?php echo esc_html( sprintf( _x( '/ %s', 'price per label', 'wptravelengine-elementor-widgets' ), $pricing_type_label ) ); ?></span>
+							<?php endif; ?>
+							</span>
 						<?php endif; ?>
 					</span>
 					<?php

@@ -162,6 +162,78 @@ class Widget_Navigation extends Widget_Base {
 			)
 		);
 
+		$this->add_responsive_control(
+			'menu_items_padding',
+			array(
+				'label'      => __( 'Padding', 'wptravelengine-elementor-widgets' ),
+				'type'       => Controls_Manager::DIMENSIONS,
+				'size_units' => array( 'px', 'em' ),
+				'selectors'  => array(
+					'{{WRAPPER}} .wte-nav-menu' => '--nav-item-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				),
+			)
+		);
+
+		// Divider between menu items — vertical layout only.
+		$this->add_control(
+			'menu_item_divider',
+			array(
+				'label'        => __( 'Divider', 'wptravelengine-elementor-widgets' ),
+				'type'         => Controls_Manager::SWITCHER,
+				'label_on'     => __( 'Show', 'wptravelengine-elementor-widgets' ),
+				'label_off'    => __( 'Hide', 'wptravelengine-elementor-widgets' ),
+				'return_value' => 'solid',
+				'default'      => '',
+				'separator'    => 'before',
+				'selectors'    => array(
+					'{{WRAPPER}} .wte-nav-menu.vertical .menu-item:not(:last-child)' => 'border-bottom-style: {{VALUE}};',
+				),
+				'condition'    => array( 'menu_direction' => 'vertical' ),
+			)
+		);
+
+		$this->add_control(
+			'menu_item_divider_color',
+			array(
+				'label'     => __( 'Divider Color', 'wptravelengine-elementor-widgets' ),
+				'type'      => Controls_Manager::COLOR,
+				'default'   => 'rgba(0, 0, 0, 0.08)',
+				'selectors' => array(
+					'{{WRAPPER}} .wte-nav-menu.vertical .menu-item:not(:last-child)' => 'border-bottom-color: {{VALUE}};',
+				),
+				'condition' => array(
+					'menu_direction'    => 'vertical',
+					'menu_item_divider' => 'solid',
+				),
+			)
+		);
+
+		$this->add_responsive_control(
+			'menu_item_divider_width',
+			array(
+				'label'      => __( 'Divider Width', 'wptravelengine-elementor-widgets' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px' ),
+				'range'      => array(
+					'px' => array(
+						'min' => 1,
+						'max' => 10,
+					),
+				),
+				'default'    => array(
+					'size' => 1,
+					'unit' => 'px',
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .wte-nav-menu.vertical .menu-item:not(:last-child)' => 'border-bottom-width: {{SIZE}}{{UNIT}};',
+				),
+				'condition'  => array(
+					'menu_direction'    => 'vertical',
+					'menu_item_divider' => 'solid',
+				),
+			)
+		);
+
 		$this->add_group_control(
 			Group_Control_Typography::get_type(),
 			array(
@@ -255,6 +327,30 @@ class Widget_Navigation extends Widget_Base {
 			)
 		);
 
+		// Indent per nested submenu level — vertical layout only.
+		$this->add_responsive_control(
+			'submenu_indent',
+			array(
+				'label'      => __( 'Side Spacing', 'wptravelengine-elementor-widgets' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em' ),
+				'range'      => array(
+					'px' => array(
+						'min' => 0,
+						'max' => 60,
+					),
+				),
+				'default'    => array(
+					'size' => 12,
+					'unit' => 'px',
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .wte-nav-menu' => '--submenu-indent: {{SIZE}}{{UNIT}};',
+				),
+				'condition'  => array( 'menu_direction' => 'vertical' ),
+			)
+		);
+
 		$this->add_control(
 			'submenu_background',
 			array(
@@ -295,6 +391,26 @@ class Widget_Navigation extends Widget_Base {
 				'selectors'  => array(
 					'{{WRAPPER}} .wte-nav-menu' => '--submenu-item-padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 				),
+			)
+		);
+
+		// Spacing between stacked submenu rows — vertical layout only.
+		$this->add_responsive_control(
+			'submenu_items_spacing',
+			array(
+				'label'      => __( 'Items Spacing', 'wptravelengine-elementor-widgets' ),
+				'type'       => Controls_Manager::SLIDER,
+				'size_units' => array( 'px', 'em' ),
+				'range'      => array(
+					'px' => array(
+						'min' => 0,
+						'max' => 50,
+					),
+				),
+				'selectors'  => array(
+					'{{WRAPPER}} .wte-nav-menu.vertical .sub-menu .menu-item:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}} !important;',
+				),
+				'condition'  => array( 'menu_direction' => 'vertical' ),
 			)
 		);
 

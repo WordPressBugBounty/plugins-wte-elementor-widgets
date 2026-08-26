@@ -191,10 +191,10 @@ class Header_Footer_Builder {
 	 */
 	public function setup_header_footer_hooks() {
 		$header_type = \get_theme_mod( 'wpte_header_type', 'prebuilt' );
-		$header_id   = \get_theme_mod( 'wpte_header_builder_id', '' );
+		$header_id   = \apply_filters( 'wpml_object_id', \get_theme_mod( 'wpte_header_builder_id', '' ), 'wpte_header', true );
 
 		$footer_type = \get_theme_mod( 'wpte_footer_type', 'prebuilt' );
-		$footer_id   = \get_theme_mod( 'wpte_footer_builder_id', '' );
+		$footer_id   = \apply_filters( 'wpml_object_id', \get_theme_mod( 'wpte_footer_builder_id', '' ), 'wpte_footer', true );
 
 		// Handle custom header.
 		if ( 'builder' === $header_type && ! empty( $header_id ) && class_exists( '\Elementor\Plugin' ) ) {
@@ -247,8 +247,8 @@ class Header_Footer_Builder {
 	 * @return void
 	 */
 	public function render_custom_header() {
-		$header_id        = \get_theme_mod( 'wpte_header_builder_id', '' );
-		$mobile_header_id = \get_theme_mod( 'wpte_mobile_header_builder_id', '' );
+		$header_id        = \apply_filters( 'wpml_object_id', \get_theme_mod( 'wpte_header_builder_id', '' ), 'wpte_header', true );
+		$mobile_header_id = \apply_filters( 'wpml_object_id', \get_theme_mod( 'wpte_mobile_header_builder_id', '' ), self::MOBILE_MENU_POST_TYPE, true );
 
 		if ( empty( $header_id ) ) {
 			return;
@@ -300,7 +300,7 @@ class Header_Footer_Builder {
 	 * @return void
 	 */
 	public function render_custom_footer() {
-		$footer_id = \get_theme_mod( 'wpte_footer_builder_id', '' );
+		$footer_id = \apply_filters( 'wpml_object_id', \get_theme_mod( 'wpte_footer_builder_id', '' ), 'wpte_footer', true );
 
 		if ( empty( $footer_id ) ) {
 			return;

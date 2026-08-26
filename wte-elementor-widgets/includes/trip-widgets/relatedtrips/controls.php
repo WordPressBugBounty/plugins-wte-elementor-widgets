@@ -578,6 +578,15 @@ $controls = array(
 				'label' => __( 'Trip Available Times', 'wptravelengine-elementor-widgets' ),
 				'type'  => 'SWITCHER',
 			),
+			'showTag'               => array(
+				'label' => __( 'Trip Tags', 'wptravelengine-elementor-widgets' ),
+				'type'  => 'SWITCHER',
+			),
+			'showPricingTypeLabel'  => array(
+				'label'     => __( 'Pricing Type', 'wptravelengine-elementor-widgets' ),
+				'type'      => 'SWITCHER',
+				'condition' => array( 'showPrice' => 'yes' ),
+			),
 			'showViewMoreButton'    => array(
 				'label' => __( 'View Details button', 'wptravelengine-elementor-widgets' ),
 				'type'  => 'SWITCHER',

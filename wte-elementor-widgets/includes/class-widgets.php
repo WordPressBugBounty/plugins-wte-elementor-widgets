@@ -375,6 +375,15 @@ class Widgets_Controller {
 							'type'    => 'SWITCHER',
 							'default' => 'yes',
 						),
+						'showPricingTypeLabel'  => array(
+							'label'     => __( 'Pricing Type', 'wptravelengine-elementor-widgets' ),
+							'type'      => 'SWITCHER',
+							'condition' => array( 'showPrice' => 'yes' ),
+						),
+						'showTag'               => array(
+							'label' => __( 'Trip Tags', 'wptravelengine-elementor-widgets' ),
+							'type'  => 'SWITCHER',
+						),
 						'showDuration'          => array(
 							'label'   => __( 'Duration', 'wptravelengine-elementor-widgets' ),
 							'type'    => 'SWITCHER',
@@ -492,7 +501,7 @@ class Widgets_Controller {
 					}
 				}
 
-				foreach ( array( 'showFeaturedRibbon', 'showDescription', 'showFeaturedImage', 'showTitle', 'showPrice', 'showStrikedPrice', 'showDuration', 'showLocation', 'showReviews', 'showDiscount', 'showActivities', 'showTripType', 'showGroupSize', 'showTripAvailableTime', 'showViewMoreButton', 'showViewAll' ) as $subkey ) {
+				foreach ( array( 'showFeaturedRibbon', 'showDescription', 'showFeaturedImage', 'showTitle', 'showPrice', 'showStrikedPrice', 'showPricingTypeLabel', 'showTag', 'showDuration', 'showLocation', 'showReviews', 'showDiscount', 'showActivities', 'showTripType', 'showGroupSize', 'showTripAvailableTime', 'showViewMoreButton', 'showViewAll' ) as $subkey ) {
 					if ( isset( $attributes[ "{$subkey}" ] ) ) {
 						$attributes['layoutFilters'][ $subkey ] = $attributes[ "{$subkey}" ];
 					}

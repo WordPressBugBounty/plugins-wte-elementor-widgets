@@ -24,7 +24,23 @@ $expand_all_label    = $attributes['expand_all_label'] ?? '';
 $show_category_title = $attributes['show_category_title'] ?? 'yes';
 $html_tag            = wptravelengineeb_normalize_html_tag( $attributes['html_tag'] ?? 'h3' );
 
-if ( ! empty( $faqs_data['categories'] ) ) :
+$has_faqs = false;
+if ( isset( $faqs_data['categories'] ) ) {
+	foreach ( $faqs_data['categories'] as $category ) {
+		if ( ! empty( $category['faqs'] ) ) {
+			$has_faqs = true;
+			break;
+		}
+	}
+} elseif ( ! empty( $legacy_faq['faq_title'] ) ) {
+	$has_faqs = true;
+}
+
+if ( ! $has_faqs ) {
+	return;
+}
+
+if ( isset( $faqs_data['categories'] ) ) :
 	$section_title = ! empty( $faqs_data['sectionTitle'] )
 		? $faqs_data['sectionTitle']
 		: ( $post_meta['faq_section_title'] ?? '' );

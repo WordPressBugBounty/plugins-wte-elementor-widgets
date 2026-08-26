@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wpml-config>
+
+    <custom-types>
+        <custom-type translate="1">wpte_header</custom-type>
+        <custom-type translate="1">wpte_footer</custom-type>
+        <custom-type translate="1">wpte_mobile_header</custom-type>
+        <custom-type translate="1">wpte_mobile_menu</custom-type>
+        <custom-type translate="1">wpte_offcanvas</custom-type>
+    </custom-types>
+
+    <!-- Elementor post meta: copy to translation so layout is preserved. -->
+    <custom-fields>
+        <custom-field action="copy">_elementor_data</custom-field>
+        <custom-field action="copy">_elementor_edit_mode</custom-field>
+        <custom-field action="copy">_elementor_template_type</custom-field>
+        <custom-field action="copy">_elementor_version</custom-field>
+        <custom-field action="copy">_elementor_page_settings</custom-field>
+        <custom-field action="ignore">_elementor_controls_usage</custom-field>
+        <custom-field action="ignore">_elementor_screenshot</custom-field>
+    </custom-fields>
+
+</wpml-config>

@@ -80,7 +80,7 @@ class TripStickyTabWidget extends Widget {
 	public function get_style_depends() {
 		wp_register_style( 'wpte-trip-sticky-tabs', plugin_dir_url( WPTRAVELENGINEEB_FILE__ ) . 'dist/css/wpte-trips-sticky-tab.css' );
 
-		return array( 'wpte-trip-sticky-tabs' );
+		return array( 'wpte-trip-sticky-tabs', 'single-trip' );
 	}
 
 	/**
@@ -179,7 +179,8 @@ class TripStickyTabWidget extends Widget {
 		$custom_trip_tabs = $this->get_custom_trip_tabs();
 
 		// Find all instances of custom-trips-tab widget in the page
-		$document = \Elementor\Plugin::$instance->documents->get( get_the_ID() );
+		$document = \Elementor\Plugin::$instance->documents->get_current()
+			?: \Elementor\Plugin::$instance->documents->get( get_the_ID() );
 		$data     = $document ? $document->get_elements_data() : array();
 
 		$custom_tab_widgets = array();
@@ -278,7 +279,8 @@ class TripStickyTabWidget extends Widget {
 
 		$settings = $this->get_settings_for_display();
 		$this->get_custom_trip_tabs_field_icon( 'tab_10' );
-		$document = \Elementor\Plugin::$instance->documents->get( get_the_ID() );
+		$document = \Elementor\Plugin::$instance->documents->get_current()
+			?: \Elementor\Plugin::$instance->documents->get( get_the_ID() );
 		$data     = $document ? $document->get_elements_data() : array();
 
 		// Get widget mapping from the existing function
@@ -303,6 +305,32 @@ class TripStickyTabWidget extends Widget {
 
 		// Sort tabs by their position
 		asort( $widget_positions );
+
+		// Remove tabs whose sections have no content for this trip.
+		$trip_meta       = get_post_meta( get_the_ID(), 'wp_travel_engine_setting', true );
+		$faqs_categories = $trip_meta['faqs_data']['categories'] ?? array();
+		if ( ! empty( $faqs_categories ) && function_exists( 'wptravelengine_get_global_faq_map' ) && function_exists( 'wptravelengine_filter_orphaned_faqs' ) ) {
+			$faqs_categories = wptravelengine_filter_orphaned_faqs( $faqs_categories, array_keys( wptravelengine_get_global_faq_map() ) );
+		}
+		$has_faqs_content = false;
+		foreach ( $faqs_categories as $category ) {
+			if ( ! empty( $category['faqs'] ) ) {
+				$has_faqs_content = true;
+				break;
+			}
+		}
+		$content_checks = array(
+			'overview'  => ! empty( $trip_meta['tab_content']['1_wpeditor'] ),
+			'itinerary' => ! empty( array_filter( (array) ( $trip_meta['itinerary']['itinerary_title'] ?? array() ) ) ),
+			'cost'      => ! empty( $trip_meta['cost'] ),
+			'map'       => ! empty( array_filter( (array) ( $trip_meta['map'] ?? array() ) ) ),
+			'faqs'      => $has_faqs_content || ! empty( $trip_meta['faq']['faq_title'] ),
+		);
+		foreach ( $content_checks as $key => $has_content ) {
+			if ( ! $has_content ) {
+				unset( $widget_positions[ $key ] );
+			}
+		}
 
 		$trip            = new \WPTravelEngine\Core\Models\Post\Trip( get_the_ID() );
 		$overview_title  = $trip->get_setting( 'overview_section_title' );
@@ -392,7 +420,7 @@ class TripStickyTabWidget extends Widget {
 						?>
 						<div class="tab-anchor-wrapper">
 							<h2 class="wte-tab-title">
-								<a href="<?php echo esc_attr( $href ); ?>" class="nav-tab nb-tab-trigger <?php echo ( $key === array_key_first( $widget_positions ) ) ? ' active' : ''; ?>">
+								<a href="<?php echo esc_attr( $href ); ?>" class="nav-tab nb-tab-trigger <?php echo ( $key === array_key_first( $widget_positions ) ) ? ' active nav-tab-active' : ''; ?>">
 									<i class="<?php echo esc_attr( $icon_class ); ?>"></i> <?php echo esc_html( $label ); ?>
 								</a>
 							</h2>
@@ -469,7 +497,7 @@ class TripStickyTabWidget extends Widget {
 						?>
 						<div class="tab-anchor-wrapper">
 							<h2 class="wte-tab-title">
-								<a href="<?php echo esc_attr( $href ); ?>" class="nav-tab nb-tab-trigger <?php echo ( $key === array_key_first( $widget_positions ) ) ? ' active' : ''; ?>">
+								<a href="<?php echo esc_attr( $href ); ?>" class="nav-tab nb-tab-trigger <?php echo ( $key === array_key_first( $widget_positions ) ) ? ' active nav-tab-active' : ''; ?>">
 									<i class="<?php echo esc_attr( $icon_class ); ?>"></i> <?php echo esc_html( $label ); ?>
 								</a>
 							</h2>

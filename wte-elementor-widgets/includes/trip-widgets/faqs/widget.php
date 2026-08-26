@@ -105,9 +105,9 @@ class FaqsWidget extends Widget {
 				wp_enqueue_script( 'wte-trip-faqs' );
 			}
 			if ( ! $has_faqs_data && ! $has_legacy && $is_elementor_editor_page ) {
-				include_once WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/faqs/demo.php';
+				include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/faqs/demo.php';
 			} else {
-				include_once WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/faqs/faqs.php';
+				include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/faqs/faqs.php';
 			}
 		} else {
 			echo esc_html__( '<p>Oops! No preview/output available for this widget.</p>', 'wptravelengine-elementor-widgets' );

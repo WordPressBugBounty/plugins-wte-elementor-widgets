@@ -102,9 +102,9 @@ class ReviewsWidget extends Widget {
 				);
 				$is_elementor_editor_page = $this->is_elementor_editor_page();
 				if ( empty( $comments ) && $is_elementor_editor_page ) {
-					include_once WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/reviews/demo.php';
+					include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/reviews/demo.php';
 				} else {
-					include_once WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/reviews/reviews.php';
+					include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/reviews/reviews.php';
 				}
 			} else {
 				echo esc_html__( '<p>Oops! No preview/output available for this widget.</p>', 'wptravelengine-elementor-widgets' );

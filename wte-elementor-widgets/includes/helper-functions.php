@@ -329,6 +329,35 @@ function wptravelengineeb_get_trip_taxonomies() {
 }
 
 /**
+ * Get the pricing type label for a trip's primary package.
+ *
+ * Mirrors wptravelengine_get_trip_pricing_type_label() from the engine so this
+ * plugin works even when that function is absent in older engine versions.
+ *
+ * @since 1.5.4
+ * @param int|\WPTravelEngine\Core\Models\Post\Trip $trip Trip ID or Trip instance.
+ * @return string Lowercase pricing type label (e.g. "person", "group"), or empty string.
+ */
+if ( ! function_exists( 'wptravelengineeb_get_trip_pricing_type_label' ) ) {
+	function wptravelengineeb_get_trip_pricing_type_label( $trip ): string {
+		if ( ! function_exists( 'wptravelengine_get_trip' ) || ! function_exists( 'wptravelengine_get_pricing_type' ) ) {
+			return '';
+		}
+		$trip = wptravelengine_get_trip( $trip );
+		if ( ! $trip || ! method_exists( $trip, 'get_primary_package' ) ) {
+			return '';
+		}
+		$package = $trip->get_primary_package();
+		if ( ! $package || empty( $package->primary_pricing_category ) ) {
+			return '';
+		}
+		$pricing_type_key  = $package->primary_pricing_category->get( 'pricing_type', 'per-person' );
+		$pricing_type_info = wptravelengine_get_pricing_type( false, $pricing_type_key );
+		return strtolower( $pricing_type_info['label'] ?? '' );
+	}
+}
+
+/**
  * Get allowed HTML tags for trip content including iframes.
  *
  * Extends wp_kses_post() to allow iframe tags for embedding videos, maps, and other rich media.

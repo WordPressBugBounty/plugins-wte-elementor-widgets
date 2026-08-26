@@ -18,15 +18,15 @@ $selectors = array(
 	),
 	'generals_padding'          => array(
 		'{{WRAPPER}} .elementor-widget-container .post-data .wp-travel-engine-faq-tab-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
-		'{{WRAPPER}} .wpte-faq-section'                                                        => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
+		'{{WRAPPER}} .wpte-faq-section' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
 	),
 	'generals_margin'           => array(
 		'{{WRAPPER}} .elementor-widget-container .post-data .wp-travel-engine-faq-tab-content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
-		'{{WRAPPER}} .wpte-faq-section'                                                        => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
+		'{{WRAPPER}} .wpte-faq-section' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
 	),
 	'generals_gap'              => array(
 		'{{WRAPPER}} .elementor-widget-container .post-data .wp-travel-engine-faq-tab-content .faq-row:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}}',
-		'{{WRAPPER}} .wpte-faq-item:not(:last-child)'                                                                    => 'margin-bottom: {{SIZE}}{{UNIT}}',
+		'{{WRAPPER}} .wpte-faq-item:not(:last-child)' => 'margin-bottom: {{SIZE}}{{UNIT}}',
 	),
 
 	// Title (legacy structure).
@@ -82,34 +82,34 @@ $selectors = array(
 	'faqs_typography'           => '{{WRAPPER}} .elementor-widget-container .post-data .wp-travel-engine-faq-tab-content .faq-row .accordion-tabs-toggle .faq-title, {{WRAPPER}} .wpte-faq-question-text',
 	'faqs_padding'              => array(
 		'{{WRAPPER}} .elementor-widget-container .post-data .wp-travel-engine-faq-tab-content .faq-row .accordion-tabs-toggle .faq-title' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		'{{WRAPPER}} .wpte-faq-question'                                                                                                   => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+		'{{WRAPPER}} .wpte-faq-question' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
 	'faqs_margin'               => array(
 		'{{WRAPPER}} .elementor-widget-container .post-data .wp-travel-engine-faq-tab-content .faq-row .accordion-tabs-toggle .faq-title' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
-		'{{WRAPPER}} .wpte-faq-item'                                                                                                       => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
+		'{{WRAPPER}} .wpte-faq-item' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
 	),
 	'faqs_color'                => array(
 		'{{WRAPPER}} .elementor-widget-container .post-data .wp-travel-engine-faq-tab-content .faq-row .accordion-tabs-toggle .faq-title' => 'color: {{VALUE}};',
-		'{{WRAPPER}} .wpte-faq-question-text'                                                                                              => 'color: {{VALUE}};',
+		'{{WRAPPER}} .wpte-faq-question-text' => 'color: {{VALUE}};',
 	),
 	'faqs_background_color'     => array(
 		'{{WRAPPER}} .elementor-widget-container .post-data .wp-travel-engine-faq-tab-content .faq-row .accordion-tabs-toggle .faq-title' => 'background-color: {{VALUE}};',
-		'{{WRAPPER}} .wpte-faq-question'                                                                                                   => 'background-color: {{VALUE}};',
+		'{{WRAPPER}} .wpte-faq-question' => 'background-color: {{VALUE}};',
 	),
 
 	// FAQ content (new + legacy).
 	'faqs_content_typography'   => '{{WRAPPER}} .elementor-widget-container .post-data .wp-travel-engine-faq-tab-content .faq-row .faq-content, {{WRAPPER}} .wpte-faq-answer-content',
 	'faqs_content_padding'      => array(
 		'{{WRAPPER}} .elementor-widget-container .post-data .wp-travel-engine-faq-tab-content .faq-row .faq-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
-		'{{WRAPPER}} .wpte-faq-answer-content'                                                                        => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+		'{{WRAPPER}} .wpte-faq-answer-content' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
 	),
 	'faqs_content_margin'       => array(
 		'{{WRAPPER}} .elementor-widget-container .post-data .wp-travel-engine-faq-tab-content .faq-row .faq-content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
-		'{{WRAPPER}} .wpte-faq-answer-content'                                                                        => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
+		'{{WRAPPER}} .wpte-faq-answer-content' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}} !important;',
 	),
 	'faqs_content_color'        => array(
 		'{{WRAPPER}} .elementor-widget-container .post-data .wp-travel-engine-faq-tab-content .faq-row .faq-content' => 'color: {{VALUE}};',
-		'{{WRAPPER}} .wpte-faq-answer-content'                                                                        => 'color: {{VALUE}};',
+		'{{WRAPPER}} .wpte-faq-answer-content' => 'color: {{VALUE}};',
 	),
 
 	// Toggle.

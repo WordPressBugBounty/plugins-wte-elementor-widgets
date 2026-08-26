@@ -8,20 +8,21 @@ namespace WPTRAVELENGINEEB;
 list($settings, $results) = $args;
 
 global $post;
-$trip_id           = $post->ID;
-$meta              = \wte_trip_get_trip_rest_metadata( $trip_id );
-$post_title        = get_the_title();
-$image_size        = wte_array_get( $attributes, 'image_size', 'full' );
-$image_custom_size = wte_array_get( $attributes, 'image_custom_size', false );
-$image_size        = 'custom' === $image_size && $image_custom_size ? Widget::wte_get_custom_image_size( $image_custom_size ) : $image_size;
-$showPrice         = wte_array_get( $attributes, 'showPrice', true );
-$priceType         = wte_array_get( $attributes, 'priceType', '1' );
-$price_label       = wte_array_get( $attributes, 'priceLabel', __( 'from', 'wptravelengine-elementor-widgets' ) );
-$position          = wte_array_get( $attributes, 'loc_position', 'top' );
-$show_meta_data    = wte_array_get( $attributes, 'showTripMeta', array( 'showDuration', 'showDifficulty', 'showActivities', 'showAltitude' ) );
-$meta_data         = array( 'group-size', 'age-group', 'difficulty', 'activity', 'trip-types', 'altitude' );
-$rating_layout     = wte_array_get( $settings, 'rating_layout', '1' );
-$showRating        = wte_array_get( $settings, 'showReviews', false );
+$trip_id            = $post->ID;
+$meta               = \wte_trip_get_trip_rest_metadata( $trip_id );
+$pricing_type_label = wptravelengineeb_get_trip_pricing_type_label( $trip_id );
+$post_title         = get_the_title();
+$image_size         = wte_array_get( $attributes, 'image_size', 'full' );
+$image_custom_size  = wte_array_get( $attributes, 'image_custom_size', false );
+$image_size         = 'custom' === $image_size && $image_custom_size ? Widget::wte_get_custom_image_size( $image_custom_size ) : $image_size;
+$showPrice          = wte_array_get( $attributes, 'showPrice', true );
+$priceType          = wte_array_get( $attributes, 'priceType', '1' );
+$price_label        = wte_array_get( $attributes, 'priceLabel', __( 'from', 'wptravelengine-elementor-widgets' ) );
+$position           = wte_array_get( $attributes, 'loc_position', 'top' );
+$show_meta_data     = wte_array_get( $attributes, 'showTripMeta', array( 'showDuration', 'showDifficulty', 'showActivities', 'showAltitude' ) );
+$meta_data          = array( 'group-size', 'age-group', 'difficulty', 'activity', 'trip-types', 'altitude' );
+$rating_layout      = wte_array_get( $settings, 'rating_layout', '1' );
+$showRating         = wte_array_get( $settings, 'showReviews', false );
 
 $_meta_data = array();
 foreach ( $meta_data as $item ) {
@@ -77,7 +78,12 @@ foreach ( $meta_data as $item ) {
 				endif;
 				if ( $showPrice ) :
 					?>
+					<span class="price-holder-inner">
 					<ins class="actual-price"><?php echo wte_esc_price( wte_get_formated_price_html( $display_price ) ); ?></ins>
+					<?php if ( 'yes' === wte_array_get( $attributes, 'showPricingTypeLabel', false ) && $pricing_type_label ) : ?>
+					<span class="pricing-label"><?php echo esc_html( sprintf( _x( '/ %s', 'price per label', 'wptravelengine-elementor-widgets' ), $pricing_type_label ) ); ?></span>
+					<?php endif; ?>
+					</span>
 				<?php endif; ?>
 			</span>
 		<?php endif; ?>
@@ -102,6 +108,20 @@ foreach ( $meta_data as $item ) {
 			</span>
 			<?php
 		endif;
+		if ( wte_array_get( $settings, 'showTag', false ) ) :
+			$tag_terms = get_the_terms( $trip_id, 'trip_tag' );
+			if ( ! empty( $tag_terms ) && ! is_wp_error( $tag_terms ) ) :
+				?>
+		<span class="category-trip-wtetags">
+				<?php
+				foreach ( $tag_terms as $_bt_tag ) :
+					printf( '<span><a rel="tag" target="_self" href="%s">%s</a></span>', esc_url( get_term_link( $_bt_tag ) ), esc_html( $_bt_tag->name ) );
+endforeach;
+				?>
+		</span>
+				<?php
+		endif;
+endif;
 		if ( wte_array_get( $settings, 'showTitle', true ) ) :
 			?>
 			<h2 class="wpte-card__title" itemprop="name">
@@ -258,7 +278,12 @@ foreach ( $meta_data as $item ) {
 				endif;
 				if ( $showPrice ) :
 					?>
+					<span class="price-holder-inner">
 					<ins class="actual-price"><?php echo wte_esc_price( wte_get_formated_price_html( $display_price ) ); ?></ins>
+					<?php if ( 'yes' === wte_array_get( $attributes, 'showPricingTypeLabel', false ) && $pricing_type_label ) : ?>
+					<span class="pricing-label"><?php echo esc_html( sprintf( _x( '/ %s', 'price per label', 'wptravelengine-elementor-widgets' ), $pricing_type_label ) ); ?></span>
+					<?php endif; ?>
+					</span>
 				<?php endif; ?>
 			</div>
 		<?php endif; ?>

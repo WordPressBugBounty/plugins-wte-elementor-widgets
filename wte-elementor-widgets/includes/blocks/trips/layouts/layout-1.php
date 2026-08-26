@@ -6,13 +6,14 @@ namespace WPTRAVELENGINEEB;
  */
 list( $settings, $trip, $results, $pax_label ) = $args;
 
-$is_featured       = wte_is_trip_featured( $trip->ID );
-$meta              = \wte_trip_get_trip_rest_metadata( $trip->ID );
-$tag_placement     = wte_array_get( $settings, 'tagplacement', false );
-$image_size        = wte_array_get( $settings, 'image_size', false );
-$image_custom_size = wte_array_get( $settings, 'image_custom_size', false );
-$image_size        = 'custom' === $image_size && $image_custom_size ? Widget::wte_get_custom_image_size( $image_custom_size ) : $image_size;
-$wte_global        = get_option( 'wp_travel_engine_settings', true );
+$is_featured        = wte_is_trip_featured( $trip->ID );
+$meta               = \wte_trip_get_trip_rest_metadata( $trip->ID );
+$pricing_type_label = wptravelengineeb_get_trip_pricing_type_label( $trip->ID );
+$tag_placement      = wte_array_get( $settings, 'tagplacement', false );
+$image_size         = wte_array_get( $settings, 'image_size', false );
+$image_custom_size  = wte_array_get( $settings, 'image_custom_size', false );
+$image_size         = 'custom' === $image_size && $image_custom_size ? Widget::wte_get_custom_image_size( $image_custom_size ) : $image_size;
+$wte_global         = get_option( 'wp_travel_engine_settings', true );
 
 ?>
 <div class="category-trips-single" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
@@ -38,6 +39,22 @@ $wte_global        = get_option( 'wp_travel_engine_settings', true );
 
 		<div class="category-trip-content-wrap">
 			<div class="category-trip-prc-title-wrap">
+				<?php
+				if ( wte_array_get( $settings, 'layoutFilters.showTag', false ) ) :
+						$tag_terms = get_the_terms( $trip->ID, 'trip_tag' );
+					if ( ! empty( $tag_terms ) && ! is_wp_error( $tag_terms ) ) :
+						?>
+					<span class="category-trip-wtetags">
+						<?php
+						foreach ( $tag_terms as $_bt_tag ) :
+							printf( '<span><a rel="tag" target="_self" href="%s">%s</a></span>', esc_url( get_term_link( $_bt_tag ) ), esc_html( $_bt_tag->name ) );
+endforeach;
+						?>
+					</span>
+						<?php
+				endif;
+endif;
+				?>
 				<?php if ( wte_array_get( $settings, 'layoutFilters.showTitle', true ) ) : ?>
 					<h2 class="category-trip-title" itemprop="name">
 						<a itemprop="url" href="<?php echo esc_url( get_the_permalink( $trip ) ); ?>"><?php echo esc_html( $trip->post_title ); ?></a>
@@ -151,7 +168,12 @@ $wte_global        = get_option( 'wp_travel_engine_settings', true );
 								</div>
 							<?php endif; ?>
 							<span class="price-holder">
-								<span class="actual-price"><?php echo wte_esc_price( wte_get_formated_price_html( $display_price ) ); ?></span>
+								<span class="price-holder-inner">
+									<span class="actual-price"><?php echo wte_esc_price( wte_get_formated_price_html( $display_price ) ); ?></span>
+									<?php if ( wte_array_get( $settings, 'layoutFilters.showPricingTypeLabel', false ) && $pricing_type_label ) : ?>
+									<span class="pricing-label"><?php echo esc_html( sprintf( _x( '/ %s', 'price per label', 'wptravelengine-elementor-widgets' ), $pricing_type_label ) ); ?></span>
+									<?php endif; ?>
+								</span>
 								<?php if ( wte_array_get( $settings, 'layoutFilters.showStrikedPrice', true ) && $meta->has_sale ) : ?>
 								<span class="striked-price"><?php echo wte_esc_price( wte_get_formated_price_html( $meta->price ) ); ?></span>
 								<?php endif; ?>

@@ -87,13 +87,15 @@ class Customizer {
 			)
 		);
 
+		$radio_control_class = class_exists( '\Travel_Monster_Radio_Buttonset_Control' ) ? '\Travel_Monster_Radio_Buttonset_Control' : '\WP_Customize_Control';
 		$wp_customize->add_control(
-			new \Travel_Monster_Radio_Buttonset_Control(
+			new $radio_control_class(
 				$wp_customize,
 				'wpte_header_type',
 				array(
 					'label'    => __( 'Type of Header', 'wptravelengine-elementor-widgets' ),
 					'section'  => 'main_header_builder',
+					'type'     => 'radio',
 					'choices'  => array(
 						'prebuilt' => __( 'Prebuilt', 'wptravelengine-elementor-widgets' ),
 						'builder'  => __( 'Builder', 'wptravelengine-elementor-widgets' ),
@@ -112,13 +114,15 @@ class Customizer {
 			)
 		);
 
+		$select_control_class = class_exists( '\Travel_Monster_Select_Control' ) ? '\Travel_Monster_Select_Control' : '\WP_Customize_Control';
 		$wp_customize->add_control(
-			new \Travel_Monster_Select_Control(
+			new $select_control_class(
 				$wp_customize,
 				'wpte_header_builder_id',
 				array(
 					'label'           => __( 'Choose Header (Desktop)', 'wptravelengine-elementor-widgets' ),
 					'section'         => 'main_header_builder',
+					'type'            => 'select',
 					'choices'         => $this->get_builder_posts( Header_Footer_Builder::HEADER_POST_TYPE ),
 					'priority'        => 2,
 					'active_callback' => array( $this, 'is_header_builder_active' ),
@@ -135,13 +139,15 @@ class Customizer {
 			)
 		);
 
+		$toggle_control_class = class_exists( '\Travel_Monster_Toggle_Control' ) ? '\Travel_Monster_Toggle_Control' : '\WP_Customize_Control';
 		$wp_customize->add_control(
-			new \Travel_Monster_Toggle_Control(
+			new $toggle_control_class(
 				$wp_customize,
 				'wpte_enable_mobile_header',
 				array(
 					'label'           => __( 'Enable Builder Mobile Header', 'wptravelengine-elementor-widgets' ),
 					'section'         => 'main_header_builder',
+					'type'            => 'checkbox',
 					'priority'        => 3,
 					'active_callback' => array( $this, 'is_header_builder_active' ),
 				)
@@ -158,13 +164,14 @@ class Customizer {
 		);
 
 		$wp_customize->add_control(
-			new \Travel_Monster_Select_Control(
+			new $select_control_class(
 				$wp_customize,
 				'wpte_mobile_header_builder_id',
 				array(
 					'label'           => __( 'Choose Header (Mobile)', 'wptravelengine-elementor-widgets' ),
 					'description'     => __( 'Select a header template to use on mobile devices. If not set, the default mobile header will be used.', 'wptravelengine-elementor-widgets' ),
 					'section'         => 'main_header_builder',
+					'type'            => 'select',
 					'choices'         => $this->get_builder_posts( Header_Footer_Builder::MOBILE_MENU_POST_TYPE ),
 					'priority'        => 4,
 					'active_callback' => array( $this, 'is_mobile_header_enabled' ),
@@ -208,13 +215,15 @@ class Customizer {
 			)
 		);
 
+		$radio_control_class = class_exists( '\Travel_Monster_Radio_Buttonset_Control' ) ? '\Travel_Monster_Radio_Buttonset_Control' : '\WP_Customize_Control';
 		$wp_customize->add_control(
-			new \Travel_Monster_Radio_Buttonset_Control(
+			new $radio_control_class(
 				$wp_customize,
 				'wpte_footer_type',
 				array(
 					'label'    => __( 'Type of Footer', 'wptravelengine-elementor-widgets' ),
 					'section'  => 'footer_builder_section',
+					'type'     => 'radio',
 					'choices'  => array(
 						'prebuilt' => __( 'Prebuilt', 'wptravelengine-elementor-widgets' ),
 						'builder'  => __( 'Builder', 'wptravelengine-elementor-widgets' ),
@@ -233,13 +242,15 @@ class Customizer {
 			)
 		);
 
+		$select_control_class = class_exists( '\Travel_Monster_Select_Control' ) ? '\Travel_Monster_Select_Control' : '\WP_Customize_Control';
 		$wp_customize->add_control(
-			new \Travel_Monster_Select_Control(
+			new $select_control_class(
 				$wp_customize,
 				'wpte_footer_builder_id',
 				array(
 					'label'           => __( 'Choose Footer', 'wptravelengine-elementor-widgets' ),
 					'section'         => 'footer_builder_section',
+					'type'            => 'select',
 					'choices'         => $this->get_builder_posts( Header_Footer_Builder::FOOTER_POST_TYPE ),
 					'priority'        => 2,
 					'active_callback' => array( $this, 'is_footer_builder_active' ),

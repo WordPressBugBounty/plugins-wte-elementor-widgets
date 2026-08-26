@@ -96,9 +96,9 @@ class FactsWidget extends Widget {
 			$trip_settings = get_post_meta( get_the_ID(), 'wp_travel_engine_setting', true );
 			$_trip_facts   = isset( $trip_settings['trip_facts'] ) ? $trip_settings['trip_facts'] : array();
 			if ( empty( $_trip_facts ) && $is_elementor_editor_page ) {
-				include_once WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/facts/demo.php';
+				include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/facts/demo.php';
 			} else {
-				include_once WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/facts/facts.php';
+				include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/facts/facts.php';
 			}
 		} else {
 			echo esc_html__( '<p>Oops! No preview/output available for this widget.</p>', 'wptravelengine-elementor-widgets' );

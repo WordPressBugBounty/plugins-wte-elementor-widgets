@@ -104,7 +104,7 @@ class FileDownLoaderWidget extends Widget {
 		if ( defined( 'WTEFD_VERSION' ) ) {
 			$attributes = $this->get_settings_for_display();
 			if ( file_exists( WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/filedownloader/filedownloader.php' ) ) {
-				include_once WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/filedownloader/filedownloader.php';
+				include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/filedownloader/filedownloader.php';
 			} else {
 				echo esc_html__( '<p>Oops! No preview/output available for this widget.</p>', 'wptravelengine-elementor-widgets' );
 			}
@@ -120,7 +120,7 @@ class FileDownLoaderWidget extends Widget {
 						echo wp_kses(
 							sprintf(
 								// translators: %1$s: opening anchor tag, %2$s: closing anchor tag.
-								__( 'Trip - Review Form Widget requires WP Travel Engine - File Downloads to work. %1$sGet WP Travel Engine - File Downloads extension now%2$s.', 'wptravelengine-elementor-widgets' ),
+								__( 'Trip - File Downloader Widget requires WP Travel Engine - File Downloads to work. %1$sGet WP Travel Engine - File Downloads extension now%2$s.', 'wptravelengine-elementor-widgets' ),
 								'<a target="_blank" href="https://wptravelengine.com/plugins/file-downloads/?utm_source=setting&amp;utm_medium=customer_site&amp;utm_campaign=setting_addon">',
 								'</a>'
 							),

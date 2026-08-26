@@ -108,7 +108,7 @@ class CarouselWidget extends Widget {
 		if ( file_exists( WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/carousel/carousel.php' ) ) {
 			$wpte_trip_images = get_post_meta( get_the_ID(), 'wpte_gallery_id', true );
 			if ( empty( $wpte_trip_images ) && $is_elementor_editor_page ) {
-				include_once WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/carousel/demo.php';
+				include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/carousel/demo.php';
 			} else {
 				include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/carousel/carousel.php';
 			}

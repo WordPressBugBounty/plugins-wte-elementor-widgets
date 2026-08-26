@@ -124,11 +124,16 @@ class ItineraryWidget extends Widget {
 		$wte_trip_id   = get_the_ID();
 		$trip_settings = get_post_meta( $wte_trip_id, 'wp_travel_engine_setting', true );
 		$_itinerary    = isset( $trip_settings['itinerary'] ) ? $trip_settings['itinerary'] : array();
+		$has_content   = ! empty( array_filter( (array) ( $_itinerary['itinerary_title'] ?? array() ) ) );
 
-		// Only show demo content when in Elementor editor AND there's no itinerary data
-		if ( empty( $_itinerary ) && $this->is_elementor_editor_page() ) {
-			include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/itinerary/demo.php';
-		} elseif ( file_exists( WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/itinerary/itinerary.php' ) ) {
+		if ( ! $has_content ) {
+			if ( $this->is_elementor_editor_page() ) {
+				include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/itinerary/demo.php';
+			}
+			return;
+		}
+
+		if ( file_exists( WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/itinerary/itinerary.php' ) ) {
 			include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/itinerary/itinerary.php';
 		} else {
 			echo esc_html__( 'Oops! No preview/output available for this widget.', 'wptravelengine-elementor-widgets' );

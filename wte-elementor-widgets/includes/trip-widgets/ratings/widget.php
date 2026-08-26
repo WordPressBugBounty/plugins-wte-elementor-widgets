@@ -102,9 +102,9 @@ class RatingsWidget extends Widget {
 				);
 
 				if ( $comments ) {
-					include_once WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/ratings/ratings.php';
+					include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/ratings/ratings.php';
 				} else {
-					include_once WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/ratings/demo.php';
+					include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/ratings/demo.php';
 				}
 			} else {
 				echo esc_html__( '<p>Oops! No preview/output available for this widget.</p>', 'wptravelengine-elementor-widgets' );

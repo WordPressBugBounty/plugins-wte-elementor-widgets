@@ -255,31 +255,35 @@ $controls = array(
 		'type'        => 'control_section',
 		'label'       => __( 'Additional', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(
-			'showFeaturedRibbon' => array(
+			'showFeaturedRibbon'   => array(
 				'label'   => __( 'Featured Ribbon', 'wptravelengine-elementor-widgets' ),
 				'type'    => 'SWITCHER',
 				'default' => 'yes',
 			),
-			'showDiscount'       => array(
+			'showDiscount'         => array(
 				'label'   => __( 'Discount', 'wptravelengine-elementor-widgets' ),
 				'type'    => 'SWITCHER',
 				'default' => 'yes',
 			),
-			'showReviews'        => array(
+			'showReviews'          => array(
 				'label' => __( 'Reviews', 'wptravelengine-elementor-widgets' ),
 				'type'  => 'SWITCHER',
 			),
-			'showLocation'       => array(
+			'showLocation'         => array(
 				'label'   => __( 'Location', 'wptravelengine-elementor-widgets' ),
 				'type'    => 'SWITCHER',
 				'default' => 'yes',
 			),
-			'showTitle'          => array(
+			'showTitle'            => array(
 				'label'   => __( 'Title', 'wptravelengine-elementor-widgets' ),
 				'type'    => 'SWITCHER',
 				'default' => 'yes',
 			),
-			'showTripMeta'       => array(
+			'showTag'              => array(
+				'label' => __( 'Trip Tags', 'wptravelengine-elementor-widgets' ),
+				'type'  => 'SWITCHER',
+			),
+			'showTripMeta'         => array(
 				'label'       => __( 'Trip Meta', 'wptravelengine-elementor-widgets' ),
 				'type'        => 'SELECT2',
 				'label_block' => true,
@@ -295,7 +299,7 @@ $controls = array(
 				),
 				'default'     => array( 'showDuration', 'showDifficulty', 'showActivities' ),
 			),
-			'durationType'       => array(
+			'durationType'         => array(
 				'type'      => 'SELECT',
 				'label'     => __( 'Duration Type', 'wptravelengine-elementor-widgets' ),
 				'default'   => 'days',
@@ -306,18 +310,23 @@ $controls = array(
 				),
 				'condition' => array( 'showTripMeta' => 'showDuration' ),
 			),
-			'showPrice'          => array(
+			'showPrice'            => array(
 				'label'   => __( 'Price', 'wptravelengine-elementor-widgets' ),
 				'type'    => 'SWITCHER',
 				'default' => 'yes',
 			),
-			'showStrikedPrice'   => array(
+			'showStrikedPrice'     => array(
 				'label'     => __( 'Show striked price on sale', 'wptravelengine-elementor-widgets' ),
 				'type'      => 'SWITCHER',
 				'default'   => 'yes',
 				'condition' => array( 'showPrice' => 'yes' ),
 			),
-			'priceLabel'         => array(
+			'showPricingTypeLabel' => array(
+				'label'     => __( 'Pricing Type', 'wptravelengine-elementor-widgets' ),
+				'type'      => 'SWITCHER',
+				'condition' => array( 'showPrice' => 'yes' ),
+			),
+			'priceLabel'           => array(
 				'default'   => __( 'from', 'wptravelengine-elementor-widgets' ),
 				'type'      => 'TEXT',
 				'condition' => array(
@@ -326,12 +335,12 @@ $controls = array(
 				),
 				'label'     => __( 'Price label', 'wptravelengine-elementor-widgets' ),
 			),
-			'showWishlist'       => array(
+			'showWishlist'         => array(
 				'label'   => __( 'Wishlist', 'wptravelengine-elementor-widgets' ),
 				'type'    => 'SWITCHER',
 				'default' => 'yes',
 			),
-			'showViewMoreButton' => array(
+			'showViewMoreButton'   => array(
 				'label'     => __( 'Show view more button', 'wptravelengine-elementor-widgets' ),
 				'type'      => 'SWITCHER',
 				'default'   => 'yes',
@@ -339,7 +348,7 @@ $controls = array(
 					'cardlayout' => '3',
 				),
 			),
-			'viewMoreButtonText' => array(
+			'viewMoreButtonText'   => array(
 				'label'     => __( 'View more label', 'wptravelengine-elementor-widgets' ),
 				'type'      => 'TEXT',
 				'default'   => __( 'View Details', 'wptravelengine-elementor-widgets' ),

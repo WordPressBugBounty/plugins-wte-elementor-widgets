@@ -113,7 +113,7 @@ class ReviewFormWidget extends Widget {
 		if ( defined( 'WTE_TRIP_REVIEW_VERSION' ) ) {
 			$attributes = $this->get_settings_for_display();
 			if ( file_exists( WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/reviewform/reviewform.php' ) ) {
-				include_once WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/reviewform/reviewform.php';
+				include WPTRAVELENGINEEB_PATH . 'includes/trip-widgets/reviewform/reviewform.php';
 			} else {
 				echo esc_html__( '<p>Oops! No preview/output available for this widget.</p>', 'wptravelengine-elementor-widgets' );
 			}

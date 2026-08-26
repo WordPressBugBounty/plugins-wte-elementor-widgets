@@ -3,9 +3,9 @@ Contributors: wptravelengine
 Plugin link: https://wptravelengine.com/
 Tags: Tour booking, Tour operator, Travel, Travel agency, Travel booking
 Requires at least: 5.0
-Tested up to: 7.0
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.5.3
+Stable tag: 1.5.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -181,6 +181,14 @@ The plugin is optimized for speed and performance, so it will not slow down your
 9. Trips Widget Slider Controls.
 
 == Changelog ==
+
+= 1.5.4 - 26th August, 2026 =
+* Improved: Added support for displaying trip tags and pricing types in Elementor widgets.
+* Fixed: FAQ widget toggle issue when added twice on same page.
+* Fixed: Corrected styling issues with Advanced Trips, Trips List, Trips Module, Trips Slider, and Taxonomy Slider widgets when used on pages with Elementor Pro templates.
+* Fixed: Corrected Sticky Tab widget position detection when rendered through Elementor Theme Builder templates.
+* Fixed: Resolved an issue where WPML-translated WPTE Builder Header and Footer templates were not displayed on translated pages.
+* Fixed: Showed the header in the FSD trip widget on Elementor trip pages.
 
 = 1.5.3 - 8th June, 2026 =
 * Improved: Elementor FAQ widget now supports category-based FAQ structure.

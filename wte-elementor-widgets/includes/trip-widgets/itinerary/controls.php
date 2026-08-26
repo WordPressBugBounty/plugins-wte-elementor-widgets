@@ -38,6 +38,16 @@ $selectors = array(
 	),
 
 	// Title Section.
+	'description_typography'           => '{{WRAPPER}} .elementor-widget-container .wte-itinerary-header-wrapper .wpte-itinerary-description',
+	'description_color'                => array(
+		'{{WRAPPER}} .elementor-widget-container .wte-itinerary-header-wrapper .wpte-itinerary-description' => 'color: {{VALUE}};',
+	),
+	'description_padding'              => array(
+		'{{WRAPPER}} .elementor-widget-container .wte-itinerary-header-wrapper .wpte-itinerary-description' => 'padding: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+	),
+	'description_margin'               => array(
+		'{{WRAPPER}} .elementor-widget-container .wte-itinerary-header-wrapper .wpte-itinerary-description' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+	),
 	'title_typography'                 => '{{WRAPPER}} .elementor-widget-container .wte-itinerary-header-wrapper .wpte-itinerary-title',
 	'title_color'                      => array(
 		'{{WRAPPER}} .elementor-widget-container .wte-itinerary-header-wrapper .wp-travel-engine-itinerary-header .wpte-itinerary-title' => 'color: {{VALUE}};',
@@ -130,14 +140,14 @@ $controls = array(
 		'type'        => 'control_section',
 		'label'       => __( 'Title', 'wptravelengine-elementor-widgets' ),
 		'subcontrols' => array(
-			'show_title' => array(
+			'show_title'       => array(
 				'label'     => __( 'Show Title', 'wptravelengine-elementor-widgets' ),
 				'type'      => \Elementor\Controls_Manager::SWITCHER,
 				'label_on'  => __( 'Show', 'wptravelengine-elementor-widgets' ),
 				'label_off' => __( 'Hide', 'wptravelengine-elementor-widgets' ),
 				'default'   => 'yes',
 			),
-			'html_tag'   => array(
+			'html_tag'         => array(
 				'type'    => 'SELECT',
 				'label'   => __( 'HTML Tag', 'wptravelengine-elementor-widgets' ),
 				'default' => 'h3',
@@ -152,6 +162,13 @@ $controls = array(
 					'span' => __( 'span', 'wptravelengine-elementor-widgets' ),
 					'p'    => __( 'p', 'wptravelengine-elementor-widgets' ),
 				),
+			),
+			'show_description' => array(
+				'label'     => __( 'Show Description', 'wptravelengine-elementor-widgets' ),
+				'type'      => \Elementor\Controls_Manager::SWITCHER,
+				'label_on'  => __( 'Show', 'wptravelengine-elementor-widgets' ),
+				'label_off' => __( 'Hide', 'wptravelengine-elementor-widgets' ),
+				'default'   => 'yes',
 			),
 		),
 	),
@@ -310,6 +327,34 @@ $controls = array(
 				'label'      => __( 'Margin', 'wptravelengine-elementor-widgets' ),
 				'size_units' => array( 'px', '%x', 'em' ),
 				'selectors'  => $selectors['card_margin'],
+			),
+		),
+	),
+	'description_section'     => array(
+		'type'        => \Elementor\Controls_Manager::TAB_STYLE,
+		'label'       => __( 'Description', 'wptravelengine-elementor-widgets' ),
+		'subcontrols' => array(
+			'description_typography' => array(
+				'type'     => \Elementor\Group_Control_Typography::get_type(),
+				'label'    => __( 'Typography', 'wptravelengine-elementor-widgets' ),
+				'selector' => $selectors['description_typography'],
+			),
+			'description_color'      => array(
+				'type'      => \Elementor\Controls_Manager::COLOR,
+				'label'     => __( 'Color', 'wptravelengine-elementor-widgets' ),
+				'selectors' => $selectors['description_color'],
+			),
+			'description_padding'    => array(
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'label'      => __( 'Padding', 'wptravelengine-elementor-widgets' ),
+				'size_units' => array( 'px', 'em', '%' ),
+				'selectors'  => $selectors['description_padding'],
+			),
+			'description_margin'     => array(
+				'type'       => \Elementor\Controls_Manager::DIMENSIONS,
+				'label'      => __( 'Margin', 'wptravelengine-elementor-widgets' ),
+				'size_units' => array( 'px', '%', 'em' ),
+				'selectors'  => $selectors['description_margin'],
 			),
 		),
 	),

@@ -57,17 +57,19 @@ $wp_travel_engine_settings = get_option( 'wp_travel_engine_settings' );
 $enabled_expand_all        = ! isset( $wp_travel_engine_settings['wte_advance_itinerary']['enable_expand_all'] ) || 'yes' == $wp_travel_engine_settings['wte_advance_itinerary']['enable_expand_all'] ? 'enabled' : '';
 
 // Get the attributes from the widget.
-$show_title      = isset( $attributes['show_title'] ) ? $attributes['show_title'] : 'yes';
-$_title          = isset( $attributes['title'] ) ? $attributes['title'] : $tab_title;
-$html_tag        = wptravelengineeb_normalize_html_tag( $attributes['html_tag'] ?? 'h3' );
-$show_expand_all = isset( $attributes['show_expand_all'] ) ? $attributes['show_expand_all'] : 'yes';
-$expand_all_text = isset( $attributes['expand_all_text'] ) ? $attributes['expand_all_text'] : '';
-$expand_all      = isset( $attributes['expand_all'] ) ? $attributes['expand_all'] : $enabled_expand_all;
-$first_day_icon  = isset( $attributes['first_day_icon']['value'] ) && ! empty( $attributes['first_day_icon']['value'] ) ? 'has-custom-icon' : '';
-$last_day_icon   = isset( $attributes['last_day_icon']['value'] ) && ! empty( $attributes['last_day_icon']['value'] ) ? ' has-custom-icon' : '';
-$expand_on_icon  = isset( $attributes['expand_on_icon']['value'] ) && ! empty( $attributes['expand_on_icon']['value'] ) ? 'custom-expand-on-icon' : '';
-$expand_off_icon = isset( $attributes['expand_off_icon']['value'] ) && ! empty( $attributes['expand_off_icon']['value'] ) ? ' custom-expand-off-icon' : '';
-$show_chart      = isset( $attributes['show_chart'] ) ? $attributes['show_chart'] : 'yes';
+$show_title       = isset( $attributes['show_title'] ) ? $attributes['show_title'] : 'yes';
+$_title           = isset( $attributes['title'] ) ? $attributes['title'] : $tab_title;
+$html_tag         = wptravelengineeb_normalize_html_tag( $attributes['html_tag'] ?? 'h3' );
+$show_expand_all  = isset( $attributes['show_expand_all'] ) ? $attributes['show_expand_all'] : 'yes';
+$expand_all_text  = isset( $attributes['expand_all_text'] ) ? $attributes['expand_all_text'] : '';
+$expand_all       = isset( $attributes['expand_all'] ) ? $attributes['expand_all'] : $enabled_expand_all;
+$first_day_icon   = isset( $attributes['first_day_icon']['value'] ) && ! empty( $attributes['first_day_icon']['value'] ) ? 'has-custom-icon' : '';
+$last_day_icon    = isset( $attributes['last_day_icon']['value'] ) && ! empty( $attributes['last_day_icon']['value'] ) ? ' has-custom-icon' : '';
+$expand_on_icon   = isset( $attributes['expand_on_icon']['value'] ) && ! empty( $attributes['expand_on_icon']['value'] ) ? 'custom-expand-on-icon' : '';
+$expand_off_icon  = isset( $attributes['expand_off_icon']['value'] ) && ! empty( $attributes['expand_off_icon']['value'] ) ? ' custom-expand-off-icon' : '';
+$show_chart       = isset( $attributes['show_chart'] ) ? $attributes['show_chart'] : 'yes';
+$show_description = $attributes['show_description'] ?? 'yes';
+$demo_description = __( 'Experience the adventure of a lifetime on this iconic trek through the Himalayas, passing through stunning landscapes and ancient Sherpa villages.', 'wptravelengine-elementor-widgets' );
 
 ?>
 <div class="wte-itinerary-header-wrapper">
@@ -82,6 +84,9 @@ $show_chart      = isset( $attributes['show_chart'] ) ? $attributes['show_chart'
 		</div>
 		<?php } ?>
 	</div>
+	<?php if ( 'yes' === $show_description ) : ?>
+		<div class="wpte-itinerary-description"><?php echo wp_kses_post( $demo_description ); ?></div>
+	<?php endif; ?>
 </div>
 
 <div class="post-data itinerary wte-trip-itinerary-v2">

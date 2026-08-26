@@ -58,6 +58,12 @@ $additional_itinerary_info_position = $wp_travel_engine_settings['wte_advance_it
 		<?php
 		if ( defined( 'WTEAI_VERSION' ) && $show_chart ) {
 			do_action( 'wte_after_itinerary_header' );
+		} else {
+			$show_description           = $attributes['show_description'] ?? 'yes';
+			$trip_itinerary_description = $_tabs['trip_itinerary_description'] ?? '';
+			if ( 'yes' === $show_description && ! empty( $trip_itinerary_description ) ) {
+				echo '<div class="wpte-itinerary-description">' . wp_kses_post( $trip_itinerary_description ) . '</div>';
+			}
 		}
 		?>
 	</div>

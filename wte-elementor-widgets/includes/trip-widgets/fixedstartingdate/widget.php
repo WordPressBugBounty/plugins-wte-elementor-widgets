@@ -106,6 +106,7 @@ class FixedstartingdateWidget extends Widget {
 	 * Renders Widget.
 	 *
 	 * @since 1.3.0
+	 * @since 1.5.4 added show_header args for header to show from FSD.
 	 */
 	protected function render() {
 		if ( defined( 'WTE_FIXED_DEPARTURE_VERSION' ) ) {
@@ -120,6 +121,7 @@ class FixedstartingdateWidget extends Widget {
 						array(
 							'trip_id'      => $post->ID,
 							'is_shortcode' => true,
+							'show_header'  => true,
 						)
 					);
 
