@@ -11,9 +11,9 @@ namespace WPTRAVELENGINEEB;
 
 $selectors = array(
 	// tab
-	'tab_typography'     => '{{WRAPPER}} .nav-tab-wrapper .tab-anchor-wrapper a.nav-tab',
-	'tab_active_color'   => array( '{{WRAPPER}} .nav-tab-wrapper .tab-anchor-wrapper .nav-tab ' => '--tab-color: {{VALUE}};' ),
-	'tab_inactive_color' => array( '{{WRAPPER}} .nav-tab-wrapper .tab-anchor-wrapper .nav-tab ' => '--tab-active-color: {{VALUE}};' ),
+	'tab_typography'     => '{{WRAPPER}} .nav-tab-wrapper .wpte-tab-anchor a.nav-tab',
+	'tab_active_color'   => array( '{{WRAPPER}} .nav-tab-wrapper .wpte-tab-anchor .nav-tab ' => '--tab-color: {{VALUE}};' ),
+	'tab_inactive_color' => array( '{{WRAPPER}} .nav-tab-wrapper .wpte-tab-anchor .nav-tab ' => '--tab-active-color: {{VALUE}};' ),
 	'tab_gap'            => array( '{{WRAPPER}} .nav-tab-wrapper .tab-inner-wrapper' => '--wpte-sticky-tab-gap: {{ROW}}{{UNIT}} {{COLUMN}}{{UNIT}};' ),
 );
 

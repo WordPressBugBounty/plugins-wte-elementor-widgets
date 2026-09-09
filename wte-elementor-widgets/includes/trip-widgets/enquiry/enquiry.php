@@ -34,7 +34,11 @@ if ( function_exists( 'get_privacy_policy_url' ) && get_privacy_policy_url() ) {
 		'type'              => 'checkbox',
 		'label'             => __( 'Privacy Policy', 'wptravelengine-elementor-widgets' ),
 		// translators: %s: privacy policy link.
-		'options'           => array( 'on' => isset( $wp_travel_engine_settings['gdpr_msg'] ) ? esc_attr( $wp_travel_engine_settings['gdpr_msg'] ) . get_the_privacy_policy_link() . '.' : sprintf( __( 'By contacting us, you agree to our <a href="%1$s">Privacy Policy</a>', 'wptravelengine-elementor-widgets' ), get_privacy_policy_url() ) ),
+		'options'           => array(
+			'on' => method_exists( '\WP_Travel_Engine_Enquiry_Form_Shortcodes', 'get_privacy_confirmation_label' )
+				? \WP_Travel_Engine_Enquiry_Form_Shortcodes::get_privacy_confirmation_label( $wp_travel_engine_settings )
+				: ( ! empty( $wp_travel_engine_settings['gdpr_msg'] ) ? esc_html( $wp_travel_engine_settings['gdpr_msg'] ) . sprintf( '<a href="%1$s" target="_blank" rel="noopener noreferrer">%2$s</a>', esc_url( get_privacy_policy_url() ), __( 'Privacy Policy', 'wptravelengine-elementor-widgets' ) ) . '.' : sprintf( __( 'By contacting us, you agree to our <a href="%1$s" target="_blank" rel="noopener noreferrer">Privacy Policy</a>', 'wptravelengine-elementor-widgets' ), esc_url( get_privacy_policy_url() ) ) ),
+		),
 		'name'              => 'enquiry_confirmation',
 		'wrapper_class'     => 'row-form confirm-holder',
 		'id'                => 'enquiry_confirmation',

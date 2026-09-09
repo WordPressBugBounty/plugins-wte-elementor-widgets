@@ -166,12 +166,11 @@ class TripStickyTabWidget extends Widget {
 		$default_mapping = array(
 			'overview'  => 'wte-overview',
 			'itinerary' => 'wte-itinerary',
-			'dates'     => 'wte-dates',
+			'dates'     => 'wte-fixed-starting-date',
 			'map'       => 'wte-map',
 			'faqs'      => 'wte-faqs',
-			'cost'      => 'wte-cost',
+			'cost'      => array( 'wte-cost', 'wte-costincludes', 'wte-costexcludes' ),
 			'reviews'   => 'wte-trip-reviews',
-			'booking'   => 'wte-booking',
 			'enquiry'   => 'wte-enquiry',
 		);
 
@@ -221,21 +220,23 @@ class TripStickyTabWidget extends Widget {
 	/**
 	 * Helper function to find widget positions in the page
 	 *
-	 * @param array  $elements    Array of elements to search through
-	 * @param string $widget_name Widget name to search for
-	 * @param int    $index      Current index for tracking position
+	 * @param array        $elements     Array of elements to search through
+	 * @param string|array $widget_name  Widget name(s) to search for
+	 * @param int          $index        Current index for tracking position
+	 * @param string|null  &$matched_type Set to the actual widgetType that matched
 	 * @return int|false Returns index if found, false otherwise
 	 */
-	private function find_widget_position( $elements, $widget_name, $index = 0 ) {
+	private function find_widget_position( $elements, $widget_name, $index = 0, &$matched_type = null ) {
 		foreach ( $elements as $element ) {
 			if ( isset( $element['widgetType'] ) ) {
 				++$index;
-				if ( $element['widgetType'] === $widget_name ) {
+				if ( in_array( $element['widgetType'], (array) $widget_name, true ) ) {
+					$matched_type = $element['widgetType'];
 					return $index;
 				}
 			}
 			if ( isset( $element['elements'] ) && is_array( $element['elements'] ) ) {
-				$result = $this->find_widget_position( $element['elements'], $widget_name, $index );
+				$result = $this->find_widget_position( $element['elements'], $widget_name, $index, $matched_type );
 				if ( $result !== false ) {
 					return $result;
 				}
@@ -289,16 +290,32 @@ class TripStickyTabWidget extends Widget {
 		// Get positions for all widgets
 		$widget_positions = array();
 
+		// Some widget types render their section under a DOM id that doesn't match
+		// the generic 'wte-{tab_key}' pattern — map those explicitly.
+		$anchor_id_overrides = array(
+			'wte-fixed-starting-date' => 'wte-fixed-departure-dates',
+		);
+		$anchor_ids          = array();
+
 		// Get the position of the enquiry form it should be always sticky and last
 		foreach ( $tab_widgets as $key => $widget ) {
-			$position = $this->find_widget_position( $data, $widget, 0 );
+			$matched_type = null;
+			$position     = $this->find_widget_position( $data, $widget, 0, $matched_type );
 			if ( $position !== false ) {
 				$widget_positions[ $key ] = $position;
+				if ( is_array( $widget ) ) {
+					// Multiple possible widget types map to this tab (e.g. cost tab can be
+					// fed by the Cost, Cost Includes, or Cost Excludes widget) — the anchor
+					// must point at whichever one was actually found.
+					$anchor_ids[ $key ] = $anchor_id_overrides[ $matched_type ] ?? $matched_type;
+				} elseif ( isset( $anchor_id_overrides[ $matched_type ] ) ) {
+					$anchor_ids[ $key ] = $anchor_id_overrides[ $matched_type ];
+				}
 			}
 			if ( $position && $widget === 'wte-enquiry' ) {
 				$widget_positions['enquiry'] = 99;
 			}
-			if ( $position && $widget === 'wte-reviews' ) {
+			if ( $position && $widget === 'wte-trip-reviews' ) {
 				$widget_positions['reviews'] = 98;
 			}
 		}
@@ -415,12 +432,12 @@ class TripStickyTabWidget extends Widget {
 						if ( $key === 'enquiry' ) {
 							$href = '#wte_enquiry_form_scroll_wrapper';
 						} else {
-							$href = '#wte-' . esc_attr( $key );
+							$href = '#' . esc_attr( $anchor_ids[ $key ] ?? ( 'wte-' . $key ) );
 						}
 						?>
-						<div class="tab-anchor-wrapper">
+						<div class="wpte-tab-anchor">
 							<h2 class="wte-tab-title">
-								<a href="<?php echo esc_attr( $href ); ?>" class="nav-tab nb-tab-trigger <?php echo ( $key === array_key_first( $widget_positions ) ) ? ' active nav-tab-active' : ''; ?>">
+								<a href="<?php echo esc_attr( $href ); ?>" data-target="<?php echo esc_attr( ltrim( $href, '#' ) ); ?>" class="nav-tab nb-tab-trigger <?php echo ( $key === array_key_first( $widget_positions ) ) ? ' active wpte-nav-tab-active' : ''; ?>">
 									<i class="<?php echo esc_attr( $icon_class ); ?>"></i> <?php echo esc_html( $label ); ?>
 								</a>
 							</h2>
@@ -492,12 +509,12 @@ class TripStickyTabWidget extends Widget {
 						if ( $key === 'enquiry' ) {
 							$href = '#wte_enquiry_form_scroll_wrapper';
 						} else {
-							$href = '#wte-' . esc_attr( $key );
+							$href = '#' . esc_attr( $anchor_ids[ $key ] ?? ( 'wte-' . $key ) );
 						}
 						?>
-						<div class="tab-anchor-wrapper">
+						<div class="wpte-tab-anchor">
 							<h2 class="wte-tab-title">
-								<a href="<?php echo esc_attr( $href ); ?>" class="nav-tab nb-tab-trigger <?php echo ( $key === array_key_first( $widget_positions ) ) ? ' active nav-tab-active' : ''; ?>">
+								<a href="<?php echo esc_attr( $href ); ?>" data-target="<?php echo esc_attr( ltrim( $href, '#' ) ); ?>" class="nav-tab nb-tab-trigger <?php echo ( $key === array_key_first( $widget_positions ) ) ? ' active wpte-nav-tab-active' : ''; ?>">
 									<i class="<?php echo esc_attr( $icon_class ); ?>"></i> <?php echo esc_html( $label ); ?>
 								</a>
 							</h2>

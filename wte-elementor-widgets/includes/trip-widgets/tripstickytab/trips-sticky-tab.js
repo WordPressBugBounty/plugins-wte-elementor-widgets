@@ -4,6 +4,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const tabsContainer = document.getElementById('tabs-container');
     const navTabWrapper  = tabsContainer ? tabsContainer.querySelector('.nav-tab-wrapper') : null;
+    const mobileTabRow   = tabsContainer ? tabsContainer.querySelector('.wpte-sticky-tab-mobile') : null;
+
+    function isMobileWidth() {
+        return window.innerWidth <= 767;
+    }
 
     let containerOffsetTop = 0;
     let navHeight          = 0;
@@ -20,7 +25,25 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         if ( navTabWrapper ) {
             navHeight = navTabWrapper.offsetHeight;
+            if ( tabsContainer ) {
+                tabsContainer.style.minHeight = navHeight + 'px';
+            }
         }
+
+        const adminBar = document.getElementById( 'wpadminbar' );
+        let headerOffset = 0;
+        if ( adminBar && window.getComputedStyle( adminBar ).position === 'fixed' ) {
+            headerOffset = adminBar.offsetHeight;
+        }
+
+        const themeHeader = document.querySelector( '.mobile-header' );
+        if ( themeHeader && isMobileWidth() ) {
+            const themeHeaderStyle = window.getComputedStyle( themeHeader );
+            if ( themeHeaderStyle.position === 'sticky' || themeHeaderStyle.position === 'fixed' ) {
+                headerOffset += themeHeader.offsetHeight;
+            }
+        }
+        document.documentElement.style.setProperty( '--wpte-tab-pin-offset', headerOffset + 'px' );
     }
 
     recomputeLayout();
@@ -31,15 +54,6 @@ document.addEventListener('DOMContentLoaded', function() {
         clearTimeout( resizeTimer );
         resizeTimer = setTimeout( recomputeLayout, 200 );
     } );
-
-    // Fixed-header takes .nav-tab-wrapper out of flow; lock container min-height to prevent layout shift.
-    if ( tabsContainer && navTabWrapper ) {
-        new MutationObserver( function() {
-            tabsContainer.style.minHeight = tabsContainer.classList.contains('fixed-header')
-                ? navHeight + 'px'
-                : '';
-        } ).observe( tabsContainer, { attributes: true, attributeFilter: ['class'] } );
-    }
 
     const allTabLinks = document.querySelectorAll('.wpte-sticky-tabs a');
 
@@ -65,48 +79,54 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetEl   = document.querySelector(target);
             const stickyTabs = document.querySelector('.wpte-sticky-tabs');
 
-            allTabLinks.forEach( a => a.classList.remove('active', 'nav-tab-active') );
-            document.querySelectorAll('.wpte-sticky-tabs a[href="' + target + '"]').forEach( a => a.classList.add('active', 'nav-tab-active') );
+            allTabLinks.forEach( a => a.classList.remove('active', 'wpte-nav-tab-active') );
+            document.querySelectorAll('.wpte-sticky-tabs a[href="' + target + '"]').forEach( a => a.classList.add('active', 'wpte-nav-tab-active') );
 
             if ( stickyTabs && targetEl ) {
-                const wasFixed = tabsContainer && tabsContainer.classList.contains( 'fixed-header' );
-                if ( tabsContainer && ! wasFixed ) {
-                    tabsContainer.classList.add( 'fixed-header' );
-                    document.body.classList.add( 'wte-tabs-fixed' );
-                    tabsContainer.style.minHeight = navTabWrapper ? navTabWrapper.offsetHeight + 'px' : '';
-                }
+                const mobile      = isMobileWidth();
+                const pinClass    = mobile ? 'wpte-pinned' : 'fixed-header';
+                const ownBarHeight = mobile && mobileTabRow ? mobileTabRow.offsetHeight : navHeight;
+                const themeOffset  = parseFloat( getComputedStyle( document.documentElement ).getPropertyValue( '--wpte-tab-pin-offset' ) ) || 0;
 
-                const headerHeight   = stickyTabs.getBoundingClientRect().bottom;
-                const rawTop         = targetEl.getBoundingClientRect().top + window.pageYOffset;
-                const willBeFixed    = ( rawTop - headerHeight ) >= containerOffsetTop;
-                const targetPosition = willBeFixed ? rawTop - headerHeight : rawTop;
+                const rawTop = targetEl.getBoundingClientRect().top + window.pageYOffset;
 
-                // Target sits above the sticky trigger point — revert the forced state.
-                if ( tabsContainer && ! wasFixed && ! willBeFixed ) {
-                    tabsContainer.classList.remove( 'fixed-header' );
-                    document.body.classList.remove( 'wte-tabs-fixed' );
-                    tabsContainer.style.minHeight = '';
+                const willBeFixed    = ( rawTop - themeOffset - ownBarHeight ) >= containerOffsetTop;
+                const targetPosition = willBeFixed ? ( rawTop - themeOffset - ownBarHeight ) : ( rawTop - themeOffset );
+
+                if ( tabsContainer ) {
+                    tabsContainer.classList.toggle( pinClass, willBeFixed );
+                    if ( ! mobile ) {
+                        document.body.classList.toggle( 'wte-tabs-fixed', willBeFixed );
+                    }
                 }
 
                 isScrolling = true;
                 clearTimeout( scrollEndTimer );
                 scrollEndTimer = setTimeout( function() { isScrolling = false; }, 300 );
-                window.scrollTo({ top: targetPosition });
+                window.scrollTo({ top: targetPosition, behavior: 'auto' });
             }
         } );
     } );
 
-    // Scroll handler — sticky toggle + scroll spy.
-    window.addEventListener('scroll', function() {
+    let scrollTicking = false;
+
+    function handleScroll() {
         clearTimeout( scrollEndTimer );
         scrollEndTimer = setTimeout( function() { isScrolling = false; }, 100 );
 
         const scrollPosition = window.pageYOffset;
+        const mobile         = isMobileWidth();
 
-        // Toggle fixed-header: WTE core has this logic commented out, so we own it.
         if ( tabsContainer ) {
-            tabsContainer.classList.toggle( 'fixed-header', scrollPosition >= containerOffsetTop );
-            document.body.classList.toggle( 'wte-tabs-fixed', scrollPosition >= containerOffsetTop );
+            const pinClass = mobile ? 'wpte-pinned' : 'fixed-header';
+            const pinned   = scrollPosition >= containerOffsetTop;
+            tabsContainer.classList.toggle( pinClass, pinned );
+            if ( ! mobile ) {
+                document.body.classList.toggle( 'wte-tabs-fixed', pinned );
+            } else if ( tabsContainer.classList.contains( 'fixed-header' ) ) {
+                tabsContainer.classList.remove( 'fixed-header' );
+                document.body.classList.remove( 'wte-tabs-fixed' );
+            }
         }
 
         if ( isScrolling || ! sections.length ) return;
@@ -114,17 +134,27 @@ document.addEventListener('DOMContentLoaded', function() {
         const stickyTabs = document.querySelector('.wpte-sticky-tabs');
         if ( ! stickyTabs ) return;
 
-        const isFixed        = tabsContainer && tabsContainer.classList.contains( 'fixed-header' );
-        const headerHeight   = isFixed ? stickyTabs.getBoundingClientRect().bottom : stickyTabs.offsetHeight;
+        const isFixed      = tabsContainer && tabsContainer.classList.contains( mobile ? 'wpte-pinned' : 'fixed-header' );
+        const headerEl     = mobile && mobileTabRow ? mobileTabRow : stickyTabs;
+        const headerHeight = isFixed ? headerEl.getBoundingClientRect().bottom : stickyTabs.offsetHeight;
 
         sections.forEach( function( { el, href } ) {
             const top    = el.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
             const bottom = top + el.offsetHeight;
 
             if ( scrollPosition >= top && scrollPosition < bottom ) {
-                allTabLinks.forEach( a => a.classList.remove('active', 'nav-tab-active') );
-                document.querySelectorAll('.wpte-sticky-tabs a[href="' + href + '"]').forEach( a => a.classList.add('active', 'nav-tab-active') );
+                allTabLinks.forEach( a => a.classList.remove('active', 'wpte-nav-tab-active') );
+                document.querySelectorAll('.wpte-sticky-tabs a[href="' + href + '"]').forEach( a => a.classList.add('active', 'wpte-nav-tab-active') );
             }
         } );
-    } );
+    }
+
+    window.addEventListener('scroll', function() {
+        if ( scrollTicking ) return;
+        scrollTicking = true;
+        window.requestAnimationFrame( function() {
+            handleScroll();
+            scrollTicking = false;
+        } );
+    }, { passive: true } );
 } );

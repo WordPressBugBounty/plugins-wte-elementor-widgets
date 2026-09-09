@@ -5,7 +5,7 @@ Tags: Tour booking, Tour operator, Travel, Travel agency, Travel booking
 Requires at least: 5.0
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 1.5.4
+Stable tag: 1.5.5
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -181,6 +181,9 @@ The plugin is optimized for speed and performance, so it will not slow down your
 9. Trips Widget Slider Controls.
 
 == Changelog ==
+
+= 1.5.5 - 9th September, 2026 =
+* Fixed: Resolved an issue on mobile where users could not scroll to the bottom of the page when the sticky widget was enabled.
 
 = 1.5.4 - 26th August, 2026 =
 * Improved: Added support for displaying trip tags and pricing types in Elementor widgets.

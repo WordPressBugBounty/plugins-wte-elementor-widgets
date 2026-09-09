@@ -2,9 +2,9 @@
 # This file is distributed under the GPLv3.
 msgid ""
 msgstr ""
-"Project-Id-Version: WP Travel Engine - Elementor Widgets 1.5.4\n"
+"Project-Id-Version: WP Travel Engine - Elementor Widgets 1.5.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-08-26 08:33:12+00:00\n"
+"POT-Creation-Date: 2026-09-09 05:26:48+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -156,11 +156,12 @@ msgid "Hours"
 msgstr ""
 
 #: includes/blocks/trips/block.php:95
+#: includes/trip-widgets/relatedtrips/relatedtrips.php:153
 msgid "People"
 msgstr ""
 
 #: includes/blocks/trips/block.php:190
-#: includes/trip-widgets/relatedtrips/relatedtrips.php:242
+#: includes/trip-widgets/relatedtrips/relatedtrips.php:249
 #: includes/widgets/advanced-trips-four/advanced-trips-four.php:236
 #: includes/widgets/advanced-trips-one/advanced-trips-one.php:236
 #: includes/widgets/advanced-trips-three/advanced-trips-three.php:242
@@ -2301,8 +2302,8 @@ msgstr ""
 #: includes/class-widgets.php:409
 #: includes/trip-widgets/relatedtrips/controls.php:552
 #: includes/trip-widgets/reviews/controls.php:100
-#: includes/trip-widgets/tripstickytab/widget.php:391
-#: includes/trip-widgets/tripstickytab/widget.php:468
+#: includes/trip-widgets/tripstickytab/widget.php:408
+#: includes/trip-widgets/tripstickytab/widget.php:485
 #: includes/widgets/advanced-trips-four/controls.php:253
 #: includes/widgets/advanced-trips-one/controls.php:255
 #: includes/widgets/advanced-trips-three/controls.php:250
@@ -4595,8 +4596,8 @@ msgid "Trip Cost"
 msgstr ""
 
 #: includes/trip-widgets/cost/controls.php:60
-#: includes/trip-widgets/tripstickytab/widget.php:375
-#: includes/trip-widgets/tripstickytab/widget.php:452
+#: includes/trip-widgets/tripstickytab/widget.php:392
+#: includes/trip-widgets/tripstickytab/widget.php:469
 msgid "Cost"
 msgstr ""
 
@@ -4972,16 +4973,19 @@ msgid "You can send your enquiry via the form below."
 msgstr ""
 
 #: includes/trip-widgets/enquiry/enquiry.php:35
-#: includes/trip-widgets/enquiry/enquiry.php:55
+#: includes/trip-widgets/enquiry/enquiry.php:40
+#: includes/trip-widgets/enquiry/enquiry.php:59
+#. translators: %s: privacy policy link.
 msgid "Privacy Policy"
 msgstr ""
 
-#: includes/trip-widgets/enquiry/enquiry.php:37
-#. translators: %s: privacy policy link.
-msgid "By contacting us, you agree to our <a href=\"%1$s\">Privacy Policy</a>"
+#: includes/trip-widgets/enquiry/enquiry.php:40
+msgid ""
+"By contacting us, you agree to our <a href=\"%1$s\" target=\"_blank\" "
+"rel=\"noopener noreferrer\">Privacy Policy</a>"
 msgstr ""
 
-#: includes/trip-widgets/enquiry/enquiry.php:51
+#: includes/trip-widgets/enquiry/enquiry.php:55
 #. translators: %1$s: opening p tag, %2$s: closing p tag.
 msgid ""
 "%1$sPrivacy Policy page not set or not published, please check Admin "
@@ -5810,8 +5814,8 @@ msgid "Trip - Itinerary"
 msgstr ""
 
 #: includes/trip-widgets/map/controls.php:52
-#: includes/trip-widgets/tripstickytab/widget.php:383
-#: includes/trip-widgets/tripstickytab/widget.php:460
+#: includes/trip-widgets/tripstickytab/widget.php:400
+#: includes/trip-widgets/tripstickytab/widget.php:477
 msgid "Map"
 msgstr ""
 
@@ -6984,37 +6988,37 @@ msgstr ""
 msgid "Trip - Trips Sticky Tab"
 msgstr ""
 
-#: includes/trip-widgets/tripstickytab/widget.php:276
+#: includes/trip-widgets/tripstickytab/widget.php:277
 msgid "This widget works only on single trip."
 msgstr ""
 
-#: includes/trip-widgets/tripstickytab/widget.php:367
-#: includes/trip-widgets/tripstickytab/widget.php:444
+#: includes/trip-widgets/tripstickytab/widget.php:384
+#: includes/trip-widgets/tripstickytab/widget.php:461
 msgid "Overview"
 msgstr ""
 
-#: includes/trip-widgets/tripstickytab/widget.php:371
-#: includes/trip-widgets/tripstickytab/widget.php:448
+#: includes/trip-widgets/tripstickytab/widget.php:388
+#: includes/trip-widgets/tripstickytab/widget.php:465
 msgid "Itinerary"
 msgstr ""
 
-#: includes/trip-widgets/tripstickytab/widget.php:379
-#: includes/trip-widgets/tripstickytab/widget.php:456
+#: includes/trip-widgets/tripstickytab/widget.php:396
+#: includes/trip-widgets/tripstickytab/widget.php:473
 msgid "Dates"
 msgstr ""
 
-#: includes/trip-widgets/tripstickytab/widget.php:387
-#: includes/trip-widgets/tripstickytab/widget.php:464
+#: includes/trip-widgets/tripstickytab/widget.php:404
+#: includes/trip-widgets/tripstickytab/widget.php:481
 msgid "FAQs"
 msgstr ""
 
-#: includes/trip-widgets/tripstickytab/widget.php:395
-#: includes/trip-widgets/tripstickytab/widget.php:472
+#: includes/trip-widgets/tripstickytab/widget.php:412
+#: includes/trip-widgets/tripstickytab/widget.php:489
 msgid "Booking"
 msgstr ""
 
-#: includes/trip-widgets/tripstickytab/widget.php:399
-#: includes/trip-widgets/tripstickytab/widget.php:476
+#: includes/trip-widgets/tripstickytab/widget.php:416
+#: includes/trip-widgets/tripstickytab/widget.php:493
 msgid "Enquiry"
 msgstr ""
 
